@@ -1,0 +1,8 @@
+15:21:16 **** Incremental Build of configuration Debug for project provaINTRGpio ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+
+15:21:16 Build Finished (took 312ms)
+

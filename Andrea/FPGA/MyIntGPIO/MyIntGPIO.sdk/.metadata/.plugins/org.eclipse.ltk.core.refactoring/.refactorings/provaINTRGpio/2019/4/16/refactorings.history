@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;provaINTRGpio/src/myIntGPIO.c&apos; to &apos;myIntGPIO2.c&apos;" description="Rename resource &apos;myIntGPIO.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/myIntGPIO.c" name="myIntGPIO2.c" stamp="1555868701108" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;provaINTRGpio/src/myIntGPIO.h&apos; to &apos;myIntGPIO2.h&apos;" description="Rename resource &apos;myIntGPIO.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/myIntGPIO.h" name="myIntGPIO2.h" stamp="1555868707084" updateReferences="true"/>
+</session>

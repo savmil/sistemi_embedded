@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# 
+# Start of session at: Wed Apr 17 19:20:51 2019
+# Process ID: 11125
+# Current directory: /home/michele/Documenti/Universita/SE/Projects/AXI_led_swtich/AXI_led_swtich.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/michele/Documenti/Universita/SE/Projects/AXI_led_swtich/AXI_led_swtich.sdk/webtalk/webtalk.log
+# Journal file: /home/michele/Documenti/Universita/SE/Projects/AXI_led_swtich/AXI_led_swtich.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
