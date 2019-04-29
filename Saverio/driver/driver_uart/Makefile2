@@ -1,0 +1,8 @@
+console_barebone : console_uart_barebone.o
+		gcc -o console_uart_barebone console_uart_barebone.o
+
+console_uart_barebone.o: console_uart_barebone.c
+		gcc -c console_uart_barebone.c
+
+clean:
+	rm console_uart_barebone.o console_uart_barebone

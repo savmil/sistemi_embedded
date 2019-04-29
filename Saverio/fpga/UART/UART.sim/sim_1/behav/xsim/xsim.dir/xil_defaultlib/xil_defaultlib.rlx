@@ -1,0 +1,13 @@
+0.6
+2018.2
+Jun 14 2018
+20:07:38
+/home/saverio/Scaricati/boundary_scan_chain.vhd,1555329338,vhdl,,,,boundary_scan_chain,,,,,,,,
+/home/saverio/Scaricati/contatore_modulo_4.vhd,1555329363,vhdl,,,,contatore_modulo_2n,,,,,,,,
+/home/saverio/Scaricati/latch_d_en.vhd,1555329514,vhdl,,,,latch_d_en,,,,,,,,
+/home/saverio/zybo/UART/UART.srcs/sim_1/new/connessione_test.vhd,1555362703,vhdl,,,,connessione_test,,,,,,,,
+/home/saverio/zybo/UART/UART.srcs/sim_1/new/test.vhd,1555329186,vhdl,,,,sender_receiver_testbench,,,,,,,,
+/home/saverio/zybo/UART/UART.srcs/sim_1/new/test_ricezione.vhd,1555341013,vhdl,,,,test_ricezione,,,,,,,,
+/home/saverio/zybo/ip_repo/uart_rec_trans_1.0/src/Transmitter.vhd,1555361968,vhdl,,,,receiver,,,,,,,,
+/home/saverio/zybo/ip_repo/uart_rec_trans_1.0/src/connessione.vhd,1555362641,vhdl,,,,connessione,,,,,,,,
+/home/saverio/zybo/ip_repo/uart_rec_trans_1.0/src/transmitter.vhd,1555362146,vhdl,,,,transmitter,,,,,,,,

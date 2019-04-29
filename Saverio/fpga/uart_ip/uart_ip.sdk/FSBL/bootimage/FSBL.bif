@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/saverio/zybo/uart_ip/uart_ip.sdk/FSBL/Debug/FSBL.elf
+	/home/saverio/zybo/uart_ip/uart_ip.sdk/uart_wrapper_hw_platform_0/uart_wrapper.bit
+	/home/saverio/zybo/sdcard/u-boot.elf
+}

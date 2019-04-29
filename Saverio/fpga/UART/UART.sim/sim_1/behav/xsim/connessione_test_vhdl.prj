@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../ip_repo/uart_rec_trans_1.0/src/Transmitter.vhd" \
+"../../../../../ip_repo/uart_rec_trans_1.0/src/connessione.vhd" \
+"../../../../../ip_repo/uart_rec_trans_1.0/src/transmitter.vhd" \
+"../../../../UART.srcs/sim_1/new/connessione_test.vhd" \
+
+# Do not sort compile order
+nosort

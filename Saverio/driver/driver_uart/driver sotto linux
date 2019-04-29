@@ -1,0 +1,20 @@
+driver sotto linux 
+
+driver baremetal(bare metal primo approccio), userspace,kernel space 
+
+Baremetal 
+prende i comandi da terminale ed per scrivere si fa conversione del carattere da terminale 
+scriviamo direttamente sulla memoria /dev/mem per trovare indirizzo componente bisogna prendere indirizzo base component(inidirizzo fisico), dimensione pagine della memoria con sysconf(_SC_PAGESIZE), indirizzo pagina (inidirizzo gpio &(dimensione pagina -1)), offset dato da indirizzo virtuale-indirizzo fisico), mmap fa puntare ad un puntore in memoria, per scrivere puntatore avuto da mmap+offset della pagina, più offset degli slave reg, (registri unsigned), munmap fa unlock memoria
+
+Userspace
+uguale bare metal soltato che esce un device creato da noi
+bisogna montare il device creato in dev, per farlo montare nel device tree, bisogna modificare file system top uio_pdrv_genirq.of_id=generic-uio e bisogna modificare il componente scrivendo generico
+
+https://forum.digilentinc.com/topic/2719-how-to-register-my-device-as-uio-on-petalinux/
+link per vedere come si installa dev
+
+Kernel c'è lo dobbiamo vedere noi
+https://github.com/SDU-Embedded/linux_zynq/wiki/Cross-Compiling-Kernel-Modules-for-the-Zynq-7000-Series-Platform
+esempio di una semplice compilazione di un modulo kernel
+
+le funzione per utilizzare la periferica sono ioremap, iowrite,ioread,iounmap

@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/saverio/prova_led/prova_led.sdk/FSBL/Debug/FSBL.elf
+	/home/saverio/prova_led/prova_led.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/saverio/zybo/sdcard/u-boot.elf
+}

@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/saverio/saverio/zybo/prova_zybo_os/prova_zybo_os.sdk/fsbl/Debug/fsbl.elf
+	/home/saverio/saverio/zybo/prova_zybo_os/prova_zybo_os.sdk/cpu_wrapper_hw_platform_0/cpu_wrapper.bit
+	/home/saverio/saverio/zybo/sdcard/u-boot.elf
+}

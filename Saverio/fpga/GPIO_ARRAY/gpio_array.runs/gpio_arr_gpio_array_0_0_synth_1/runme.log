@@ -1,0 +1,233 @@
+
+*** Running vivado
+    with args -log gpio_arr_gpio_array_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source gpio_arr_gpio_array_0_0.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source gpio_arr_gpio_array_0_0.tcl -notrace
+Command: synth_design -top gpio_arr_gpio_array_0_0 -part xc7z010clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 26310 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1284.398 ; gain = 78.910 ; free physical = 5804 ; free virtual = 9224
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'gpio_arr_gpio_array_0_0' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ip/gpio_arr_gpio_array_0_0/synth/gpio_arr_gpio_array_0_0.vhd:64]
+	Parameter width bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'gpio_array' declared at '/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:32' bound to instance 'U0' of component 'gpio_array' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ip/gpio_arr_gpio_array_0_0/synth/gpio_arr_gpio_array_0_0.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'gpio_array' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:40]
+	Parameter width bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'gpio' declared at '/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:32' bound to instance 'inst_gpio' of component 'gpio' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:52]
+INFO: [Synth 8-638] synthesizing module 'gpio' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'gpio' (1#1) [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:39]
+INFO: [Synth 8-3491] module 'gpio' declared at '/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:32' bound to instance 'inst_gpio' of component 'gpio' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:52]
+INFO: [Synth 8-3491] module 'gpio' declared at '/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:32' bound to instance 'inst_gpio' of component 'gpio' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:52]
+INFO: [Synth 8-3491] module 'gpio' declared at '/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio.vhd:32' bound to instance 'inst_gpio' of component 'gpio' [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'gpio_array' (2#1) [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ipshared/2a0a/gpio_array.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'gpio_arr_gpio_array_0_0' (3#1) [/home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ip/gpio_arr_gpio_array_0_0/synth/gpio_arr_gpio_array_0_0.vhd:64]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1328.023 ; gain = 122.535 ; free physical = 5805 ; free virtual = 9225
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1328.023 ; gain = 122.535 ; free physical = 5802 ; free virtual = 9222
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1336.027 ; gain = 130.539 ; free physical = 5801 ; free virtual = 9221
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1344.035 ; gain = 138.547 ; free physical = 5797 ; free virtual = 9217
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5551 ; free virtual = 8967
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5550 ; free virtual = 8966
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:23 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5550 ; free virtual = 8966
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'U0i_0' to logic
+CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'U0i_1' to logic
+CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'U0i_2' to logic
+CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'U0i_3' to logic
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     4|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     4|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 4 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.355 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1424.363 ; gain = 218.867 ; free physical = 5544 ; free virtual = 8965
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+18 Infos, 0 Warnings, 4 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:25 . Memory (MB): peak = 1521.418 ; gain = 327.473 ; free physical = 5469 ; free virtual = 8890
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Common 17-1381] The checkpoint '/home/saverio/GPIO_ARRAY/gpio_array.runs/gpio_arr_gpio_array_0_0_synth_1/gpio_arr_gpio_array_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1923.008 ; gain = 401.590 ; free physical = 5556 ; free virtual = 8977
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/saverio/GPIO_ARRAY/gpio_array.srcs/sources_1/bd/gpio_arr/ip/gpio_arr_gpio_array_0_0/gpio_arr_gpio_array_0_0.xci
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/saverio/GPIO_ARRAY/gpio_array.runs/gpio_arr_gpio_array_0_0_synth_1/gpio_arr_gpio_array_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file gpio_arr_gpio_array_0_0_utilization_synth.rpt -pb gpio_arr_gpio_array_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1927.008 ; gain = 0.000 ; free physical = 5546 ; free virtual = 8968
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 26 20:51:53 2019...

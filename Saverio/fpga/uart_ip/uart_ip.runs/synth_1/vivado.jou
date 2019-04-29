@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr 15 23:11:18 2019
+# Process ID: 13848
+# Current directory: /home/saverio/zybo/uart_ip/uart_ip.runs/synth_1
+# Command line: vivado -log uart_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_wrapper.tcl
+# Log file: /home/saverio/zybo/uart_ip/uart_ip.runs/synth_1/uart_wrapper.vds
+# Journal file: /home/saverio/zybo/uart_ip/uart_ip.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source uart_wrapper.tcl -notrace

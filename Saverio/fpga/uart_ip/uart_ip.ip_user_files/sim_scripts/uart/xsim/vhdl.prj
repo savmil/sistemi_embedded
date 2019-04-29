@@ -1,0 +1,11 @@
+vhdl xil_defaultlib  \
+"../../../bd/uart/ip/uart_rst_ps7_0_100M_0/sim/uart_rst_ps7_0_100M_0.vhd" \
+"../../../bd/uart/ipshared/af02/hdl/uart_rec_trans_v1_0_S00_AXI.vhd" \
+"../../../bd/uart/ipshared/af02/src/Transmitter.vhd" \
+"../../../bd/uart/ipshared/af02/src/connessione.vhd" \
+"../../../bd/uart/ipshared/af02/src/transmitter.vhd" \
+"../../../bd/uart/ipshared/af02/hdl/uart_rec_trans_v1_0.vhd" \
+"../../../bd/uart/ip/uart_uart_rec_trans_0_0/sim/uart_uart_rec_trans_0_0.vhd" \
+"../../../bd/uart/sim/uart.vhd" \
+
+nosort

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/saverio/zybo/ip_repo/uart_rec_trans_1.0/src/connessione.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity connessione
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/saverio/zybo/UART/UART.srcs/sim_1/new/connessione_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity connessione_test

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="gpio_array_gpio_array_0_0_synth_1" LaunchDir="/home/saverio/GPIO_ARRAY/GPIO_ARRAY.runs/gpio_array_gpio_array_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="gpio_array_vio_0_0_synth_1" LaunchDir="/home/saverio/GPIO_ARRAY/GPIO_ARRAY.runs/gpio_array_vio_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+
