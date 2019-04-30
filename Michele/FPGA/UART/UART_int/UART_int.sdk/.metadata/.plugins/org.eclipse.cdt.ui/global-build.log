@@ -1,0 +1,1143 @@
+00:12:47 **** Clean-only build of configuration Debug for project uart_intr ****
+make clean 
+rm -rf  ./src/main.o ./src/uart_intr.o  ./src/main.d ./src/uart_intr.d  uart_intr.elf.size  uart_intr.elf
+ 
+00:12:47 **** Clean-only build of project uart_intr_bsp ****
+make -k clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s clean 
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+00:12:48 **** Build of project uart_intr_bsp ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_6/src
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_8/src
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_8/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_4/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_5/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_10/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling ddrps
+arm-none-eabi-ar: creazione di ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_6/src
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling sdps
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_8/src
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling standalone
+In file included from sleep.c:53:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xtime_l.c:49:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from usleep.c:56:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_8/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling emacps
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_4/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_5/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling qspips
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_10/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling usbps
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling coresightps_dcc
+Running Make libs in ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling my_uart_int...
+my_uart_int_selftest.c: In function 'MY_UART_INT_Reg_SelfTest':
+my_uart_int_selftest.c:52:60: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MY_UART_INT_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                            ^~
+my_uart_int_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scutimer
+Finished building libraries
+00:12:55 **** Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building file: ../src/uart_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_intr.d" -MT"src/uart_intr.o" -o "src/uart_intr.o" "../src/uart_intr.c"
+Finished building: ../src/uart_intr.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:13:07 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:13:52 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:13:56 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:14:48 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:14:52 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:15:52 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:27:16 **** Clean-only build of project uart_intr_bsp ****
+make -k clean 
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s clean 
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s clean 
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s clean 
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s clean 
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s clean 
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s clean 
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s clean 
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s clean 
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s clean 
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s clean 
+rm -f ps7_cortexa9_0/lib/libxil.a
+00:27:17 **** Clean-only build of configuration Debug for project uart_intr ****
+make clean 
+rm -rf  ./src/main.o ./src/uart_intr.o  ./src/main.d ./src/uart_intr.d  uart_intr.elf.size  uart_intr.elf
+ 
+00:27:17 **** Build of project uart_intr_bsp ****
+make -k all 
+Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_6/src
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_8/src
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_8/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_4/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_5/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_10/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling ddrps
+arm-none-eabi-ar: creazione di ../../../lib/libxil.a
+Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_6/src
+make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling sdps
+Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_8/src
+make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling standalone
+In file included from sleep.c:53:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xil_sleeptimer.c:51:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from xtime_l.c:49:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+In file included from usleep.c:56:0:
+xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
+ #pragma message ("For the sleep routines, Global timer is being used")
+         ^~~~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling dmaps
+Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling cpu_cortexa9
+Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_8/src
+make -C ps7_cortexa9_0/libsrc/emacps_v3_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling emacps
+Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_4/src
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling gpiops
+Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_5/src
+make -C ps7_cortexa9_0/libsrc/qspips_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling qspips
+Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_10/src
+make -C ps7_cortexa9_0/libsrc/scugic_v3_10/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scugic
+Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_3/src
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_3/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling xadcps
+Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_5/src
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_5/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling devcfg
+Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scuwdt
+Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_7/src
+make -C ps7_cortexa9_0/libsrc/uartps_v3_7/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling uartps
+Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling usbps
+Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling coresightps_dcc
+Running Make libs in ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src
+make -C ps7_cortexa9_0/libsrc/my_uart_int_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling my_uart_int...
+my_uart_int_selftest.c: In function 'MY_UART_INT_Reg_SelfTest':
+my_uart_int_selftest.c:52:60: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( MY_UART_INT_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                            ^~
+my_uart_int_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
+Compiling scutimer
+Finished building libraries
+00:27:24 **** Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building file: ../src/uart_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_intr.d" -MT"src/uart_intr.o" -o "src/uart_intr.o" "../src/uart_intr.c"
+Finished building: ../src/uart_intr.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:27:48 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:28:41 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:99:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74612	   3356	  23360	 101328	  18bd0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:28:47 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:29:41 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:41:26 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mWriteReg' [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mWriteReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+                ^~~~~~~~~~~~~~~~~~~~~
+../src/main.c:107:38: error: 'MY_UART_INTInstance' undeclared (first use in this function); did you mean 'myIntUARTInstance'?
+  u32 pending = MY_UART_INT_mWriteReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+                                      ^~~~~~~~~~~~~~~~~~~
+                                      myIntUARTInstance
+../src/main.c:107:38: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mWriteReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+      ^~~~~~~
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+00:41:44 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:37: error: 'MY_UART_INTInstance' undeclared (first use in this function); did you mean 'myIntUARTInstance'?
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+                                     ^~~~~~~~~~~~~~~~~~~
+                                     myIntUARTInstance
+../src/main.c:107:37: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10, 0x1);
+      ^~~~~~~
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+00:41:50 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:37: error: 'MY_UART_INTInstance' undeclared (first use in this function); did you mean 'myIntUARTInstance'?
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10);
+                                     ^~~~~~~~~~~~~~~~~~~
+                                     myIntUARTInstance
+../src/main.c:107:37: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress, 0x10);
+      ^~~~~~~
+make: *** [src/main.o] Error 1
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+00:42:09 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(myIntUARTInstance->BaseAddress, 0x10);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:54: error: invalid type argument of '->' (have 'myIntUART {aka struct <anonymous>}')
+  u32 pending = MY_UART_INT_mReadReg(myIntUARTInstance->BaseAddress, 0x10);
+                                                      ^~
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(myIntUARTInstance->BaseAddress, 0x10);
+      ^~~~~~~
+make: *** [src/main.o] Error 1
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+00:42:28 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:55: error: invalid type argument of '->' (have 'myIntUART {aka struct <anonymous>}')
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+                                                       ^~
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+      ^~~~~~~
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+00:43:12 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:55: error: invalid type argument of '->' (have 'myIntUART {aka struct <anonymous>}')
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+                                                       ^~
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(&myIntUARTInstance->BaseAddress, 0x10);
+      ^~~~~~~
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+00:44:22 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MY_UART_INT_mReadReg'; did you mean 'XST_UART_INIT_ERROR'? [-Wimplicit-function-declaration]
+  u32 pending = MY_UART_INT_mReadReg(myIntUARTInstance.BaseAddress, 0x10);
+                ^~~~~~~~~~~~~~~~~~~~
+                XST_UART_INIT_ERROR
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MY_UART_INT_mReadReg(myIntUARTInstance.BaseAddress, 0x10);
+      ^~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: nella funzione "DeviceDriverHandler":
+/home/andrea/SE_workspace/UART_int/UART_int.sdk/uart_intr/Debug/../src/main.c:107: riferimento non definito a "MY_UART_INT_mReadReg"
+makefile:39: recipe for target 'uart_intr.elf' failed
+collect2: error: ld returned 1 exit status
+make: *** [uart_intr.elf] Error 1
+00:45:16 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/uart_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_intr.d" -MT"src/uart_intr.o" -o "src/uart_intr.o" "../src/uart_intr.c"
+Finished building: ../src/uart_intr.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: nella funzione "DeviceDriverHandler":
+/home/andrea/SE_workspace/UART_int/UART_int.sdk/uart_intr/Debug/../src/main.c:107: riferimento non definito a "MY_UART_INT_mReadReg"
+makefile:39: recipe for target 'uart_intr.elf' failed
+collect2: error: ld returned 1 exit status
+make: *** [uart_intr.elf] Error 1
+00:45:41 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:16: warning: implicit declaration of function 'MYINTUART_GetPending'; did you mean 'MYINTUART_GetData'? [-Wimplicit-function-declaration]
+  u32 pending = MYINTUART_GetPending(&myIntUARTInstance);
+                ^~~~~~~~~~~~~~~~~~~~
+                MYINTUART_GetData
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MYINTUART_GetPending(&myIntUARTInstance);
+      ^~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74676	   3356	  23360	 101392	  18c10	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:46:01 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:105:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:107:6: warning: unused variable 'pending' [-Wunused-variable]
+  u32 pending = MYINTUART_GetPending(&myIntUARTInstance);
+      ^~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/uart_intr.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/uart_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/uart_intr.d" -MT"src/uart_intr.o" -o "src/uart_intr.o" "../src/uart_intr.c"
+Finished building: ../src/uart_intr.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74676	   3356	  23360	 101392	  18c10	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:46:38 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:106:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c:102:6: warning: variable 'pendingReg' set but not used [-Wunused-but-set-variable]
+  u32 pendingReg;
+      ^~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74676	   3356	  23360	 101392	  18c10	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:49:16 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:108:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/main.o: nella funzione "DeviceDriverHandler":
+/home/andrea/SE_workspace/UART_int/UART_int.sdk/uart_intr/Debug/../src/main.c:113: riferimento non definito a "ISR_TX"
+makefile:39: recipe for target 'uart_intr.elf' failed
+/home/andrea/SE_workspace/UART_int/UART_int.sdk/uart_intr/Debug/../src/main.c:115: riferimento non definito a "ISR_RX"
+collect2: error: ld returned 1 exit status
+make: *** [uart_intr.elf] Error 1
+00:49:45 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:108:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74740	   3356	  23360	 101456	  18c50	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:51:11 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:108:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+../src/main.c: In function 'ISR_TX':
+../src/main.c:122:2: error: 'tx_count' undeclared (first use in this function); did you mean 'count'?
+  tx_count++;
+  ^~~~~~~~
+  count
+../src/main.c:122:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c: In function 'ISR_RX':
+../src/main.c:128:2: error: 'rx_count' undeclared (first use in this function); did you mean 'count'?
+  rx_count++;
+  ^~~~~~~~
+  count
+src/subdir.mk:24: recipe for target 'src/main.o' failed
+make: *** [src/main.o] Error 1
+00:51:27 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:108:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:51:52 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:108:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:51:57 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:54:29 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:55:10 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:56:31 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:56:35 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:57:57 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+00:58:02 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+00:59:48 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+01:00:02 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+01:00:24 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+01:01:38 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+01:01:41 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+01:01:44 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+01:02:30 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:101:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+01:02:33 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+01:04:42 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:109:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
+01:04:50 **** Incremental Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nessuna operazione da eseguire per "main-build".
+01:09:13 **** Auto Build of configuration Debug for project uart_intr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../uart_intr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'DeviceDriverHandler':
+../src/main.c:102:21: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'u32 {aka long unsigned int}' [-Wformat=]
+  printf("TX BUSY %08x: ",MYINTUART_GetStatus(&myIntUARTInstance));
+                  ~~~^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  %08lx
+Finished building: ../src/main.c
+ 
+Building target: uart_intr.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../uart_intr_bsp/ps7_cortexa9_0/lib -o "uart_intr.elf"  ./src/main.o ./src/uart_intr.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: uart_intr.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size uart_intr.elf  |tee "uart_intr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  74804	   3356	  23376	 101536	  18ca0	uart_intr.elf
+Finished building: uart_intr.elf.size
+ 
