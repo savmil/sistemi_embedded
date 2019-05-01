@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Wed May  1 00:23:23 2019
--- Host        : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+-- Date        : Wed May  1 18:56:41 2019
+-- Host        : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
 -- Command     : write_vhdl -force -mode funcsim
---               /home/andrea/SE_workspace/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_sim_netlist.vhdl
+--               /home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_sim_netlist.vhdl
 -- Design      : design_1_my_uart_int_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,7 +16,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_my_uart_int_0_0_clock_mod is
   port (
-    clock_out : out STD_LOGIC;
+    CLK : out STD_LOGIC;
     s00_axi_aclk : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -24,7 +24,7 @@ entity design_1_my_uart_int_0_0_clock_mod is
 end design_1_my_uart_int_0_0_clock_mod;
 
 architecture STRUCTURE of design_1_my_uart_int_0_0_clock_mod is
-  signal \^clock_out\ : STD_LOGIC;
+  signal \^clk\ : STD_LOGIC;
   signal \clock_tmp_i_1__0_n_0\ : STD_LOGIC;
   signal clock_tmp_i_2_n_0 : STD_LOGIC;
   signal \count[0]_i_1_n_0\ : STD_LOGIC;
@@ -50,7 +50,7 @@ architecture STRUCTURE of design_1_my_uart_int_0_0_clock_mod is
   attribute SOFT_HLUTNM of \count[7]_i_2\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \count[7]_i_3\ : label is "soft_lutpair1";
 begin
-  clock_out <= \^clock_out\;
+  CLK <= \^clk\;
 \clock_tmp_i_1__0\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFE00000001"
@@ -61,7 +61,7 @@ begin
       I2 => \count_reg_n_0_[6]\,
       I3 => \count_reg_n_0_[4]\,
       I4 => \count_reg_n_0_[1]\,
-      I5 => \^clock_out\,
+      I5 => \^clk\,
       O => \clock_tmp_i_1__0_n_0\
     );
 clock_tmp_i_2: unisim.vcomponents.LUT4
@@ -83,7 +83,7 @@ clock_tmp_reg: unisim.vcomponents.FDRE
       C => s00_axi_aclk,
       CE => '1',
       D => \clock_tmp_i_1__0_n_0\,
-      Q => \^clock_out\,
+      Q => \^clk\,
       R => '0'
     );
 \count[0]_i_1\: unisim.vcomponents.LUT1
@@ -300,7 +300,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity \design_1_my_uart_int_0_0_clock_mod__parameterized1\ is
   port (
     tx_clock : out STD_LOGIC;
-    clock_out : in STD_LOGIC
+    CLK : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_my_uart_int_0_0_clock_mod__parameterized1\ : entity is "clock_mod";
@@ -308,30 +308,27 @@ end \design_1_my_uart_int_0_0_clock_mod__parameterized1\;
 
 architecture STRUCTURE of \design_1_my_uart_int_0_0_clock_mod__parameterized1\ is
   signal clock_tmp_i_1_n_0 : STD_LOGIC;
-  signal count : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \count[0]_i_1_n_0\ : STD_LOGIC;
+  signal count : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal \count[0]_i_1__1_n_0\ : STD_LOGIC;
   signal \count[1]_i_1_n_0\ : STD_LOGIC;
   signal \count[2]_i_1_n_0\ : STD_LOGIC;
-  signal \count[3]_i_1__1_n_0\ : STD_LOGIC;
-  signal \count[3]_i_2_n_0\ : STD_LOGIC;
   signal \^tx_clock\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count[0]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of clock_tmp_i_1 : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \count[0]_i_1__1\ : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of \count[1]_i_1\ : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of \count[2]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \count[3]_i_2\ : label is "soft_lutpair17";
 begin
   tx_clock <= \^tx_clock\;
-clock_tmp_i_1: unisim.vcomponents.LUT5
+clock_tmp_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFB0004"
+      INIT => X"7F80"
     )
         port map (
       I0 => count(0),
-      I1 => count(3),
+      I1 => count(2),
       I2 => count(1),
-      I3 => count(2),
-      I4 => \^tx_clock\,
+      I3 => \^tx_clock\,
       O => clock_tmp_i_1_n_0
     );
 clock_tmp_reg: unisim.vcomponents.FDRE
@@ -339,104 +336,71 @@ clock_tmp_reg: unisim.vcomponents.FDRE
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => clock_tmp_i_1_n_0,
       Q => \^tx_clock\,
       R => '0'
     );
-\count[0]_i_1\: unisim.vcomponents.LUT1
+\count[0]_i_1__1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => count(0),
-      O => \count[0]_i_1_n_0\
+      O => \count[0]_i_1__1_n_0\
     );
 \count[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => count(0),
-      I1 => count(1),
+      I0 => count(1),
+      I1 => count(0),
       O => \count[1]_i_1_n_0\
     );
 \count[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"78"
-    )
-        port map (
-      I0 => count(0),
-      I1 => count(1),
-      I2 => count(2),
-      O => \count[2]_i_1_n_0\
-    );
-\count[3]_i_1__1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0002"
-    )
-        port map (
-      I0 => count(3),
-      I1 => count(2),
-      I2 => count(0),
-      I3 => count(1),
-      O => \count[3]_i_1__1_n_0\
-    );
-\count[3]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"7F80"
+      INIT => X"6C"
     )
         port map (
       I0 => count(1),
-      I1 => count(0),
-      I2 => count(2),
-      I3 => count(3),
-      O => \count[3]_i_2_n_0\
+      I1 => count(2),
+      I2 => count(0),
+      O => \count[2]_i_1_n_0\
     );
 \count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
-      D => \count[0]_i_1_n_0\,
+      D => \count[0]_i_1__1_n_0\,
       Q => count(0),
-      R => \count[3]_i_1__1_n_0\
+      R => '0'
     );
 \count_reg[1]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => \count[1]_i_1_n_0\,
       Q => count(1),
-      R => \count[3]_i_1__1_n_0\
+      R => '0'
     );
 \count_reg[2]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => \count[2]_i_1_n_0\,
       Q => count(2),
-      R => \count[3]_i_1__1_n_0\
-    );
-\count_reg[3]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clock_out,
-      CE => '1',
-      D => \count[3]_i_2_n_0\,
-      Q => count(3),
-      R => \count[3]_i_1__1_n_0\
+      R => '0'
     );
 end STRUCTURE;
 library IEEE;
@@ -619,7 +583,7 @@ entity \design_1_my_uart_int_0_0_counter_modN__parameterized1\ is
     counter_hit : out STD_LOGIC;
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
     Q : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    clock_out : in STD_LOGIC;
+    CLK : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 );
     rx : in STD_LOGIC
   );
@@ -629,13 +593,13 @@ end \design_1_my_uart_int_0_0_counter_modN__parameterized1\;
 
 architecture STRUCTURE of \design_1_my_uart_int_0_0_counter_modN__parameterized1\ is
   signal count : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal \count[0]_i_1__1_n_0\ : STD_LOGIC;
+  signal \count[0]_i_1__2_n_0\ : STD_LOGIC;
   signal \count[1]_i_1_n_0\ : STD_LOGIC;
   signal \count[2]_i_1_n_0\ : STD_LOGIC;
   signal \^counter_hit\ : STD_LOGIC;
   signal \counter_hit__0_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count[0]_i_1__1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \count[0]_i_1__2\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of \count[1]_i_1\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of \count[2]_i_1\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \counter_hit__0\ : label is "soft_lutpair9";
@@ -653,13 +617,13 @@ begin
       I4 => Q(1),
       O => D(0)
     );
-\count[0]_i_1__1\: unisim.vcomponents.LUT1
+\count[0]_i_1__2\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => count(0),
-      O => \count[0]_i_1__1_n_0\
+      O => \count[0]_i_1__2_n_0\
     );
 \count[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -685,10 +649,10 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => AR(0),
-      D => \count[0]_i_1__1_n_0\,
+      D => \count[0]_i_1__2_n_0\,
       Q => count(0)
     );
 \count_reg[1]\: unisim.vcomponents.FDCE
@@ -696,7 +660,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => AR(0),
       D => \count[1]_i_1_n_0\,
@@ -707,7 +671,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => AR(0),
       D => \count[2]_i_1_n_0\,
@@ -725,7 +689,7 @@ begin
     );
 counter_hit_reg: unisim.vcomponents.FDCE
      port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => AR(0),
       D => \counter_hit__0_n_0\,
@@ -740,7 +704,7 @@ entity \design_1_my_uart_int_0_0_counter_modN__parameterized3\ is
   port (
     D : out STD_LOGIC_VECTOR ( 1 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    clock_out : in STD_LOGIC;
+    CLK : in STD_LOGIC;
     done_bit_count : in STD_LOGIC;
     counter_hit : in STD_LOGIC
   );
@@ -750,7 +714,7 @@ end \design_1_my_uart_int_0_0_counter_modN__parameterized3\;
 
 architecture STRUCTURE of \design_1_my_uart_int_0_0_counter_modN__parameterized3\ is
   signal count : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \count[0]_i_1__2_n_0\ : STD_LOGIC;
+  signal \count[0]_i_1__3_n_0\ : STD_LOGIC;
   signal \count[1]_i_1_n_0\ : STD_LOGIC;
   signal \count[2]_i_1_n_0\ : STD_LOGIC;
   signal \count[3]_i_1_n_0\ : STD_LOGIC;
@@ -785,13 +749,13 @@ begin
       I1 => done_16count,
       O => D(1)
     );
-\count[0]_i_1__2\: unisim.vcomponents.LUT1
+\count[0]_i_1__3\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => count(0),
-      O => \count[0]_i_1__2_n_0\
+      O => \count[0]_i_1__3_n_0\
     );
 \count[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -838,10 +802,10 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(2),
       CLR => reset_16count,
-      D => \count[0]_i_1__2_n_0\,
+      D => \count[0]_i_1__3_n_0\,
       Q => count(0)
     );
 \count_reg[1]\: unisim.vcomponents.FDCE
@@ -849,7 +813,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(2),
       CLR => reset_16count,
       D => \count[1]_i_1_n_0\,
@@ -860,7 +824,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(2),
       CLR => reset_16count,
       D => \count[2]_i_1_n_0\,
@@ -871,7 +835,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(2),
       CLR => reset_16count,
       D => \count[3]_i_1_n_0\,
@@ -890,7 +854,7 @@ begin
     );
 counter_hit_reg: unisim.vcomponents.FDCE
      port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(2),
       CLR => reset_16count,
       D => \counter_hit__0_n_0\,
@@ -908,7 +872,7 @@ entity \design_1_my_uart_int_0_0_counter_modN__parameterized5\ is
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
     Q : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    clock_out : in STD_LOGIC
+    CLK : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_my_uart_int_0_0_counter_modN__parameterized5\ : entity is "counter_modN";
@@ -917,7 +881,7 @@ end \design_1_my_uart_int_0_0_counter_modN__parameterized5\;
 architecture STRUCTURE of \design_1_my_uart_int_0_0_counter_modN__parameterized5\ is
   signal \^ar\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal count : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \count[0]_i_1__3_n_0\ : STD_LOGIC;
+  signal \count[0]_i_1__4_n_0\ : STD_LOGIC;
   signal \count[1]_i_1_n_0\ : STD_LOGIC;
   signal \count[2]_i_1_n_0\ : STD_LOGIC;
   signal \count[3]_i_1_n_0\ : STD_LOGIC;
@@ -942,13 +906,13 @@ begin
       I1 => \^done_bit_count\,
       O => D(0)
     );
-\count[0]_i_1__3\: unisim.vcomponents.LUT1
+\count[0]_i_1__4\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => count(0),
-      O => \count[0]_i_1__3_n_0\
+      O => \count[0]_i_1__4_n_0\
     );
 \count[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -996,10 +960,10 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => \^ar\(0),
-      D => \count[0]_i_1__3_n_0\,
+      D => \count[0]_i_1__4_n_0\,
       Q => count(0)
     );
 \count_reg[1]\: unisim.vcomponents.FDCE
@@ -1007,7 +971,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => \^ar\(0),
       D => \count[1]_i_1_n_0\,
@@ -1018,7 +982,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => \^ar\(0),
       D => \count[2]_i_1_n_0\,
@@ -1029,7 +993,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => \^ar\(0),
       D => \count[3]_i_1_n_0\,
@@ -1048,7 +1012,7 @@ counter_hit: unisim.vcomponents.LUT4
     );
 counter_hit_reg: unisim.vcomponents.FDCE
      port map (
-      C => clock_out,
+      C => CLK,
       CE => Q(1),
       CLR => \^ar\(0),
       D => counter_hit_n_0,
@@ -1632,7 +1596,7 @@ entity design_1_my_uart_int_0_0_shift_register_SIPO is
     \axi_rdata_reg[1]_1\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     rx : in STD_LOGIC;
-    clock_out : in STD_LOGIC
+    CLK : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_my_uart_int_0_0_shift_register_SIPO : entity is "shift_register_SIPO";
@@ -1722,7 +1686,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(1),
       Q => \^tmp_sig_reg[7]_0\(0),
@@ -1733,7 +1697,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(2),
       Q => \^tmp_sig_reg[7]_0\(1),
@@ -1744,7 +1708,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(3),
       Q => \^tmp_sig_reg[7]_0\(2),
@@ -1755,7 +1719,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(4),
       Q => \^tmp_sig_reg[7]_0\(3),
@@ -1766,7 +1730,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(5),
       Q => \^tmp_sig_reg[7]_0\(4),
@@ -1777,7 +1741,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(6),
       Q => \^tmp_sig_reg[7]_0\(5),
@@ -1788,7 +1752,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \^tmp_sig_reg[7]_0\(7),
       Q => \^tmp_sig_reg[7]_0\(6),
@@ -1799,7 +1763,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => rx_frame(8),
       Q => \^tmp_sig_reg[7]_0\(7),
@@ -1810,7 +1774,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => \tmp_sig_reg_n_0_[9]\,
       Q => rx_frame(8),
@@ -1821,7 +1785,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => E(0),
       D => rx,
       Q => \tmp_sig_reg_n_0_[9]\,
@@ -2620,7 +2584,7 @@ entity design_1_my_uart_int_0_0_rx_cu is
     rda_to_intr : out STD_LOGIC;
     \tmp_sig_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \FSM_onehot_current_state_reg[4]_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    clock_out : in STD_LOGIC;
+    CLK : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
     \axi_rdata_reg[8]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2689,10 +2653,11 @@ begin
     );
 \FSM_onehot_current_state_reg[0]\: unisim.vcomponents.FDSE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => \FSM_onehot_current_state[0]_i_1_n_0\,
       Q => \FSM_onehot_current_state_reg_n_0_[0]\,
@@ -2700,10 +2665,11 @@ begin
     );
 \FSM_onehot_current_state_reg[1]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => counter_mod8_n_1,
       Q => counter_8incr,
@@ -2711,10 +2677,11 @@ begin
     );
 \FSM_onehot_current_state_reg[2]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => counter_mod16_n_1,
       Q => counter_16incr,
@@ -2722,10 +2689,11 @@ begin
     );
 \FSM_onehot_current_state_reg[3]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => counter_mod16_n_0,
       Q => counter_bit_incr,
@@ -2733,10 +2701,11 @@ begin
     );
 \FSM_onehot_current_state_reg[4]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => bit_counter_n_3,
       Q => \^fsm_onehot_current_state_reg[4]_0\(0),
@@ -2744,10 +2713,11 @@ begin
     );
 \FSM_onehot_current_state_reg[5]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => \^fsm_onehot_current_state_reg[4]_0\(0),
       Q => \FSM_onehot_current_state_reg_n_0_[5]\,
@@ -2755,10 +2725,11 @@ begin
     );
 \FSM_onehot_current_state_reg[6]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '1'
+      INIT => '1',
+      IS_C_INVERTED => '1'
     )
         port map (
-      C => clock_out,
+      C => CLK,
       CE => '1',
       D => \FSM_onehot_current_state[6]_i_1_n_0\,
       Q => \FSM_onehot_current_state_reg_n_0_[6]\,
@@ -2766,6 +2737,7 @@ begin
     );
 RX_shift_register_SIPO: entity work.design_1_my_uart_int_0_0_shift_register_SIPO
      port map (
+      CLK => CLK,
       D(1 downto 0) => D(1 downto 0),
       E(0) => shift_en,
       Q(0) => Q(0),
@@ -2778,7 +2750,6 @@ RX_shift_register_SIPO: entity work.design_1_my_uart_int_0_0_shift_register_SIPO
       \axi_rdata_reg[2]\ => \axi_rdata[2]_i_2_n_0\,
       \axi_rdata_reg[2]_0\ => \axi_rdata_reg[2]\,
       \axi_rdata_reg[2]_1\ => \axi_rdata_reg[2]_0\,
-      clock_out => clock_out,
       rx => rx,
       s00_axi_aresetn => s00_axi_aresetn,
       \tmp_sig_reg[7]_0\(7 downto 0) => \tmp_sig_reg[7]\(7 downto 0)
@@ -2810,16 +2781,17 @@ RX_shift_register_SIPO: entity work.design_1_my_uart_int_0_0_shift_register_SIPO
 bit_counter: entity work.\design_1_my_uart_int_0_0_counter_modN__parameterized5\
      port map (
       AR(0) => reset_8count,
+      CLK => CLK,
       D(0) => bit_counter_n_3,
       E(0) => shift_en,
       Q(2) => \FSM_onehot_current_state_reg_n_0_[6]\,
       Q(1) => counter_bit_incr,
       Q(0) => \FSM_onehot_current_state_reg_n_0_[0]\,
-      clock_out => clock_out,
       done_bit_count => done_bit_count
     );
 counter_mod16: entity work.\design_1_my_uart_int_0_0_counter_modN__parameterized3\
      port map (
+      CLK => CLK,
       D(1) => counter_mod16_n_0,
       D(0) => counter_mod16_n_1,
       Q(4) => \FSM_onehot_current_state_reg_n_0_[6]\,
@@ -2827,18 +2799,17 @@ counter_mod16: entity work.\design_1_my_uart_int_0_0_counter_modN__parameterized
       Q(2) => counter_16incr,
       Q(1) => counter_8incr,
       Q(0) => \FSM_onehot_current_state_reg_n_0_[0]\,
-      clock_out => clock_out,
       counter_hit => counter_hit,
       done_bit_count => done_bit_count
     );
 counter_mod8: entity work.\design_1_my_uart_int_0_0_counter_modN__parameterized1\
      port map (
       AR(0) => reset_8count,
+      CLK => CLK,
       D(0) => counter_mod8_n_1,
       Q(2) => \FSM_onehot_current_state_reg_n_0_[6]\,
       Q(1) => counter_8incr,
       Q(0) => \FSM_onehot_current_state_reg_n_0_[0]\,
-      clock_out => clock_out,
       counter_hit => counter_hit,
       rx => rx
     );
@@ -2900,7 +2871,8 @@ begin
     );
 \FSM_sequential_current_state_reg[0]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
       C => tx_clock,
@@ -2911,7 +2883,8 @@ begin
     );
 \FSM_sequential_current_state_reg[1]\: unisim.vcomponents.FDRE
     generic map(
-      INIT => '0'
+      INIT => '0',
+      IS_C_INVERTED => '1'
     )
         port map (
       C => tx_clock,
@@ -2997,7 +2970,7 @@ begin
   SR(0) <= \^sr\(0);
 BAUDGENERATOR: entity work.design_1_my_uart_int_0_0_clock_mod
      port map (
-      clock_out => clock_out,
+      CLK => clock_out,
       s00_axi_aclk => s00_axi_aclk
     );
 Holding_register: entity work.design_1_my_uart_int_0_0_d_ff_register
@@ -3022,6 +2995,7 @@ Holding_register: entity work.design_1_my_uart_int_0_0_d_ff_register
     );
 RX_UART: entity work.design_1_my_uart_int_0_0_rx_cu
      port map (
+      CLK => clock_out,
       D(2) => D(8),
       D(1 downto 0) => D(2 downto 1),
       \FSM_onehot_current_state_reg[4]_0\(0) => load_data,
@@ -3034,7 +3008,6 @@ RX_UART: entity work.design_1_my_uart_int_0_0_rx_cu
       \axi_rdata_reg[2]_0\ => \axi_rdata_reg[2]\,
       \axi_rdata_reg[8]\(1) => \axi_rdata_reg[8]\(8),
       \axi_rdata_reg[8]\(0) => \axi_rdata_reg[8]\(1),
-      clock_out => clock_out,
       rda_to_intr => rda_to_intr,
       rx => rx,
       s00_axi_aresetn => s00_axi_aresetn,
@@ -3065,7 +3038,7 @@ inst_edge_detector: entity work.design_1_my_uart_int_0_0_edge_detector_0
     );
 tx_clock_mod: entity work.\design_1_my_uart_int_0_0_clock_mod__parameterized1\
      port map (
-      clock_out => clock_out,
+      CLK => clock_out,
       tx_clock => tx_clock
     );
 end STRUCTURE;

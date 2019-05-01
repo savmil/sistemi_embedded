@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-// Date        : Wed May  1 00:23:23 2019
-// Host        : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+// Date        : Wed May  1 18:56:40 2019
+// Host        : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /home/andrea/SE_workspace/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_stub.v
+//               /home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_stub.v
 // Design      : design_1_my_uart_int_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

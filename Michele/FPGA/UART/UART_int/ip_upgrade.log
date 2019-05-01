@@ -1,6 +1,48 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Wed May  1 18:55:49 2019
+| Host         : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_my_uart_int_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_my_uart_int_0_0 (user.org:user:my_uart_int:1.0) from (Rev. 22) to (Rev. 23)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Wed May  1 18:47:02 2019
+| Host         : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_my_uart_int_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_my_uart_int_0_0 (user.org:user:my_uart_int:1.0) from (Rev. 21) to (Rev. 22)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
 | Date         : Wed May  1 00:22:45 2019
 | Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
 | Command      : upgrade_ip

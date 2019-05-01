@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.sdk/fslb/Debug/fslb.elf
+	/home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/michele/Documenti/Universita/SE/linux_on_zybo_BUONO/u-boot.elf
+}

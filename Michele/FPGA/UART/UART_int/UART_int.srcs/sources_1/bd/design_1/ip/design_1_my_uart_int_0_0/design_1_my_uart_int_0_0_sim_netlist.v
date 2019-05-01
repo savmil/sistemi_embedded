@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-// Date        : Wed May  1 00:23:23 2019
-// Host        : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+// Date        : Wed May  1 18:56:41 2019
+// Host        : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
 // Command     : write_verilog -force -mode funcsim
-//               /home/andrea/SE_workspace/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_sim_netlist.v
+//               /home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.srcs/sources_1/bd/design_1/ip/design_1_my_uart_int_0_0/design_1_my_uart_int_0_0_sim_netlist.v
 // Design      : design_1_my_uart_int_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -273,7 +273,7 @@ module design_1_my_uart_int_0_0_UART
   wire tx_clock;
 
   design_1_my_uart_int_0_0_clock_mod BAUDGENERATOR
-       (.clock_out(clock_out),
+       (.CLK(clock_out),
         .s00_axi_aclk(s00_axi_aclk));
   design_1_my_uart_int_0_0_d_ff_register Holding_register
        (.D({D[7:5],D[3],D[0]}),
@@ -287,7 +287,8 @@ module design_1_my_uart_int_0_0_UART
         .\q_reg[7]_1 (received_data),
         .s00_axi_aclk(s00_axi_aclk));
   design_1_my_uart_int_0_0_rx_cu RX_UART
-       (.D({D[8],D[2:1]}),
+       (.CLK(clock_out),
+        .D({D[8],D[2:1]}),
         .\FSM_onehot_current_state_reg[4]_0 (load_data),
         .Q({Q[7],Q[1]}),
         .SR(SR),
@@ -296,7 +297,6 @@ module design_1_my_uart_int_0_0_UART
         .\axi_rdata_reg[2] (Holding_register_n_7),
         .\axi_rdata_reg[2]_0 (\axi_rdata_reg[2] ),
         .\axi_rdata_reg[8] ({\axi_rdata_reg[8] [8],\axi_rdata_reg[8] [1]}),
-        .clock_out(clock_out),
         .rda_to_intr(rda_to_intr),
         .rx(rx),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -321,18 +321,18 @@ module design_1_my_uart_int_0_0_UART
         .r1_input(r1_input),
         .tx_clock(tx_clock));
   design_1_my_uart_int_0_0_clock_mod__parameterized1 tx_clock_mod
-       (.clock_out(clock_out),
+       (.CLK(clock_out),
         .tx_clock(tx_clock));
 endmodule
 
 (* ORIG_REF_NAME = "clock_mod" *) 
 module design_1_my_uart_int_0_0_clock_mod
-   (clock_out,
+   (CLK,
     s00_axi_aclk);
-  output clock_out;
+  output CLK;
   input s00_axi_aclk;
 
-  wire clock_out;
+  wire CLK;
   wire clock_tmp_i_1__0_n_0;
   wire clock_tmp_i_2_n_0;
   wire \count[0]_i_1_n_0 ;
@@ -358,7 +358,7 @@ module design_1_my_uart_int_0_0_clock_mod
         .I2(\count_reg_n_0_[6] ),
         .I3(\count_reg_n_0_[4] ),
         .I4(\count_reg_n_0_[1] ),
-        .I5(clock_out),
+        .I5(CLK),
         .O(clock_tmp_i_1__0_n_0));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
@@ -375,7 +375,7 @@ module design_1_my_uart_int_0_0_clock_mod
        (.C(s00_axi_aclk),
         .CE(1'b1),
         .D(clock_tmp_i_1__0_n_0),
-        .Q(clock_out),
+        .Q(CLK),
         .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT1 #(
@@ -538,33 +538,31 @@ endmodule
 (* ORIG_REF_NAME = "clock_mod" *) 
 module design_1_my_uart_int_0_0_clock_mod__parameterized1
    (tx_clock,
-    clock_out);
+    CLK);
   output tx_clock;
-  input clock_out;
+  input CLK;
 
-  wire clock_out;
+  wire CLK;
   wire clock_tmp_i_1_n_0;
-  wire [3:0]count;
-  wire \count[0]_i_1_n_0 ;
+  wire [2:0]count;
+  wire \count[0]_i_1__1_n_0 ;
   wire \count[1]_i_1_n_0 ;
   wire \count[2]_i_1_n_0 ;
-  wire \count[3]_i_1__1_n_0 ;
-  wire \count[3]_i_2_n_0 ;
   wire tx_clock;
 
-  LUT5 #(
-    .INIT(32'hFFFB0004)) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
     clock_tmp_i_1
        (.I0(count[0]),
-        .I1(count[3]),
+        .I1(count[2]),
         .I2(count[1]),
-        .I3(count[2]),
-        .I4(tx_clock),
+        .I3(tx_clock),
         .O(clock_tmp_i_1_n_0));
   FDRE #(
     .INIT(1'b0)) 
     clock_tmp_reg
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(clock_tmp_i_1_n_0),
         .Q(tx_clock),
@@ -572,73 +570,48 @@ module design_1_my_uart_int_0_0_clock_mod__parameterized1
   (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT1 #(
     .INIT(2'h1)) 
-    \count[0]_i_1 
+    \count[0]_i_1__1 
        (.I0(count[0]),
-        .O(\count[0]_i_1_n_0 ));
+        .O(\count[0]_i_1__1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \count[1]_i_1 
-       (.I0(count[0]),
-        .I1(count[1]),
+       (.I0(count[1]),
+        .I1(count[0]),
         .O(\count[1]_i_1_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
-    .INIT(8'h78)) 
+    .INIT(8'h6C)) 
     \count[2]_i_1 
-       (.I0(count[0]),
-        .I1(count[1]),
-        .I2(count[2]),
-        .O(\count[2]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'h0002)) 
-    \count[3]_i_1__1 
-       (.I0(count[3]),
+       (.I0(count[1]),
         .I1(count[2]),
         .I2(count[0]),
-        .I3(count[1]),
-        .O(\count[3]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT4 #(
-    .INIT(16'h7F80)) 
-    \count[3]_i_2 
-       (.I0(count[1]),
-        .I1(count[0]),
-        .I2(count[2]),
-        .I3(count[3]),
-        .O(\count[3]_i_2_n_0 ));
+        .O(\count[2]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
-        .D(\count[0]_i_1_n_0 ),
+        .D(\count[0]_i_1__1_n_0 ),
         .Q(count[0]),
-        .R(\count[3]_i_1__1_n_0 ));
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(\count[1]_i_1_n_0 ),
         .Q(count[1]),
-        .R(\count[3]_i_1__1_n_0 ));
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \count_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(\count[2]_i_1_n_0 ),
         .Q(count[2]),
-        .R(\count[3]_i_1__1_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \count_reg[3] 
-       (.C(clock_out),
-        .CE(1'b1),
-        .D(\count[3]_i_2_n_0 ),
-        .Q(count[3]),
-        .R(\count[3]_i_1__1_n_0 ));
+        .R(1'b0));
 endmodule
 
 (* ORIG_REF_NAME = "counter_modN" *) 
@@ -782,22 +755,22 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized1
    (counter_hit,
     D,
     Q,
-    clock_out,
+    CLK,
     AR,
     rx);
   output counter_hit;
   output [0:0]D;
   input [2:0]Q;
-  input clock_out;
+  input CLK;
   input [0:0]AR;
   input rx;
 
   wire [0:0]AR;
+  wire CLK;
   wire [0:0]D;
   wire [2:0]Q;
-  wire clock_out;
   wire [2:0]count;
-  wire \count[0]_i_1__1_n_0 ;
+  wire \count[0]_i_1__2_n_0 ;
   wire \count[1]_i_1_n_0 ;
   wire \count[2]_i_1_n_0 ;
   wire counter_hit;
@@ -816,9 +789,9 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized1
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT1 #(
     .INIT(2'h1)) 
-    \count[0]_i_1__1 
+    \count[0]_i_1__2 
        (.I0(count[0]),
-        .O(\count[0]_i_1__1_n_0 ));
+        .O(\count[0]_i_1__2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h6)) 
@@ -837,15 +810,15 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized1
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
-        .D(\count[0]_i_1__1_n_0 ),
+        .D(\count[0]_i_1__2_n_0 ),
         .Q(count[0]));
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(\count[1]_i_1_n_0 ),
@@ -853,7 +826,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized1
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(\count[2]_i_1_n_0 ),
@@ -867,7 +840,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized1
         .I2(count[0]),
         .O(counter_hit__0_n_0));
   FDCE counter_hit_reg
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(counter_hit__0_n_0),
@@ -878,20 +851,20 @@ endmodule
 module design_1_my_uart_int_0_0_counter_modN__parameterized3
    (D,
     Q,
-    clock_out,
+    CLK,
     done_bit_count,
     counter_hit);
   output [1:0]D;
   input [4:0]Q;
-  input clock_out;
+  input CLK;
   input done_bit_count;
   input counter_hit;
 
+  wire CLK;
   wire [1:0]D;
   wire [4:0]Q;
-  wire clock_out;
   wire [3:0]count;
-  wire \count[0]_i_1__2_n_0 ;
+  wire \count[0]_i_1__3_n_0 ;
   wire \count[1]_i_1_n_0 ;
   wire \count[2]_i_1_n_0 ;
   wire \count[3]_i_1_n_0 ;
@@ -919,9 +892,9 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized3
         .O(D[1]));
   LUT1 #(
     .INIT(2'h1)) 
-    \count[0]_i_1__2 
+    \count[0]_i_1__3 
        (.I0(count[0]),
-        .O(\count[0]_i_1__2_n_0 ));
+        .O(\count[0]_i_1__3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h6)) 
@@ -956,15 +929,15 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized3
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[2]),
         .CLR(reset_16count),
-        .D(\count[0]_i_1__2_n_0 ),
+        .D(\count[0]_i_1__3_n_0 ),
         .Q(count[0]));
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[2]),
         .CLR(reset_16count),
         .D(\count[1]_i_1_n_0 ),
@@ -972,7 +945,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized3
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[2]),
         .CLR(reset_16count),
         .D(\count[2]_i_1_n_0 ),
@@ -980,7 +953,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized3
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[3] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[2]),
         .CLR(reset_16count),
         .D(\count[3]_i_1_n_0 ),
@@ -995,7 +968,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized3
         .I3(count[3]),
         .O(counter_hit__0_n_0));
   FDCE counter_hit_reg
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[2]),
         .CLR(reset_16count),
         .D(counter_hit__0_n_0),
@@ -1009,21 +982,21 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
     E,
     D,
     Q,
-    clock_out);
+    CLK);
   output done_bit_count;
   output [0:0]AR;
   output [0:0]E;
   output [0:0]D;
   input [2:0]Q;
-  input clock_out;
+  input CLK;
 
   wire [0:0]AR;
+  wire CLK;
   wire [0:0]D;
   wire [0:0]E;
   wire [2:0]Q;
-  wire clock_out;
   wire [3:0]count;
-  wire \count[0]_i_1__3_n_0 ;
+  wire \count[0]_i_1__4_n_0 ;
   wire \count[1]_i_1_n_0 ;
   wire \count[2]_i_1_n_0 ;
   wire \count[3]_i_1_n_0 ;
@@ -1039,9 +1012,9 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
         .O(D));
   LUT1 #(
     .INIT(2'h1)) 
-    \count[0]_i_1__3 
+    \count[0]_i_1__4 
        (.I0(count[0]),
-        .O(\count[0]_i_1__3_n_0 ));
+        .O(\count[0]_i_1__4_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h23CC)) 
@@ -1077,15 +1050,15 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
-        .D(\count[0]_i_1__3_n_0 ),
+        .D(\count[0]_i_1__4_n_0 ),
         .Q(count[0]));
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(\count[1]_i_1_n_0 ),
@@ -1093,7 +1066,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(\count[2]_i_1_n_0 ),
@@ -1101,7 +1074,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
   FDCE #(
     .INIT(1'b0)) 
     \count_reg[3] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(\count[3]_i_1_n_0 ),
@@ -1116,7 +1089,7 @@ module design_1_my_uart_int_0_0_counter_modN__parameterized5
         .I3(count[0]),
         .O(counter_hit_n_0));
   FDCE counter_hit_reg
-       (.C(clock_out),
+       (.C(CLK),
         .CE(Q[1]),
         .CLR(AR),
         .D(counter_hit_n_0),
@@ -3241,7 +3214,7 @@ module design_1_my_uart_int_0_0_rx_cu
     rda_to_intr,
     \tmp_sig_reg[7] ,
     \FSM_onehot_current_state_reg[4]_0 ,
-    clock_out,
+    CLK,
     s00_axi_aresetn,
     \axi_rdata_reg[8] ,
     Q,
@@ -3255,7 +3228,7 @@ module design_1_my_uart_int_0_0_rx_cu
   output rda_to_intr;
   output [7:0]\tmp_sig_reg[7] ;
   output [0:0]\FSM_onehot_current_state_reg[4]_0 ;
-  input clock_out;
+  input CLK;
   input s00_axi_aresetn;
   input [1:0]\axi_rdata_reg[8] ;
   input [1:0]Q;
@@ -3265,6 +3238,7 @@ module design_1_my_uart_int_0_0_rx_cu
   input \axi_rdata_reg[2]_0 ;
   input [0:0]\axi_rdata_reg[1] ;
 
+  wire CLK;
   wire [2:0]D;
   wire \FSM_onehot_current_state[0]_i_1_n_0 ;
   wire \FSM_onehot_current_state[6]_i_1_n_0 ;
@@ -3281,7 +3255,6 @@ module design_1_my_uart_int_0_0_rx_cu
   wire \axi_rdata_reg[2]_0 ;
   wire [1:0]\axi_rdata_reg[8] ;
   wire bit_counter_n_3;
-  wire clock_out;
   wire counter_16incr;
   wire counter_8incr;
   wire counter_bit_incr;
@@ -3312,69 +3285,77 @@ module design_1_my_uart_int_0_0_rx_cu
         .O(\FSM_onehot_current_state[6]_i_1_n_0 ));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDSE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(\FSM_onehot_current_state[0]_i_1_n_0 ),
         .Q(\FSM_onehot_current_state_reg_n_0_[0] ),
         .S(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(counter_mod8_n_1),
         .Q(counter_8incr),
         .R(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(counter_mod16_n_1),
         .Q(counter_16incr),
         .R(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[3] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(counter_mod16_n_0),
         .Q(counter_bit_incr),
         .R(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[4] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(bit_counter_n_3),
         .Q(\FSM_onehot_current_state_reg[4]_0 ),
         .R(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[5] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(\FSM_onehot_current_state_reg[4]_0 ),
         .Q(\FSM_onehot_current_state_reg_n_0_[5] ),
         .R(SR));
   (* FSM_ENCODED_STATES = "rda_state:0100000,first_idle:0000001,idle:1000000,eight_delay:0000010,get_bit:0001000,wait_for_centre:0000100,check_stop:0010000" *) 
   FDRE #(
-    .INIT(1'b1)) 
+    .INIT(1'b1),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_onehot_current_state_reg[6] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(1'b1),
         .D(\FSM_onehot_current_state[6]_i_1_n_0 ),
         .Q(\FSM_onehot_current_state_reg_n_0_[6] ),
         .R(SR));
   design_1_my_uart_int_0_0_shift_register_SIPO RX_shift_register_SIPO
-       (.D(D[1:0]),
+       (.CLK(CLK),
+        .D(D[1:0]),
         .E(shift_en),
         .Q(Q[0]),
         .SR(SR),
@@ -3385,7 +3366,6 @@ module design_1_my_uart_int_0_0_rx_cu
         .\axi_rdata_reg[2] (\axi_rdata[2]_i_2_n_0 ),
         .\axi_rdata_reg[2]_0 (\axi_rdata_reg[2] ),
         .\axi_rdata_reg[2]_1 (\axi_rdata_reg[2]_0 ),
-        .clock_out(clock_out),
         .rx(rx),
         .s00_axi_aresetn(s00_axi_aresetn),
         .\tmp_sig_reg[7]_0 (\tmp_sig_reg[7] ));
@@ -3410,22 +3390,22 @@ module design_1_my_uart_int_0_0_rx_cu
         .O(D[2]));
   design_1_my_uart_int_0_0_counter_modN__parameterized5 bit_counter
        (.AR(reset_8count),
+        .CLK(CLK),
         .D(bit_counter_n_3),
         .E(shift_en),
         .Q({\FSM_onehot_current_state_reg_n_0_[6] ,counter_bit_incr,\FSM_onehot_current_state_reg_n_0_[0] }),
-        .clock_out(clock_out),
         .done_bit_count(done_bit_count));
   design_1_my_uart_int_0_0_counter_modN__parameterized3 counter_mod16
-       (.D({counter_mod16_n_0,counter_mod16_n_1}),
+       (.CLK(CLK),
+        .D({counter_mod16_n_0,counter_mod16_n_1}),
         .Q({\FSM_onehot_current_state_reg_n_0_[6] ,counter_bit_incr,counter_16incr,counter_8incr,\FSM_onehot_current_state_reg_n_0_[0] }),
-        .clock_out(clock_out),
         .counter_hit(counter_hit),
         .done_bit_count(done_bit_count));
   design_1_my_uart_int_0_0_counter_modN__parameterized1 counter_mod8
        (.AR(reset_8count),
+        .CLK(CLK),
         .D(counter_mod8_n_1),
         .Q({\FSM_onehot_current_state_reg_n_0_[6] ,counter_8incr,\FSM_onehot_current_state_reg_n_0_[0] }),
-        .clock_out(clock_out),
         .counter_hit(counter_hit),
         .rx(rx));
   (* SOFT_HLUTNM = "soft_lutpair11" *) 
@@ -3681,7 +3661,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
     \axi_rdata_reg[1]_1 ,
     E,
     rx,
-    clock_out);
+    CLK);
   output [0:0]SR;
   output [1:0]D;
   output [7:0]\tmp_sig_reg[7]_0 ;
@@ -3696,8 +3676,9 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   input [1:0]\axi_rdata_reg[1]_1 ;
   input [0:0]E;
   input rx;
-  input clock_out;
+  input CLK;
 
+  wire CLK;
   wire [1:0]D;
   wire [0:0]E;
   wire [0:0]Q;
@@ -3712,7 +3693,6 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   wire \axi_rdata_reg[2] ;
   wire \axi_rdata_reg[2]_0 ;
   wire \axi_rdata_reg[2]_1 ;
-  wire clock_out;
   wire rx;
   wire [8:8]rx_frame;
   wire s00_axi_aresetn;
@@ -3772,7 +3752,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[0] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [1]),
         .Q(\tmp_sig_reg[7]_0 [0]),
@@ -3780,7 +3760,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[1] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [2]),
         .Q(\tmp_sig_reg[7]_0 [1]),
@@ -3788,7 +3768,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[2] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [3]),
         .Q(\tmp_sig_reg[7]_0 [2]),
@@ -3796,7 +3776,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[3] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [4]),
         .Q(\tmp_sig_reg[7]_0 [3]),
@@ -3804,7 +3784,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[4] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [5]),
         .Q(\tmp_sig_reg[7]_0 [4]),
@@ -3812,7 +3792,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[5] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [6]),
         .Q(\tmp_sig_reg[7]_0 [5]),
@@ -3820,7 +3800,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[6] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg[7]_0 [7]),
         .Q(\tmp_sig_reg[7]_0 [6]),
@@ -3828,7 +3808,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[7] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(rx_frame),
         .Q(\tmp_sig_reg[7]_0 [7]),
@@ -3836,7 +3816,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[8] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(\tmp_sig_reg_n_0_[9] ),
         .Q(rx_frame),
@@ -3844,7 +3824,7 @@ module design_1_my_uart_int_0_0_shift_register_SIPO
   FDRE #(
     .INIT(1'b0)) 
     \tmp_sig_reg[9] 
-       (.C(clock_out),
+       (.C(CLK),
         .CE(E),
         .D(rx),
         .Q(\tmp_sig_reg_n_0_[9] ),
@@ -3904,7 +3884,8 @@ module design_1_my_uart_int_0_0_tx_cu
         .O(\FSM_sequential_current_state[1]_i_1_n_0 ));
   (* FSM_ENCODED_STATES = "idle:00,start:01,transmit:10,reset_state:11" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_sequential_current_state_reg[0] 
        (.C(tx_clock),
         .CE(1'b1),
@@ -3913,7 +3894,8 @@ module design_1_my_uart_int_0_0_tx_cu
         .R(1'b0));
   (* FSM_ENCODED_STATES = "idle:00,start:01,transmit:10,reset_state:11" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b1)) 
     \FSM_sequential_current_state_reg[1] 
        (.C(tx_clock),
         .CE(1'b1),
