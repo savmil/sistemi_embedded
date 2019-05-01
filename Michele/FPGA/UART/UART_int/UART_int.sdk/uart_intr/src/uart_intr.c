@@ -75,8 +75,8 @@ u32 MYINTUART_GetData(myIntUART * MY_UART_INTInstance){
 
 u32 MYINTUART_GetPending(myIntUART * MY_UART_INTInstance){
 	u32 Register;
-	unsigned MASK_OFFSET = 0x10;
-	Register = MY_UART_INT_mReadReg(MY_UART_INTInstance->BaseAddress,MASK_OFFSET);
+	unsigned MASK_OFFSET = 0x08;
+	Register = MY_UART_INT_mReadReg(MY_UART_INTInstance->IntAddress,MASK_OFFSET);
 	return Register;
 }
 

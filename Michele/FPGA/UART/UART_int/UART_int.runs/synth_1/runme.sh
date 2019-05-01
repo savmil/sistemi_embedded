@@ -7,20 +7,20 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/home/andrea/VIvado/SDK/2018.3/bin:/home/andrea/VIvado/Vivado/2018.3/ids_lite/ISE/bin/lin64:/home/andrea/VIvado/Vivado/2018.3/bin
+  PATH=/home/michele/SDK/2018.3/bin:/home/michele/Vivado/2018.3/ids_lite/ISE/bin/lin64:/home/michele/Vivado/2018.3/bin
 else
-  PATH=/home/andrea/VIvado/SDK/2018.3/bin:/home/andrea/VIvado/Vivado/2018.3/ids_lite/ISE/bin/lin64:/home/andrea/VIvado/Vivado/2018.3/bin:$PATH
+  PATH=/home/michele/SDK/2018.3/bin:/home/michele/Vivado/2018.3/ids_lite/ISE/bin/lin64:/home/michele/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
 if [ -z "$LD_LIBRARY_PATH" ]; then
-  LD_LIBRARY_PATH=/home/andrea/VIvado/Vivado/2018.3/ids_lite/ISE/lib/lin64
+  LD_LIBRARY_PATH=/home/michele/Vivado/2018.3/ids_lite/ISE/lib/lin64
 else
-  LD_LIBRARY_PATH=/home/andrea/VIvado/Vivado/2018.3/ids_lite/ISE/lib/lin64:$LD_LIBRARY_PATH
+  LD_LIBRARY_PATH=/home/michele/Vivado/2018.3/ids_lite/ISE/lib/lin64:$LD_LIBRARY_PATH
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/andrea/SE_workspace/UART_int/UART_int.runs/synth_1'
+HD_PWD='/home/michele/Documenti/Universita/SE/Projects/UART_int/UART_int.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
