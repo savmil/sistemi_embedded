@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Wed May  1 12:46:28 2019
+| Date             : Wed May  1 18:57:38 2019
 | Host             : michele-G5-5587 running 64-bit Ubuntu 18.04.2 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -53,13 +53,13 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.002 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1879 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      585 |     17600 |            3.32 |
-|   Register              |    <0.001 |      856 |     35200 |            2.43 |
+| Slice Logic             |    <0.001 |     1876 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      583 |     17600 |            3.31 |
+|   Register              |    <0.001 |      855 |     35200 |            2.43 |
 |   CARRY4                |    <0.001 |       12 |      4400 |            0.27 |
 |   LUT as Shift Register |    <0.001 |       62 |      6000 |            1.03 |
 |   Others                |     0.000 |      206 |       --- |             --- |
-| Signals                 |    <0.001 |     1345 |       --- |             --- |
+| Signals                 |    <0.001 |     1340 |       --- |             --- |
 | PS7                     |     1.393 |        1 |       --- |             --- |
 | Static Power            |     0.117 |          |           |                 |
 | Total                   |     1.513 |          |           |                 |

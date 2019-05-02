@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  74876	   3356	  23376	 101608	  18ce8	uart_intr.elf
+  75548	   3356	  23392	 102296	  18f98	uart_intr.elf

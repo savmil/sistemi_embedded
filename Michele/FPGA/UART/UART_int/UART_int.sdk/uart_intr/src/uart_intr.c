@@ -86,6 +86,7 @@ void MYINTUART_Start(myIntUART * MY_UART_INTInstance){
 }
 
 void MYINTUART_Stop(myIntUART * MY_UART_INTInstance){
-		MY_UART_INT_mWriteReg(MY_UART_INTInstance->BaseAddress,0x4, 0);
+	unsigned MASK_OFFSET = 0x04;
+	MY_UART_INT_mWriteReg(MY_UART_INTInstance->BaseAddress,MASK_OFFSET, 0x0);
 }
 
