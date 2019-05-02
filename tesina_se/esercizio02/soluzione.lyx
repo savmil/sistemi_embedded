@@ -1650,6 +1650,11 @@ Xil_ExceptionEnable
 \end_layout
 
 \begin_layout Enumerate
+Settiamo la maschera del nostro componente detector per dire quali pin del
+ GPIO vogliamo campionare
+\end_layout
+
+\begin_layout Enumerate
 Infine abilitiamo lo scugic con 
 \begin_inset listings
 inline false

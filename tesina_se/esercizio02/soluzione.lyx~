@@ -1665,5 +1665,22 @@ XScuGic_Enable
 
 \end_layout
 
+\begin_layout Standard
+Nella routine di gestione dell' interruzione :
+\end_layout
+
+\begin_layout Enumerate
+Disabilitiamo l' interuzione scrivendo uno zero nel registro reg_intr_en;
+\end_layout
+
+\begin_layout Enumerate
+Scriviamo un uno nel registro reg_intr_ack per dire al componente che l'
+ interruzione è stata catturata;
+\end_layout
+
+\begin_layout Enumerate
+Riabilitiamo le interruzioni sul componente;
+\end_layout
+
 \end_body
 \end_document
