@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# 
+# Start of session at: Mon Apr 29 18:09:49 2019
+# Process ID: 31310
+# Current directory: /home/andrea/SE_workspace/UART_int/UART_int.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/andrea/SE_workspace/UART_int/UART_int.sdk/webtalk/webtalk.log
+# Journal file: /home/andrea/SE_workspace/UART_int/UART_int.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

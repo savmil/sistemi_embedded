@@ -1,0 +1,60 @@
+/*
+ * uart_intr.c
+ *
+ *  Created on: 27 apr 2019
+ *      Author: michele
+ */
+
+#include "my_uart_int.h"
+#include "uart_intr.h"
+#include "xil_types.h"
+#include "xil_io.h"
+
+
+void MYINTUART_EnableInterrupt(myIntUART * myIntUARTInstance, u32 mask)
+{
+	u32 Register;
+	unsigned IER_OFFSET = 0x04;
+	Register = MYINTUART_mReadReg(myIntUARTInstance->IntAddress,IER_OFFSET);
+	MYINTUART_mWriteReg(myIntUARTInstance->IntAddress,IER_OFFSET, Register | mask);
+
+}
+
+
+void MYINTUART_GlobalEnableInterrupt(myIntUART * myIntUARTInstance, u32 mask)
+{
+	u32 Register;
+	unsigned GIE_OFFSET = 0x00;
+	Register = MYINTUART_mReadReg(myIntUARTInstance->IntAddress,GIE_OFFSET);
+	MYINTUART_mWriteReg(myIntUARTInstance->IntAddress,GIE_OFFSET, Register | mask);
+
+}
+
+void MYINTUART_DisableInterrupt(myIntUART * myIntUARTInstance, u32 mask)
+{
+	u32 Register;
+	unsigned IER_OFFSET = 0x04;
+	Register = MYINTUART_mReadReg(myIntUARTInstance->IntAddress,IER_OFFSET);
+	MYINTUART_mWriteReg(myIntUARTInstance->IntAddress,IER_OFFSET, Register & (~mask));
+}
+
+
+void MYINTUART_ACK(myIntUART * myIntUARTInstance, u32 mask)
+{
+	u32 Register;
+	unsigned ACK_OFFSET = 0x0C;
+	Register = MYINTUART_mReadReg(myIntUARTInstance->IntAddress,ACK_OFFSET);
+	MYINTUART_mWriteReg(myIntUARTInstance->IntAddress,ACK_OFFSET, Register | mask);
+}
+
+void MYINTUART_SetMask(myIntUART * myIntUARTInstance, u32 mask){
+		u32 Register;
+		unsigned MASK_OFFSET = 0x08;
+		Register = MYINTUART_mReadReg(myIntUARTInstance->BaseAddress,MASK_OFFSET);
+		MYINTUART_mWriteReg(myIntUARTInstance->BaseAddress,MASK_OFFSET, Register | mask);
+}
+
+void MYINTUART_Init(myIntUART * myIntUARTInstance, u32 baseaddr, u32 intaddr){
+	myIntUARTInstance->BaseAddress=baseaddr;
+	myIntUARTInstance->IntAddress=intaddr;
+}
