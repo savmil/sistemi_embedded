@@ -14,10 +14,10 @@
 
 #define DEVNAME "my_uart_int"
 
-#define	DATA_IN    	   0 //8bit
-#define	TX_EN	       4 //1bit
-#define	STATUS_REG     8 /* OE (0)  FE(1) DE(2) TX_BUSY(4) */
-#define	RX_REG	       12 //8 bit data reg RDA(8)
+#define	DATA_IN    0 //8bit
+#define	TX_EN	   4 //1bit
+#define	STATUS_REG 8 /* OE (0)  FE(1) DE(2) TX_BUSY(4) */
+#define	RX_REG	   12 //8 bit data reg RDA(8)
 
 #define GLOBAL_INTR_EN 0
 #define INTR_EN        4
@@ -45,14 +45,16 @@ struct resource *axi_intr_res; /* Device AXI Intr Resource Structure */
 static struct mydriver_dm my_dm;
 static struct mydriver_dm *dm;
 
+u8 buffer[4];
+int tx_count, rx_count, buffer_size = 0;
+bool start = true;
+u32 rx_total_reg;
+
 static const struct of_device_id __test_int_driver_id[]={
 {.compatible = "xlnx,my-uart-int-1.0"},
 {}
 };
 
-/* Handler for /proc/my_int_uart
-* -----------------------------------
-*/
 static irq_handler_t isr_handler(int irq,void *dev_id){
 	
 	u32 reg_sent_data, reg_received_data, pending_reg;
@@ -67,33 +69,59 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 	if((pending_reg & 0x00000002 & INTR_MASK) == 0x00000002){
 		/*---ISR RX---*/
 		printk(KERN_INFO"ISR RX...\n");
-		reg_received_data = ioread32(dm->base_addr + RX_REG);
-		printk(KERN_INFO"ISR RX - value %u received\n", reg_received_data & 0x000000FF);
+		rx_count++;
+		if(tx_count <= buffer_size){
+			reg_received_data = ioread32(dm->base_addr + RX_REG);
+			printk(KERN_INFO"ISR RX - value %u received\n", reg_received_data & 0x000000FF);
+			rx_total_reg = rx_total_reg | ((reg_received_data & 255) << (rx_count-1)*8);
+			printk(KERN_INFO"ISR RX - total value %u received\n", rx_total_reg);
+		}
+		iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
 		iowrite32(2, dm->int_addr + INTR_ACK); //ACK
 	}
 	if((pending_reg & 0x00000001 & INTR_MASK) == 0x00000001){
 		/*---ISR TX---*/
-		printk(KERN_INFO"ISR TX...\n");
-		reg_sent_data = ioread32(dm->base_addr + DATA_IN);
-		printk(KERN_INFO"ISR TX - value %u sent\n", reg_sent_data);
-		iowrite32(1, dm->int_addr + INTR_ACK); //ACK
+		tx_count++;
+		if(tx_count < buffer_size){
+			printk(KERN_INFO"ISR TX...\n");
+			reg_sent_data = ioread32(dm->base_addr + DATA_IN);
+			printk(KERN_INFO"ISR TX - value %u sent\n", reg_sent_data);
+			printk(KERN_INFO"ISR TX - start sending next value: %u\n", buffer[tx_count]);
+			iowrite32(buffer[tx_count], dm->base_addr + DATA_IN); 
+			
+			iowrite32(1, dm->int_addr + INTR_ACK); //ACK
+			iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
+		}
+		else{
+			iowrite32(1, dm->int_addr + INTR_ACK); //ACK
+			iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
+		}
 	}	
-	
-	iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
 	
 	return (irq_handler_t) IRQ_HANDLED;
 }
  
 /* Write operation for /proc/my_int_uart
 * -----------------------------------
+* Quando l'utente utilizza il comando "cat" con una stringa verso /proc/my_int_uart,
+* la stringa viene salvata in * const char __user *buf. Questa funzione la copia dal user
+* space al kernel space, e la trasforma in un unsigned long.
+* Scrive il valore nel registro attivando la modalità trasmissione.
 */
 static ssize_t my_int_uart_write(struct file *file, const char __user * buf, size_t count, loff_t * ppos){
 
 		char my_int_uart_phrase[16];
 		u32 my_int_uart_value;
-		u32 statusTX;
+		u8 chunk;
+		int j;
 	
-		if (count < 11) {
+		rx_total_reg = 0;
+		tx_count = 0;
+		rx_count = 0;
+		buffer_size = 0;
+		
+		if (count < 12) {
 			if (copy_from_user(my_int_uart_phrase, buf, count))
 				return -EFAULT;
 			my_int_uart_phrase[count] = '\0';
@@ -102,41 +130,52 @@ static ssize_t my_int_uart_write(struct file *file, const char __user * buf, siz
 		my_int_uart_value = simple_strtoul(my_int_uart_phrase, NULL, 0);
 		wmb();
 		
-		iowrite32(my_int_uart_value, dm->base_addr + DATA_IN); // inserisco valore in DATA_IN
-	    iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
-
-		statusTX = ioread32(dm->base_addr + STATUS_REG);
+		printk(KERN_INFO"Write called with value %08x", my_int_uart_value);
 	
-		printk(KERN_INFO"Write called...%u on register 0x%08lx", my_int_uart_value, (unsigned long)dm->base_addr + STATUS_REG);
+		for(j=0; j<4; j++){
+
+			chunk = (my_int_uart_value >> j*8) & 255;
+
+			if(chunk == 0){
+				buffer_size = j;
+				goto skip;
+			}
+
+			buffer[j] = chunk;
+			buffer_size ++;
+
+			printk(KERN_INFO"Buffer[%d]= %02x\n",j,buffer[j]);
+		}
+		skip:
+		iowrite32(buffer[0], dm->base_addr + DATA_IN); // inserisco valore in DATA_IN
+	    iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
 	
 		return count;
 }
 
 /* Callback function when opening file /proc/my_int_uart
 * ------------------------------------------------------
+* Read the register value of my_int_uart controller, print the value to
+* the sequence file struct seq_file *p. In file open operation for /proc/my_int_uart
+* this callback function will be called first to fill up the seq_file,
+* and seq_read function will print whatever in seq_file to the terminal.
 */
 static int proc_my_int_uart_show(struct seq_file *p, void *v){
 
-	u32 dataRX;
-	//u32 status_reg;
+	u32 status_reg;
 	
-	//while((dataRX & 256) != 256){ //polling for RDA enable	
+	status_reg = ioread32(dm->base_addr + STATUS_REG);
 
-	dataRX = ioread32(dm->base_addr + RX_REG);
-
-	//}
-	
-	//status_reg = ioread32(dm->base_addr + STATUS_REG);
-
-	seq_printf(p,"%08x", dataRX & 0x000000FF);
-	//seq_printf(p,"Open called...value of: RX_REG %08x || STATUS_REG %08x", dataRX & 0x000000FF, status_reg);
-	//printk(KERN_INFO"Open called...value of: RX_REG %08x || STATUS_REG %08x", dataRX & 0x000000FF, status_reg);
+	printk(KERN_INFO"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
 	
 	return 0;
 }
 
 /* Open function for /proc/my_int_uart
 * ------------------------------------
+* When user want to read /proc/my_int_uart (i.e. cat /proc/my_int_uart), the open function
+* will be called first. In the open function, a seq_file will be prepared and the
+* status of my_int_uart will be filled into the seq_file by proc_my_int_uart_show function.
 */
 static int proc_my_int_uart_open(struct inode *inode, struct file *file){
 
@@ -162,9 +201,7 @@ static int proc_my_int_uart_open(struct inode *inode, struct file *file){
 	return res;
 }
 
-/* File Operations for /proc/my_uart_int 
-* ------------------------------------
-*/
+/* File Operations for /proc/my_uart_int */
 static const struct file_operations proc_my_uart_int_operations = {
 	.open = proc_my_int_uart_open,
 	.read = seq_read,
@@ -172,9 +209,7 @@ static const struct file_operations proc_my_uart_int_operations = {
 	.llseek = seq_lseek,
 };
 
-/* Device Probe function for UartTX_RX
-* ------------------------------------
-*/
+
 static int __test_int_driver_probe(struct platform_device *pdev){
               
 	int ret, rval = 0;
@@ -189,7 +224,8 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 		return -1;
 	 }
 
-	dm->irq = irq_res->start; // save the returned IRQ
+	// save the returned IRQ
+	dm->irq = irq_res->start;
 
 	printk(KERN_INFO "IRQ read form DTS entry as %d\n", dm->irq);
 
@@ -277,9 +313,7 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 	return 0;
 
 }
-/* Remove function for /proc/my_uart_int
-* ----------------------------------
-*/
+
 static int __test_int_driver_remove(struct platform_device *pdev){
 
 	printk(KERN_INFO"test_int: IRQ %d about to be freed!\n",dm->irq);
