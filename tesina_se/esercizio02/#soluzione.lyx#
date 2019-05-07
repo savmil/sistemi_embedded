@@ -473,9 +473,9 @@ Finish
 \end_layout
 
 \begin_layout Standard
-Nella nuova finestra vediamo che sono stati creati tre nuovi file, uno con
+Nella nuova finestra vediamo che sono stati creati due nuovi file, uno con
  il nome del nostro custom IP che rappresenta l' interfaccia del nostro
- componente, un altro con il 
+ componente ed un altro con il 
 \begin_inset Quotes eld
 \end_inset
 
@@ -483,15 +483,7 @@ nome del nostro IP _nome settato nella generazione del componente
 \begin_inset Quotes erd
 \end_inset
 
- ed infine il file 
-\begin_inset Quotes eld
-\end_inset
-
-nome del componente _S_AXI_INTR
-\begin_inset Quotes erd
-\end_inset
-
- che gestisce il processo delle interruzioni.
+.
 \end_layout
 
 \begin_layout Subsection
@@ -563,18 +555,22 @@ generic map(width => width)
 
 \begin_layout Plain Layout
 
-port map(    enable => slv_reg0(width-1 downto 0),     			   write => slv_reg1(w
-idth-1 downto 0),
+port map(    enable => slv_reg0(width-1 downto 0),     			   
 \end_layout
 
 \begin_layout Plain Layout
 
-			   read => gpio_read(width-1 downto 0),
+			 write => slv_reg1(width-1 downto 0),
 \end_layout
 
 \begin_layout Plain Layout
 
-			   pads =>pads);
+			 read => gpio_read(width-1 downto 0),
+\end_layout
+
+\begin_layout Plain Layout
+
+			 pads =>pads);
 \end_layout
 
 \end_inset
@@ -600,15 +596,19 @@ status open
 
 \begin_layout Plain Layout
 
-process (slv_reg0, slv_reg1, slv_reg2, gpio_read, axi_araddr, S_AXI_ARESETN,
- slv_reg_rden) 	variable loc_addr :std_logic_vector(OPT_MEM_ADDR_BITS downto
- 0); 	begin 	    -- Address decoding for reading registers 	    loc_addr
- := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB); 	    case
- loc_addr is 	      when b"00" => 	        reg_data_out <= slv_reg0; 	 
-     when b"01" => 	        reg_data_out <= slv_reg1; 	      when b"10"
- => 	        reg_data_out <= slv_reg2; 	      when b"11" => 	        reg_data_ou
-t <= gpio_read; 	      when others => 	        reg_data_out  <= (others
- => '0'); 	    end case; 	end process;
+process (slv_reg0, slv_reg1, gpio_read, slv_reg3, slv_reg4, slv_reg5, status_reg
+_out, slv_reg7_out, axi_araddr, S_AXI_ARESETN, slv_reg_rden) 	variable loc_addr
+ :std_logic_vector(OPT_MEM_ADDR_BITS downto 0); 	begin 	    -- Address decoding
+ for reading registers 	    loc_addr := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS
+ downto ADDR_LSB); 	    case loc_addr is 	      when b"000" => 	       
+ reg_data_out <= slv_reg0; 	      when b"001" => 	        reg_data_out <=
+ slv_reg1; 	      when b"010" => 	        reg_data_out <= gpio_read; 	 
+     when b"011" => 	        reg_data_out <= slv_reg3; 	      when b"100"
+ => 	        reg_data_out <= slv_reg4; 	      when b"101" => 	        reg_data_o
+ut <= slv_reg5; 	      when b"110" => 	        reg_data_out <= status_reg_out;
+ 	      when b"111" => 	        reg_data_out <= slv_reg7_out; 	      when
+ others => 	        reg_data_out  <= (others => '0'); 	    end case; 	end
+ process; 
 \end_layout
 
 \end_inset
@@ -664,58 +664,20 @@ status open
 
 \begin_layout Plain Layout
 
--- Users to add ports here         
-\end_layout
-
-\begin_layout Plain Layout
-
-pads : inout std_logic_vector(width-1 downto 0);         read_to_intr :
- out std_logic_vector(width-1 downto 0);       status_from_intr : in std_logic_v
-ector(width-1 downto 0);         
-\end_layout
-
-\begin_layout Plain Layout
-
-mask_to_intr : out std_logic_vector(width-1 downto 0); -- User ports ends
+- Users to add ports here         	pads : inout std_logic_vector(width-1
+ downto 0); --! se GPIO in modalità lettura mostra il valore letto, altrimenti
+ forza un valore in uscita         	interrupt : out std_logic; --! segnale
+ di interrupt 		-- User ports ends
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Andiamo a modificare il file che gestisce la generazione dell' interruzione
-\end_layout
-
-\begin_layout Standard
-All' inizio del file sono presenti diversi parametri di configurazione a
- noi interessa in particolare questo
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-C_NUM_OF_INTR	: integer	:= 1;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-il quale definisce il numero di interruzioni che il nostro componente può
- generare ed pilotare il segnale intr il quale fa avviare l' interruzione.
 \end_layout
 
 \begin_layout Standard
 Per catturare le variazione del componente GPIO affinché da avviare l' interruzi
-one è stato utilizzato il seguente componente detector
+one è stato utilizzato il seguente process 
 \end_layout
 
 \begin_layout Standard
@@ -725,96 +687,12 @@ status open
 
 \begin_layout Plain Layout
 
-entity Detector is     
-\end_layout
-
-\begin_layout Plain Layout
-
-generic(         width : integer := 4     );     
-\end_layout
-
-\begin_layout Plain Layout
-
-port (         clock : in std_logic;         into_detect:  in std_logic_vector(w
-idth-1 downto 0);         mask : in std_logic_vector(width-1 downto 0);
-         status:   out std_logic_vector(width-1 downto 0);         trigger
- : out std_logic     ); 
-\end_layout
-
-\begin_layout Plain Layout
-
-end Detector;
-\end_layout
-
-\begin_layout Plain Layout
-
-architecture Behavioral of Detector is
-\end_layout
-
-\begin_layout Plain Layout
-
-    signal first_stage : std_logic_vector(width-1 downto 0); -- first  sampling
- stage     
-\end_layout
-
-\begin_layout Plain Layout
-
-	 signal current_stage : std_logic_vector(width-1 downto 0); -- second sampling
- stage      
-\end_layout
-
-\begin_layout Plain Layout
-
-    signal last_stage : std_logic_vector(width-1 downto 0); -- last value
- o     
-\end_layout
-
-\begin_layout Plain Layout
-
-      signal detected : std_logic_vector(width-1 downto 0);      
-\end_layout
-
-\begin_layout Plain Layout
-
-		begin
-\end_layout
-
-\begin_layout Plain Layout
-
-      	sync: process(clock)     
-\end_layout
-
-\begin_layout Plain Layout
-
-		  begin         
-\end_layout
-
-\begin_layout Plain Layout
-
-		 if rising_edge(clock) then             				first_stage <= into_detect;
-             				current_stage <= first_stage;         			    end if;  
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-		  end process;
-\end_layout
-
-\begin_layout Plain Layout
-
-    last_stage <= current_stage when rising_edge(clock);               
-\end_layout
-
-\begin_layout Plain Layout
-
-		 detected <= (last_stage xor current_stage);         	    trigger <= or_reduce
-(detected and mask);                          status <= detected;
-\end_layout
-
-\begin_layout Plain Layout
-
-end Behavioral;
+gpio_read_sampling : process (S_AXI_ACLK, gpio_read)     begin     if (rising_ed
+ge (S_AXI_ACLK)) then         if ( S_AXI_ARESETN = '0' ) then          
+   last_stage <= (others => '0');             current_stage <= (others =>
+ '0');         else             last_stage <= gpio_read(width-1 downto 0);
+             current_stage <= last_stage;          end if;         end if;
+     end process;
 \end_layout
 
 \end_inset
@@ -823,47 +701,121 @@ end Behavioral;
 \end_layout
 
 \begin_layout Standard
-Il componente occorre per determinare quando vi è una variazione dei segnali
- into_detect (nel nostro caso gpio_read del componente GPIO), essenzialmente
- è costituito da tre flip-flop collegati in cascata, i primi due occorrono
- per sincronizzare il valore di into_detect con il clock, poiché a noi interessa
- cattuare cambiamenti di tale segnale, difatti al primo colpo di clock il
- primo flip flop salva il valore del segnale, al secondo colpo di clock
- il secondo flip flop salva il valore precedentemente salvato, così da rispettar
-e la successione degli eventi del segnale da campionare, mentre il primo
- flip flop campione di nuovo il segnale in ingresso; il terzo flip flop
- occorre per problemi di metastabilità che possono occorrere in un circuito
- reale (ad esempio il valore del primo flip flop da alto passa a basso e
- il secondo flip flop campiona quando tale valore si trova a metà tra i
- due livelli, non permettendo al flip flop di salvare un valore stabile,
- che può essere corretto quando il terzo flip flop campiona il segnale del
- secondo, ovviamente tale situazione di meta stabilità può continuare anche
- con più flip flop, ma la percentuale con cui può capitare avendo tre flip
- flop e molto bassa.
+Tale frammento di codice occorre per determinare quando vi è una variazione
+ dei segnali gpio_read.
+ 
 \end_layout
 
 \begin_layout Standard
-Il segnale status asserisce quanti segnali da controllare sono variati,
- mentre invece il pin trigger, che asserisce l' interrupt si alza solamente
- se uno dei pin che ha cambiato valore appartiene ad una maschera interessata.
+Essenzialmente è costituito da tre flip-flop collegati in cascata, i primi
+ due occorrono per sincronizzare il valore di gpio_read con il clock, poiché
+ a noi interessa cattuare cambiamenti di tale segnale solo in presenza di
+ fronti, di salita nel nostro caso, difatti al primo colpo di clock il primo
+ flip flop salva il valore del segnale, al secondo colpo di clock il secondo
+ flip flop salva il valore precedentemente salvato, così da rispettare la
+ successione degli eventi del segnale da campionare, mentre il primo flip
+ flop campione di nuovo il segnale in ingresso; il terzo flip flop occorre
+ per problemi di metastabilità che possono occorrere in un circuito reale
+ (ad esempio il valore del primo flip flop da alto passa a basso e il secondo
+ flip flop campiona quando tale valore si trova a metà tra i due livelli,
+ non permettendo al flip flop di salvare un valore stabile, che può essere
+ corretto quando il terzo flip flop campiona il segnale del secondo, ovviamente
+ tale situazione di meta stabilità può continuare anche con più flip flop,
+ ma la percentuale con cui può capitare avendo tre flip flop e molto bassa.
 \end_layout
 
 \begin_layout Standard
-Ultimo file da modificare è quello con il nome 
-\begin_inset Quotes eld
+Un secondo process viene utilizzato per la gestione del registro delle interruzi
+oni pending
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+intr_pending : process (S_AXI_ACLK, change_detected, ack_intr)     begin
+     if (rising_edge (S_AXI_ACLK)) then         if (change_detected = '1')
+ then             pending_intr <= pending_intr_tmp or changed_bits;    
+     else             if (or_reduce(ack_intr)='1') then                
+ pending_intr <= pending_intr_tmp and (not ack_intr);             end if;
+            end if;        end if;     end process;
+\end_layout
+
 \end_inset
 
-nome del nostro IP
-\begin_inset Quotes erd
-\end_inset
 
- al quale devono essere aggiunti i pin che abbiamo inserito nei componenti
- instanziati in questo file ed i pin che vogliamo che siano l' interfaccia
- del nostro componente.
 \end_layout
 
 \begin_layout Standard
-Rechiamoci nella sezione che gestisce il package del ip
+Qui si determina quando il valore del registro pending debba essere alto
+ o basso, osserviamo che nel caso in una variazione del segnale change_detected
+ il cui valore dipende da tale espressione
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+change_detected <= global_intr and (or_reduce(changed_bits and intr_mask
+ and (not gpio_enable)));
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+cioè ci dice che vi è una variazione solamente se le interruzioni globali
+ sono attive ed è stata rilevato un interrupt abilitato dalla maschera intr_mash
+ e tale pin di GPIO sia attivo, il valore del registro pending è dato da
+ il valore di una precedente interruzione non servita oppure ad una interuzione
+ rilevata (changed_bits).
+\end_layout
+
+\begin_layout Standard
+Nel caso arrivi un segnale di ack bisogna cambiare il bit relativo al registro
+ pending della interruzione servita.
+\end_layout
+
+\begin_layout Standard
+L' ultimo process infine occorre per la generazione del segnale di interrupt
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+inst_irq : process(S_AXI_ACLK,pending_intr)     begin         if (rising_edge
+ (S_AXI_ACLK)) then             if ( S_AXI_ARESETN = '0' ) then        
+             interrupt <= '0';             else                 if (or_reduce(pe
+nding_intr) = '1') then                     interrupt <= '1';          
+       else                     interrupt <= '0';                    end
+ if;             end if;         end if;     end process;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+tale segnale è uno nel caso vi siano interruzioni pendenti, nel caso di
+ reset del bus o non vi siano interruzioni è pari a 0.
+\end_layout
+
+\begin_layout Standard
+Dopo aver instaziato il componente nella top level entity
 \end_layout
 
 \begin_layout Standard
@@ -1647,6 +1599,44 @@ Xil_ExceptionEnable
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Settiamo la maschera del nostro componente detector per dire quali pin del
+ GPIO vogliamo campionare
+\end_layout
+
+\begin_layout Enumerate
+Infine abilitiamo lo scugic con 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+XScuGic_Enable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella routine di gestione dell' interruzione :
+\end_layout
+
+\begin_layout Enumerate
+Disabilitiamo l' interuzione scrivendo uno zero nel registro reg_intr_en;
+\end_layout
+
+\begin_layout Enumerate
+Scriviamo un uno nel registro reg_intr_ack per dire al componente che l'
+ interruzione è stata catturata;
+\end_layout
+
+\begin_layout Enumerate
+Riabilitiamo le interruzioni sul componente;
 \end_layout
 
 \end_body

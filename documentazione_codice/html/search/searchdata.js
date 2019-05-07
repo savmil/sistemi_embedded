@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "bdim",
-  1: "m",
-  2: "m",
-  3: "m",
-  4: "bi",
+  0: "abcdgilmnpswx",
+  1: "agm",
+  2: "g",
+  3: "gix",
+  4: "abcgilnpsw",
   5: "d"
 };
 
@@ -21,7 +21,7 @@ var indexSectionNames =
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
+  1: "Data Structures",
   2: "Files",
   3: "Functions",
   4: "Variables",

@@ -1,0 +1,46 @@
+\hypertarget{classDetector}{}\section{Detector Entity Reference}
+\label{classDetector}\index{Detector@{Detector}}
+\subsection*{Libraries}
+ \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDetector_a7b79fa0a00791047ccb81eee6672bb5c}\label{classDetector_a7b79fa0a00791047ccb81eee6672bb5c}} 
+\hyperlink{classDetector_a7b79fa0a00791047ccb81eee6672bb5c}{I\+E\+EE} 
+\begin{DoxyCompactList}\small\item\em Viene utilizzato la libreria I\+E\+EE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Use Clauses}
+ \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDetector_a159df90fd1157a6af47ee8417376d36d}\label{classDetector_a159df90fd1157a6af47ee8417376d36d}} 
+\hyperlink{classDetector_a159df90fd1157a6af47ee8417376d36d}{S\+T\+D\+\_\+\+L\+O\+G\+I\+C\+\_\+1164}   
+\begin{DoxyCompactList}\small\item\em Sono utilizzati i segnale della standard logic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDetector_a9f9f4556b2a5ddfdc5f748ead85bae54}\label{classDetector_a9f9f4556b2a5ddfdc5f748ead85bae54}} 
+\hyperlink{classDetector_a9f9f4556b2a5ddfdc5f748ead85bae54}{std\+\_\+logic\+\_\+misc}   
+\begin{DoxyCompactList}\small\item\em Sono utilizzate le librerie misc di utility. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Generics}
+ \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDetector_aa22c64c9ea3a96fe2bcdb5428fe1a1ee}\label{classDetector_aa22c64c9ea3a96fe2bcdb5428fe1a1ee}} 
+\hyperlink{classDetector_aa22c64c9ea3a96fe2bcdb5428fe1a1ee}{width} {\bfseries {\bfseries \textcolor{vhdlchar}{integer}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{\+:}\textcolor{vhdlchar}{=}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{4} \textcolor{vhdlchar}{ }}}
+\end{DoxyCompactItemize}
+\subsection*{Ports}
+ \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDetector_a70b0b3771fd176cebd9a42a231576bb9}\label{classDetector_a70b0b3771fd176cebd9a42a231576bb9}} 
+\hyperlink{classDetector_a70b0b3771fd176cebd9a42a231576bb9}{clock}  {\bfseries {\bfseries \textcolor{vhdlchar}{in}\textcolor{vhdlchar}{ }}} {\bfseries \textcolor{vhdlchar}{std\+\_\+logic}\textcolor{vhdlchar}{ }} 
+\begin{DoxyCompactList}\small\item\em segnale che gestisce il clock del componente \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDetector_a9025737de937757419a20a9639bd69a7}\label{classDetector_a9025737de937757419a20a9639bd69a7}} 
+\hyperlink{classDetector_a9025737de937757419a20a9639bd69a7}{into\+\_\+detect}  {\bfseries {\bfseries \textcolor{vhdlchar}{in}\textcolor{vhdlchar}{ }}} {\bfseries \textcolor{vhdlchar}{std\+\_\+logic\+\_\+vector}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{(}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{width}\textcolor{vhdlchar}{-\/}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{1} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{downto}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{0} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{)}\textcolor{vhdlchar}{ }} 
+\begin{DoxyCompactList}\small\item\em insieme di segnale da voler campionare \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDetector_a48367ab8da6692b747c5ebcd065376c2}\label{classDetector_a48367ab8da6692b747c5ebcd065376c2}} 
+\hyperlink{classDetector_a48367ab8da6692b747c5ebcd065376c2}{mask}  {\bfseries {\bfseries \textcolor{vhdlchar}{in}\textcolor{vhdlchar}{ }}} {\bfseries \textcolor{vhdlchar}{std\+\_\+logic\+\_\+vector}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{(}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{width}\textcolor{vhdlchar}{-\/}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{1} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{downto}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{0} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{)}\textcolor{vhdlchar}{ }} 
+\begin{DoxyCompactList}\small\item\em maschera che decide quali segnali di into\+\_\+detect da campionare \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDetector_a17089959c3a7d7eef447970d57b5fece}\label{classDetector_a17089959c3a7d7eef447970d57b5fece}} 
+\hyperlink{classDetector_a17089959c3a7d7eef447970d57b5fece}{status}  {\bfseries {\bfseries \textcolor{vhdlchar}{out}\textcolor{vhdlchar}{ }}} {\bfseries \textcolor{vhdlchar}{std\+\_\+logic\+\_\+vector}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{(}\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{ }\textcolor{vhdlchar}{width}\textcolor{vhdlchar}{-\/}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{1} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{downto}\textcolor{vhdlchar}{ } \textcolor{vhdldigit}{0} \textcolor{vhdlchar}{ }\textcolor{vhdlchar}{)}\textcolor{vhdlchar}{ }} 
+\begin{DoxyCompactList}\small\item\em identifica quali segnali hanno generato un interrupt \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDetector_a26db6e9d5d0a1ca1f7f7b47fcadb064a}\label{classDetector_a26db6e9d5d0a1ca1f7f7b47fcadb064a}} 
+\hyperlink{classDetector_a26db6e9d5d0a1ca1f7f7b47fcadb064a}{trigger}  {\bfseries {\bfseries \textcolor{vhdlchar}{out}\textcolor{vhdlchar}{ }}} {\bfseries \textcolor{vhdlchar}{std\+\_\+logic}\textcolor{vhdlchar}{ }} 
+\begin{DoxyCompactList}\small\item\em segnale di interrupt abilitato solo se un segnale genera interrupt e maschera è alta \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+My\+Int\+G\+P\+I\+O/\+My\+Int\+G\+P\+I\+O.\+srcs/sources\+\_\+1/bd/design\+\_\+1/source/\hyperlink{Detector_8vhd}{Detector.\+vhd}\end{DoxyCompactItemize}

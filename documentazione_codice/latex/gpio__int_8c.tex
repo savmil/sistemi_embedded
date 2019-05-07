@@ -1,0 +1,187 @@
+\hypertarget{gpio__int_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.c File Reference}
+\label{gpio__int_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+c}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio__int_8c_a022379c7f96e8c267ae6dde26dfa6a79}\label{gpio__int_8c_a022379c7f96e8c267ae6dde26dfa6a79}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}}
+\index{X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+A\+C\+K()}{XGPIO\_ACK()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+A\+CK (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione avvisa la periferica di aver servito l\textquotesingle{} interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera dove per ogni valore uno presente, asserisce il segnale di ack per interrupt associato a tale valore della maschera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_abd0d3e890384bbf4d123f09f3e8dfed1}\label{gpio__int_8c_abd0d3e890384bbf4d123f09f3e8dfed1}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt()}{XGPIO\_DisableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione disabilita i singoli interrupt scrivendo nel registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera che se pari a 1 abilita l\textquotesingle{} interrupt globali\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a8bf78c13843df1a81ac43357773ccf6f}\label{gpio__int_8c_a8bf78c13843df1a81ac43357773ccf6f}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt()}{XGPIO\_EnableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione abilita i singoli interrupt scrivendo nel registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera che se pari a 1 abilita l\textquotesingle{} interrupt globali\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a00871a0004f9ddab9fc283d59872cdd7}\label{gpio__int_8c_a00871a0004f9ddab9fc283d59872cdd7}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}}
+\index{X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Get\+Pending()}{XGPIO\_GetPending()}}
+{\footnotesize\ttfamily u32 X\+G\+P\+I\+O\+\_\+\+Get\+Pending (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance }\end{DoxyParamCaption})}
+
+
+
+Questa funzione restituisce il valore del registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+il valore del registro pending
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a84c937e764bef44d474a6c6797b30142}\label{gpio__int_8c_a84c937e764bef44d474a6c6797b30142}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt()}{XGPIO\_GlobalDisableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione disabilita tutti gli input globalmente scrivendo nel registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera dove per ogni valore uno presente viene disabilitato l\textquotesingle{} interrupt corrispondente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a5fa4b936a9a14a194281fcb6255b1f4e}\label{gpio__int_8c_a5fa4b936a9a14a194281fcb6255b1f4e}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt()}{XGPIO\_GlobalEnableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione abilita tutti gli input globalmente scrivendo nel registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera dove per ogni valore uno presente viene abilitato l\textquotesingle{} interrupt corrispondente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a8fcec53a02d09d2dbd9e254fb471f56c}\label{gpio__int_8c_a8fcec53a02d09d2dbd9e254fb471f56c}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}}
+\index{X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Init()}{XGPIO\_Init()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{baseaddr }\end{DoxyParamCaption})}
+
+
+
+Questa funzione scrive nel registro reg\+\_\+intr\+\_\+ack per avvisare la periferica di aver servito l\textquotesingle{} interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em baseaddr} & definisce l\textquotesingle{} indirizzo base della periferica \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8c_a12d08439fd00a6e810acb7e239a00297}\label{gpio__int_8c_a12d08439fd00a6e810acb7e239a00297}} 
+\index{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Set\+Direction@{X\+G\+P\+I\+O\+\_\+\+Set\+Direction}}
+\index{X\+G\+P\+I\+O\+\_\+\+Set\+Direction@{X\+G\+P\+I\+O\+\_\+\+Set\+Direction}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Set\+Direction()}{XGPIO\_SetDirection()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Set\+Direction (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Questa funzione abilita i singoli interrupt scrivendo nel registro reg\+\_\+intr\+\_\+en. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & definisce i registri di quella particolare istanza del G\+P\+IO \\
+\hline
+{\em mask} & è la maschera dove per ogni valore uno presente, abilità l\textquotesingle{} interrupt associato al valore del registro reg\+\_\+intr\+\_\+en\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}

@@ -68,43 +68,9 @@ $(function() {
 <div class="title">myIntGPIO2.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;myIntGPIO2.h&quot;</code><br />
-<code>#include &quot;myIntGPIO.h&quot;</code><br />
-<code>#include &quot;xil_types.h&quot;</code><br />
-<code>#include &quot;xil_io.h&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for myIntGPIO2.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="myIntGPIO2_8c__incl.png" border="0" usemap="#_2media_2saverio_2OS_2Users_2Saverio_2Desktop_2SE_2git_2Andrea_2FPGA_2MyIntGPIO_2MyIntGPIO_8sdk_2provaINTRGpio_2src_2myIntGPIO2_8c" alt=""/></div>
-<map name="_2media_2saverio_2OS_2Users_2Saverio_2Desktop_2SE_2git_2Andrea_2FPGA_2MyIntGPIO_2MyIntGPIO_8sdk_2provaINTRGpio_2src_2myIntGPIO2_8c" id="_2media_2saverio_2OS_2Users_2Saverio_2Desktop_2SE_2git_2Andrea_2FPGA_2MyIntGPIO_2MyIntGPIO_8sdk_2provaINTRGpio_2src_2myIntGPIO2_8c">
-<area shape="rect" id="node2" href="myIntGPIO2_8h_source.html" title="myIntGPIO2.h" alt="" coords="100,124,207,151"/>
-</map>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ad238e6752ca2e824ce0cb2c6aea28221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#ad238e6752ca2e824ce0cb2c6aea28221">MYINTGPIO_EnableInterrupt</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 mask)</td></tr>
-<tr class="memdesc:ad238e6752ca2e824ce0cb2c6aea28221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione abilita i singoli interrupt scrivendo nel registro reg_intr_en.  <a href="#ad238e6752ca2e824ce0cb2c6aea28221">More...</a><br /></td></tr>
-<tr class="separator:ad238e6752ca2e824ce0cb2c6aea28221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04449d7c429ffc61415213155380b4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#a04449d7c429ffc61415213155380b4f9">MYINTGPIO_GlobalEnableInterrupt</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 mask)</td></tr>
-<tr class="memdesc:a04449d7c429ffc61415213155380b4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione disabilita i singoli interrupt scrivendo nel registro reg_intr_en.  <a href="#a04449d7c429ffc61415213155380b4f9">More...</a><br /></td></tr>
-<tr class="separator:a04449d7c429ffc61415213155380b4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe750220b882176b9eb2bab6ce3fa4b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#abe750220b882176b9eb2bab6ce3fa4b0">MYINTGPIO_DisableInterrupt</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 mask)</td></tr>
-<tr class="memdesc:abe750220b882176b9eb2bab6ce3fa4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione disabilita tutti gli input globalmente scrivendo nel registro reg_global_intr_en.  <a href="#abe750220b882176b9eb2bab6ce3fa4b0">More...</a><br /></td></tr>
-<tr class="separator:abe750220b882176b9eb2bab6ce3fa4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cafbc6ae6b7eb1c8e1ea0f75352494c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#a9cafbc6ae6b7eb1c8e1ea0f75352494c">MYINTGPIO_ACK</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 mask)</td></tr>
-<tr class="memdesc:a9cafbc6ae6b7eb1c8e1ea0f75352494c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione scrive nel registro reg_intr_ack per avvisare la periferica di aver servito l' interrupt.  <a href="#a9cafbc6ae6b7eb1c8e1ea0f75352494c">More...</a><br /></td></tr>
-<tr class="separator:a9cafbc6ae6b7eb1c8e1ea0f75352494c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88c826f0e6619813994b542d4da4594b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#a88c826f0e6619813994b542d4da4594b">MYINTGPIO_SetMask</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 mask)</td></tr>
-<tr class="memdesc:a88c826f0e6619813994b542d4da4594b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione setta la maschera del componente detector per decidere di quali componenti campionare il segnale di interrupt.  <a href="#a88c826f0e6619813994b542d4da4594b">More...</a><br /></td></tr>
-<tr class="separator:a88c826f0e6619813994b542d4da4594b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac657520473ea2b9b44c8fa9f6211df6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myIntGPIO2_8c.html#ac657520473ea2b9b44c8fa9f6211df6f">MYINTGPIO_Init</a> (<a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *myIntGPIOInstance, u32 baseaddr, u32 intaddr)</td></tr>
-<tr class="memdesc:ac657520473ea2b9b44c8fa9f6211df6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Questa funzione scrive nel registro reg_intr_ack per avvisare la periferica di aver servito l' interrupt.  <a href="#ac657520473ea2b9b44c8fa9f6211df6f">More...</a><br /></td></tr>
-<tr class="separator:ac657520473ea2b9b44c8fa9f6211df6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9cafbc6ae6b7eb1c8e1ea0f75352494c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cafbc6ae6b7eb1c8e1ea0f75352494c">&#9670;&nbsp;</a></span>MYINTGPIO_ACK()</h2>
+<a id="a7721e0d872bd9ba2087c4d88842634a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7721e0d872bd9ba2087c4d88842634a1">&#9670;&nbsp;</a></span>MYINTGPIO_ACK()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,8 +108,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abe750220b882176b9eb2bab6ce3fa4b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe750220b882176b9eb2bab6ce3fa4b0">&#9670;&nbsp;</a></span>MYINTGPIO_DisableInterrupt()</h2>
+<a id="af62e41e03b737070c78e5801f724f87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af62e41e03b737070c78e5801f724f87f">&#9670;&nbsp;</a></span>MYINTGPIO_DisableInterrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,8 +147,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad238e6752ca2e824ce0cb2c6aea28221"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad238e6752ca2e824ce0cb2c6aea28221">&#9670;&nbsp;</a></span>MYINTGPIO_EnableInterrupt()</h2>
+<a id="a351f354c7df2fe66c9750c208922bc25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351f354c7df2fe66c9750c208922bc25">&#9670;&nbsp;</a></span>MYINTGPIO_EnableInterrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,8 +186,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a04449d7c429ffc61415213155380b4f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04449d7c429ffc61415213155380b4f9">&#9670;&nbsp;</a></span>MYINTGPIO_GlobalEnableInterrupt()</h2>
+<a id="a43cd1a32563d477e743ec84ed8451b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43cd1a32563d477e743ec84ed8451b27">&#9670;&nbsp;</a></span>MYINTGPIO_GlobalEnableInterrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,8 +225,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac657520473ea2b9b44c8fa9f6211df6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac657520473ea2b9b44c8fa9f6211df6f">&#9670;&nbsp;</a></span>MYINTGPIO_Init()</h2>
+<a id="a460f1eaad7d888a4cb5e8486267b961b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460f1eaad7d888a4cb5e8486267b961b">&#9670;&nbsp;</a></span>MYINTGPIO_Init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,8 +271,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a88c826f0e6619813994b542d4da4594b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88c826f0e6619813994b542d4da4594b">&#9670;&nbsp;</a></span>MYINTGPIO_SetMask()</h2>
+<a id="ad1834496057956ca64b4dc4e1f6e191b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1834496057956ca64b4dc4e1f6e191b">&#9670;&nbsp;</a></span>MYINTGPIO_SetMask()</h2>
 
 <div class="memitem">
 <div class="memproto">

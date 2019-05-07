@@ -1,13 +1,22 @@
+----------------------------------------------------------------------------------
+--! @file
+--! @brief	Componente utilizzato collegare il GPIO al bus AXI e gestire le
+--!		interruzioni
+----------------------------------------------------------------------------------
+--! Viene utilizzato la libreria IEEE
 library ieee;
+--! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;
+--! Vengono utilizzate le funzioni numeriche
 use ieee.numeric_std.all;
+--! Viene utilizzata la libreria misc di utility
 use ieee.std_logic_misc.all;
 
 
 entity GPIO_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
-        width : integer := 4;
+        	width : integer := 4; --! determina il numero di GPIO da controllare
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -18,8 +27,8 @@ entity GPIO_v1_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-        pads : inout std_logic_vector(width-1 downto 0);
-        interrupt : out std_logic;
+        	pads : inout std_logic_vector(width-1 downto 0); --! se GPIO in modalità lettura mostra il valore letto, altrimenti forza un valore in uscita
+        	interrupt : out std_logic; --! segnale di interrupt
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -85,6 +94,8 @@ entity GPIO_v1_0_S00_AXI is
 		S_AXI_RREADY	: in std_logic
 	);
 end GPIO_v1_0_S00_AXI;
+--! @property ARCHITECTURE 
+--! @brief Per la descrizione del componente riferirsi alla documentazione dell' intero design
 
 architecture arch_imp of GPIO_v1_0_S00_AXI is
 
@@ -133,24 +144,24 @@ architecture arch_imp of GPIO_v1_0_S00_AXI is
 
 
     ----- Signal used for interrutp logic -------------
-    signal status_reg : std_logic_vector(width-1 downto 0);
-    signal status_reg_tmp : std_logic_vector(width-1 downto 0);
+    signal status_reg : std_logic_vector(width-1 downto 0); --! determina se un segnale ha generato interrupt
+    signal status_reg_tmp : std_logic_vector(width-1 downto 0); 
    
     signal detected_intr : std_logic_vector(width-1 downto 0);
-    signal pending_intr : std_logic_vector(width-1 downto 0);
-    signal pending_intr_tmp : std_logic_vector(width-1 downto 0);
+    signal pending_intr : std_logic_vector(width-1 downto 0); --! determina se una interruzione è pendente
+    signal pending_intr_tmp : std_logic_vector(width-1 downto 0); --! salva interruzioni pendenti precedenti
 
-    alias global_intr: std_logic is slv_reg3(0); 
-    alias intr_mask : std_logic_vector(width-1 downto 0) is slv_reg4(width-1 downto 0); 
-    alias ack_intr  : std_logic_vector(width-1 downto 0) is slv_reg7(width-1 downto 0); 
+    alias global_intr: std_logic is slv_reg3(0); --! determina se le interruzioni globali sono attive
+    alias intr_mask : std_logic_vector(width-1 downto 0) is slv_reg4(width-1 downto 0); --! determina quali interrupt sono attivi
+    alias ack_intr  : std_logic_vector(width-1 downto 0) is slv_reg7(width-1 downto 0); --! determina quali segnali di interrupt pendenti sono stati catturati dal driver
     
-    alias gpio_enable : std_logic_vector(width-1 downto 0) is slv_reg0(width-1 downto 0); 
+    alias gpio_enable : std_logic_vector(width-1 downto 0) is slv_reg0(width-1 downto 0); --! identifica quale pin del GPIO sono abilitati
     
     
-    signal changed_bits  : std_logic_vector(width-1 downto 0);    
-    signal last_stage    : std_logic_vector(width-1 downto 0);
-    signal current_stage : std_logic_vector(width-1 downto 0);
-    signal change_detected : std_logic;
+    signal changed_bits  : std_logic_vector(width-1 downto 0); --! descrive se è stato campionanto un interrupt    
+    signal last_stage    : std_logic_vector(width-1 downto 0); --! registro primario del campionatore
+    signal current_stage : std_logic_vector(width-1 downto 0); --! registro secondario del campionatore
+    signal change_detected : std_logic; --! determina se è avvenuta una condizione che ha generato un interrupt
     
     
     
@@ -494,7 +505,14 @@ begin
     pads => pads
     );
     
-    
+   
+    -------------------------------------------------------------------------------
+    --!  @brief Campiona i segnali di cui si vuole verificare la generazione 
+    --!		di un interrupt
+    --!
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   gpio_read		valori del GPIO da campionare
+    -------------------------------------------------------------------------------	
     gpio_read_sampling : process (S_AXI_ACLK, gpio_read)
     begin
     if (rising_edge (S_AXI_ACLK)) then
@@ -512,7 +530,17 @@ begin
     changed_bits <= (last_stage xor current_stage);    
     change_detected <= global_intr and (or_reduce(changed_bits and intr_mask and (not gpio_enable)));
 
-    
+   
+    -------------------------------------------------------------------------------
+    --! @brief Gestisce il registro pending
+    --! @details Per la descrizione del componente riferirsi alla documentazione 
+    --!		 dell' intero design
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   change_detected	identifica l' avvenimento dell' interruput
+    --!					su un segnale abilitato
+    --! @param[in]   ack_intr		cattura un segnale di ack generato dal 
+    --!					driver che gestisce l' eccezione
+    -------------------------------------------------------------------------------
     intr_pending : process (S_AXI_ACLK, change_detected, ack_intr)
     begin
     if (rising_edge (S_AXI_ACLK)) then
@@ -527,6 +555,16 @@ begin
     end process;
     
     
+    --! @details Per la descrizione del componente riferirsi alla documentazione dell' intero design
+    -------------------------------------------------------------------------------
+    --! @brief Disabilita l' interrupt nel caso di reset del bus e tiene alto il
+    --! segnale di interrupt finchè rimane pendente
+    --! @details Per la descrizione del componente riferirsi alla documentazione 
+    --!		 dell' intero design
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   pending_intr	registro che identifica le interruzioni 
+    --!					pendenti
+    -------------------------------------------------------------------------------
     inst_irq : process(S_AXI_ACLK,pending_intr)
     begin
         if (rising_edge (S_AXI_ACLK)) then
