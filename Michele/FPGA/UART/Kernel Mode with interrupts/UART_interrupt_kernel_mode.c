@@ -12,46 +12,38 @@
 #include <linux/slab.h>
 #include <linux/mod_devicetable.h>
 
-#define DEVNAME "my_uart_int"
+#define DEVNAME "UART"
 
-#define	DATA_IN    0 //8bit
-#define	TX_EN	   4 //1bit
-#define	STATUS_REG 8 /* OE (0)  FE(1) DE(2) TX_BUSY(4) */
-#define	RX_REG	   12 //8 bit data reg RDA(8)
-
-#define GLOBAL_INTR_EN 0
-#define INTR_EN        4
-#define INTR_STS       8
-#define INTR_ACK       12
-#define INTR_PENDING   16
+#define	DATA_IN    0 // DATA TO SEND
+#define	TX_EN	   4 // TRANSFER ENABLE (0)
+#define	STATUS_REG 8 // OE (0)  FE(1) DE(2) RDA(3) TX_BUSY(4) 
+#define	RX_REG	   12 // DATA RECEIVED
+#define GLOBAL_INTR_EN 16 // GLOBAL INTERRUPT ENABLE
+#define INTR_EN        20 // LOCAL INTERRUPT ENABLE
+#define INTR_ACK_PEND  28 // PENDING/ACK REGISTER
 
 #define INTR_MASK      3
 
 struct mydriver_dm
 {
    void __iomem *    base_addr; // ioremapped kernel virtual address of UART
-   void __iomem *    int_addr; //ioremappet kernel virtual address of INT_DEVICE
-   dev_t             dev_num; // dynamically allocated device number
-   struct class *    class;   // sysfs class for this device
-   struct device *   pdev;    // device
+   struct platform_device *   pdev;    // device
    unsigned long remap_size; /* Device Memory Size */
    int               irq; // the IRQ number ( note: this will NOT be the value from the DTS entry )
 };
 
 struct resource *irq_res; /* Device IRQ Resource Structure */
 struct resource *res; /* Device Resource Structure */
-struct resource *axi_intr_res; /* Device AXI Intr Resource Structure */
 
 static struct mydriver_dm my_dm;
 static struct mydriver_dm *dm;
 
 u8 buffer[4];
 int tx_count, rx_count, buffer_size = 0;
-bool start = true;
 u32 rx_total_reg;
 
 static const struct of_device_id __test_int_driver_id[]={
-{.compatible = "xlnx,my-uart-int-1.0"},
+{.compatible = "xlnx,UART-1.0"},
 {}
 };
 
@@ -60,13 +52,13 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 	u32 reg_sent_data, reg_received_data, pending_reg;
 	
 	iowrite32(0, dm->base_addr + TX_EN); // abbasso il TX_EN
-	iowrite32(0, dm->int_addr + INTR_EN); //disabilito interruzioni
+	iowrite32(0, dm->base_addr + INTR_EN); //disabilito interruzioni
 	
 	printk(KERN_INFO"ISR serverd!\n");
 
-	pending_reg = ioread32(dm->int_addr + INTR_STS);
+	pending_reg = ioread32(dm->base_addr + INTR_ACK_PEND);
 	
-	if((pending_reg & 0x00000002 & INTR_MASK) == 0x00000002){
+	if((pending_reg & INTR_MASK) == 0x00000002){
 		/*---ISR RX---*/
 		printk(KERN_INFO"ISR RX...\n");
 		rx_count++;
@@ -76,10 +68,12 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 			rx_total_reg = rx_total_reg | ((reg_received_data & 255) << (rx_count-1)*8);
 			printk(KERN_INFO"ISR RX - total value %u received\n", rx_total_reg);
 		}
-		iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
-		iowrite32(2, dm->int_addr + INTR_ACK); //ACK
+		iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
+		iowrite32(2, dm->base_addr + INTR_ACK_PEND); //ACK
+		iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+
 	}
-	if((pending_reg & 0x00000001 & INTR_MASK) == 0x00000001){
+	if((pending_reg & INTR_MASK) == 0x00000001){
 		/*---ISR TX---*/
 		tx_count++;
 		if(tx_count < buffer_size){
@@ -89,13 +83,15 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 			printk(KERN_INFO"ISR TX - start sending next value: %u\n", buffer[tx_count]);
 			iowrite32(buffer[tx_count], dm->base_addr + DATA_IN); 
 			
-			iowrite32(1, dm->int_addr + INTR_ACK); //ACK
-			iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
 			iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
 		}
 		else{
-			iowrite32(1, dm->int_addr + INTR_ACK); //ACK
-			iowrite32(INTR_MASK, dm->int_addr + INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
 		}
 	}	
 	
@@ -103,11 +99,7 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 }
  
 /* Write operation for /proc/my_int_uart
-* -----------------------------------
-* Quando l'utente utilizza il comando "cat" con una stringa verso /proc/my_int_uart,
-* la stringa viene salvata in * const char __user *buf. Questa funzione la copia dal user
-* space al kernel space, e la trasforma in un unsigned long.
-* Scrive il valore nel registro attivando la modalità trasmissione.
+* --------------------------------------
 */
 static ssize_t my_int_uart_write(struct file *file, const char __user * buf, size_t count, loff_t * ppos){
 
@@ -155,10 +147,6 @@ static ssize_t my_int_uart_write(struct file *file, const char __user * buf, siz
 
 /* Callback function when opening file /proc/my_int_uart
 * ------------------------------------------------------
-* Read the register value of my_int_uart controller, print the value to
-* the sequence file struct seq_file *p. In file open operation for /proc/my_int_uart
-* this callback function will be called first to fill up the seq_file,
-* and seq_read function will print whatever in seq_file to the terminal.
 */
 static int proc_my_int_uart_show(struct seq_file *p, void *v){
 
@@ -166,6 +154,7 @@ static int proc_my_int_uart_show(struct seq_file *p, void *v){
 	
 	status_reg = ioread32(dm->base_addr + STATUS_REG);
 
+	seq_printf(p,"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
 	printk(KERN_INFO"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
 	
 	return 0;
@@ -173,9 +162,6 @@ static int proc_my_int_uart_show(struct seq_file *p, void *v){
 
 /* Open function for /proc/my_int_uart
 * ------------------------------------
-* When user want to read /proc/my_int_uart (i.e. cat /proc/my_int_uart), the open function
-* will be called first. In the open function, a seq_file will be prepared and the
-* status of my_int_uart will be filled into the seq_file by proc_my_int_uart_show function.
 */
 static int proc_my_int_uart_open(struct inode *inode, struct file *file){
 
@@ -224,8 +210,7 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 		return -1;
 	 }
 
-	// save the returned IRQ
-	dm->irq = irq_res->start;
+	dm->irq = irq_res->start; // save the returned IRQ
 
 	printk(KERN_INFO "IRQ read form DTS entry as %d\n", dm->irq);
 
@@ -267,56 +252,30 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 		goto err_create_proc_entry;
 	}
 
-	printk(KERN_INFO DEVNAME " probed at VA 0x%08lx\n", (unsigned long) dm->base_addr);
+	dm->pdev = pdev;
 	
-	axi_intr_res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-	if (!axi_intr_res) {
-		dev_err(&pdev->dev, "No memory resource\n");
-		return -ENODEV;
-	}
+	printk(KERN_INFO DEVNAME "Driver succesfully probed at VA 0x%08lx\n", (unsigned long) dm->base_addr);
+	
+	iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); // abilitazione interruzioni globali
+	printk(KERN_INFO"Writren value %u on register 0x%08lx - Global Interrupt enabled", 1, (unsigned long)dm->base_addr + GLOBAL_INTR_EN);
 
-	printk(KERN_INFO"axi_intr_res->start =  0x%08lx \n", (unsigned long) axi_intr_res->start);
-	printk(KERN_INFO"axi_intr_res->end = 0x%08lx \n", (unsigned long) axi_intr_res->end);
-	dm->remap_size = axi_intr_res->end - axi_intr_res->start + 1;
-	printk(KERN_INFO"remap_size = 0x%08lx \n", (unsigned long) dm->remap_size);
-	
-	if (!request_mem_region(axi_intr_res->start, dm->remap_size, pdev->name)) {
-		dev_err(&pdev->dev, "Cannot request IO\n");
-		return -ENXIO;
-	}
-
-	dm->int_addr = ioremap(axi_intr_res->start, dm->remap_size);
-	if (dm->int_addr == NULL) {
-		dev_err(&pdev->dev, "Couldn't ioremap memory at 0x%08lx\n", (unsigned long)axi_intr_res->start);
-		ret = -ENOMEM;
-		goto err_release_region;
-	}
-	
-	printk(KERN_INFO DEVNAME " probed at VA 0x%08lx\n", (unsigned long) dm->int_addr);
-	
-	iowrite32(1, dm->int_addr + GLOBAL_INTR_EN); // abilitazione interruzioni globali
-	printk(KERN_INFO"Writren value %u on register 0x%08lx", 1, (unsigned long)dm->int_addr + GLOBAL_INTR_EN);
-
-	iowrite32(INTR_MASK, dm->int_addr + INTR_EN); // abilitazione interruzioni 
-	printk(KERN_INFO"Written value %u on register 0x%08lx", INTR_MASK, (unsigned long)dm->int_addr + INTR_EN);
+	iowrite32(INTR_MASK, dm->base_addr + INTR_EN); // abilitazione interruzioni 
+	printk(KERN_INFO"Written value %u on register 0x%08lx - Local Interrupt enabled", INTR_MASK, (unsigned long)dm->base_addr + INTR_EN);
 
 	return 0;
 	
 	err_create_proc_entry:
 		iounmap(dm->base_addr);
-		iounmap(dm->int_addr);
 	err_release_region:
 		release_mem_region(res->start, dm->remap_size);
-		release_mem_region(axi_intr_res->start, dm->remap_size);
 		
-
 	return 0;
 
 }
 
 static int __test_int_driver_remove(struct platform_device *pdev){
 
-	printk(KERN_INFO"test_int: IRQ %d about to be freed!\n",dm->irq);
+	printk(KERN_INFO"IRQ %d about to be freed!\n",dm->irq);
 	
 	free_irq(dm->irq, dm);
 
@@ -325,10 +284,8 @@ static int __test_int_driver_remove(struct platform_device *pdev){
 	
 	/* Release mapped virtual addresses */
 	iounmap(dm->base_addr);
-	iounmap(dm->int_addr);
 	/* Release the regions */
 	release_mem_region(res->start, dm->remap_size);
-	release_mem_region(axi_intr_res->start, dm->remap_size);
 	
 	printk(KERN_INFO"Released mapped virtual addresses, proc entry and regions");
 	
