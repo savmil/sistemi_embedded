@@ -154,7 +154,7 @@ static int proc_my_int_uart_show(struct seq_file *p, void *v){
 	
 	status_reg = ioread32(dm->base_addr + STATUS_REG);
 
-	seq_printf(p,"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
+	seq_printf(p,"Open called: received value %08x || STATUS_REG %08x\n", rx_total_reg, status_reg);
 	printk(KERN_INFO"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
 	
 	return 0;
@@ -254,10 +254,10 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 
 	dm->pdev = pdev;
 	
-	printk(KERN_INFO DEVNAME "Driver succesfully probed at VA 0x%08lx\n", (unsigned long) dm->base_addr);
+	printk(KERN_INFO DEVNAME " Driver succesfully probed at VA 0x%08lx\n", (unsigned long) dm->base_addr);
 	
 	iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); // abilitazione interruzioni globali
-	printk(KERN_INFO"Writren value %u on register 0x%08lx - Global Interrupt enabled", 1, (unsigned long)dm->base_addr + GLOBAL_INTR_EN);
+	printk(KERN_INFO"Written value %u on register 0x%08lx - Global Interrupt enabled", 1, (unsigned long)dm->base_addr + GLOBAL_INTR_EN);
 
 	iowrite32(INTR_MASK, dm->base_addr + INTR_EN); // abilitazione interruzioni 
 	printk(KERN_INFO"Written value %u on register 0x%08lx - Local Interrupt enabled", INTR_MASK, (unsigned long)dm->base_addr + INTR_EN);
