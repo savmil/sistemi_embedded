@@ -2,11 +2,11 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # 
-# Start of session at: Fri Apr 26 17:48:03 2019
-# Process ID: 7003
-# Current directory: /home/michele/Documenti/Universita/SE/Projects/materiale_andrea/SE_PROJECT/MyIntGPIO/MyIntGPIO.sdk/webtalk
+# Start of session at: Wed May  1 17:56:26 2019
+# Process ID: 9539
+# Current directory: /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/webtalk
 # Command line: wbtcv -mode batch -source sdk_webtalk.tcl
-# Log file: /home/michele/Documenti/Universita/SE/Projects/materiale_andrea/SE_PROJECT/MyIntGPIO/MyIntGPIO.sdk/webtalk/webtalk.log
-# Journal file: /home/michele/Documenti/Universita/SE/Projects/materiale_andrea/SE_PROJECT/MyIntGPIO/MyIntGPIO.sdk/webtalk/webtalk.jou
+# Log file: /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/webtalk/webtalk.log
+# Journal file: /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/webtalk/webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl

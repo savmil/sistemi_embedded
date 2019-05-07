@@ -1,6 +1,62 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Thu May  2 10:04:45 2019
+| Host         : saverio-UX530UX running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_rst_ps7_0_50M_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_rst_ps7_0_50M_0 (xilinx.com:ip:proc_sys_reset:5.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Thu May  2 10:04:44 2019
+| Host         : saverio-UX530UX running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_processing_system7_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_processing_system7_0_0 (xilinx.com:ip:processing_system7:5.5 (Rev. 6)) to Vivado generation flows.
+
+2. Upgrade messages
+-------------------
+
+WARNING: upgrade cannot add parameter PCW_TRACE_INTERNAL_WIDTH with default value 32 : a parameter called PCW_TRACE_INTERNAL_WIDTH already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_USE_AXI_NONSECURE with default value 0 : a parameter called PCW_USE_AXI_NONSECURE already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_EN_PTP_ENET0 with default value 1 : a parameter called PCW_EN_PTP_ENET0 already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP0_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP0_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_WRITE_THREADS with default value 4 : a parameter called PCW_GP1_NUM_WRITE_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_NUM_READ_THREADS with default value 4 : a parameter called PCW_GP1_NUM_READ_THREADS already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP0_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP0_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+WARNING: upgrade cannot add parameter PCW_GP1_EN_MODIFIABLE_TXN with default value 0 : a parameter called PCW_GP1_EN_MODIFIABLE_TXN already exists in processing_system7_v5_5
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
 | Date         : Fri Apr 26 13:06:59 2019
 | Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
 | Command      : upgrade_ip

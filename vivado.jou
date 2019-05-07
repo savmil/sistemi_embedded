@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed May  1 17:51:13 2019
+# Process ID: 8136
+# Current directory: /media/saverio/OS/Users/Saverio/Desktop/SE/git
+# Command line: vivado
+# Log file: /media/saverio/OS/Users/Saverio/Desktop/SE/git/vivado.log
+# Journal file: /media/saverio/OS/Users/Saverio/Desktop/SE/git/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.xpr
+open_bd_design {/media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+ipx::edit_ip_in_project -upgrade true -name myIntGPIO_v1_0_project -directory /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.tmp/myIntGPIO_v1_0_project /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/ip_repo/myIntGPIO_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project
+launch_sdk -workspace /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk -hwspec /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/design_1_wrapper.hdf

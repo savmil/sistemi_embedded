@@ -1,4 +1,4 @@
-14:58:04 **** Build of project provaINTRGpio_bsp ****
+17:54:32 **** Build of project provaINTRGpio_bsp ****
 make -k all 
 Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
 make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -36,7 +36,6 @@ Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src
 make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src
 make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
-arm-none-eabi-ar: creazione di ../../../lib/libxil.a
 Compiling ddrps
 Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_6/src
 make -C ps7_cortexa9_0/libsrc/sdps_v3_6/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
@@ -44,7 +43,7 @@ Compiling sdps
 Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_8/src
 make -C ps7_cortexa9_0/libsrc/standalone_v6_8/src -s libs  "SHELL=/bin/sh" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -g -Wall -Wextra"
 Compiling standalone
-In file included from sleep.c:53:0:
+In file included from xtime_l.c:49:0:
 xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
  #pragma message ("For the sleep routines, Global timer is being used")
          ^~~~~~~
@@ -52,7 +51,7 @@ In file included from xil_sleeptimer.c:51:0:
 xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
  #pragma message ("For the sleep routines, Global timer is being used")
          ^~~~~~~
-In file included from xtime_l.c:49:0:
+In file included from sleep.c:53:0:
 xtime_l.h:87:9: note: #pragma message: For the sleep routines, Global timer is being used
  #pragma message ("For the sleep routines, Global timer is being used")
          ^~~~~~~
@@ -111,5 +110,5 @@ make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=/bin/sh" "COMPIL
 Compiling scutimer
 Finished building libraries
 
-14:58:12 Build Finished (took 7s.926ms)
+17:55:03 Build Finished (took 30s.739ms)
 

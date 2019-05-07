@@ -33,43 +33,39 @@ use ieee.std_logic_misc.all;
 --use UNISIM.VComponents.all;
 
 entity Detector is
-    generic(width : integer :=4);
+    generic(
+        width : integer := 4
+    );
     port (
         clock : in std_logic;
         into_detect:  in std_logic_vector(width-1 downto 0);
-        changes:   out std_logic_vector(width-1 downto 0);
+        mask : in std_logic_vector(width-1 downto 0);
+        status:   out std_logic_vector(width-1 downto 0);
         trigger : out std_logic
     );
 end Detector;
 
 architecture Behavioral of Detector is
     signal first_stage : std_logic_vector(width-1 downto 0); -- first  sampling stage
-    signal current_stage : std_logic_vector(width-1 downto 0); -- second sampling stage =
-    signal last_stage : std_logic_vector(width-1 downto 0); -- last value of X_curr
+    signal current_stage : std_logic_vector(width-1 downto 0); -- second sampling stage 
+    signal last_stage : std_logic_vector(width-1 downto 0); -- last value o
     signal detected : std_logic_vector(width-1 downto 0);
     
 begin
 
-    -- Synchronize external inputs to clock. If the X* inputs are already
-    -- synchronous to 'clk' then replace this process with:
-    -- X_curr <= X;
     sync: process(clock)
     begin
         if rising_edge(clock) then
-            -- The path betweeen these two flip-flops must be constrained for a
-            -- short delay, so that, the wire in between is as ahort as
-            -- possible. 
             first_stage <= into_detect;
             current_stage <= first_stage;
         end if;
     end process;
 
-    -- This statement delays the current value X_curr by one clock cycle.
     last_stage <= current_stage when rising_edge(clock);
     
-    detected <= last_stage xor current_stage;
     
-    trigger <= or_reduce(detected);
-    changes <= detected;
+    detected <= (last_stage xor current_stage);    
+    trigger <= or_reduce(detected and mask);
+    status <= detected;
 
 end Behavioral;

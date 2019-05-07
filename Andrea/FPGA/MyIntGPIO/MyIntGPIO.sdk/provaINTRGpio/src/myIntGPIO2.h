@@ -1,10 +1,14 @@
 #include "xil_types.h"
 #include "xstatus.h"
 #include "xil_io.h"
-
+/**
+ * Una struttura che definisce gli indirizzi del componente GPIO
+ */
 typedef struct{
-	UINTPTR BaseAddress;
-	UINTPTR IntAddress;
+	/*@{*/
+	UINTPTR BaseAddress;/**< indirizzo base periferica */
+	UINTPTR IntAddress;/**< indirizzo base per gestire le interruzioni */
+	/*@}*/
 } myIntGPIO;
 
 

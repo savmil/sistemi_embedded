@@ -2075,3 +2075,9 @@ configparams force-mem-access 0
 17:48:15 INFO  : Successfully done setting SDK workspace  
 17:48:15 INFO  : Processing command line option -hwspec /home/michele/Documenti/Universita/SE/Projects/materiale_andrea/SE_PROJECT/MyIntGPIO/MyIntGPIO.sdk/design_1_wrapper.hdf.
 17:48:15 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_1.
+17:54:28 INFO  : Registering command handlers for SDK TCF services
+17:54:31 INFO  : Launching XSCT server: xsct -n -interactive /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/temp_xsdb_launch_script.tcl
+17:54:36 INFO  : XSCT server has started successfully.
+17:54:36 INFO  : Successfully done setting XSCT server connection channel  
+17:54:37 INFO  : Successfully done setting SDK workspace  
+17:54:37 INFO  : Processing command line option -hwspec /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/MyIntGPIO/MyIntGPIO.sdk/design_1_wrapper.hdf.
