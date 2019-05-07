@@ -1,0 +1,82 @@
+#include "gpio_int.h"
+#include "GPIO.h"
+#include "xil_io.h"
+#include "xil_exception.h"
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xil_printf.h"
+#include "xil_types.h"
+#include "xscugic.h"
+
+void XGPIO_SetDirection(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned DIR_OFFSET = GPIO_S00_AXI_SLV_REG0_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,DIR_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress, DIR_OFFSET, Register | mask);
+}
+
+void XGPIO_WriteData(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	unsigned WRITE_DATA_OFFSET = GPIO_S00_AXI_SLV_REG1_OFFSET;
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress, WRITE_DATA_OFFSET, mask);
+}
+
+void XGPIO_EnableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned EN_INT_OFFSET = GPIO_S00_AXI_SLV_REG4_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,EN_INT_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress, EN_INT_OFFSET, Register | mask);
+
+}
+
+void XGPIO_DisableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned EN_INT_OFFSET = GPIO_S00_AXI_SLV_REG4_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,EN_INT_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress,EN_INT_OFFSET, Register & (~mask));
+}
+
+
+void XGPIO_GlobalEnableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned GIE_OFFSET = GPIO_S00_AXI_SLV_REG3_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,GIE_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress,GIE_OFFSET, Register | mask);
+
+}
+
+void XGPIO_GlobalDisableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned GIE_OFFSET = GPIO_S00_AXI_SLV_REG3_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,GIE_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress,GIE_OFFSET, Register & (~mask));
+}
+
+
+void XGPIO_ACK(myIntGPIO * myIntGPIOInstance, u32 mask)
+{
+	u32 Register;
+	unsigned ACK_OFFSET = GPIO_S00_AXI_SLV_REG7_OFFSET;
+	Register = GPIO_mReadReg(myIntGPIOInstance->BaseAddress,ACK_OFFSET);
+	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress,ACK_OFFSET, Register | mask);
+//	usleep(100);
+//	GPIO_mWriteReg(myIntGPIOInstance->BaseAddress,ACK_OFFSET, 0x0);
+
+}
+
+u32 XGPIO_GetPending(myIntGPIO * myIntGPIOInstance)
+{
+	unsigned PEND_OFFSET = GPIO_S00_AXI_SLV_REG7_OFFSET;
+	return GPIO_mReadReg(myIntGPIOInstance->BaseAddress,PEND_OFFSET);
+}
+
+void XGPIO_Init(myIntGPIO * myIntGPIOInstance, u32 baseaddr){
+	myIntGPIOInstance->BaseAddress=baseaddr;
+}
+
+

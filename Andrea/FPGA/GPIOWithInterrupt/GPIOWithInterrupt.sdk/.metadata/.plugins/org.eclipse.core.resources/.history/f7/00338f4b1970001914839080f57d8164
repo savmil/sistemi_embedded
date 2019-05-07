@@ -1,0 +1,7 @@
+int main(void){
+	int i=1;
+	while(i>0){
+		i++;
+		int status = *(0x43C00018);
+	}
+}
