@@ -1,0 +1,289 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Wed May  8 19:13:27 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 15) to (Rev. 16)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Wed May  8 17:22:04 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 14) to (Rev. 15)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 23:38:26 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 13) to (Rev. 14)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 23:35:14 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 18:24:22 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 11) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 18:17:49 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 10) to (Rev. 11)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 18:02:05 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 9) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 17:39:36 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 17:26:00 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 7) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 16:52:13 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 16:37:53 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 5) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 16:24:38 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 16:12:16 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 3) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Tue May  7 15:42:43 2019
+| Host         : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_UART_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_UART_0_0 (user.org:user:UART:1.0) from (Rev. 2) to (Rev. 3)
+

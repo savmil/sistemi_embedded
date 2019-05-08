@@ -1,0 +1,663 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Sintesi
+\end_layout
+
+\begin_layout Standard
+Per sintetizzare il componente è stato creato un macro-componente che instanzias
+se due componenti UART, uno per il ricevitore ed uno per il trasmettitore.
+ Viene utilizzato un registro per caricare il valore da trasmettere dagli
+ switches mediante il bottone più a destra presente sulla Board.
+ Una volta caricato il valore da trasmettere viene utilizzato il secondo
+ bottone da destra per abilitare il bit di transfer_enable, ovvero per iniziare
+ il trasferimento.
+ Infine il tasto più a sinistra è stato mappato con il reset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente UART
+ on Board)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;		
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity UART_on_board is
+\end_layout
+
+\begin_layout Plain Layout
+
+    Port ( clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           reset : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           switches : in  STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           dummy_input : in STD_LOGIC_vector(1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+			  tx_en : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           load_reg: in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  rx_pin : in STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  tx_pin : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  RDA : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  dummy_out : out STD_LOGIC_VECTOR(17 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           data_out : out  STD_LOGIC_VECTOR (7 downto 0));
+\end_layout
+
+\begin_layout Plain Layout
+
+end UART_on_board;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Structural of UART_on_board is
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT UART
+\end_layout
+
+\begin_layout Plain Layout
+
+	 Generic(baudrate : integer := 9600;
+\end_layout
+
+\begin_layout Plain Layout
+
+				clock_freq : integer := 50_000_000);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_in : IN std_logic_vector(7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_en : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		OE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_busy : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		FE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		PE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out : OUT std_logic_vector(7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		RDA : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT d_ff_register
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d : IN std_logic_vector(7 downto 0);          
+\end_layout
+
+\begin_layout Plain Layout
+
+		q : OUT std_logic_vector(7 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal data_to_tx: STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		TX: UART generic map(9600,50_000_000) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx => not dummy_input(0),
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_in => data_to_tx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_en => tx_en,
+\end_layout
+
+\begin_layout Plain Layout
+
+		OE => dummy_out(0),
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_busy => dummy_out(1) ,
+\end_layout
+
+\begin_layout Plain Layout
+
+		FE => dummy_out(2),
+\end_layout
+
+\begin_layout Plain Layout
+
+		PE => dummy_out(3),
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx => tx_pin,
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out => dummy_out(11 downto 4),
+\end_layout
+
+\begin_layout Plain Layout
+
+		RDA =>dummy_out(12)
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		RX: UART generic map(9600,50_000_000) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx => rx_pin,
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_in => data_to_tx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_en => dummy_input(1),
+\end_layout
+
+\begin_layout Plain Layout
+
+		OE => dummy_out(13),
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_busy => dummy_out(14) ,
+\end_layout
+
+\begin_layout Plain Layout
+
+		FE => dummy_out(15),
+\end_layout
+
+\begin_layout Plain Layout
+
+		PE => dummy_out(16),
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx => dummy_out(17),
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out => data_out,
+\end_layout
+
+\begin_layout Plain Layout
+
+		RDA => RDA
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_in_register: d_ff_register PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable => load_reg,
+\end_layout
+
+\begin_layout Plain Layout
+
+		d => switches,
+\end_layout
+
+\begin_layout Plain Layout
+
+		q => data_to_tx
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/final.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Inserire i casi di test, i tempi di propagazione ed eventuali schermate
+ di simulazione significative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

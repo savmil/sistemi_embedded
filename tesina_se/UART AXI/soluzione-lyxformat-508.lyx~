@@ -1,0 +1,2975 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{listings,xcolor,courier,bookmark,float}
+\usepackage{listingsutf8}
+\definecolor{darkblue}{named}{blue}
+\definecolor{darkred}{named}{red}
+\definecolor{grau}{named}{gray}
+\let\Righttorque\relax
+\lstset{
+captionpos=b,
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+keywordstyle=\color{darkblue},
+stringstyle=\color{darkred},
+extendedchars=true,
+basicstyle=\small\ttfamily,
+showstringspaces=false,
+tabsize=2,
+numbers=left,
+numberstyle=\tiny,
+breakautoindent  = true,
+breakindent      = 2em,
+breaklines       = true,
+postbreak        = ,
+prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
+showspaces=false, 
+showtabs=false, 
+showstringspaces=false,
+language=VHDL,
+frame=single,
+morecomment=[s]{--}
+}
+
+
+\renewcommand*{\lstlistingname}{Codice Componente}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{} 
+\fancyfoot{} 
+
+\fancyhead[RO,LE]{\bfseries \leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
+\cfoot{}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Soluzione
+\end_layout
+
+\begin_layout Standard
+Per implementare il protocollo UART si è scelto di utilizzare lo schema
+ di un generico dispositivo UART commerciale, dunque la logica del protocollo
+ è stata separata in: sezione ricevitore, sezione trasmettitore, logica
+ di interfacciamento e modulazione del clock.
+ Si è scelto di rispettare l'interfaccia del componente fornito dalla Digilent,
+ andando però a ristrutturare, partendo dalle singole componenti reimplementando
+le ex-novo, l'architettura interna del componente.
+ A differenza del progetto Digilent la logica operativa è stata portato
+ tutta all'esterno delle macchine a stati finiti, per creare una vera a
+ propria distinzione tra la parte operativa e la parte di controllo.
+ Inoltre quest'ultima è stata ridotta a sole due FSM, rispettivamente per
+ la logica di trasmissione e ricezione.
+ Per la parte operativa sono stati riutilizati componenti già utilizzati
+ in precedenti progetti come shift register, registri, contatori.
+ Segue una breve descrizione delle sezioni e dei relativi componenti:
+\end_layout
+
+\begin_layout Subsection
+Sezione Trasmissione
+\end_layout
+
+\begin_layout Itemize
+Shift Register con scorrimento a destra, caricamento parallelo del dato
+ da trasmettere ed uscita seriale per la trasmissione sul canale.
+\end_layout
+
+\begin_layout Itemize
+Contatore Mod 11 incrementato ad ogni bit trasmesso il cui segnale di uscita
+ counter_done viene utilizzato dalla control unit per verificare la fine
+ della trasmissione.
+\end_layout
+
+\begin_layout Itemize
+Macchina a stati finiti che implementa la logica di trasmissione del protocollo.
+ Segue un grafo degli stati per descriverne il funzionamento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/tx_fsm.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Codice
+\end_layout
+
+\begin_layout Standard
+Segue il codice del componente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente Sezione
+ Trasmissione)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity tx_cu is
+\end_layout
+
+\begin_layout Plain Layout
+
+    Port ( clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           reset : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           tx_en : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  tx_busy : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           data_to_tx : in  STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           tx : out  STD_LOGIC);
+\end_layout
+
+\begin_layout Plain Layout
+
+end tx_cu;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Behavioral of tx_cu is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT shift_register
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic(n_bits : integer := 11);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		load : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		shift : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d_in : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_in : IN std_logic_vector(n_bits-1 downto 0);          
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT counter_modN
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic(N : integer := 8);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter_hit : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	type state is (idle,start,transmit);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	------ Signals ------
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal current_state,next_state : state :=idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal parity : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal frame : STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal shift_en, p_load, reset_counter, counter_incr,tx_done : STD_LOGIC
+ := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		parity <=  not ( ((data_to_tx(0) xor data_to_tx(1)) xor (data_to_tx(2)
+ xor data_to_tx(3))) xor ((data_to_tx(4) xor data_to_tx(5)) xor (data_to_tx(6)
+ xor data_to_tx(7))) );
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		frame <= '1' & parity & data_to_tx & '0'; --costruzione frame con start,
+ data, parity e bit di stop
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		TX_shift_register: shift_register GENERIC MAP (11) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock => clock ,
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+			load => p_load,
+\end_layout
+
+\begin_layout Plain Layout
+
+			shift => shift_en,
+\end_layout
+
+\begin_layout Plain Layout
+
+			d_in => '1',
+\end_layout
+
+\begin_layout Plain Layout
+
+			data_in => frame,
+\end_layout
+
+\begin_layout Plain Layout
+
+			data_out => tx
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		TX_counter: counter_modN GENERIC MAP(16) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset => reset_counter,
+\end_layout
+
+\begin_layout Plain Layout
+
+			enable => counter_incr,
+\end_layout
+
+\begin_layout Plain Layout
+
+			counter_hit => tx_done
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	state_assignment : process(clock, reset) is
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin
+\end_layout
+
+\begin_layout Plain Layout
+
+			if  (clock = '1' and clock'event) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				if reset = '1' then
+\end_layout
+
+\begin_layout Plain Layout
+
+					current_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+				else 
+\end_layout
+
+\begin_layout Plain Layout
+
+					current_state <= next_state;
+\end_layout
+
+\begin_layout Plain Layout
+
+				end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	tx_fsm : process(current_state, clock, reset, tx_en, tx_done)
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				case current_state is
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+					when idle =>
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\end_layout
+
+\begin_layout Plain Layout
+
+						tx_busy <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						reset_counter <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						p_load <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						counter_incr <= '0';	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+						if (tx_en = '0') then
+\end_layout
+
+\begin_layout Plain Layout
+
+							next_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+						else 
+\end_layout
+
+\begin_layout Plain Layout
+
+							next_state <= start;
+\end_layout
+
+\begin_layout Plain Layout
+
+						end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\end_layout
+
+\begin_layout Plain Layout
+
+					when start => 
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\end_layout
+
+\begin_layout Plain Layout
+
+						tx_busy <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						reset_counter <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						p_load <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						counter_incr <= '0';		
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= transmit;
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					when transmit =>
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\end_layout
+
+\begin_layout Plain Layout
+
+						tx_busy <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						shift_en <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						counter_incr <= '1';		
+\end_layout
+
+\begin_layout Plain Layout
+
+						p_load <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						reset_counter <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+						
+\end_layout
+
+\begin_layout Plain Layout
+
+						if (tx_done = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+								next_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+						else 
+\end_layout
+
+\begin_layout Plain Layout
+
+								next_state <= transmit;
+\end_layout
+
+\begin_layout Plain Layout
+
+						end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+			end case;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+end Behavioral;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sezione Ricezione
+\end_layout
+
+\begin_layout Itemize
+Shift Register con scorrimento a destra, ingresso seriale del bit ricevuto
+ ed uscita parallela.
+ Si è scelto di connettere l'uscita direttamente ad un Holding Register
+ esterno, il quale viene abilitato dalla FSM solo a ricezione completata
+ e successivamente disabilitato per preservare il dato fino all'arrivo dei
+ successivo
+\end_layout
+
+\begin_layout Itemize
+Porte XOR per il calcolo del bit di parità e verifica integrità del frame.
+\end_layout
+
+\begin_layout Itemize
+Contatore Mod 8 utilizzato all'inizio della ricezione per lo sfasamento
+ necessario per effettuare il campionamento della linea di ingresso al centro
+ del bit.
+\end_layout
+
+\begin_layout Itemize
+Contatore Mod 16 utilizzato per il campionamento dei bit.
+\end_layout
+
+\begin_layout Itemize
+Contatore Mod 10 utilizzato per tenere traccia del numero dei bit già ricevuti.
+ Dimensionato a 10 in quanto non viene memorizzato il bit di start.
+\end_layout
+
+\begin_layout Itemize
+Macchina a stati finiti che implementa la logica di ricezione del protocollo.
+ Segue un grafo degli stati per descriverne il funzionamento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/rx_fsm.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Codice
+\end_layout
+
+\begin_layout Standard
+Segue il codice del componente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente Sezione
+ Ricezione)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity rx_cu is
+\end_layout
+
+\begin_layout Plain Layout
+
+    Port ( clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           reset : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           rx : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  FE : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  PE : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  OE : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  RDA : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			  load_data : out STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           received_data : out  STD_LOGIC_VECTOR (7 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+end rx_cu;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Behavioral of rx_cu is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT shift_register_SIPO
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic(n_bits : integer := 10);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		shift : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d_in : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out : OUT std_logic_vector(n_bits-1 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT counter_modN
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic(N : integer := 8);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter_hit : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	type state is (idle, eight_delay, wait_for_centre, get_bit, check_stop);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal current_state,next_state : state := idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	--------Signal -------------
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal rx_frame : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal shift_en : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal reset_8count, reset_16count, reset_bit_count : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal counter_8incr, counter_16incr, counter_bit_incr : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal done_8count, done_16count, done_bit_count : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal frameError, parError : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	frameError <= not rx_frame(9);
+\end_layout
+
+\begin_layout Plain Layout
+
+	parError <= not ( rx_frame(8) xor (((rx_frame(0) xor rx_frame(1)) xor (rx_frame
+(2) xor rx_frame(3))) xor ((rx_frame(4) xor rx_frame(5)) xor (rx_frame(6)
+ xor rx_frame(7)))) );
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	received_data <= rx_frame(7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	RX_shift_register_SIPO: shift_register_SIPO GENERIC MAP (10) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		shift => shift_en,
+\end_layout
+
+\begin_layout Plain Layout
+
+		d_in => rx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_out => rx_frame
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	counter_mod8: counter_modN Generic map (8) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock ,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset_8count,
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable => counter_8incr,
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter_hit => done_8count
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	counter_mod16: counter_modN Generic map (16) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock ,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset_16count,
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable => counter_16incr,
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter_hit => done_16count
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	bit_counter: counter_modN Generic map (10) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock ,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset_bit_count,
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable => counter_bit_incr,
+\end_layout
+
+\begin_layout Plain Layout
+
+		counter_hit => done_bit_count
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	state_assignment : process(clock, reset) is
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin
+\end_layout
+
+\begin_layout Plain Layout
+
+			if  (clock = '1' and clock'event) then
+\end_layout
+
+\begin_layout Plain Layout
+
+				if reset = '1' then
+\end_layout
+
+\begin_layout Plain Layout
+
+					current_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+				else 
+\end_layout
+
+\begin_layout Plain Layout
+
+					current_state <= next_state;
+\end_layout
+
+\begin_layout Plain Layout
+
+				end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	rx_fsm : process(clock, reset, rx, current_state, done_8count, done_16count,
+ done_bit_count, parError,frameError)
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			case current_state is 
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when idle =>
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_8incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_16incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_bit_incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_data <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					PE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					FE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					OE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					RDA <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_8count <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_16count <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_bit_count <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+					if (rx = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+					else
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= eight_delay;
+\end_layout
+
+\begin_layout Plain Layout
+
+					end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when eight_delay =>
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_16incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_bit_incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_8count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_16count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_bit_count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_data <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					PE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					FE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					OE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_8incr <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					RDA <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					if (done_8count = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= wait_for_centre;
+\end_layout
+
+\begin_layout Plain Layout
+
+					else 
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= eight_delay;
+\end_layout
+
+\begin_layout Plain Layout
+
+					end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when wait_for_centre =>
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_8incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_bit_incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_8count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_16count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_bit_count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_data <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					PE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					FE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					OE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+							
+\end_layout
+
+\begin_layout Plain Layout
+
+					RDA <= '1';					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_16incr <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					if (done_16count = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= get_bit;
+\end_layout
+
+\begin_layout Plain Layout
+
+					else 
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= wait_for_centre;
+\end_layout
+
+\begin_layout Plain Layout
+
+					end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when get_bit =>
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_8incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_16incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_8count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_16count <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_bit_count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_data <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					PE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					FE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					OE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					RDA <= '0';				
+\end_layout
+
+\begin_layout Plain Layout
+
+					shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_bit_incr <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+					if (done_bit_count = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= check_stop;
+\end_layout
+
+\begin_layout Plain Layout
+
+					else 
+\end_layout
+
+\begin_layout Plain Layout
+
+						shift_en <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+						next_state <= wait_for_centre;
+\end_layout
+
+\begin_layout Plain Layout
+
+					end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when check_stop =>
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_8incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_16incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					counter_bit_incr <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_8count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_16count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					reset_bit_count <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					shift_en <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+								
+\end_layout
+
+\begin_layout Plain Layout
+
+					PE <= parError;
+\end_layout
+
+\begin_layout Plain Layout
+
+					FE <= frameError;
+\end_layout
+
+\begin_layout Plain Layout
+
+					OE <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					RDA <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_data <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+					next_state <= idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\end_layout
+
+\begin_layout Plain Layout
+
+			end case;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Behavioral;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Modulazione del Clock
+\end_layout
+
+\begin_layout Standard
+Il componente UART prende in ingresso due parametri Generic che indicano
+ il Baud Rate e la frequenza del clock che fa da base dei tempi.
+ È stato realizzato un componete Clock Mod che rallenta la frequenza di
+ ingresso del doppio del parametro dato in ingresso dal Generic.
+ Il seguente componente, con parametri differenti è stato utilizzato sia
+ per il Baud Rate sia per gestire la diversa tempificazione di ricevitore
+ e trasmettitore a partire dalla stessa base dei tempi.
+\end_layout
+
+\begin_layout Itemize
+Baud Generator: prende in ingresso la costante BaudDivide, calcolata come
+ 
+\begin_inset Formula $BaudDivide=\frac{freq_{in}}{BaudRate*16*2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Tx clock Mod: prende in ingresso 8 per far sì che la frequenza del clock
+ del trasmettitore sia 16 volte più lenta di quella del ricevitore.
+\end_layout
+
+\begin_layout Subsubsection
+Codice
+\end_layout
+
+\begin_layout Standard
+Segue il codice del componente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente Clock
+ Mod)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.NUMERIC_STD.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity clock_mod is
+\end_layout
+
+\begin_layout Plain Layout
+
+    Generic (N : integer := 16);
+\end_layout
+
+\begin_layout Plain Layout
+
+	 Port ( clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           clock_out : out  STD_LOGIC);
+\end_layout
+
+\begin_layout Plain Layout
+
+end clock_mod;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Behavioral of clock_mod is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal count : integer range 0 to N-1 := 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal clock_tmp : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	clock_out <= clock_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	process (clock,count)
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (clock = '1' and clock'event) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			if count = N-1 then
+\end_layout
+
+\begin_layout Plain Layout
+
+				clock_tmp <= not clock_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+				count <= 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				clock_tmp <= clock_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+				count <= count + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Behavioral;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Codice
+\end_layout
+
+\begin_layout Standard
+Segue il codice del componente UART:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente UART)}]
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity UART is
+\end_layout
+
+\begin_layout Plain Layout
+
+    Generic(
+\end_layout
+
+\begin_layout Plain Layout
+
+		baudrate : integer := 9600;
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock_freq : integer := 50_000_000);
+\end_layout
+
+\begin_layout Plain Layout
+
+	 Port ( clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           reset : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           rx : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           data_in : in  STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           tx_en : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           OE : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           tx_busy : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           FE : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           PE : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           tx : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           data_out : out  STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           RDA : out  STD_LOGIC);
+\end_layout
+
+\begin_layout Plain Layout
+
+end UART;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Structural of UART is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT rx_cu
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		FE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		PE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		OE : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		RDA : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		load_data : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		received_data : OUT std_logic_vector(7 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT tx_cu
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_en : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_to_tx : IN std_logic_vector(7 downto 0);          
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_busy : OUT std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT d_ff_register
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic(N : integer := 8);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable : IN std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d : IN std_logic_vector(N-1 downto 0);          
+\end_layout
+
+\begin_layout Plain Layout
+
+		q : OUT std_logic_vector(N-1 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	COMPONENT clock_mod
+\end_layout
+
+\begin_layout Plain Layout
+
+	Generic (N : integer := 16);
+\end_layout
+
+\begin_layout Plain Layout
+
+	PORT(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : IN std_logic;          
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock_out : OUT std_logic
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+	END COMPONENT;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal load_d : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal data_to_reg : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal rx_clock, tx_clock : STD_LOGIC := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	constant boudDivide : integer := (clock_freq/baudrate)/16;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	BAUDGENERATOR: clock_mod Generic map(boudDivide/2) PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock_out => rx_clock
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	tx_clock_mod: clock_mod Generic map(9)PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => rx_clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock_out => tx_clock
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	TX_UART: tx_cu PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => tx_clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_en => tx_en,
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_busy => tx_busy,
+\end_layout
+
+\begin_layout Plain Layout
+
+		data_to_tx => data_in,
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx => tx
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	RX_UART: rx_cu PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => rx_clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx => rx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		FE => FE,
+\end_layout
+
+\begin_layout Plain Layout
+
+		PE => PE,
+\end_layout
+
+\begin_layout Plain Layout
+
+		OE => OE,
+\end_layout
+
+\begin_layout Plain Layout
+
+		RDA => RDA,
+\end_layout
+
+\begin_layout Plain Layout
+
+		load_data => load_d,
+\end_layout
+
+\begin_layout Plain Layout
+
+		received_data => data_to_reg
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	Holding_register: d_ff_register PORT MAP(
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset,
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable => load_d,
+\end_layout
+
+\begin_layout Plain Layout
+
+		d => data_to_reg,
+\end_layout
+
+\begin_layout Plain Layout
+
+		q => data_out
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
