@@ -2,9 +2,11 @@
 --! @file
 --! @brief  UART AXI IPCORE with interrupt
 -------------------------------------------------------
-
+--! Viene utilizzata la libreria IEEE
 library ieee;
+--! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;
+--! Vengono utilizzate le funzioni numeriche
 use ieee.numeric_std.all;
 
 entity UART_v1_0 is
@@ -53,10 +55,10 @@ entity UART_v1_0 is
 		s00_axi_rready	: in std_logic
 	);
 end UART_v1_0;
-
+--! @brief componente UART_AXI_S00
+--! @detail componente nel quale è incapsulato il componente UART e la logica di gestione delle interruzioni.
 architecture arch_imp of UART_v1_0 is
-    --! @brief componente UART_AXI_S00
-    --! @detail componente nel quale è incapsulato il componente UART e la logica di gestione delle interruzioni.
+   
 	-- component declaration
 	component UART_v1_0_S00_AXI is
 		generic (

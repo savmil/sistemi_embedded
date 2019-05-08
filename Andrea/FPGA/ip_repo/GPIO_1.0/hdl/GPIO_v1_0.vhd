@@ -2,7 +2,7 @@
 --! @file
 --! @brief	Top level entity del custom IP core GPIO_V1_0_S00_AXI.VHD
 ----------------------------------------------------------------------------------
---! Viene utilizzato la libreria IEEE
+--! Viene utilizzata la libreria IEEE
 library ieee;
 --! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;

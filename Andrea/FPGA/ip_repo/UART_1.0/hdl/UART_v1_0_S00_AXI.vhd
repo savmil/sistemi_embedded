@@ -2,9 +2,11 @@
 --! @file
 --! @brief  UART AXI IPCORE with interrupt
 -------------------------------------------------------
-
+--! Viene utilizzata la libreria IEEE
 library ieee;
+--! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;
+--! Vengono utilizzate le funzioni numeriche
 use ieee.numeric_std.all;
 --! libreria necessaria per la funzione or_reduce
 use ieee.std_logic_misc.all;
@@ -146,7 +148,7 @@ architecture arch_imp of UART_v1_0_S00_AXI is
     signal pending_intr : std_logic_vector(1 downto 0);                     --! interruzioni pendenti
     signal pending_intr_tmp : std_logic_vector(1 downto 0);                 --! delay intr_pending
 
-    --! alias esplicativi della logica  utilizzati per maggiore leggibilità del codice 
+    -- alias esplicativi della logica  utilizzati per maggiore leggibilità del codice 
     alias global_intr: std_logic is slv_reg4(0);                            --! enable interruzioni IP CORE
     alias intr_mask : std_logic_vector(1 downto 0) is slv_reg5(1 downto 0); --! maschera interruzioni rda(1) e tx_busy(0). Mettendo il relativo bit ad uno si 
                                                                             --! abilita la lina di interruzione
@@ -496,7 +498,7 @@ begin
 
 
 	-- Add user logic here
-    reset <= not S_AXI_ARESETN;             --! UART ha bisogno di un reset non negato, a differenza del BUS AXI
+    reset <= not S_AXI_ARESETN;             -- UART ha bisogno di un reset non negato, a differenza del BUS AXI
 
     inst_uart : UART 
     generic map(
@@ -520,8 +522,15 @@ begin
            
            
            
-    --! process utilizzato per captare varizione dei segnali RDA(bit 3) e tx_busy(bit 4)
-    --! la sintesi da due FF in cascata
+    -- process utilizzato per captare varizione dei segnali RDA(bit 3) e tx_busy(bit 4)
+    -- la sintesi da due FF in cascata
+    -------------------------------------------------------------------------------
+    --!  @brief Campiona i segnali di cui si vuole verificare la generazione 
+    --!		di un interrupt
+    --!
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   uart_status_reg	valori del UART da campionare
+    -------------------------------------------------------------------------------
     status_reg_sampling : process (S_AXI_ACLK,uart_status_reg)
     begin
     if (rising_edge (S_AXI_ACLK)) then
@@ -536,47 +545,66 @@ begin
     end process;
     
     
-     tx_busy_falling_detect <= not last_stage(1) and  current_stage(1);    --! detect falling edge tx_busy
-     rx_rising_detect <= not current_stage(0) and last_stage(0);           --! detect rising edge RDA
+     tx_busy_falling_detect <= not last_stage(1) and  current_stage(1);    -- detect falling edge tx_busy
+     rx_rising_detect <= not current_stage(0) and last_stage(0);           -- detect rising edge RDA
     
     
-    changed_bits <= (rx_rising_detect & tx_busy_falling_detect) and intr_mask; --! and con la intr_mask perchè sono interessato a vedere l'edge del sengale
-                                                                               --! solo se la relativa interruzione è abilitata   
+    changed_bits <= (rx_rising_detect & tx_busy_falling_detect) and intr_mask; -- and con la intr_mask perchè sono interessato a vedere l'edge del sengale
+                                                                               -- solo se la relativa interruzione è abilitata   
    
-    change_detected <= global_intr and or_reduce(changed_bits);                --! Segnale che indica se è stato rilevata una variazione di tx_busy o RDA 
-                                                                               --! alla quale si è interessati         
+    change_detected <= global_intr and or_reduce(changed_bits);                -- Segnale che indica se è stato rilevata una variazione di tx_busy o RDA 
+                                                                               -- alla quale si è interessati         
 
 
-    --! delay del segnale pending_intr
+    -- delay del segnale pending_intr
     pending_intr_tmp <= pending_intr;
 
-    --! process per la gestizione della logica di interruzione pedente 
-    --! e meccanismo di ack per rimuovere l'interruzione pendente
+    -- process per la gestizione della logica di interruzione pedente 
+    -- e meccanismo di ack per rimuovere l'interruzione pendente
+    -------------------------------------------------------------------------------
+    --! @brief Gestisce il registro pending
+    --! @details Per la descrizione del componente riferirsi alla documentazione 
+    --!		 dell' intero design
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   change_detected	identifica l' avvenimento dell' interruput
+    --!					su un segnale abilitato
+    --! @param[in]   ack_intr		cattura un segnale di ack generato dal 
+    --!					driver che gestisce l' eccezione
+    -------------------------------------------------------------------------------
     intr_pending : process (S_AXI_ACLK, change_detected, ack_intr)
     begin
     if (rising_edge (S_AXI_ACLK)) then
-        if (change_detected = '1') then                                        --! se c'è richiesta di interruzione su una delle due line
-            pending_intr <= pending_intr_tmp or changed_bits;                  --! aggiungi la richiesta alle interruzioni pendenti
+        if (change_detected = '1') then                                        -- se c'è richiesta di interruzione su una delle due line
+            pending_intr <= pending_intr_tmp or changed_bits;                  -- aggiungi la richiesta alle interruzioni pendenti
         else
-            if (or_reduce(ack_intr)='1') then                                  --! se viene dato un ack
-                pending_intr <= pending_intr_tmp and (not ack_intr);           --! rimuovi la richiesta pendente relativa
+            if (or_reduce(ack_intr)='1') then                                  -- se viene dato un ack
+                pending_intr <= pending_intr_tmp and (not ack_intr);           -- rimuovi la richiesta pendente relativa
             end if;   
         end if;   
     end if;
     end process;
     
-    --! process per gestire l'unica linea di interruzione 
-    --! in unscita dal componente
+    -- process per gestire l'unica linea di interruzione 
+    -- in unscita dal componente
+    -------------------------------------------------------------------------------
+    --! @brief Disabilita l' interrupt nel caso di reset del bus e tiene alto il
+    --! segnale di interrupt finchè rimane pendente
+    --! @details Per la descrizione del componente riferirsi alla documentazione 
+    --!		 dell' intero design
+    --! @param[in]   S_AXI_ACLK		clock del bus AXI
+    --! @param[in]   pending_intr	registro che identifica le interruzioni 
+    --!					pendenti
+    -------------------------------------------------------------------------------
     inst_irq : process(S_AXI_ACLK,pending_intr)
     begin
         if (rising_edge (S_AXI_ACLK)) then
             if ( S_AXI_ARESETN = '0' ) then
                     interrupt <= '0';
             else
-                if (or_reduce(pending_intr) = '1') then                        --! Se c'è almeno un interruzione pendente
-                    interrupt <= '1';                                          --! interrupt = '1'
+                if (or_reduce(pending_intr) = '1') then                        -- Se c'è almeno un interruzione pendente
+                    interrupt <= '1';                                          -- interrupt = '1'
                 else
-                    interrupt <= '0';                                          --! altrimenti 0
+                    interrupt <= '0';                                          -- altrimenti 0
                 end if;
             end if;
         end if;
