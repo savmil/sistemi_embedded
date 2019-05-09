@@ -52,46 +52,51 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 	u32 reg_sent_data, reg_received_data, pending_reg;
 	
 	iowrite32(0, dm->base_addr + TX_EN); // abbasso il TX_EN
-	iowrite32(0, dm->base_addr + INTR_EN); //disabilito interruzioni
+	iowrite32(0, dm->base_addr + GLOBAL_INTR_EN); //disabilito interruzioni
 	
 	printk(KERN_INFO"ISR serverd!\n");
 
 	pending_reg = ioread32(dm->base_addr + INTR_ACK_PEND);
 	
-	if((pending_reg & INTR_MASK) == 0x00000002){
+	if((pending_reg & 0x00000002) == 0x00000002){
 		/*---ISR RX---*/
-		printk(KERN_INFO"ISR RX...\n");
 		rx_count++;
-		if(tx_count <= buffer_size){
+		printk(KERN_INFO"ISR RX...\n");
+		
+		if(rx_count <= buffer_size){
+			
 			reg_received_data = ioread32(dm->base_addr + RX_REG);
-			printk(KERN_INFO"ISR RX - value %u received\n", reg_received_data & 0x000000FF);
-			rx_total_reg = rx_total_reg | ((reg_received_data & 255) << (rx_count-1)*8);
-			printk(KERN_INFO"ISR RX - total value %u received\n", rx_total_reg);
+			printk(KERN_INFO"ISR RX - value received: %02x\n", reg_received_data);
+			rx_total_reg = rx_total_reg | (reg_received_data << (rx_count-1)*8);
+			printk(KERN_INFO"ISR RX - total value received %08x\n", rx_total_reg);
 		}
-		iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
+		
 		iowrite32(2, dm->base_addr + INTR_ACK_PEND); //ACK
 		iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+		iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
 
 	}
-	if((pending_reg & INTR_MASK) == 0x00000001){
+	else if((pending_reg & 0x00000001) == 0x00000001){
 		/*---ISR TX---*/
 		tx_count++;
+		printk(KERN_INFO"ISR TX...\n");
+		
 		if(tx_count < buffer_size){
-			printk(KERN_INFO"ISR TX...\n");
+			
 			reg_sent_data = ioread32(dm->base_addr + DATA_IN);
-			printk(KERN_INFO"ISR TX - value %u sent\n", reg_sent_data);
-			printk(KERN_INFO"ISR TX - start sending next value: %u\n", buffer[tx_count]);
+			printk(KERN_INFO"ISR TX - value sent: %02x\n", reg_sent_data);
+			printk(KERN_INFO"ISR TX - start sending next value: %02x\n", buffer[tx_count]);
 			iowrite32(buffer[tx_count], dm->base_addr + DATA_IN); 
 			
 			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
 			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
 			iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
 		}
 		else{
 			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
 			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(INTR_MASK, dm->base_addr + INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
 		}
 	}	
 	
@@ -139,6 +144,8 @@ static ssize_t my_int_uart_write(struct file *file, const char __user * buf, siz
 			printk(KERN_INFO"Buffer[%d]= %02x\n",j,buffer[j]);
 		}
 		skip:
+
+		printk(KERN_INFO"Start sending first value: %02x", buffer[0]);
 		iowrite32(buffer[0], dm->base_addr + DATA_IN); // inserisco valore in DATA_IN
 	    iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
 	
