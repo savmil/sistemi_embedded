@@ -25,7 +25,7 @@
 #define INTR_MASK      3
 /**
  * @file UART_interrupt_kernel_mode.c
- * @page driver
+ * @page driver_UART_kernel
  * @brief funzioni per gestire la trasmissione e la ricezione dei
  * 	  dati utilizzando il protocollo UART (KERNEL)
  */
