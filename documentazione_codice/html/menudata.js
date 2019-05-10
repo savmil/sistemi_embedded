@@ -39,4 +39,5 @@ var menudata={children:[
 {text:"File List",url:"files.html"},
 {text:"Globals",url:"globals.html",children:[
 {text:"All",url:"globals.html"},
-{text:"Functions/Procedures/Processes",url:"globals_func.html"}]}]}]}
+{text:"Functions/Procedures/Processes",url:"globals_func.html"},
+{text:"Variables",url:"globals_vars.html"}]}]}]}

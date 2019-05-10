@@ -1,0 +1,222 @@
+\hypertarget{UART__interrupt__kernel__mode_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.c File Reference}
+\label{UART__interrupt__kernel__mode_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmydriver__dm}{mydriver\+\_\+dm}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_aecc96c31b9a852706cf0c9d744428427}\label{UART__interrupt__kernel__mode_8c_aecc96c31b9a852706cf0c9d744428427}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe}}
+\index{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe()}{\_\_test\_int\_driver\_probe()}}
+{\footnotesize\ttfamily static int \+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+probe (\begin{DoxyParamCaption}\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+gestione del platoform device, gestionde dell\textquotesingle{} interrupt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdev} & platform device da gestire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_acc2e51f3f1afdbad4383bdc16be103af}\label{UART__interrupt__kernel__mode_8c_acc2e51f3f1afdbad4383bdc16be103af}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove}}
+\index{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove()}{\_\_test\_int\_driver\_remove()}}
+{\footnotesize\ttfamily static int \+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+remove (\begin{DoxyParamCaption}\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+rimuove il platform device 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdev} & platform device da gestire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a6d2a7ad35f428fca92ef74e8befc70fc}\label{UART__interrupt__kernel__mode_8c_a6d2a7ad35f428fca92ef74e8befc70fc}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!isr\+\_\+handler@{isr\+\_\+handler}}
+\index{isr\+\_\+handler@{isr\+\_\+handler}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{isr\+\_\+handler()}{isr\_handler()}}
+{\footnotesize\ttfamily static irq\+\_\+handler\+\_\+t isr\+\_\+handler (\begin{DoxyParamCaption}\item[{int}]{irq,  }\item[{void $\ast$}]{dev\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handler dell\textquotesingle{} interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em irq} & è il valore associato all\textquotesingle{} interrupt da gestire \\
+\hline
+{\em dev\+\_\+id} & non utilizzato\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ritorna identificativo del handler
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_ab14e8047b498406ca66de938329b4996}\label{UART__interrupt__kernel__mode_8c_ab14e8047b498406ca66de938329b4996}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!my\+\_\+int\+\_\+uart\+\_\+write@{my\+\_\+int\+\_\+uart\+\_\+write}}
+\index{my\+\_\+int\+\_\+uart\+\_\+write@{my\+\_\+int\+\_\+uart\+\_\+write}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{my\+\_\+int\+\_\+uart\+\_\+write()}{my\_int\_uart\_write()}}
+{\footnotesize\ttfamily static ssize\+\_\+t my\+\_\+int\+\_\+uart\+\_\+write (\begin{DoxyParamCaption}\item[{struct file $\ast$}]{file,  }\item[{const char \+\_\+\+\_\+user $\ast$}]{buf,  }\item[{size\+\_\+t}]{count,  }\item[{loff\+\_\+t $\ast$}]{ppos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+legge i valori scritti sul file /proc/\+U\+A\+RT e li invia utiliz zando U\+A\+RT 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & in cui viengono scritti i dati da mandare \\
+\hline
+{\em \+\_\+user} & non utilizato \\
+\hline
+{\em count} & numero di caratteri massimi da leggere \\
+\hline
+{\em ppos} & non utilizzato \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+numeri di caratteri scritti sul file
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a12372f50043ab53cad41708275ffc39d}\label{UART__interrupt__kernel__mode_8c_a12372f50043ab53cad41708275ffc39d}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open@{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open}}
+\index{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open@{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open()}{proc\_my\_int\_uart\_open()}}
+{\footnotesize\ttfamily static int proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+open (\begin{DoxyParamCaption}\item[{struct inode $\ast$}]{inode,  }\item[{struct file $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+gestisce l\textquotesingle{} apertura del file /proc/\+U\+A\+RT /proc/\+U\+A\+RT 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inode} & non utilizzato \\
+\hline
+{\em file} & file che deve essere aperto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a468cf3dc6b02cc6343916324e56fc89e}\label{UART__interrupt__kernel__mode_8c_a468cf3dc6b02cc6343916324e56fc89e}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show@{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show}}
+\index{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show@{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show()}{proc\_my\_int\_uart\_show()}}
+{\footnotesize\ttfamily static int proc\+\_\+my\+\_\+int\+\_\+uart\+\_\+show (\begin{DoxyParamCaption}\item[{struct seq\+\_\+file $\ast$}]{p,  }\item[{void $\ast$}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+restituisce lo stato della U\+A\+RT quando si apre il file /proc/\+U\+A\+RT 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq\+\_\+file} & non utilizzato \\
+\hline
+{\em v} & non utilizato \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a90f23fc3983ed70106033d6b54b447ea}\label{UART__interrupt__kernel__mode_8c_a90f23fc3983ed70106033d6b54b447ea}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver}}
+\index{\+\_\+\+\_\+test\+\_\+int\+\_\+driver@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+test\+\_\+int\+\_\+driver}{\_\_test\_int\_driver}}
+{\footnotesize\ttfamily struct platform\+\_\+driver \+\_\+\+\_\+test\+\_\+int\+\_\+driver\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=\{
+.driver=\{
+    .name=DEVNAME,
+    .owner=THIS\_MODULE,
+    .of\_match\_table=of\_match\_ptr(\_\_test\_int\_driver\_id), 
+    
+\},
+.probe=\hyperlink{UART__interrupt__kernel__mode_8c_aecc96c31b9a852706cf0c9d744428427}{\_\_test\_int\_driver\_probe}, 
+.remove=\hyperlink{UART__interrupt__kernel__mode_8c_acc2e51f3f1afdbad4383bdc16be103af}{\_\_test\_int\_driver\_remove} 
+\}
+\end{DoxyCode}
+Una struttura che gestisce l\textquotesingle{} identificativo del platform driver 
+\begin{DoxyParams}{Parameters}
+{\em name} & nome driver \\
+\hline
+{\em owner} & proprietario \\
+\hline
+{\em of\+\_\+match\+\_\+table} & id \\
+\hline
+{\em probe} & funzione iniziallizzazione driver \\
+\hline
+{\em remove} & funzione che gestisce la rimozione \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a422309d376dbdba198b2722c5a2ecdef}\label{UART__interrupt__kernel__mode_8c_a422309d376dbdba198b2722c5a2ecdef}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}}
+\index{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}{\_\_test\_int\_driver\_id}}
+{\footnotesize\ttfamily const struct of\+\_\+device\+\_\+id \+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=\{
+\{.compatible = \textcolor{stringliteral}{"xlnx,UART-1.0"}\},
+\{\}
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{UART__interrupt__kernel__mode_8c_a2789c0abbda4a90583b5d786ed158edb}\label{UART__interrupt__kernel__mode_8c_a2789c0abbda4a90583b5d786ed158edb}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}!proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations@{proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations}}
+\index{proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations@{proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations}!U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+kernel\+\_\+mode.\+c}}
+\subsubsection{\texorpdfstring{proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations}{proc\_my\_uart\_int\_operations}}
+{\footnotesize\ttfamily const struct file\+\_\+operations proc\+\_\+my\+\_\+uart\+\_\+int\+\_\+operations\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    .open = \hyperlink{UART__interrupt__kernel__mode_8c_a12372f50043ab53cad41708275ffc39d}{proc\_my\_int\_uart\_open},
+    .read = seq\_read,
+    .write = \hyperlink{UART__interrupt__kernel__mode_8c_ab14e8047b498406ca66de938329b4996}{my\_int\_uart\_write},
+    .llseek = seq\_lseek,
+\}
+\end{DoxyCode}
+Una struttura che definisce le operazioni sul file /proc/\+U\+A\+RT 
+\begin{DoxyParams}{Parameters}
+{\em open} & funzione che gestisce l\textquotesingle{} apertura \\
+\hline
+{\em read} & funzione che gestisce la lettura \\
+\hline
+{\em write} & funzione che gestisce la scrittura \\
+\hline
+{\em llseek} & funzione che gestisce la ricerca nel file \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,76 @@
+\hypertarget{UART__interrupt__uio_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.c File Reference}
+\label{UART__interrupt__uio_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART__interrupt__uio_8c_ab9734b87bdd5937a4161587344636fd2}\label{UART__interrupt__uio_8c_ab9734b87bdd5937a4161587344636fd2}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!read\+\_\+reg@{read\+\_\+reg}}
+\index{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+reg()}{read\_reg()}}
+{\footnotesize\ttfamily unsigned int read\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset }\end{DoxyParamCaption})}
+
+
+
+Permette la lettura in un registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui scrivere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}\label{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
+\index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
+\subsubsection{\texorpdfstring{wait\+\_\+for\+\_\+interrupt()}{wait\_for\_interrupt()}}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+interrupt (\begin{DoxyParamCaption}\item[{int}]{file\+\_\+descr,  }\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Attende l\textquotesingle{} arrivo di un interrupt utilizzando la read su un device U\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+descr} & descrittore del U\+IO driver \\
+\hline
+{\em addr} & indirizzo virtuale della periferica\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}\label{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!write\+\_\+reg@{write\+\_\+reg}}
+\index{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+reg()}{write\_reg()}}
+{\footnotesize\ttfamily void write\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset,  }\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Permette la scrittura in un registro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui scrivere \\
+\hline
+{\em valore} & da scrivere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}

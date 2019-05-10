@@ -23,30 +23,24 @@
 #define INTR_ACK_PEND  28 // PENDING/ACK REGISTER
 
 #define INTR_MASK      3
-
-struct mydriver_dm
-{
-   void __iomem *    base_addr; // ioremapped kernel virtual address of UART
-   struct platform_device *   pdev;    // device
-   unsigned long remap_size; /* Device Memory Size */
-   int               irq; // the IRQ number ( note: this will NOT be the value from the DTS entry )
-};
-
-struct resource *irq_res; /* Device IRQ Resource Structure */
-struct resource *res; /* Device Resource Structure */
-
-static struct mydriver_dm my_dm;
-static struct mydriver_dm *dm;
-
-u8 buffer[4];
-int tx_count, rx_count, buffer_size = 0;
-u32 rx_total_reg;
-
-static const struct of_device_id __test_int_driver_id[]={
-{.compatible = "xlnx,UART-1.0"},
-{}
-};
-
+/**
+ * @file UART_interrupt_kernel_mode.c
+ * @page driver
+ * @brief funzioni per gestire la trasmissione e la ricezione dei
+ * 	  dati utilizzando il protocollo UART (KERNEL)
+ */
+/**
+ *
+ * @brief	Handler dell' interrupt
+ *
+ * @param	irq è il valore associato all' interrupt da gestire
+ * @param	dev_id non utilizzato
+ *
+ * @return	ritorna identificativo del handler
+ *
+ * @note
+ *
+ */
 static irq_handler_t isr_handler(int irq,void *dev_id){
 	
 	u32 reg_sent_data, reg_received_data, pending_reg;
@@ -102,10 +96,53 @@ static irq_handler_t isr_handler(int irq,void *dev_id){
 	
 	return (irq_handler_t) IRQ_HANDLED;
 }
+/**
+ * Una struttura che contiene le informazioni riguardanti la gestione
+ * del componente Hardware
+ */
+struct mydriver_dm
+{
+   /*@{*/
+   void __iomem *    base_addr;/**<indirizzo virtuale UART*/ // ioremapped kernel virtual address of UART
+   struct platform_device *   pdev;/**<dispositivo*/    // device
+   unsigned long remap_size;/**<area di memoria occupata per la gestione del device*/ // Device Memory Size 
+   int               irq;/**<valore dell' IRQ da gestire*/ // the IRQ number ( note: this will NOT be the value from the DTS entry )
+   /*@}*/
+};
+
+struct resource *irq_res; // Device IRQ Resource Structure 
+struct resource *res; // Device Resource Structure 
+
+static struct mydriver_dm my_dm;
+static struct mydriver_dm *dm;
+
+u8 buffer[4];
+int tx_count, rx_count, buffer_size = 0;
+u32 rx_total_reg;
+
+static const struct of_device_id __test_int_driver_id[]={
+{.compatible = "xlnx,UART-1.0"},
+{}
+};
+
  
 /* Write operation for /proc/my_int_uart
 * --------------------------------------
 */
+/**
+ *
+ * @brief	legge i valori scritti sul file /proc/UART e li invia utiliz
+ *		zando UART
+ *
+ * @param	file in cui viengono scritti i dati da mandare
+ * @param	_user non utilizato
+ * @param	count numero di caratteri massimi da leggere
+ * @param	ppos non utilizzato
+ * @return	numeri di caratteri scritti sul file
+ *
+ * @note
+ *
+ */
 static ssize_t my_int_uart_write(struct file *file, const char __user * buf, size_t count, loff_t * ppos){
 
 		char my_int_uart_phrase[16];
@@ -151,7 +188,18 @@ static ssize_t my_int_uart_write(struct file *file, const char __user * buf, siz
 	
 		return count;
 }
-
+/**
+ *
+ * @brief	restituisce lo stato della UART quando si apre il file
+ *		/proc/UART
+ *
+ * @param	seq_file non utilizzato
+ * @param	v non utilizato
+ * @return	
+ *
+ * @note
+ *
+ */
 /* Callback function when opening file /proc/my_int_uart
 * ------------------------------------------------------
 */
@@ -166,7 +214,18 @@ static int proc_my_int_uart_show(struct seq_file *p, void *v){
 	
 	return 0;
 }
-
+/**
+ *
+ * @brief	gestisce l' apertura del file /proc/UART
+ *		/proc/UART
+ *
+ * @param	inode non utilizzato
+ * @param	file file che deve essere aperto
+ * @return	
+ *
+ * @note
+ *
+ */
 /* Open function for /proc/my_int_uart
 * ------------------------------------
 */
@@ -195,6 +254,13 @@ static int proc_my_int_uart_open(struct inode *inode, struct file *file){
 }
 
 /* File Operations for /proc/my_uart_int */
+/**
+ * Una struttura che definisce le operazioni sul file /proc/UART 
+ * @param open funzione che gestisce l' apertura
+ * @param read funzione che gestisce la lettura
+ * @param write funzione che gestisce la scrittura
+ * @param llseek funzione che gestisce la ricerca nel file
+ */
 static const struct file_operations proc_my_uart_int_operations = {
 	.open = proc_my_int_uart_open,
 	.read = seq_read,
@@ -202,7 +268,17 @@ static const struct file_operations proc_my_uart_int_operations = {
 	.llseek = seq_lseek,
 };
 
-
+/**
+ *
+ * @brief	gestione del platoform device, gestionde dell' interrupt
+ *		
+ *
+ * @param	pdev platform device da gestire
+ * @return	
+ *
+ * @note
+ *
+ */
 static int __test_int_driver_probe(struct platform_device *pdev){
               
 	int ret, rval = 0;
@@ -279,7 +355,17 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 	return 0;
 
 }
-
+/**
+ *
+ * @brief	rimuove il platform device
+ *		
+ *
+ * @param	pdev platform device da gestire
+ * @return	
+ *
+ * @note
+ *
+ */
 static int __test_int_driver_remove(struct platform_device *pdev){
 
 	printk(KERN_INFO"IRQ %d about to be freed!\n",dm->irq);
@@ -298,15 +384,23 @@ static int __test_int_driver_remove(struct platform_device *pdev){
 	
 	return 0;
 }
-
+/**
+ * Una struttura che gestisce l' identificativo del platform driver
+ * @param name nome driver
+ * @param owner proprietario
+ * @param of_match_table id
+ * @param probe funzione iniziallizzazione driver
+ * @param remove funzione che gestisce la rimozione
+ */
 static struct platform_driver __test_int_driver={
 .driver={
 	.name=DEVNAME,
 	.owner=THIS_MODULE,
-	.of_match_table=of_match_ptr(__test_int_driver_id),
+	.of_match_table=of_match_ptr(__test_int_driver_id), 
+	
 },
-.probe=__test_int_driver_probe,
-.remove=__test_int_driver_remove
+.probe=__test_int_driver_probe, 
+.remove=__test_int_driver_remove 
 };
   
 

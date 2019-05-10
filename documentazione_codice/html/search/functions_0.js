@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gpio_5fread_5fsampling',['gpio_read_sampling',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a29a70265aec87dff63669cc686cdd7b6',1,'GPIO_v1_0_S00_AXI::arch_imp']]]
+  ['_5f_5ftest_5fint_5fdriver_5fprobe',['__test_int_driver_probe',['../UART__interrupt__kernel__mode_8c.html#aecc96c31b9a852706cf0c9d744428427',1,'UART_interrupt_kernel_mode.c']]],
+  ['_5f_5ftest_5fint_5fdriver_5fremove',['__test_int_driver_remove',['../UART__interrupt__kernel__mode_8c.html#acc2e51f3f1afdbad4383bdc16be103af',1,'UART_interrupt_kernel_mode.c']]]
 ];

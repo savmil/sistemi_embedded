@@ -19,7 +19,12 @@
 #define BASE_ADDR	0x43C00000
 
 #define INTR_MASK 3
-
+/**
+ * @file UART_interrupt_uio.c
+ * @page driver_UART_UIO
+ * @brief funzioni per gestire la trasmissione e la ricezione dei
+ * 	  dati utilizzando il protocollo UART
+ */
 typedef u_int8_t u8;
 typedef u_int32_t u32;
 
@@ -28,17 +33,53 @@ u8 buffer[4];
 int tx_count, rx_count, buffer_size = 0;
 u32 rx_total_reg = 0;
 
+/**
+ *
+ * @brief	Permette la scrittura in un registro
+ *
+ * @param	addr indirizzo virtuale della periferica
+ * @param	offset offset del registro a cui scrivere
+ * @param	valore da scrivere
+ *
+ * @return	
+ *
+ * @note
+ *
+ */
 void write_reg(void *addr, unsigned int offset, unsigned int value)
 {
 	*((unsigned*)(addr + offset_pag + offset)) = value;
 }
-
+/**
+ *
+ * @brief	Permette la lettura in un registro
+ *
+ * @param	addr indirizzo virtuale della periferica
+ * @param	offset offset del registro a cui scrivere
+ *
+ * @return	
+ *
+ * @note
+ *
+ */
 unsigned int read_reg(void *addr, unsigned int offset)
 {
 	return *((unsigned*)(addr + offset_pag + offset));
 }
 
-
+/**
+ *
+ * @brief	Attende l' arrivo di un interrupt utilizzando la read 
+ *		su un device UIO
+ *
+ * @param	file_descr descrittore del UIO driver
+ * @param	addr indirizzo virtuale della periferica
+ *
+ * @return	
+ *
+ * @note
+ *
+ */
 void wait_for_interrupt(int file_descr, void *addr)
 {
 	
