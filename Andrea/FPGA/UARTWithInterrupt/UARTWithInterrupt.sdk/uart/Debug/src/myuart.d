@@ -1,4 +1,4 @@
-src/main.o src/main.o: ../src/main.c ../src/myuart.h \
+src/myuart.o src/myuart.o: ../src/myuart.c ../src/myuart.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_types.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_types.h \
@@ -11,16 +11,16 @@ src/main.o src/main.o: ../src/main.c ../src/myuart.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xpseudo_asm.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
+ ../../uart_bsp/ps7_cortexa9_0/include/UART.h \
+ ../../uart_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_exception.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xparameters.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_cache.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_printf.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xscugic.h \
- ../../uart_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xil_io.h \
  ../../uart_bsp/ps7_cortexa9_0/include/xscugic_hw.h \
- ../../uart_bsp/ps7_cortexa9_0/include/xil_exception.h \
- ../../uart_bsp/ps7_cortexa9_0/include/xil_cache_l.h
+ ../../uart_bsp/ps7_cortexa9_0/include/xil_exception.h
 
 ../src/myuart.h:
 
@@ -48,6 +48,10 @@ src/main.o src/main.o: ../src/main.c ../src/myuart.h \
 
 ../../uart_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h:
 
+../../uart_bsp/ps7_cortexa9_0/include/UART.h:
+
+../../uart_bsp/ps7_cortexa9_0/include/xstatus.h:
+
 ../../uart_bsp/ps7_cortexa9_0/include/xil_exception.h:
 
 ../../uart_bsp/ps7_cortexa9_0/include/xparameters.h:
@@ -58,12 +62,8 @@ src/main.o src/main.o: ../src/main.c ../src/myuart.h \
 
 ../../uart_bsp/ps7_cortexa9_0/include/xscugic.h:
 
-../../uart_bsp/ps7_cortexa9_0/include/xstatus.h:
-
 ../../uart_bsp/ps7_cortexa9_0/include/xil_io.h:
 
 ../../uart_bsp/ps7_cortexa9_0/include/xscugic_hw.h:
 
 ../../uart_bsp/ps7_cortexa9_0/include/xil_exception.h:
-
-../../uart_bsp/ps7_cortexa9_0/include/xil_cache_l.h:
