@@ -310,33 +310,8 @@ void Send_CRC(uint32_t * MSG,uint8_t channel){
 
 		UartReady = RESET;
 
-		uint8_t aRxBuffer[UART_BUFFER_SIZE];
-
-		if(HAL_UART_Receive_IT(&UartHandle, (uint8_t *)aRxBuffer, UART_BUFFER_SIZE) != HAL_OK)
-			Error_Handler();
-
-		while (UartReady != SET)
-		{
-		BSP_LED_On(LED4);
-		HAL_Delay(100);
-		BSP_LED_Off(LED4);
-		HAL_Delay(100);
-		BSP_LED_On(LED4);
-		HAL_Delay(100);
-		BSP_LED_Off(LED4);
-		HAL_Delay(500);
-		}
-
-		UartReady = RESET;
-		BSP_LED_Off(LED4);
-
-		uint32_t  ReceivedFrame[FRAME_SIZE];
-		Frame8to32(aRxBuffer,ReceivedFrame);
-		CRC_Check(ReceivedFrame);
-
-		}
 }
-
+}
 void Receive_CRC(uint32_t * ReceivedData, uint8_t channel){
 
 	switch(channel){
@@ -364,30 +339,8 @@ void Receive_CRC(uint32_t * ReceivedData, uint8_t channel){
 			BSP_LED_Off(LED4);
 
 
-			uint32_t ReceivedFrame[FRAME_SIZE];
-			Frame8to32(aRxBuffer,ReceivedFrame);
-			CRC_Check(ReceivedFrame);
-
-			uint8_t  aTxBuffer[UART_BUFFER_SIZE];
-			Frame32to8(ReceivedFrame,aTxBuffer);
-
-			BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
-
-			while(UserButtonStatus == 0)
-			{
-				BSP_LED_Toggle(LED4);
-				HAL_Delay(100);
-			}
-
-			BSP_LED_Off(LED4);
-
-
-			if(HAL_UART_Transmit_IT(&UartHandle, (uint8_t*)aTxBuffer, UART_BUFFER_SIZE)!= HAL_OK)
-				Error_Handler();
-
-			while (UartReady != SET){}
-
-			UartReady = RESET;
+			Frame8to32(aRxBuffer,ReceivedData);
+			CRC_Check(ReceivedData);
 
 	}
 

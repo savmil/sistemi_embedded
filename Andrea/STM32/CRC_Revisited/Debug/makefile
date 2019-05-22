@@ -31,13 +31,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: CRC_Revisited.elf
+all: CRC_Revisited_1.elf
 
 # Tool invocations
-CRC_Revisited.elf: $(OBJS) $(USER_OBJS) /home/andrea/Ac6Workspace/CRC_Revisited/LinkerScript.ld
+CRC_Revisited_1.elf: $(OBJS) $(USER_OBJS) /home/andrea/Ac6Workspace/CRC_Revisited_1/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/andrea/Ac6Workspace/CRC_Revisited/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "CRC_Revisited.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/andrea/Ac6Workspace/CRC_Revisited_1/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "CRC_Revisited_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -49,8 +49,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "CRC_Revisited.elf" "CRC_Revisited.bin"
-	arm-none-eabi-size "CRC_Revisited.elf"
+	arm-none-eabi-objcopy -O binary "CRC_Revisited_1.elf" "CRC_Revisited_1.bin"
+	arm-none-eabi-size "CRC_Revisited_1.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents
