@@ -1,0 +1,65 @@
+\hypertarget{group__HAL__MSP__Private__Functions}{}\section{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}
+\label{group__HAL__MSP__Private__Functions}\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+Collaboration diagram for H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__HAL__MSP__Private__Functions}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__HAL__MSP__Private__Functions_ga8c3ca8029adb83e510a166b9b5022fb7}\label{group__HAL__MSP__Private__Functions_ga8c3ca8029adb83e510a166b9b5022fb7}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init()}{HAL\_UART\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Disable the Peripheral\textquotesingle{}s clock
+\item Revert G\+P\+IO and N\+V\+IC configuration to their default state 
+\begin{DoxyParams}{Parameters}
+{\em huart} & U\+A\+RT handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}\mbox{\Hypertarget{group__HAL__MSP__Private__Functions_ga13f0f8431d6ec49733ccfa381972f0dd}\label{group__HAL__MSP__Private__Functions_ga13f0f8431d6ec49733ccfa381972f0dd}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init()}{HAL\_UART\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT M\+SP Initialization This function configures the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Peripheral\textquotesingle{}s clock enable
+\item Peripheral\textquotesingle{}s G\+P\+IO Configuration
+\item N\+V\+IC configuration for U\+A\+RT interrupt request enable 
+\begin{DoxyParams}{Parameters}
+{\em huart} & U\+A\+RT handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}

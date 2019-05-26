@@ -1,0 +1,302 @@
+\hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.c File Reference}
+\label{STM32_2CRC__Revisited__loop_2src_2main_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a4b61c27d8331d2af719f8ec9774054ad}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a4b61c27d8331d2af719f8ec9774054ad}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}}
+\index{C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{C\+R\+C\+\_\+\+Check()}{CRC\_Check()}}
+{\footnotesize\ttfamily void C\+R\+C\+\_\+\+Check (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Frame }\end{DoxyParamCaption})}
+
+
+
+Controlla i due C\+RC del Frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Received\+Frame} & frame ricevuto con i due C\+RC \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_ab55943e39c1f6b18e417e8f54cdd4c32}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_ab55943e39c1f6b18e417e8f54cdd4c32}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!C\+R\+C\+\_\+\+Config@{C\+R\+C\+\_\+\+Config}}
+\index{C\+R\+C\+\_\+\+Config@{C\+R\+C\+\_\+\+Config}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{C\+R\+C\+\_\+\+Config()}{CRC\_Config()}}
+{\footnotesize\ttfamily void C\+R\+C\+\_\+\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{C\+R\+C\+\_\+\+Polynomial,  }\item[{uint32\+\_\+t}]{C\+R\+C\+\_\+\+Default\+Value }\end{DoxyParamCaption})}
+
+
+
+Configura la periferica C\+RC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a43df12e7de3b3065350b19b3c00c037e}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a43df12e7de3b3065350b19b3c00c037e}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Error\+\_\+\+Handler@{Error\+\_\+\+Handler}}
+\index{Error\+\_\+\+Handler@{Error\+\_\+\+Handler}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Error\+\_\+\+Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily static void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a2a1cd7dddbde95f576d43d80daafc2aa}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a2a1cd7dddbde95f576d43d80daafc2aa}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Frame32to8@{Frame32to8}}
+\index{Frame32to8@{Frame32to8}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Frame32to8()}{Frame32to8()}}
+{\footnotesize\ttfamily void Frame32to8 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{in\+\_\+buffer32,  }\item[{uint8\+\_\+t $\ast$}]{out\+\_\+buffer8 }\end{DoxyParamCaption})}
+
+
+
+Converte un area di memoria vista come un uint32\+\_\+t in un uint8\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+buffer32} & puntatore ad area di memoria uint32\+\_\+t \\
+\hline
+{\em in\+\_\+buffer8} & puntatore ad area di memoria uint8\+\_\+t \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a836d8268057dd12f0e1841e1d9278026}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a836d8268057dd12f0e1841e1d9278026}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Frame8to32@{Frame8to32}}
+\index{Frame8to32@{Frame8to32}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Frame8to32()}{Frame8to32()}}
+{\footnotesize\ttfamily void Frame8to32 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{in\+\_\+buffer8,  }\item[{uint32\+\_\+t $\ast$}]{out\+\_\+buffer32 }\end{DoxyParamCaption})}
+
+
+
+Converte un area di memoria vista come un uint8\+\_\+t in un uint32\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+buffer8} & puntatore ad area di memoria uint8\+\_\+t \\
+\hline
+{\em in\+\_\+buffer32} & puntatore ad area di memoria uint32\+\_\+t \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a580f64f5da1d50107c4a73b749550130}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a580f64f5da1d50107c4a73b749550130}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}}
+\index{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback()}{HAL\_GPIO\_EXTI\_Callback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+
+
+E\+X\+TI line detection callbacks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+P\+I\+O\+\_\+\+Pin} & Specifies the pins connected E\+X\+TI line \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a945d8c6ae6e925d17599d96449e831d9}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a945d8c6ae6e925d17599d96449e831d9}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback()}{HAL\_UART\_ErrorCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT error callbacks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & U\+A\+RT handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This example shows a simple way to report transfer error, and you can add your own implementation. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Rx Transfer completed callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & U\+A\+RT handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This example shows a simple way to report end of D\+MA Rx transfer, and you can add your own implementation. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback()}{HAL\_UART\_TxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Tx Transfer completed callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & U\+A\+RT handle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This example shows a simple way to report end of IT Tx transfer, and you can add your own implementation. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a94668c22f2d5ff864d62631444b0bde7}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a94668c22f2d5ff864d62631444b0bde7}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Led\+Config@{Led\+Config}}
+\index{Led\+Config@{Led\+Config}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Led\+Config()}{LedConfig()}}
+{\footnotesize\ttfamily void Led\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configura i led utilizzati. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a0b38a6c1e6c412233b11b43ea87fa33c}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a0b38a6c1e6c412233b11b43ea87fa33c}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Led\+Off@{Led\+Off}}
+\index{Led\+Off@{Led\+Off}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Led\+Off()}{LedOff()}}
+{\footnotesize\ttfamily void Led\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Spegne i L\+ED utilizzati. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a291eed9aadcac79d6177607f6dcff780}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a291eed9aadcac79d6177607f6dcff780}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!main@{main}}
+\index{main@{main}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a86ce491aac9dfe6d54f9615b9dfbc541}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a86ce491aac9dfe6d54f9615b9dfbc541}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}}
+\index{Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Receive\+\_\+\+C\+R\+C()}{Receive\_CRC()}}
+{\footnotesize\ttfamily void Receive\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Data,  }\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Riceve il messaggio sul dato canale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+SG} & puntatore del messaggio da ricevere \\
+\hline
+{\em channel} & mezzo di comunicazione utilizzato \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a58c75aa7ac8546963b529c5ea863b254}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a58c75aa7ac8546963b529c5ea863b254}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}}
+\index{Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{Send\+\_\+\+C\+R\+C()}{Send\_CRC()}}
+{\footnotesize\ttfamily void Send\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{M\+SG,  }\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Invia il messaggio con i due C\+RC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+SG} & puntatore del messaggio da inviare \\
+\hline
+{\em channel} & mezzo di comunicazione utilizzato \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em } & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{STM32_2CRC__Revisited__loop_2src_2main_8c_a0f45d13db8fea77f57b40a3d8d534180}\label{STM32_2CRC__Revisited__loop_2src_2main_8c_a0f45d13db8fea77f57b40a3d8d534180}} 
+\index{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}!U\+A\+R\+T\+\_\+\+Config@{U\+A\+R\+T\+\_\+\+Config}}
+\index{U\+A\+R\+T\+\_\+\+Config@{U\+A\+R\+T\+\_\+\+Config}!S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c@{S\+T\+M32/\+C\+R\+C\+\_\+\+Revisited\+\_\+loop/src/main.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Config()}{UART\_Config()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Baudrate }\end{DoxyParamCaption})}
+
+
+
+Configura la periferica U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}

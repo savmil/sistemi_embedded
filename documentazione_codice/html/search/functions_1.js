@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpio_5fread_5fsampling',['gpio_read_sampling',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a29a70265aec87dff63669cc686cdd7b6',1,'GPIO_v1_0_S00_AXI::arch_imp']]]
+  ['busfault_5fhandler',['BusFault_Handler',['../group__UART__TwoBoards__ComIT.html#ga2c27fc382a40cb4b92f9a48b327ab79f',1,'stm32f3xx_it.c']]]
 ];

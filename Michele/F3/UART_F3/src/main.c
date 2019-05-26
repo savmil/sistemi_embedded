@@ -1,13 +1,10 @@
+/**
+  ******************************************************************************
+  * @file    
+  ******************************************************************************
+  */
+
 #include "main.h"
-
-/** @addtogroup STM32F3xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup UART_TwoBoards_ComIT
-  * @{
-  */
-
 #define CRC_BUFFER_SIZE 4
 #define CRC_DIM 8;
 #define CRC_POLYNOMIAL_8B 0x9B /* X^8 + X^7 + X^4 + X^3 + X + 1 */
@@ -350,7 +347,11 @@ static void Error_Handler(void)
 
 }
 
-
+/**
+  * @brief  Configura la periferica CRC
+  * @param  
+  * @retval 
+  */
 void CRC_Config(){
 
       /*##-1- Configure the CRC peripheral #######################################*/
@@ -384,6 +385,11 @@ void CRC_Config(){
        }
 }
 
+/**
+  * @brief  Configura la periferica UART
+  * @param  
+  * @retval 
+  */
 void UART_Config(){
     /*##-1- Configure the UART peripheral ######################################*/
       UartHandle.Instance        = USARTx;

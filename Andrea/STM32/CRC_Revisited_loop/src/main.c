@@ -1,3 +1,8 @@
+/**
+  ******************************************************************************
+  * @file    
+  ******************************************************************************
+  */
 #include "main.h"
 
 
@@ -164,7 +169,11 @@ static void Error_Handler(void)
   BSP_LED_On(LED6);
 
 }
-
+/**
+  * @brief  Controlla i due CRC del Frame
+  * @param  ReceivedFrame frame ricevuto con i due CRC
+  * @retval 
+  */
 void CRC_Check(uint32_t  * ReceivedFrame){
 
     CRC_Config(CRC_POLYNOMIAL_1,CRC_DEFAULTVALUE_1);
@@ -184,7 +193,11 @@ void CRC_Check(uint32_t  * ReceivedFrame){
         BSP_LED_On(LED9);
 
 }
-
+/**
+  * @brief  Spegne i LED utilizzati
+  * @param   
+  * @retval 
+  */
 void LedOff(){
     HAL_Delay(500);
         BSP_LED_Off(LED3);
@@ -196,7 +209,11 @@ void LedOff(){
           BSP_LED_Off(LED10);
           HAL_Delay(500);
 }
-
+/**
+  * @brief  Configura i led utilizzati
+  * @param   
+  * @retval 
+  */
 void LedConfig(){
       /* Configure LED3, LED4, LED5 and LED6 */
       BSP_LED_Init(LED3);
@@ -207,7 +224,12 @@ void LedConfig(){
       BSP_LED_Init(LED9);
       BSP_LED_Init(LED10);
 }
-
+/**
+  * @brief  Converte un area di memoria vista come un uint32_t in un uint8_t
+  * @param  in_buffer32 puntatore ad area di memoria uint32_t 
+  * @param  in_buffer8 puntatore ad area di memoria uint8_t 
+  * @retval 
+  */
 void Frame32to8(uint32_t * in_buffer32,uint8_t * out_buffer8){
 
     uint8_t chunk =0;
@@ -220,7 +242,12 @@ void Frame32to8(uint32_t * in_buffer32,uint8_t * out_buffer8){
        }
 
 }
-
+/**
+  * @brief  Converte un area di memoria vista come un uint8_t in un uint32_t
+  * @param  in_buffer8 puntatore ad area di memoria uint8_t 
+  * @param  in_buffer32 puntatore ad area di memoria uint32_t 
+  * @retval 
+  */
 void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32){
 
       uint32_t chunk32=0;
@@ -238,7 +265,11 @@ void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32){
       }
 
 }
-
+/**
+  * @brief  Configura la periferica CRC
+  * @param  
+  * @retval 
+  */
 void CRC_Config(uint32_t CRC_Polynomial,uint32_t CRC_DefaultValue){
 
 /*   if (HAL_CRC_DeInit(&CrcHandle) != HAL_OK)
@@ -277,7 +308,11 @@ void CRC_Config(uint32_t CRC_Polynomial,uint32_t CRC_DefaultValue){
          Error_Handler();
        }
 }
-
+/**
+  * @brief  Configura la periferica UART
+  * @param  
+  * @retval 
+  */
 void UART_Config(uint32_t Baudrate){
     /*##-1- Configure the UART peripheral ######################################*/
       UartHandle.Instance        = USARTx;
@@ -298,7 +333,12 @@ void UART_Config(uint32_t Baudrate){
         Error_Handler();
       }
 }
-
+/**
+  * @brief  Invia il messaggio con i due CRC
+  * @param  MSG puntatore del messaggio da inviare
+  * @param  channel mezzo di comunicazione utilizzato
+  * @retval 
+  */
 void Send_CRC(uint32_t * MSG,uint8_t channel){
 
     switch (channel){
@@ -328,7 +368,12 @@ void Send_CRC(uint32_t * MSG,uint8_t channel){
 
         }
 }
-
+/**
+  * @brief  Riceve il messaggio sul dato canale
+  * @param  MSG puntatore del messaggio da ricevere
+  * @param  channel mezzo di comunicazione utilizzato
+  * @retval 
+  */
 void Receive_CRC(uint32_t * ReceivedData, uint8_t channel){
 
     switch(channel){
