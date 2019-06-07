@@ -28,7 +28,6 @@
 typedef u_int8_t u8;
 typedef u_int32_t u32;
 
-static unsigned offset_pag;
 u8 buffer[4];
 int tx_count, rx_count, buffer_size = 0;
 u32 rx_total_reg = 0;
@@ -48,7 +47,7 @@ u32 rx_total_reg = 0;
  */
 void write_reg(void *addr, unsigned int offset, unsigned int value)
 {
-	*((unsigned*)(addr + offset_pag + offset)) = value;
+	*((unsigned*)(addr + offset)) = value;
 }
 /**
  *
@@ -64,7 +63,7 @@ void write_reg(void *addr, unsigned int offset, unsigned int value)
  */
 unsigned int read_reg(void *addr, unsigned int offset)
 {
-	return *((unsigned*)(addr + offset_pag + offset));
+	return *((unsigned*)(addr + offset));
 }
 
 /**
@@ -171,10 +170,7 @@ int main(int argc, char *argv[]){
 	}
 	
 	unsigned dimensione_pag = sysconf(_SC_PAGESIZE);
-	unsigned indirizzo_periferica = BASE_ADDR;
-	unsigned indirizzo_pag = (indirizzo_periferica & (~(dimensione_pag-1)));
-	offset_pag = indirizzo_periferica - indirizzo_pag;
-	UART_INTERRUPT_UIO_H_
+
 	uart_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED, file_descr, 0);
 	
 	u32 data_to_send = 65514;
