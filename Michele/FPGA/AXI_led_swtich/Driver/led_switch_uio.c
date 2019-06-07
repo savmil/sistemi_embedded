@@ -42,20 +42,17 @@ int main(int argc, char *argv[]){
 	}
 	
 	unsigned dimensione_pag = sysconf(_SC_PAGESIZE);
-	unsigned indirizzo_periferica = 0x43C00000;
-	unsigned indirizzo_pag = (indirizzo_periferica & (~(dimensione_pag-1)));
-	unsigned offset_pag = indirizzo_periferica - indirizzo_pag;
 	
 	Ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED, file_descr, 0);
 	
 	switch(direzione){
 		case INPUT:
-			valore = *((unsigned*)(Ptr + offset_pag + SWC_OFFSET));
+			valore = *((unsigned*)(Ptr + SWC_OFFSET));
 			printf("Valore di input: %08x\n", valore);
 			break;
 		case OUTPUT:
 			printf("Lettura da %08x\n", *(unsigned int*)Ptr);
-			*((unsigned*)(Ptr + offset_pag + LED_OFFSET)) = valore;
+			*((unsigned*)(Ptr + LED_OFFSET)) = valore;
 			break;
 	}
 	
