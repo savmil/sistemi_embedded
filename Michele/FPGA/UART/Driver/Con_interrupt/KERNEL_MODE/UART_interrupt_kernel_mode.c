@@ -23,79 +23,7 @@
 #define INTR_ACK_PEND  28 // PENDING/ACK REGISTER
 
 #define INTR_MASK      3
-/**
- * @file UART_interrupt_kernel_mode.c
- * @page driver_UART_kernel
- * @brief funzioni per gestire la trasmissione e la ricezione dei
- * 	  dati utilizzando il protocollo UART (KERNEL)
- */
-/**
- *
- * @brief	Handler dell' interrupt
- *
- * @param	irq è il valore associato all' interrupt da gestire
- * @param	dev_id non utilizzato
- *
- * @return	ritorna identificativo del handler
- *
- * @note
- *
- */
-static irq_handler_t isr_handler(int irq,void *dev_id){
-	
-	u32 reg_sent_data, reg_received_data, pending_reg;
-	
-	iowrite32(0, dm->base_addr + TX_EN); // abbasso il TX_EN
-	iowrite32(0, dm->base_addr + GLOBAL_INTR_EN); //disabilito interruzioni
-	
-	printk(KERN_INFO"ISR serverd!\n");
 
-	pending_reg = ioread32(dm->base_addr + INTR_ACK_PEND);
-	
-	if((pending_reg & 0x00000002) == 0x00000002){
-		/*---ISR RX---*/
-		rx_count++;
-		printk(KERN_INFO"ISR RX...\n");
-		
-		if(rx_count <= buffer_size){
-			
-			reg_received_data = ioread32(dm->base_addr + RX_REG);
-			printk(KERN_INFO"ISR RX - value received: %02x\n", reg_received_data);
-			rx_total_reg = rx_total_reg | (reg_received_data << (rx_count-1)*8);
-			printk(KERN_INFO"ISR RX - total value received %08x\n", rx_total_reg);
-		}
-		
-		iowrite32(2, dm->base_addr + INTR_ACK_PEND); //ACK
-		iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
-		iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
-
-	}
-	else if((pending_reg & 0x00000001) == 0x00000001){
-		/*---ISR TX---*/
-		tx_count++;
-		printk(KERN_INFO"ISR TX...\n");
-		
-		if(tx_count < buffer_size){
-			
-			reg_sent_data = ioread32(dm->base_addr + DATA_IN);
-			printk(KERN_INFO"ISR TX - value sent: %02x\n", reg_sent_data);
-			printk(KERN_INFO"ISR TX - start sending next value: %02x\n", buffer[tx_count]);
-			iowrite32(buffer[tx_count], dm->base_addr + DATA_IN); 
-			
-			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
-			iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
-		}
-		else{
-			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
-			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
-		}
-	}	
-	
-	return (irq_handler_t) IRQ_HANDLED;
-}
 /**
  * Una struttura che contiene le informazioni riguardanti la gestione
  * del componente Hardware
@@ -116,9 +44,81 @@ struct resource *res; // Device Resource Structure
 static struct mydriver_dm my_dm;
 static struct mydriver_dm *dm;
 
-u8 buffer[4];
+u8 * buffer_tx;
+u8 * buffer_rx;
 int tx_count, rx_count, buffer_size = 0;
-u32 rx_total_reg;
+
+/**
+ * @file UART_interrupt_kernel_mode.c
+ * @page driver_UART_kernel
+ * @brief funzioni per gestire la trasmissione e la ricezione dei
+ * 	  dati utilizzando il protocollo UART (KERNEL)
+ */
+/**
+ *
+ * @brief	Handler dell' interrupt
+ *
+ * @param	irq è il valore associato all' interrupt da gestire
+ * @param	dev_id non utilizzato
+ *
+ * @return	ritorna identificativo del handler
+ *
+ * @note
+ *
+ */
+static irq_handler_t isr_handler(int irq,void *dev_id){
+	
+	u32 reg_sent_data, pending_reg;
+	
+	iowrite32(0, dm->base_addr + TX_EN); // abbasso il TX_EN
+	iowrite32(0, dm->base_addr + GLOBAL_INTR_EN); //disabilito interruzioni
+	
+	printk(KERN_INFO"ISR serverd!\n");
+
+	pending_reg = ioread32(dm->base_addr + INTR_ACK_PEND);
+	
+	if((pending_reg & 0x00000002) == 0x00000002){
+		/*---ISR RX---*/
+		printk(KERN_INFO"ISR RX...\n");
+		
+		if(rx_count <= buffer_size){
+			
+			buffer_rx[rx_count] = ioread32(dm->base_addr + RX_REG);
+			printk(KERN_INFO"ISR RX - value received: %c\n", buffer_rx[rx_count]);
+			
+		}
+		
+		iowrite32(2, dm->base_addr + INTR_ACK_PEND); //ACK
+		iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+		iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
+		rx_count++;
+	}
+	else if((pending_reg & 0x00000001) == 0x00000001){
+		/*---ISR TX---*/
+		tx_count++;
+		printk(KERN_INFO"ISR TX...\n");
+		
+		if(tx_count < buffer_size){
+			
+			reg_sent_data = ioread32(dm->base_addr + DATA_IN);
+			printk(KERN_INFO"ISR TX - value sent: %c\n", reg_sent_data);
+			printk(KERN_INFO"ISR TX - start sending next value: %c\n", buffer_tx[tx_count]);
+			iowrite32(buffer_tx[tx_count], dm->base_addr + DATA_IN); 
+			
+			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
+			iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
+		}
+		else{
+			iowrite32(1, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(0, dm->base_addr + INTR_ACK_PEND); //ACK
+			iowrite32(1, dm->base_addr + GLOBAL_INTR_EN); //abiito interruzioni
+		}
+	}	
+	
+	return (irq_handler_t) IRQ_HANDLED;
+}
 
 static const struct of_device_id __test_int_driver_id[]={
 {.compatible = "xlnx,UART-1.0"},
@@ -145,46 +145,49 @@ static const struct of_device_id __test_int_driver_id[]={
  */
 static ssize_t my_int_uart_write(struct file *file, const char __user * buf, size_t count, loff_t * ppos){
 
-		char my_int_uart_phrase[16];
-		u32 my_int_uart_value;
-		u8 chunk;
+		char * my_int_uart_phrase;
 		int j;
 	
-		rx_total_reg = 0;
 		tx_count = 0;
 		rx_count = 0;
 		buffer_size = 0;
-		
-		if (count < 12) {
-			if (copy_from_user(my_int_uart_phrase, buf, count))
-				return -EFAULT;
-			my_int_uart_phrase[count] = '\0';
+			
+		if ((my_int_uart_phrase = kmalloc(sizeof(char)*count, GFP_KERNEL)) == NULL ) {
+			printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
+			return -ENOMEM;
 		}
-
-		my_int_uart_value = simple_strtoul(my_int_uart_phrase, NULL, 0);
-		wmb();
-		
-		printk(KERN_INFO"Write called with value %08x", my_int_uart_value);
 	
-		for(j=0; j<4; j++){
-
-			chunk = (my_int_uart_value >> j*8) & 255;
-
-			if(chunk == 0){
-				buffer_size = j;
-				goto skip;
-			}
-
-			buffer[j] = chunk;
-			buffer_size ++;
-
-			printk(KERN_INFO"Buffer[%d]= %02x\n",j,buffer[j]);
+		if (copy_from_user(my_int_uart_phrase, buf, count))
+			return -EFAULT;
+		
+		buffer_size = count-1;
+	
+		if ((buffer_tx = krealloc(buffer_tx, sizeof(u8)*buffer_size, GFP_KERNEL)) == NULL ) {
+			printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
+			return -ENOMEM;
 		}
-		skip:
+		printk(KERN_INFO"Allocated in buffer_tx %d bytes | buffer size = %d ", sizeof(u8)*buffer_size, buffer_size);
 
-		printk(KERN_INFO"Start sending first value: %02x", buffer[0]);
-		iowrite32(buffer[0], dm->base_addr + DATA_IN); // inserisco valore in DATA_IN
+		if ((buffer_rx = krealloc(buffer_rx, sizeof(u8)*buffer_size, GFP_KERNEL)) == NULL ) {
+			printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
+			return -ENOMEM;
+		}
+		printk(KERN_INFO"Allocated in buffer_rx %d bytes | buffer size = %d ", sizeof(u8)*buffer_size, buffer_size);
+
+		for(j=0; j<buffer_size; j++){
+			
+			buffer_tx[j] = my_int_uart_phrase[j];								  
+			printk(KERN_INFO"buffer_tx[%d] %c", j, buffer_tx[j]);
+			wmb();
+		}
+		
+		printk(KERN_INFO"Write called with value %s", my_int_uart_phrase);
+	
+		printk(KERN_INFO"Start sending first value: %c", buffer_tx[0]);
+		iowrite32(buffer_tx[0], dm->base_addr + DATA_IN); // inserisco valore in DATA_IN
 	    iowrite32(1, dm->base_addr + TX_EN); // assirisco il TX_EN
+	
+		kfree(my_int_uart_phrase);
 	
 		return count;
 }
@@ -206,11 +209,14 @@ static ssize_t my_int_uart_write(struct file *file, const char __user * buf, siz
 static int proc_my_int_uart_show(struct seq_file *p, void *v){
 
 	u32 status_reg;
+	int j=0;
 	
 	status_reg = ioread32(dm->base_addr + STATUS_REG);
-
-	seq_printf(p,"Open called: received value %08x || STATUS_REG %08x\n", rx_total_reg, status_reg);
-	printk(KERN_INFO"Open called: received value %08x || STATUS_REG %08x", rx_total_reg, status_reg);
+	
+	for(j=0;j<buffer_size;j++)
+		seq_printf(p,"%c", buffer_rx[j]);
+	
+	printk(KERN_INFO"Open called. STATUS REG: %08x", status_reg);
 	
 	return 0;
 }
@@ -295,8 +301,6 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 
 	dm->irq = irq_res->start; // save the returned IRQ
 
-	printk(KERN_INFO "IRQ read form DTS entry as %d\n", dm->irq);
-
 	rval = request_irq(dm->irq, (irq_handler_t) isr_handler, IRQF_SHARED , DEVNAME, dm);
 	if(rval != 0){
 		printk(KERN_INFO "can't get assigned irq: %d\n", dm->irq);
@@ -310,11 +314,8 @@ static int __test_int_driver_probe(struct platform_device *pdev){
 		dev_err(&pdev->dev, "No memory resource\n");
 		return -ENODEV;
 	}
-
-	printk(KERN_INFO"res->start =  0x%08lx \n", (unsigned long) res->start);
-	printk(KERN_INFO"res->end = 0x%08lx \n", (unsigned long) res->end);
+	
 	dm->remap_size = res->end - res->start + 1;
-	printk(KERN_INFO"remap_size = 0x%08lx \n", (unsigned long) dm->remap_size);
 	
 	if (!request_mem_region(res->start, dm->remap_size, pdev->name)) {
 		dev_err(&pdev->dev, "Cannot request IO\n");
@@ -371,7 +372,9 @@ static int __test_int_driver_remove(struct platform_device *pdev){
 	printk(KERN_INFO"IRQ %d about to be freed!\n",dm->irq);
 	
 	free_irq(dm->irq, dm);
-
+	kfree(buffer_tx);
+	kfree(buffer_rx);
+	
 	/* Remove /proc/my_int_uart entry */
 	remove_proc_entry(DEVNAME, NULL);
 	
