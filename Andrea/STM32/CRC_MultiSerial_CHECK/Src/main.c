@@ -18,10 +18,9 @@
 #include <stdbool.h>
 
 //Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite
-#define SERIAL_SELECTED CAN_MODE
+#define SERIAL_SELECTED SPI_MODE | UART_MODE | I2C_MODE | CAN_MODE
 //Parametro da modificare in base al Master e Slave board
 #define MASTER_BOARD
-
 
 
 int tx_callback_count = 0;
@@ -98,7 +97,7 @@ int main(void)
 	Frame[CRC1_OFFSET] = CRC32_1;
 	Frame[CRC2_OFFSET] = CRC32_2;
 
-	Send_CRC(Frame,0x7,SERIAL_SELECTED);
+	Send_CRC(Frame,0x5,SERIAL_SELECTED);
 
 
 #else
@@ -332,12 +331,19 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 		bool CAN_ENABLED		=	(CAN_MODE	& channel) == 	CAN_MODE;
 
 
+		//	HAL_I2C_MspDeInit(&hi2c2);
 
 			if (UART_ENABLED){
 			//uint8_t aRxBuffer[BUFFER_SIZE];
-			if (HAL_UART_Receive_IT(&huart2, (uint8_t *) UART_RxBuffer, BUFFER_SIZE) != HAL_OK)
+			while(HAL_UART_GetState(&huart2) == HAL_UART_STATE_BUSY_RX){
+				;;
+			}
+
+				if (HAL_UART_Receive_IT(&huart2, (uint8_t *) UART_RxBuffer, BUFFER_SIZE) != HAL_OK)
 					Error_Handler();
 			}
+
+
 
 
 			if (I2C_ENABLED){
@@ -364,8 +370,8 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 					while (HAL_GPIO_ReadPin(SPI_EN_INPUT_GPIO_Port, SPI_EN_INPUT_Pin)
 						== GPIO_PIN_SET) {
-						HAL_GPIO_TogglePin(GPIOE, LED9_BLUE_Pin);
-						HAL_Delay(100);
+					//	HAL_GPIO_TogglePin(GPIOE, LED9_BLUE_Pin);
+					//	HAL_Delay(100);
 					}
 
 					if (HAL_SPI_Receive_IT(&hspi2, (uint8_t*) SPI_RxBuffer, BUFFER_SIZE)
@@ -389,7 +395,7 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 				  }
 
 				  if(I2C_ENABLED & (HAL_I2C_GetState(&hi2c2) == HAL_I2C_STATE_READY)) {
-						HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_RESET);
+					//	HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_RESET);
 
 						Frame8to32(I2C_RxBuffer, ReceivedData);
 						CRC_Check(ReceivedData);
@@ -398,7 +404,7 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 				  }
 
 
-					if(SPI_ENABLED & (wTransferState == TRANSFER_WAIT)){
+					if(SPI_ENABLED & (wTransferState == TRANSFER_COMPLETE)){
 
 						wTransferState = TRANSFER_WAIT;
 
@@ -453,7 +459,7 @@ void CRC_Check(uint32_t * ReceivedFrame) {
 void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t groupAddress)
 {
 
-	if(UART_MODE & (peripheral ==  UART_MODE)){
+	if((UART_MODE & peripheral) ==  UART_MODE){
 		MX_USART2_UART_Init(UART_BAUDRATE);
 	}
 
