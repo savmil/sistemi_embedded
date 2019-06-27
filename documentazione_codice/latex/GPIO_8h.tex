@@ -1,0 +1,261 @@
+\hypertarget{GPIO_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+IO.h File Reference}
+\label{GPIO_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGPIO}{G\+P\+IO}
+\begin{DoxyCompactList}\small\item\em Stuttura che astrae un device \hyperlink{structGPIO}{G\+P\+IO} in kernel-\/mode. Contiene ciò che è necessario al funzionamento del driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{GPIO_8h_ae9f470eb45c41eb41960b84b006e7f98}\label{GPIO_8h_ae9f470eb45c41eb41960b84b006e7f98}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}}
+\index{G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Destroy()}{GPIO\_Destroy()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Rimuove un device \hyperlink{structGPIO}{G\+P\+IO} con le relative strutture kernel allocate per il suo funzionamento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO} che indica l\textquotesingle{}istanza \hyperlink{structGPIO}{G\+P\+IO} da rimuovere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_aca2a7227ae03f4858903e069b43fbb83}\label{GPIO_8h_aca2a7227ae03f4858903e069b43fbb83}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}}
+\index{G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Get\+Device\+Address()}{GPIO\_GetDeviceAddress()}}
+{\footnotesize\ttfamily void$\ast$ G\+P\+I\+O\+\_\+\+Get\+Device\+Address (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}indirizzo virtuale di memoria cui è mappato un device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a93b3e95be8d5116c4a3b7172191ea08b}\label{GPIO_8h_a93b3e95be8d5116c4a3b7172191ea08b}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}}
+\index{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask()}{GPIO\_GetPollMask()}}
+{\footnotesize\ttfamily unsigned G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO} $\ast$}]{device,  }\item[{struct file $\ast$}]{file\+\_\+ptr,  }\item[{struct poll\+\_\+table\+\_\+struct $\ast$}]{wait }\end{DoxyParamCaption})}
+
+
+
+Verifica che le operazioni di lettura risultino non-\/bloccanti. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+{\em file} & puntatore al descrittore file del device \\
+\hline
+{\em wait} & puntatore alla struttura poll\+\_\+table\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maschera di bit che indica se sia possibile effettuare operazioni di lettura non bloccanti.
+\end{DoxyReturn}
+Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{GPIO_8h_ab78a74ec328eff170ce812d3018991dc}\label{GPIO_8h_ab78a74ec328eff170ce812d3018991dc}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}}
+\index{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable()}{GPIO\_GlobalInterruptDisable()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Disabilitazione interrupt globali;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a374f303b7644f23ee71916db80f8557e}\label{GPIO_8h_a374f303b7644f23ee71916db80f8557e}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}}
+\index{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable()}{GPIO\_GlobalInterruptEnable()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Abilitazione interrupt globali;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a2bdc0e046738ef6395d8bacc334bf306}\label{GPIO_8h_a2bdc0e046738ef6395d8bacc334bf306}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}}
+\index{G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Init()}{GPIO\_Init()}}
+{\footnotesize\ttfamily int G\+P\+I\+O\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{G\+P\+I\+O\+\_\+device,  }\item[{struct module $\ast$}]{owner,  }\item[{struct platform\+\_\+device $\ast$}]{pdev,  }\item[{struct class$\ast$}]{class,  }\item[{const char$\ast$}]{driver\+\_\+name,  }\item[{const char$\ast$}]{device\+\_\+name,  }\item[{uint32\+\_\+t}]{serial,  }\item[{struct file\+\_\+operations $\ast$}]{f\+\_\+ops,  }\item[{irq\+\_\+handler\+\_\+t}]{irq\+\_\+handler,  }\item[{uint32\+\_\+t}]{irq\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+Inizializza una struttura \hyperlink{structGPIO}{G\+P\+IO} per il corrispondente device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+P\+I\+O\+\_\+device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, corrispondente al device su cui operare \\
+\hline
+{\em owner} & puntatore a struttura struct module, proprietario del device (T\+H\+I\+S\+\_\+\+M\+O\+D\+U\+LE) \\
+\hline
+{\em pdev} & puntatore a struct platform\+\_\+device \\
+\hline
+{\em driver\+\_\+name} & nome del driver \\
+\hline
+{\em device\+\_\+name} & nome del device \\
+\hline
+{\em serial} & numero seriale del device \\
+\hline
+{\em f\+\_\+ops} & puntatore a struttura struct file\+\_\+operations, specifica le funzioni che agiscono sul device \\
+\hline
+{\em irq\+\_\+handler} & puntatore irq\+\_\+handler\+\_\+t alla funzione che gestisce gli interrupt generati dal device \\
+\hline
+{\em irq\+\_\+mask} & maschera delle interruzioni attive del device\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & se non si è verificato nessun errore \\
+\hline
+\end{DoxyRetVals}
+Inizializzazione della wait-\/queue per la system-\/call read() e poll()
+
+Inizializzazione degli spinlock
+
+Abilitazione degli interrupt del device \mbox{\Hypertarget{GPIO_8h_a324d5eaa900c8b7507ac55b7fb53f893}\label{GPIO_8h_a324d5eaa900c8b7507ac55b7fb53f893}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}}
+\index{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt()}{GPIO\_PendingPinInterrupt()}}
+{\footnotesize\ttfamily unsigned G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Fornisce una maschera che indica quali interrupt non sono ancora stati serviti e che quindi risultano pending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maschera riportante i pin per i quali gli interrupt non sono stati ancora serviti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GPIO_8h_aaa8925cfa563ec59e210e2c2cb9dc465}\label{GPIO_8h_aaa8925cfa563ec59e210e2c2cb9dc465}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}}
+\index{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack()}{GPIO\_PinInterruptAck()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device,  }\item[{unsigned}]{mask }\end{DoxyParamCaption})}
+
+
+
+Invia al device notifica di servizio di un interrupt;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare\\
+\hline
+{\em mask} & maschera di selezione degli interrupt da notificare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a603c7de30c7def8e378cc75bdeaaf3c4}\label{GPIO_8h_a603c7de30c7def8e378cc75bdeaaf3c4}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}}
+\index{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable()}{GPIO\_PinInterruptDisable()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device,  }\item[{unsigned}]{mask }\end{DoxyParamCaption})}
+
+
+
+Disabilitazione interrupt per i singoli pin del device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare\\
+\hline
+{\em mask} & maschera di selezione degli interrupt da disabilitare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_ac472e1fe423199660417cd8c48a39032}\label{GPIO_8h_ac472e1fe423199660417cd8c48a39032}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}}
+\index{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable()}{GPIO\_PinInterruptEnable()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device,  }\item[{unsigned}]{mask }\end{DoxyParamCaption})}
+
+
+
+Abilitazione interrupt per i singoli pin del device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+{\em mask} & maschera di selezione degli interrupt da abilitare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a29354156e9edaa1b96d3e2d2260af7a3}\label{GPIO_8h_a29354156e9edaa1b96d3e2d2260af7a3}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}}
+\index{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read()}{GPIO\_ResetCanRead()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Reset\+Can\+Read (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per resettare il flag \char`\"{}can\+\_\+read\char`\"{} di uno specifico device \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_a37b69ac0bb974d14886c02d938c1bc13}\label{GPIO_8h_a37b69ac0bb974d14886c02d938c1bc13}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}}
+\index{G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Set\+Can\+Read()}{GPIO\_SetCanRead()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Set\+Can\+Read (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per asserire il flag \char`\"{}can\+\_\+read\char`\"{} di uno specifico device \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_adcba9eaa803c2debc04a9593c95c597f}\label{GPIO_8h_adcba9eaa803c2debc04a9593c95c597f}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}}
+\index{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep()}{GPIO\_TestCanReadAndSleep()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Testa il valore del flag \char`\"{}can\+\_\+read\char`\"{}. Se è uguale a 0, ovvero non è possibile effettuare una lettura, mette in sleep il processo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO_8h_ae40b29016fc33e8302a0b30f1807e6fc}\label{GPIO_8h_ae40b29016fc33e8302a0b30f1807e6fc}} 
+\index{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}}
+\index{G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+Wake\+Up()}{GPIO\_WakeUp()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+\+Wake\+Up (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO}{G\+P\+IO}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Risveglia i processi in attesa sulle code di read e poll. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structGPIO}{G\+P\+IO}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}

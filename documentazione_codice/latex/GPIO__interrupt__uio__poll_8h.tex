@@ -1,0 +1,66 @@
+\hypertarget{GPIO__interrupt__uio__poll_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.h File Reference}
+\label{GPIO__interrupt__uio__poll_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{GPIO__interrupt__uio__poll_8h_a5fa96fe10ac62639ffae7412b23fd1fa}\label{GPIO__interrupt__uio__poll_8h_a5fa96fe10ac62639ffae7412b23fd1fa}} 
+\index{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!read\+\_\+reg@{read\+\_\+reg}}
+\index{read\+\_\+reg@{read\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
+\subsubsection{\texorpdfstring{read\+\_\+reg()}{read\_reg()}}
+{\footnotesize\ttfamily unsigned int read\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr,puntatore} & all\textquotesingle{} indirizzo da voler leggere \\
+\hline
+{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO__interrupt__uio__poll_8h_ab2f398880fc06a6357ed85b17b1595e6}\label{GPIO__interrupt__uio__poll_8h_ab2f398880fc06a6357ed85b17b1595e6}} 
+\index{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
+\index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
+\subsubsection{\texorpdfstring{wait\+\_\+for\+\_\+interrupt()}{wait\_for\_interrupt()}}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+interrupt (\begin{DoxyParamCaption}\item[{int}]{fd0,  }\item[{int}]{fd1,  }\item[{int}]{fd2,  }\item[{void $\ast$}]{addr\+\_\+0,  }\item[{void $\ast$}]{addr\+\_\+1,  }\item[{void $\ast$}]{addr\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd0,valore} & del file descriptor del primo \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+{\em fd1,valore} & del file descriptor del secondo \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+{\em fd2,valore} & del file descriptor del terzo \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+{\em addr\+\_\+0,indirizzo} & base della prima periferica \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+{\em addr\+\_\+1,indirizzo} & base della seconda periferica \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+{\em addr\+\_\+2,indirizzo} & base della terza periferica \hyperlink{structGPIO}{G\+P\+IO} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO__interrupt__uio__poll_8h_a19948bb35adde231ba424f7bc14289ee}\label{GPIO__interrupt__uio__poll_8h_a19948bb35adde231ba424f7bc14289ee}} 
+\index{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!write\+\_\+reg@{write\+\_\+reg}}
+\index{write\+\_\+reg@{write\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
+\subsubsection{\texorpdfstring{write\+\_\+reg()}{write\_reg()}}
+{\footnotesize\ttfamily void write\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset,  }\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr,puntatore} & all\textquotesingle{} indirizzo da voler scrivere \\
+\hline
+{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere \\
+\hline
+{\em value,valore} & da voler scrivere \\
+\hline
+\end{DoxyParams}

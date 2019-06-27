@@ -1,0 +1,146 @@
+\hypertarget{GPIO__list_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.c File Reference}
+\label{GPIO__list_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+c}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{GPIO__list_8c_a5b6a15692f6e7f753ec1189f28cf0094}\label{GPIO__list_8c_a5b6a15692f6e7f753ec1189f28cf0094}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+add()}{GPIO\_list\_add()}}
+{\footnotesize\ttfamily int G\+P\+I\+O\+\_\+list\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list,  }\item[{\hyperlink{structGPIO}{G\+P\+IO} $\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Aggiunge un oggetto \hyperlink{structGPIO}{G\+P\+IO} alla lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}, lista a cui aggiungere l\textquotesingle{}oggetto \\
+\hline
+{\em device} & puntatore a \hyperlink{structGPIO}{G\+P\+IO}, oggetto da aggiungere alla lista \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & se è ststo già inserito il numero massimo di device \\
+\hline
+{\em 0} & se non si manifesta nessun errore \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{GPIO__list_8c_a1e98abd5d766c22036e3196df638d6f1}\label{GPIO__list_8c_a1e98abd5d766c22036e3196df638d6f1}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy()}{GPIO\_list\_Destroy()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+\_\+list\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}, lista da distruggere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{GPIO__list_8c_aadde14c3f62c61fe125433511b1c7bc8}\label{GPIO__list_8c_aadde14c3f62c61fe125433511b1c7bc8}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count()}{GPIO\_list\_device\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Restituisce il numero di device presenti nella lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}, lista di cui si intende conoscere il numero di oggetti \hyperlink{structGPIO}{G\+P\+IO} contenuti \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+numero di device presenti nella lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GPIO__list_8c_a8275d06888c9bf1d568159d9537e3f0b}\label{GPIO__list_8c_a8275d06888c9bf1d568159d9537e3f0b}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor()}{GPIO\_list\_find\_by\_minor()}}
+{\footnotesize\ttfamily \hyperlink{structGPIO}{G\+P\+IO}$\ast$ G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list,  }\item[{dev\+\_\+t}]{dev }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structGPIO}{G\+P\+IO} all\textquotesingle{}interno della lista tramite il minor number associato al device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}, lista in cui effettuare la ricerca \\
+\hline
+{\em dev} & major/minor number associato al device, parametro con cui viene invocata la open() o la release() \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO}, se è presente nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GPIO__list_8c_af4266922709c02f239942181afb5fcd4}\label{GPIO__list_8c_af4266922709c02f239942181afb5fcd4}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev()}{GPIO\_list\_find\_by\_pdev()}}
+{\footnotesize\ttfamily \hyperlink{structGPIO}{G\+P\+IO}$\ast$ G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list,  }\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structGPIO}{G\+P\+IO} all\textquotesingle{}interno della lista tramite il campo pdev. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} in cui effettuare la ricerca \\
+\hline
+{\em pdev} & puntatore a struct platform\+\_\+device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO}, se è contenuto nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GPIO__list_8c_a1590cfa83f24fa300a43f948f23da21d}\label{GPIO__list_8c_a1590cfa83f24fa300a43f948f23da21d}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line()}{GPIO\_list\_find\_irq\_line()}}
+{\footnotesize\ttfamily \hyperlink{structGPIO}{G\+P\+IO}$\ast$ G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list,  }\item[{int}]{irq\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structGPIO}{G\+P\+IO} all\textquotesingle{}interno della lista tramite l\textquotesingle{} interrupt-\/number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}, lista in cui effettuare la ricerca \\
+\hline
+{\em irq\+\_\+line} & linea di interruzione alla quale il device è connesso \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO}, se è presente nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{GPIO__list_8c_acba199e3ce66ad00ed455d4b68073586}\label{GPIO__list_8c_acba199e3ce66ad00ed455d4b68073586}} 
+\index{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}}
+\index{G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+list\+\_\+\+Init()}{GPIO\_list\_Init()}}
+{\footnotesize\ttfamily int G\+P\+I\+O\+\_\+list\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list} $\ast$}]{list,  }\item[{uint32\+\_\+t}]{list\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Inizializza una struttura dati \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a lista da inizializzare \\
+\hline
+{\em list\+\_\+size} & numero massimo di device che la struttra dati potrà contenere \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/\+E\+N\+O\+M\+EM} & nel caso in cui la struttura non possa essere allocata in memoria \\
+\hline
+{\em 0} & se non si manifestano errori \\
+\hline
+\end{DoxyRetVals}

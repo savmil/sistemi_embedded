@@ -120,9 +120,9 @@ void Error_Handler(void);
 #define SPI_MODE 4
 
 //Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite
-#define SERIAL_SELECTED 2
+#define SERIAL_SELECTED 4
 //Parametro da modificare in base al Master e Slave board
-#define MASTER_BOARD
+//#define MASTER_BOARD
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

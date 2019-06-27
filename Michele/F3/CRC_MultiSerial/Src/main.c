@@ -80,6 +80,7 @@ void SystemClock_Config(void);
 void CRC_Check(uint32_t * ReceivedFrame);
 void Receive_CRC(uint32_t * ReceivedData, uint8_t channel);
 void Send_CRC(uint32_t * MSG, uint8_t channel);
+void Configure_Peripheral(uint8_t peripheral);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -122,7 +123,7 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_I2C2_Init();
   *//* USER CODE BEGIN 2 */
-
+  Configure_Peripheral(SERIAL_SELECTED);
 #ifdef MASTER_BOARD
 
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_RESET);
@@ -140,21 +141,22 @@ int main(void)
 
 	//Send_CRC(Frame,SERIAL_SELECTED);
 #else
-	//Receive_CRC(Frame, SERIAL_SELECTED);
+	Receive_CRC(Frame, SERIAL_SELECTED);
 #endif
 
   /* USER CODE END 2 */
-	Send_CRC(Frame, SERIAL_SELECTED);
+	//utilizzato per CAN
+	//Send_CRC(Frame, SERIAL_SELECTED);
 					//LedOff();
-	Receive_CRC(Frame, SERIAL_SELECTED);
+	//Receive_CRC(Frame, SERIAL_SELECTED);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-			//	LedOff();
-			//	Send_CRC(Frame, SERIAL_SELECTED);
-			//	LedOff();
-			//	Receive_CRC(Frame, SERIAL_SELECTED);
+				LedOff();
+				Send_CRC(Frame, SERIAL_SELECTED);
+				LedOff();
+				Receive_CRC(Frame, SERIAL_SELECTED);
 			//	rx_callback_count = 0;
 				/* USER CODE BEGIN 3 */
 	}
@@ -249,7 +251,7 @@ void Send_CRC(uint32_t * MSG, uint8_t channel) {
 
 	case 0:
 
-		MX_USART2_UART_Init(UART_BAUDRATE);
+		//MX_USART2_UART_Init(UART_BAUDRATE);
 		//uint8_t aTxBuffer[BUFFER_SIZE];
 		Frame32to8(MSG, aTxBuffer);
 #ifdef MASTER_BOARD
@@ -273,7 +275,7 @@ void Send_CRC(uint32_t * MSG, uint8_t channel) {
 
 	case 1:
 
-		MX_I2C2_Init();
+
 		Frame32to8(MSG, aTxBuffer);
 #ifdef MASTER_BOARD
 
@@ -308,7 +310,7 @@ void Send_CRC(uint32_t * MSG, uint8_t channel) {
 
 		break;
 	case 2:
-		MX_CAN_Init();
+
 
 		while (UserButtonStatus == 0) {
 					HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
@@ -335,17 +337,10 @@ void Send_CRC(uint32_t * MSG, uint8_t channel) {
 
 		break;
 	case 3:
-		MX_USB_DEVICE_Init();
+
 		break;
 	case 4:
 
-#ifdef MASTER_BOARD
-		hspi2.Init.Mode = SPI_MODE_MASTER;
-#else
-		hspi2.Init.Mode = SPI_MODE_SLAVE;
-#endif /* MASTER_BOARD */
-
-		MX_SPI2_Init();
 		Frame32to8(MSG, aTxBuffer);
 
 #ifdef MASTER_BOARD
@@ -383,9 +378,9 @@ void Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 	switch (channel) {
 
 	case 0:
-		MX_USART2_UART_Init(UART_BAUDRATE);
-		//uint8_t aRxBuffer[BUFFER_SIZE];
 
+		//uint8_t aRxBuffer[BUFFER_SIZE];
+		//MX_USART2_UART_Init(UART_BAUDRATE);
 		if (HAL_UART_Receive_IT(&huart2, (uint8_t *) aRxBuffer, BUFFER_SIZE)
 				!= HAL_OK) {
 			Error_Handler();
@@ -404,7 +399,7 @@ void Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 		break;
 
 	case 1:
-		MX_I2C2_Init();
+
 
 #ifdef MASTER_BOARD
 
@@ -437,7 +432,7 @@ void Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 		break;
 	case 2:
-	//	MX_CAN_Init();
+
 
 		if(rx_callback_count == 2){
 			Frame8to32(aRxBuffer, ReceivedData);
@@ -447,17 +442,11 @@ void Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 		break;
 	case 3:
-		MX_USB_DEVICE_Init();
+
 		break;
 	case 4:
 
-#ifdef MASTER_BOARD
-		hspi2.Init.Mode = SPI_MODE_MASTER;
-#else
-		hspi2.Init.Mode = SPI_MODE_SLAVE;
-#endif /* MASTER_BOARD */
 
-		MX_SPI2_Init();
 
 		//uint8_t aRxBuffer1[BUFFER_SIZE];
 		while (HAL_GPIO_ReadPin(SPI_EN_INPUT_GPIO_Port, SPI_EN_INPUT_Pin)
@@ -508,7 +497,33 @@ void CRC_Check(uint32_t * ReceivedFrame) {
 		HAL_GPIO_WritePin(GPIOE, LED6_GREEN_Pin, GPIO_PIN_SET);
 
 }
+void Configure_Peripheral(uint8_t peripheral)
+{
+	switch (peripheral) {
 
+		case 0:
+			MX_USART2_UART_Init(UART_BAUDRATE);
+			break;
+		case 1:
+			MX_I2C2_Init();
+			break;
+		case 2:
+			MX_CAN_Init();
+			break;
+		case 3:
+			MX_USB_DEVICE_Init();
+			break;
+		case 4:
+			#ifdef MASTER_BOARD
+					hspi2.Init.Mode = SPI_MODE_MASTER;
+			#else
+					hspi2.Init.Mode = SPI_MODE_SLAVE;
+			#endif /* MASTER_BOARD */
+
+			MX_SPI2_Init();
+			break;
+	}
+}
 /* USER CODE END 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	/* Set transmission flag: transfer complete */
