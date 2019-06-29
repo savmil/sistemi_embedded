@@ -122,7 +122,7 @@ static int UART_probe(struct platform_device *pdev) {
 		}
 	}
 
-	/* Allocazione dell'oggetto UART */
+/** Allocazione dell'oggetto UART */
 	if ((UART_ptr = kmalloc(sizeof(UART), GFP_KERNEL)) == NULL) {
 		printk(KERN_ERR "%s: kmalloc ha restituito NULL\n", __func__);
 		return -ENOMEM;
@@ -219,7 +219,7 @@ static int UART_release(struct inode *inode, struct file *file_ptr) {
 
 /**
  * @brief Implementa le system-call lseek() e llseek().
- *https://elixir.bootlin.com/linux/latest/ident/msleep
+ *
  * @param file_ptr puntatore al descrittore file del device
  * @param off offset da aggiungere al parametro whence per il posizionamento
  * @param whence può assumere i valori SEEK_SET, SEEK_CUR o SEEK_END per specificare
@@ -242,7 +242,7 @@ static loff_t UART_llseek (struct file *file_ptr, loff_t off, int whence) {
       case 2: /* SEEK_END */
         newpos = UART_dev_ptr->res_size + off;
         break;
-      default: /* can't happen */
+      default:
         return -EINVAL;
     }
     if (newpos < 0)
@@ -283,32 +283,7 @@ static unsigned int UART_poll (struct file *file_ptr, struct poll_table_struct *
  *
  */
 static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
-/*
-	UART *UART_dev_ptr = NULL;
-	printk(KERN_INFO "Chiamata %s\n\tline: %d\n", __func__, irq);
-	printk(KERN_INFO"**********ISR***********");
-	if ((UART_dev_ptr = UART_list_find_irq_line(device_list, irq)) == NULL) {
-		printk(KERN_INFO "%s\n\tUART_list_find_irq_line() restituisce NULL:\n", __func__);
-		return IRQ_NONE;
-	}
-	
-// Disabilitazione delle interruzioni della periferica
 
-	UART_GlobalInterruptDisable(UART_dev_ptr);
-	UART_InterruptDisable(UART_dev_ptr, UART_dev_ptr->irq_mask);
-
-// Setting del valore del flag "can_read"
-
-	UART_SetCanRead(UART_dev_ptr);
-	printk(KERN_INFO "funzione %s | valore can_read: %d\n", __func__, UART_dev_ptr->can_read);
-
-// Risveglio dei processi sleeping
-
-	UART_PinInterruptAck(UART_dev_ptr, UART_dev_ptr->irq_mask);
-	UART_WakeUp(UART_dev_ptr);
-	
-	return IRQ_HANDLED;
-*/	
 	UART *UART_dev_ptr = NULL;
 	uint32_t reg_sent_data;
 	uint32_t pending_reg;
@@ -321,7 +296,7 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 	}
 		
 	iowrite32(0x00000000, (UART_dev_ptr->vrtl_addr + TX_EN));
-	//disabilito interrupt
+
 	UART_GlobalInterruptDisable(UART_dev_ptr);	
 
 	pending_reg = UART_PendingInterrupt(UART_dev_ptr);
@@ -359,10 +334,8 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 		if(UART_dev_ptr->tx_count < UART_dev_ptr->buffer_size){
 			
 			reg_sent_data = ioread32(UART_dev_ptr->vrtl_addr + DATA_IN);
-			//printk(KERN_INFO"ISR TX - value sent: %c\n", reg_sent_data);
 			printk(KERN_INFO"ISR TX - start sending next value: %c\n", UART_dev_ptr->buffer_tx[UART_dev_ptr->tx_count]);
-			
-			
+				
 			UART_SetData(UART_dev_ptr, UART_dev_ptr->buffer_tx[UART_dev_ptr->tx_count]);
 			
 			UART_TXInterruptAck(UART_dev_ptr);
@@ -396,7 +369,6 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t *off) {
 	UART *UART_dev_ptr;
 	void* read_addr;
-	//uint32_t data_readed;
 	printk(KERN_INFO "Chiamata %s\n", __func__);
 	UART_dev_ptr = file_ptr->private_data;
 	if (*off > UART_dev_ptr->res_size)
@@ -415,7 +387,6 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 	}
 //Accesso ai registri del device
 	read_addr = UART_GetDeviceAddress(UART_dev_ptr)+*off;
-	//data_readed = ioread32(read_addr);
 	printk(KERN_INFO "%s | \n", __func__);
 	
 //Copia dei dati letti verso l'userspace
@@ -448,19 +419,10 @@ static ssize_t UART_write (struct file *file_ptr, const char __user * buf, size_
 	if (*off > UART_dev_ptr->res_size)
 		return -EFAULT;
 	
-	if ((file_ptr->f_flags & O_NONBLOCK) == 0) {
-		printk(KERN_INFO "%s è bloccante\n", __func__);
-
-//Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep
-		UART_TestCanWriteAndSleep(UART_dev_ptr);
-//Il processo è risvegliato dall'arrivo di un'interruzione	
-		UART_ResetCanWrite(UART_dev_ptr);
-	}
-	else {
-		printk(KERN_INFO "%s non è bloccante\n", __func__);
-		return -1;
-	}
-	
+//Test della variabile "can_write"
+	UART_TestCanWriteAndSleep(UART_dev_ptr);
+//Il processo è risvegliato dall'arrivo di un'interruzione che indica la possibilità di effettuare una scrittura
+	UART_ResetCanWrite(UART_dev_ptr);
 	
 	UART_dev_ptr->tx_count = 0;
 	UART_dev_ptr->rx_count = 0;
@@ -499,8 +461,7 @@ static ssize_t UART_write (struct file *file_ptr, const char __user * buf, size_
 	for(j=0; j<UART_dev_ptr->buffer_size; j++){
 
 		UART_dev_ptr->buffer_tx[j] = my_int_uart_phrase[j];								  
-		printk(KERN_INFO"UART_dev_ptr->buffer_tx[%d] %c", j, UART_dev_ptr->buffer_tx[j]);
-		wmb();
+		
 	}
 
 	printk(KERN_INFO"Start sending first value: %c", UART_dev_ptr->buffer_tx[0]);

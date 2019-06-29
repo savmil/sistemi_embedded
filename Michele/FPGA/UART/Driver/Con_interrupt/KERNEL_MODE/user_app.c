@@ -7,6 +7,7 @@
 #include <sys/stat.h> 
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <string.h> 
 
 #define	DATA_IN    0				
 #define	RX_REG     12 
@@ -15,36 +16,37 @@
 #define SEEK_CUR   1
 #define SEEK_END   2
 
-#define DIM 7
-
 int main(int argc, char *argv[]){
 
-	int i=0;
-	char read_value [DIM];
-	char buf [DIM] = "diocane";
+	int DIM = strlen(argv[1]);
+	char * buf;
+	char * read_value;
+	
+	buf = malloc(sizeof(char)*DIM);
+	buf = argv[1];
+	read_value = malloc(sizeof(char)*DIM);
 
 	int file_descr = open("/dev/UART0", O_RDWR);
 	if (file_descr < 1){
 		printf("Errore nell'accesso al device.\n");
 		return -1;
 	}
-	
-	write(file_descr, buf, DIM);
-	
+
+	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.", buf, DIM);
+		
+	write(file_descr, buf, sizeof(char)*DIM);
 	
 	printf("Waiting for interrupt...");
-		
+
 	read(file_descr, &read_value, sizeof(char)*DIM);
 
 	printf("Interrupt occurred!\n");
-		
+
 	printf("Valore ricevuto:\n");
-		
-	for(i=0; i<DIM; i++){
-		
-		printf("%c",read_value[i]);
 	
-	}
-	
+	printf("%s",read_value);
+		
+	free(read_value);
+	free(buf);
 	close(file_descr);
 }

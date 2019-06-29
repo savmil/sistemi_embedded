@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,6 +54,9 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -72,8 +75,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -103,7 +104,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -116,10 +116,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -789,7 +786,9 @@ status open
 
 \begin_layout Plain Layout
 
-    
+
+\backslash
+begin{lstlisting}[language=VHDL]     
 \end_layout
 
 \begin_layout Plain Layout
@@ -922,7 +921,9 @@ status open
 
 \begin_layout Plain Layout
 
-	
+
+\backslash
+end{lstlisting}	
 \end_layout
 
 \end_inset
@@ -948,7 +949,14 @@ status open
 
 \begin_layout Plain Layout
 
-    --! delay del segnale pending_intr
+
+\backslash
+begin{lstlisting}[language=VHDL]     
+\end_layout
+
+\begin_layout Plain Layout
+
+   --! delay del segnale pending_intr
 \end_layout
 
 \begin_layout Plain Layout
@@ -1034,6 +1042,17 @@ status open
     end process;
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
 \end_inset
 
 
@@ -1053,7 +1072,14 @@ status open
 
 \begin_layout Plain Layout
 
- 	--! process per gestire l'unica linea di interruzione 
+
+\backslash
+begin{lstlisting}[language=VHDL]     
+\end_layout
+
+\begin_layout Plain Layout
+
+	--! process per gestire l'unica linea di interruzione 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1134,6 +1160,17 @@ status open
     end process;
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
 \end_inset
 
 
@@ -1147,6 +1184,1608 @@ Design
 Per testare il componente, la linea TX è stata collegata alla linea RX allaccian
 do il componente su se stesso.
  Dunque ad ogni trasmissione corrisponderà una ricezione.
+\end_layout
+
+\begin_layout Subsection
+Driver Standalone
+\end_layout
+
+\begin_layout Subsection
+Driver Linux
+\end_layout
+
+\begin_layout Subsubsection
+Driver Kernel Mode
+\end_layout
+
+\begin_layout Standard
+Per una spiegazione più dettagliata della scrittura del driver sottoforma
+ di modulo kernel si rimanda alla sezione corrispondente del precedente
+ capitolo.
+ Vengono analizzate nel seguito le funzionalità delle system-call offerte
+ dal modulo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Struttura che specifica le funzioni che agiscono sul device
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+static struct file_operations GPIO_fops = {
+\end_layout
+
+\begin_layout Plain Layout
+
+		.owner    = THIS_MODULE,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.llseek   = UART_llseek,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.read     = UART_read,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.write    = UART_write,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.poll     = UART_poll,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.open     = UART_open,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.release  = UART_release,
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+owner: rappresenta puntatore al modulo che è il possessore della struttura.
+ Ha lo scopo di evitare che il modulo venga rimosso quando uno delle funzionalià
+ fornite è in uso.
+ Inizializzato mediante la macro THIS_MODULE
+\end_layout
+
+\begin_layout Itemize
+UART_llseek: sposta l'offset di lettura/scrittura sul file.
+\end_layout
+
+\begin_layout Itemize
+UART_read: utilizzata per leggere dal device.
+ La chiamata a UART_read potrebbe avvenire quando il device non ha dati
+ disponibili, in questo caso il processo chiamante deve essere messo in
+ una coda di processi sleeping in modo tale da mascherare all'esterno le
+ dinamiche interne del device.
+ Per far ciò viene utilizzata una variabile 
+\begin_inset Quotes eld
+\end_inset
+
+can_read
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La funzione read effettua un controllo sullo stato di quest'ultima e se
+ rileva che non è possibile effettuare una lettura mette il processo in
+ sleep.
+ L'ISR avrà il compito di settare la variabile per poter rendere possibile
+ la lettura e risvegliare i processi dalla coda, solo quando il trasferimento
+ è completato.
+ Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
+ fornite dal kernel.
+ 
+\end_layout
+
+\begin_layout Itemize
+UART_write: utilizzata per inviare dati al device.
+ La chiamata a UART_write potrebbe avvenire quando il device è impegnato
+ a gestire un trasferimento ancora non terminato, in questo caso il processo
+ chiamante deve essere messo in una coda di processi sleeping in modo tale
+ da mascherare all'esterno le dinamiche interne del device.
+ Per far ciò è stato realizzato un meccanismo analogo a quello per la lettura,
+ ovvero utilizzando una variabile 
+\begin_inset Quotes eld
+\end_inset
+
+can_write
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La funzione write effettua un controllo sullo stato di quest'ultima e se
+ rileva che non è possibile effettuare una scrittura mette il processo in
+ sleep.
+ L'ISR avrà il compito di settare la variabile per poter rendere possibile
+ la scrittura e risvegliare i processi dalla coda, solo quando il trasferimento
+ è completato.
+ Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
+ fornite dal kernel.
+ 
+\end_layout
+
+\begin_layout Itemize
+UART_poll: utilizzata per verificare se un'operazione di lettura sul device
+ risulti bloccante.
+ Verifica lo stato della variabile can_read e in caso sia possibile effettuare
+ una lettura ritorna un'opportuna maschera.
+\end_layout
+
+\begin_layout Itemize
+UART_open: chiamata all'apertura del file descriptor associato al device.
+ Se alla chiamata viene specificato il flag O_NONBLOCK tutte le operazioni
+ di lettura sul file descriptor aperto non risulteranno essere bloccanti.
+ 
+\end_layout
+
+\begin_layout Itemize
+UART_release: chiamata alla chiusura del file descriptor associato al device.
+\end_layout
+
+\begin_layout Standard
+Il codice allegato è diviso in:
+\end_layout
+
+\begin_layout Itemize
+UART.h/UART.c : definizione e implementazione di una struttura che astrae
+ il nostro device UART in kernel mode.
+ Contiene ciò che è necessario al funzionamento del driver, compreso lo
+ spinlock per l'accesso in mutua esclusione alle variabili can_read, can_write
+ e le wait_queue.
+\end_layout
+
+\begin_layout Itemize
+UART_list.h/UART_list.c : definizione e implementazione di una lista di oggetti
+ UART.
+ Fornisce tutte le funzioni necessarie per l'interfacciamento quali inizializzaz
+ione, cancellazione, aggiunta oggetto, ricerca.
+\end_layout
+
+\begin_layout Itemize
+UART_kernel_main.c: rappresenta il vero e proprio modulo kernel che reimplementa
+ le tutte funzioni necessarie all'interfacciamento.
+\end_layout
+
+\begin_layout Standard
+Per compilare il modulo è sufficiente lanciare lo script 
+\begin_inset Quotes eld
+\end_inset
+
+prepare_environment.sh
+\begin_inset Quotes erd
+\end_inset
+
+ prima di dare il comando make.
+ Segue il Makefile utilizzato per la compilazione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=make"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+obj-m += my_kernel_UART.o
+\end_layout
+
+\begin_layout Plain Layout
+
+my_kernel_UART-objs :=UART_kernel_main.o UART.o UART_list.o
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+all:
+\end_layout
+
+\begin_layout Plain Layout
+
+	make -C linux-xlnx/ M=$(PWD) modules
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+clean:
+\end_layout
+
+\begin_layout Plain Layout
+
+	make -C linux-xlnx/ M=$(PWD) clean
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una volta ottenuto il kernel object (.ko) l'ultima operazione da effettuare
+ è quella di inserirlo mediante il comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+insmod my_kernel_UART.ko
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per mostrare il corretto funzionamento di tutte le funzionalità implementate
+ sono state create due user application:
+\end_layout
+
+\begin_layout Enumerate
+user_app.c : l'utente indica da riga di comando la stringa che vuole trasmettere
+ tramite il device UART.
+ Viene aperto dunque il descrittore del file associato al device, invocata
+ una write per inserire i caratteri nel buffer di trasmissione e infine
+ una read per leggerli dal buffer di ricezione.
+\end_layout
+
+\begin_layout Enumerate
+poll_user_app.c : l'utente indica da riga di comando la stringa che vuole
+ trasmettere tramite il device UART.
+ Viene aperto dunque il descrittore del file associato al device e viene
+ effettuata una chiamata a poll per verificare se sia possibile o meno effettuar
+e una lettura che non risulti bloccante.
+ Dato che non sono state effettuate trasmissioni il buffer di ricezione
+ è ancora vuoto e la variabile can_read indica che non è possibile effettuare
+ una lettura.
+ La poll dunque restituirà, dopo un timeout specificato, una maschera pari
+ a 0 e la chiamata a read non sarà effettuata.
+ Dopo un numero prefissato di chiamate a poll verrà effettuata una write,
+ per cui alla successiva chiamata la maschera restituita indicherà la possibilit
+à di effettuare una lettura non bloccante e verrà effettuata una read.
+\end_layout
+
+\begin_layout Standard
+Per rimuove il modulo impartire il comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rmmod my_kernel_UART.ko
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+UIO
+\end_layout
+
+\begin_layout Standard
+Per una spiegazione più dettagliata della scrittura del driver userspace
+ I/O si rimanda alla sezione corrispondente del precedente capitolo.
+ Dopo aver aggiunto ai bootargs nel file system-top.dts il parametro 
+\begin_inset Quotes eld
+\end_inset
+
+uio_pdrv_genirq.of_id=generic-uio
+\begin_inset Quotes erd
+\end_inset
+
+ si imposta nel file pl.dtsi il campo compatible dei device GPIO a "generic-uio"
+ come segue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/ {
+\end_layout
+
+\begin_layout Plain Layout
+
+	amba_pl: amba_pl {
+\end_layout
+
+\begin_layout Plain Layout
+
+		#address-cells = <1>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		#size-cells = <1>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		compatible = "simple-bus";
+\end_layout
+
+\begin_layout Plain Layout
+
+		ranges ;
+\end_layout
+
+\begin_layout Plain Layout
+
+		UART_0: UART@43c00000 {
+\end_layout
+
+\begin_layout Plain Layout
+
+			/* This is a place holder node for a custom IP, user may need to update
+ the entries */
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock-names = "s00_axi_aclk";
+\end_layout
+
+\begin_layout Plain Layout
+
+			clocks = <&clkc 15>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			compatible = "xlnx,UART-1.0";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-names = "interrupt";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-parent = <&intc>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupts = <0 29 4>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg = <0x43c00000 0x10000>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-addr-width = <0x5>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-data-width = <0x20>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A questo punto si ricompila il device-tree generando il file .dtb e lo si
+ sposta nella partizione di BOOT della SD Card.
+ All'avvio del sistema operativo si potrà osservare sotto /dev il device
+ uio0 corrispondente al nostro device UART.
+ Il driver userspace effettuerà il mapping dei device per poi mettersi in
+ attesa di notifica di interrupt tramite chiamata a read.
+ Segue il codice relativo al driver UIO:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <unistd.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdlib.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdio.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <limits.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/types.h> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/stat.h> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <fcntl.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/mman.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <string.h> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "UART_interrupt_uio.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define DATA_IN   		0  // DATA TO SEND
+\end_layout
+
+\begin_layout Plain Layout
+
+#define TX_EN	         4  // TRANSFER ENABLE (0)
+\end_layout
+
+\begin_layout Plain Layout
+
+#define STATUS_REG        8  // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define RX_REG	       12  // DATA RECEIVED
+\end_layout
+
+\begin_layout Plain Layout
+
+#define GLOBAL_INTR_EN   16  // GLOBAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_EN          20  // LOCAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_ACK_PEND    28  // PENDING/ACK REGISTER
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define TX				1	
+\end_layout
+
+\begin_layout Plain Layout
+
+#define RX				2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_MASK 3
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @file UART_interrupt_uio.c
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @page driver_UART_UIO
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief funzioni per gestire la trasmissione e la ricezione dei
+\end_layout
+
+\begin_layout Plain Layout
+
+ * 	      dati utilizzando il protocollo UART
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int tx_count, rx_count =0;
+\end_layout
+
+\begin_layout Plain Layout
+
+int buffer_size = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+char * buffer_tx;
+\end_layout
+
+\begin_layout Plain Layout
+
+char * buffer_rx;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief	Utilizzata per scrivere un valore all'interno di un registro
+\end_layout
+
+\begin_layout Plain Layout
+
+ *			della periferica, specificando l'indirizzo base virtuale e 
+\end_layout
+
+\begin_layout Plain Layout
+
+ *			l'offset del registro in cui scrivere
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	addr indirizzo virtuale della periferica
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	offset offset del registro a cui scrivere
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	valore da scrivere
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @return	
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @note
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+void write_reg(void *addr, unsigned int offset, unsigned int value)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	*((unsigned*)(addr + offset)) = value;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief	Utilizzata per leggere un valore da un registro
+\end_layout
+
+\begin_layout Plain Layout
+
+ *			della periferica, specificando l'indirizzo base virtuale e 
+\end_layout
+
+\begin_layout Plain Layout
+
+ *			l'offset del registro da cui leggere
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	addr indirizzo virtuale della periferica
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	offset offset del registro a cui leggere
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @return	valore presente all'interno del registro
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @note
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+unsigned int read_reg(void *addr, unsigned int offset)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	return *((unsigned*)(addr + offset));
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief	Attende l' arrivo di un interrupt utilizzando la read 
+\end_layout
+
+\begin_layout Plain Layout
+
+ *			su un device UIO
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	file_descr descrittore del UIO driver
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param	addr indirizzo virtuale della periferica
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @return	
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @note
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+void wait_for_interrupt(int file_descr, void *addr)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("Waiting for interrupts......
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int i = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int pending = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int reenable = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	u_int32_t pending_reg = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	u_int32_t reg_sent_data = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	u_int32_t reg_received_data = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Attesa sul file descriptor in attesa di ricevere un'interruzione*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	read(file_descr, (void *)&pending, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Interruzione ricevuta*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Disasserisce il transfer enable e disabilita le interruzioni */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(addr, TX_EN, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(addr, GLOBAL_INTR_EN, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("IRQ detected!
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	pending_reg = read_reg(addr, INTR_ACK_PEND);
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("Pending reg: %08x
+\backslash
+n", pending_reg); // STAMPA DEBUG
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if((pending_reg & 0x00000002) == 0x00000002){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("---ISR RX---
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(rx_count < buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+			rx_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg_received_data = read_reg(addr, RX_REG);
+\end_layout
+
+\begin_layout Plain Layout
+
+			printf("ISR RX - value received: %c
+\backslash
+n", reg_received_data);
+\end_layout
+
+\begin_layout Plain Layout
+
+			buffer_rx[rx_count] = reg_received_data;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			}else if(rx_count == buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("Trasmissione/Ricezione completata, valore ricevuto: ");
+\end_layout
+
+\begin_layout Plain Layout
+
+				for(i=0; i<rx_count; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+					printf("%c",buffer_rx[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+/** ACK ricezione */	
+\end_layout
+
+\begin_layout Plain Layout
+
+		write_reg(addr, INTR_ACK_PEND, RX); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		write_reg(addr, INTR_ACK_PEND, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Riabilitazione interruzioni*/
+\end_layout
+
+\begin_layout Plain Layout
+
+		write_reg(addr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	}	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else if((pending_reg & 0x00000001) == 0x00000001){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("---ISR TX---
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(tx_count < buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg_sent_data = read_reg(addr, DATA_IN);
+\end_layout
+
+\begin_layout Plain Layout
+
+			printf("ISR TX - value sent: %c
+\backslash
+n", reg_sent_data);
+\end_layout
+
+\begin_layout Plain Layout
+
+			printf("ISR TX - start sending next value: %c
+\backslash
+n", buffer_tx[tx_count]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, DATA_IN, buffer_tx[tx_count]);
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+/** ACK trasmissione*/		
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, INTR_ACK_PEND, TX); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			sleep(1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Riabilitazione interruzioni*/
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, INTR_ACK_PEND, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Abilitazione del trasferimento */
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, TX_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		else{
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, INTR_ACK_PEND, TX); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, INTR_ACK_PEND, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(addr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema
+ UIO */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ret = write(file_descr, (void *)&reenable, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char *argv[]){
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int j;
+\end_layout
+
+\begin_layout Plain Layout
+
+	void *uart_ptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int DIM = strlen(argv[1]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	buffer_size = DIM;	
+\end_layout
+
+\begin_layout Plain Layout
+
+	buffer_tx = malloc(sizeof(char)*DIM);
+\end_layout
+
+\begin_layout Plain Layout
+
+	buffer_rx = malloc(sizeof(char)*DIM);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	buffer_tx = argv[1];
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int file_descr = open("/dev/uio0", O_RDWR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (file_descr < 1){
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Errore nell'accesso al device UIO.
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	unsigned dimensione_pag = sysconf(_SC_PAGESIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	uart_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ file_descr, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.",
+ buffer_tx, DIM);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Abilitazione interruzioni globali */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_ptr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Abilitazione interruzioni */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_ptr, INTR_EN, INTR_MASK); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Settaggio del primo carattere da mandare */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_ptr, DATA_IN, buffer_tx[0]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Abilitazione del trasferimento */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_ptr, TX_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while(tx_count < buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+		wait_for_interrupt(file_descr, uart_ptr);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Fa l'unmap del device UART */
+\end_layout
+
+\begin_layout Plain Layout
+
+	munmap(uart_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	free(buffer_rx);
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima operazione del driver è quella di aprire il file descriptor relativo
+ al device uio0.
+ Successivamente calcola la dimensione della pagina e effettua il mapping
+ tramite chiamata a mmap().
+ Viene invocata una write_reg sul registro DATA_IN per inserire il primo
+ carattere da inviare nel registro di trasmissione e successivamente viene
+ dato il segnale di TX_EN.
+ Iterativamente, finchè non sono stati trasmessi un numero di caratteri
+ pari alla dimensione della stringa da trasmettere, viene effettuata una
+ read per mettersi in attesa di eventi interrompenti dal device.
+ Una volta risvegliato dalla chiamata il processo si occupa della gestione
+ dell'interruzione in maniera analoga alla parte applicativa della ISR vista
+ nel capitolo precedente, escludendo dunque i meccanismi interni di lock.
 \end_layout
 
 \end_body

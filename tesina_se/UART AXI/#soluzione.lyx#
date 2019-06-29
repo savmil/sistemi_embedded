@@ -2784,8 +2784,7 @@ La prima operazione del driver è quella di aprire il file descriptor relativo
  pari alla dimensione della stringa da trasmettere, viene effettuata una
  read per mettersi in attesa di eventi interrompenti dal device.
  Una volta risvegliato dalla chiamata il processo si occupa della gestione
- dell'interruzione in maniera analoga alla parte applicativa della ISR vista
- nel capitolo precedente.
+ dell'interruzione in maniera analoga alla ISR 
 \end_layout
 
 \end_body
