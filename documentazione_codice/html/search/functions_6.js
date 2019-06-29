@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wait_5ffor_5finterrupt',['wait_for_interrupt',['../GPIO__interrupt__uio__poll_8c.html#a0763f2b768cf806d67ab5524cf6a7dc3',1,'wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1, void *addr_2) :&#160;GPIO_interrupt_uio_poll.c'],['../GPIO__interrupt__uio__poll_8h.html#ab2f398880fc06a6357ed85b17b1595e6',1,'wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1, void *addr_2):&#160;GPIO_interrupt_uio_poll.c']]],
-  ['write_5freg',['write_reg',['../GPIO__interrupt__uio__poll_8c.html#a967a78bccad98fd07accc16dd33243fe',1,'write_reg(void *addr, unsigned int offset, unsigned int value) :&#160;GPIO_interrupt_uio_poll.c'],['../GPIO__interrupt__uio__poll_8h.html#a19948bb35adde231ba424f7bc14289ee',1,'write_reg(void *addr, unsigned int offset, unsigned int value):&#160;GPIO_interrupt_uio_poll.c']]]
+  ['main',['main',['../main_8c.html#a291eed9aadcac79d6177607f6dcff780',1,'main.c']]],
+  ['module_5fplatform_5fdriver',['module_platform_driver',['../GPIO__kernel__main_8c.html#a1cb526e2e779a460032fd9cb65d5483e',1,'GPIO_kernel_main.c']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../STM32_2CRC__Revisited__loop_2src_2main_8c.html#a291eed9aadcac79d6177607f6dcff780',1,'main.c']]],
-  ['memmanage_5fhandler',['MemManage_Handler',['../group__UART__TwoBoards__ComIT.html#ga0721f39c09b00b7bee9d7c3cfa41ec49',1,'stm32f3xx_it.c']]],
-  ['my_5fint_5fuart_5fwrite',['my_int_uart_write',['../UART__interrupt__kernel__mode_8c.html#ab14e8047b498406ca66de938329b4996',1,'UART_interrupt_kernel_mode.c']]]
+  ['wait_5ffor_5finterrupt',['wait_for_interrupt',['../GPIO__interrupt__uio__poll_8c.html#a0763f2b768cf806d67ab5524cf6a7dc3',1,'wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1, void *addr_2) :&#160;GPIO_interrupt_uio_poll.c'],['../GPIO__interrupt__uio__poll_8h.html#ab2f398880fc06a6357ed85b17b1595e6',1,'wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1, void *addr_2):&#160;GPIO_interrupt_uio_poll.c']]],
+  ['write_5freg',['write_reg',['../GPIO__interrupt__uio__poll_8c.html#a967a78bccad98fd07accc16dd33243fe',1,'write_reg(void *addr, unsigned int offset, unsigned int value) :&#160;GPIO_interrupt_uio_poll.c'],['../GPIO__interrupt__uio__poll_8h.html#a19948bb35adde231ba424f7bc14289ee',1,'write_reg(void *addr, unsigned int offset, unsigned int value):&#160;GPIO_interrupt_uio_poll.c']]]
 ];

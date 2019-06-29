@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -223,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -252,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -264,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -281,1088 +287,60 @@ morecomment=[s]{--}
 Soluzione
 \end_layout
 
-\begin_layout Subsection
-Descrizione GPIO
-\end_layout
-
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-inserire immagine gpio con nomi del segnale del design
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Il general purpose input output è un interfaccia che permette di leggere
- il valore proveniente da un pin oppure di scrivere un valore.
-\end_layout
-
-\begin_layout Standard
-Nel nostro design il segnale di enable decide il comportamento dell' interfaccia
-, nel caso questo venga settato ad uno il valore del bit write viene forzato
- sul pin pad, altrimenti il valore del pin al quale è collegato pad viene
- letto tramite il pin read.
+Il progetto è stato realizzato utilizzando delle board della ST Micro Eletronics
+, specificatamente le STMF3DISCOVERY, prima di addentrarci nelle soluzioni
+ adottate per gestire la comunicazione ed il controllo del messaggio inviato,
+ mostriamo i protocolli che governano le varie comunicazioni.
 \end_layout
 
 \begin_layout Subsection
-Creazione Custom IP
+Periferiche
+\end_layout
+
+\begin_layout Subsubsection
+UART
 \end_layout
 
 \begin_layout Standard
-Dal menù di Vivado selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-Tools->Create and Package New IP
-\begin_inset Quotes erd
-\end_inset
-
- si aprirà questa finestra
+Uart è un protocollo che ha bisogno solamente due fili per la comunicazione,
+ a cui bisogna aggiungere il cavo per potarle allo stesso potenziale affinché
+ sia possibile capire se è stato inviato un valore 1 oppure 0 come mostrato
+ in figura.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Graphics
-	filename images/new_ip.png
-	width 100text%
-	height 100text%
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Cliccare su 
-\begin_inset Quotes eld
-\end_inset
-
-Next
-\begin_inset Quotes erd
-\end_inset
-
-, selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-Create a New AXI4 peripheral
-\begin_inset Quotes erd
-\end_inset
-
-, di nuovo 
-\begin_inset Quotes eld
-\end_inset
-
-Next
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/NewAxi4.png
-	width 100text%
-	height 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Riempire i vari campi con le informazioni dell' IP, in questa finestra è
- importante il parametro 
-\begin_inset Quotes eld
-\end_inset
-
-IP location
-\begin_inset Quotes erd
-\end_inset
-
- che permette di selezionare in quale cartella salveremo il nostro custom
- IP.
-\end_layout
-
-\begin_layout Standard
-Quando si avrà compilato tutti i campi, procedere cliccando su 
-\begin_inset Quotes eld
-\end_inset
-
-Next
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/IP_information.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nella finestra successiva è possibile configurare il tipo di interfaccia
- del nostro componente, nel nostro caso LITE, che tipo di device è, Slave
- dato che non gestisce le transizioni del bus AXI, la dimensione dei registri
- in cui andremo a scrivere ed a leggere ed il numero di registri che vogliamo
- utilizzare, clicchiamo su 
-\begin_inset Quotes eld
-\end_inset
-
-Next
-\begin_inset Quotes erd
-\end_inset
-
- una volta settati i parametri desiderati.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/Interface.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-Edit IP
-\begin_inset Quotes erd
-\end_inset
-
- e successivamente cliccare su 
-\begin_inset Quotes eld
-\end_inset
-
-Finish
-\begin_inset Quotes erd
-\end_inset
-
- verrà creata una nuova finestra di Vivado in cui è possibile modificare
- il custom IP.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/end_wizard.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nella nuova finestra vediamo che sono stati creati tre nuovi file, uno con
- il nome del nostro custom IP che rappresenta l' interfaccia del nostro
- componente, un altro con il 
-\begin_inset Quotes eld
-\end_inset
-
-nome del nostro IP _nome settato nella generazione del componente
-\begin_inset Quotes erd
-\end_inset
-
- ed infine il file 
-\begin_inset Quotes eld
-\end_inset
-
-nome del componente _S_AXI_INTR
-\begin_inset Quotes erd
-\end_inset
-
- che gestisce il processo delle interruzioni.
-\end_layout
-
-\begin_layout Subsection
-Modifica Default IP Core
-\end_layout
-
-\begin_layout Standard
-Aggiungiamo al design creato da Vivado il nostro GPIO array ed il singolo
- GPIO, cliccando su 
-\begin_inset Quotes eld
-\end_inset
-
-Add Sources
-\begin_inset Quotes erd
-\end_inset
-
- presente sulla sinistra della interfaccia, una volta fatto ciò instanziamo
- il nostro componente nel file 
-\begin_inset Quotes eld
-\end_inset
-
-nome del nostro IP _nome settato nella generazione del componente
-\begin_inset Quotes erd
-\end_inset
-
-, è buona norma farlo nella sezione indicata da Vivado tra i seguenti commenti
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=VHDL"
-inline false
+\begin_layout Plain Layout
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
--- Add user logic here
-\end_layout
 
-\begin_layout Plain Layout
-
--- User logic ends
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Il componente instanziato è il seguente
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=VHDL"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-gpio_inst : GPIO_Array      
-\end_layout
-
-\begin_layout Plain Layout
-
-generic map(width => width)     
-\end_layout
-
-\begin_layout Plain Layout
-
-port map(    enable => slv_reg0(width-1 downto 0),     			   write => slv_reg1(w
-idth-1 downto 0),
-\end_layout
-
-\begin_layout Plain Layout
-
-			   read => gpio_read(width-1 downto 0),
-\end_layout
-
-\begin_layout Plain Layout
-
-			   pads =>pads);
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Il valore di enable e di write vengono gestiti dai valori presenti nei registri
- slv_reg0 ed 1, invece il valore di read viene salvato nel registro gpio_read,
- non può essere usato uno degli slv_reg generato automaticamente da vivado
- poiché read vuole forzare dei valori essendo un pin di output, ma anche
- gli slv_reg forzano dei valori essendo i loro valori forzati da un process
- che ne permette la scrittura dei valori, per tale motivo viene introdotto
- in questo caso il segnale gpio_read che non viene scritto ma può essere
- solo letto modificando il process di scrittura nel seguente modo
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-process (slv_reg0, slv_reg1, slv_reg2, gpio_read, axi_araddr, S_AXI_ARESETN,
- slv_reg_rden) 	variable loc_addr :std_logic_vector(OPT_MEM_ADDR_BITS downto
- 0); 	begin 	    -- Address decoding for reading registers 	    loc_addr
- := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB); 	    case
- loc_addr is 	      when b"00" => 	        reg_data_out <= slv_reg0; 	 
-     when b"01" => 	        reg_data_out <= slv_reg1; 	      when b"10"
- => 	        reg_data_out <= slv_reg2; 	      when b"11" => 	        reg_data_ou
-t <= gpio_read; 	      when others => 	        reg_data_out  <= (others
- => '0'); 	    end case; 	end process;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In questo caso invece di leggere lo slv_reg3 verrà letto il segnale gpio_read,
- ma i valori di tale registro non vengono forzati da nessuno se non dal
- pin read.
-\end_layout
-
-\begin_layout Standard
-Aggiungiamo i parametri del nostro componente in questo caso width tra i
- seguenti commenti
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=VHDL"
-inline false
-status open
-
-\begin_layout Plain Layout
-
--- Users to add parameters here
-\end_layout
-
-\begin_layout Plain Layout
-
-   width : integer := 4;
-\end_layout
-
-\begin_layout Plain Layout
-
--- User parameters ends
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-ed i segnali che si devono esporre nella seguente sezione
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
--- Users to add ports here         
-\end_layout
-
-\begin_layout Plain Layout
-
-pads : inout std_logic_vector(width-1 downto 0);         read_to_intr :
- out std_logic_vector(width-1 downto 0);       status_from_intr : in std_logic_v
-ector(width-1 downto 0);         
-\end_layout
-
-\begin_layout Plain Layout
-
-mask_to_intr : out std_logic_vector(width-1 downto 0); -- User ports ends
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Andiamo a modificare il file che gestisce la generazione dell' interruzione
-\end_layout
-
-\begin_layout Standard
-All' inizio del file sono presenti diversi parametri di configurazione a
- noi interessa in particolare questo
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-C_NUM_OF_INTR	: integer	:= 1;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-il quale definisce il numero di interruzioni che il nostro componente può
- generare ed pilotare il segnale intr il quale fa avviare l' interruzione.
-\end_layout
-
-\begin_layout Standard
-Per catturare le variazione del componente GPIO affinché da avviare l' interruzi
-one è stato utilizzato il seguente componente detector
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-entity Detector is     
-\end_layout
-
-\begin_layout Plain Layout
-
-generic(         width : integer := 4     );     
-\end_layout
-
-\begin_layout Plain Layout
-
-port (         clock : in std_logic;         into_detect:  in std_logic_vector(w
-idth-1 downto 0);         mask : in std_logic_vector(width-1 downto 0);
-         status:   out std_logic_vector(width-1 downto 0);         trigger
- : out std_logic     ); 
-\end_layout
-
-\begin_layout Plain Layout
-
-end Detector;
-\end_layout
-
-\begin_layout Plain Layout
-
-architecture Behavioral of Detector is
-\end_layout
-
-\begin_layout Plain Layout
-
-    signal first_stage : std_logic_vector(width-1 downto 0); -- first  sampling
- stage     
-\end_layout
-
-\begin_layout Plain Layout
-
-	 signal current_stage : std_logic_vector(width-1 downto 0); -- second sampling
- stage      
-\end_layout
-
-\begin_layout Plain Layout
-
-    signal last_stage : std_logic_vector(width-1 downto 0); -- last value
- o     
-\end_layout
-
-\begin_layout Plain Layout
-
-      signal detected : std_logic_vector(width-1 downto 0);      
-\end_layout
-
-\begin_layout Plain Layout
-
-		begin
-\end_layout
-
-\begin_layout Plain Layout
-
-      	sync: process(clock)     
-\end_layout
-
-\begin_layout Plain Layout
-
-		  begin         
-\end_layout
-
-\begin_layout Plain Layout
-
-		 if rising_edge(clock) then             				first_stage <= into_detect;
-             				current_stage <= first_stage;         			    end if;  
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-		  end process;
-\end_layout
-
-\begin_layout Plain Layout
-
-    last_stage <= current_stage when rising_edge(clock);               
-\end_layout
-
-\begin_layout Plain Layout
-
-		 detected <= (last_stage xor current_stage);         	    trigger <= or_reduce
-(detected and mask);                          status <= detected;
-\end_layout
-
-\begin_layout Plain Layout
-
-end Behavioral;
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Il componente occorre per determinare quando vi è una variazione dei segnali
- into_detect (nel nostro caso gpio_read del componente GPIO), essenzialmente
- è costituito da tre flip-flop collegati in cascata, i primi due occorrono
- per sincronizzare il valore di into_detect con il clock, poiché a noi interessa
- cattuare cambiamenti di tale segnale, difatti al primo colpo di clock il
- primo flip flop salva il valore del segnale, al secondo colpo di clock
- il secondo flip flop salva il valore precedentemente salvato, così da rispettar
-e la successione degli eventi del segnale da campionare, mentre il primo
- flip flop campione di nuovo il segnale in ingresso; il terzo flip flop
- occorre per problemi di metastabilità che possono occorrere in un circuito
- reale (ad esempio il valore del primo flip flop da alto passa a basso e
- il secondo flip flop campiona quando tale valore si trova a metà tra i
- due livelli, non permettendo al flip flop di salvare un valore stabile,
- che può essere corretto quando il terzo flip flop campiona il segnale del
- secondo, ovviamente tale situazione di meta stabilità può continuare anche
- con più flip flop, ma la percentuale con cui può capitare avendo tre flip
- flop e molto bassa.
-\end_layout
-
-\begin_layout Standard
-Il segnale status asserisce quanti segnali da controllare sono variati,
- mentre invece il pin trigger, che asserisce l' interrupt si alza solamente
- se uno dei pin che ha cambiato valore appartiene ad una maschera interessata.
-\end_layout
-
-\begin_layout Standard
-Ultimo file da modificare è quello con il nome 
-\begin_inset Quotes eld
-\end_inset
-
-nome del nostro IP
-\begin_inset Quotes erd
-\end_inset
-
- al quale devono essere aggiunti i pin che abbiamo inserito nei componenti
- instanziati in questo file ed i pin che vogliamo che siano l' interfaccia
- del nostro componente.
-\end_layout
-
-\begin_layout Standard
-Rechiamoci nella sezione che gestisce il package del ip
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/package_ip.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nella sezione 
-\begin_inset Quotes eld
-\end_inset
-
-File Groups
-\begin_inset Quotes erd
-\end_inset
-
- cliccare su 
-\begin_inset Quotes eld
-\end_inset
-
-Merge changes from File Groups Wizard
-\begin_inset Quotes erd
-\end_inset
-
-, in 
-\begin_inset Quotes eld
-\end_inset
-
-Customization Parameters
-\begin_inset Quotes erd
-\end_inset
-
- su 
-\begin_inset Quotes eld
-\end_inset
-
-Merge changes from Customization Parameters Wizard
-\begin_inset Quotes erd
-\end_inset
-
-, selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-Hidden Parameters
-\begin_inset Quotes erd
-\end_inset
-
- si aprirà tale finestra
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/parameter_hidden.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Da qui è possibile rendere visibile questo parametro da configurare cliccando
- sul box 
-\begin_inset Quotes eld
-\end_inset
-
-Visible in Customization GUI
-\begin_inset Quotes erd
-\end_inset
-
- e settarne i valori che può assumere cliccando su 
-\begin_inset Quotes eld
-\end_inset
-
-Specify Range
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Recarsi infine su 
-\begin_inset Quotes eld
-\end_inset
-
-Review and Package
-\begin_inset Quotes erd
-\end_inset
-
- cliccare su 
-\begin_inset Quotes eld
-\end_inset
-
-Re-Package IP
-\begin_inset Quotes erd
-\end_inset
-
- per ottenere il custom ip, facendo chiudere la finestra di vivado.
-\end_layout
-
-\begin_layout Subsection
-Creazione del block design
-\end_layout
-
-\begin_layout Standard
-Cliccare sul menù di sinistra 
-\begin_inset Quotes eld
-\end_inset
-
-Create block design
-\begin_inset Quotes erd
-\end_inset
-
- inserire i parametri desiderati e cliccare su 
-\begin_inset Quotes eld
-\end_inset
-
-OK
-\begin_inset Quotes erd
-\end_inset
-
- verrà mostrato questo workspace
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/design_block.png
-	width 100text%
-	height 100text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Cliccare sul pulsante + ed inserire il custom IP creato insieme al processore
- ZYNQ, appariranno due pulsanti 
-\begin_inset Quotes eld
-\end_inset
-
-Run Block Automation
-\begin_inset Quotes erd
-\end_inset
-
- e 
-\begin_inset Quotes eld
-\end_inset
-
-Run Connection Automation
-\begin_inset Quotes erd
-\end_inset
-
- i vari componenti si collegheranno tra di loro automaticamente, una volta
- fatto ciò bisogna rendere esterni i pin che si vuole pilotare dalla board
- cliccando con il tasto destro del mouse su un pin e selezionando 
-\begin_inset Quotes eld
-\end_inset
-
-Make external
-\begin_inset Quotes erd
-\end_inset
-
- una volta fatto selezionare l' icona contrassegnata da un simbolo di spunta
- ed è possibile chiudere il block design.
-\end_layout
-
-\begin_layout Standard
-Bisogna generare ora un wrapper HDL affinchè il block design sia sintetizzabile,
- recandosi nella sezione 
-\begin_inset Quotes eld
-\end_inset
-
-Sources
-\begin_inset Quotes erd
-\end_inset
-
-, tasto destro sul nome del block design e selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-Create HDL Wrapper...
-\begin_inset Quotes erd
-\end_inset
-
- cliccando 
-\begin_inset Quotes eld
-\end_inset
-
-OK
-\begin_inset Quotes erd
-\end_inset
-
- ed essendo sicuri che sia selezionata l' opzione 
-\begin_inset Quotes eld
-\end_inset
-
-Let Vivado manage wrapper and auto-update
-\begin_inset Quotes erd
-\end_inset
-
- fatto ciò procedere alla sintesi.
- 
-\end_layout
-
-\begin_layout Standard
-Una volta terminata, selezionare dal sottomenù 
-\begin_inset Quotes eld
-\end_inset
-
-Open Synthesized Design 
-\begin_inset Quotes erd
-\end_inset
-
- e da un menù a tendina in alto a destra 
-\begin_inset Quotes eld
-\end_inset
-
-I/O Planning
-\begin_inset Quotes erd
-\end_inset
-
- verrà mostrata la seguente schermata
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename images/set_constraints.png
-	width 100text%
-	height 100theight%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In basso sono presenti i pin che sono stati resti esterni, bisogna selezionare
- il tip di 
-\begin_inset Quotes eld
-\end_inset
-
-I/O Std
-\begin_inset Quotes erd
-\end_inset
-
- di solito è quello mostrato in figura ed i 
-\begin_inset Quotes eld
-\end_inset
-
-Package Pin
-\begin_inset Quotes erd
-\end_inset
-
- una volta fatto salvare i constraints cliccando sull' icone del floppy
- blu e dando un nome al file di constraint, una volta fatto si può generare
- il bitstream.
-\end_layout
-
-\begin_layout Standard
-Terminato il processo possiamo esportarlo dal menù 
-\begin_inset Quotes eld
-\end_inset
-
-File -> Export -> Export Hardware...
-\begin_inset Quotes erd
-\end_inset
-
- assicurarsi che sia spuntata l'opzione 
-\begin_inset Quotes eld
-\end_inset
-
-Include bitstream
-\begin_inset Quotes erd
-\end_inset
-
- e selezionare 
-\begin_inset Quotes eld
-\end_inset
-
-OK
-\begin_inset Quotes erd
-\end_inset
-
-, si può ora procedere alla creazione del driver linux, lanciando SDK dal
- menù 
-\begin_inset Quotes eld
-\end_inset
-
-File->Launch SDK
-\begin_inset Quotes erd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-Driver
-\end_layout
-
-\begin_layout Standard
-Il driver ora presentato, viene eseguito direttamente dalla sezione PS della
- board senza il supporto di un sistema operativo linux.
-\end_layout
-
-\begin_layout Standard
-Per poter procedere alla scrittura del driver, dobbiamo sapere dove i registri
- del nostro componente hardware sono stati mappati, tale informazione può
- essere reperita dal file 
-\begin_inset Quotes eld
-\end_inset
-
-xparameters.h
-\begin_inset Quotes erd
-\end_inset
-
- presente nella directory 
-\begin_inset Quotes eld
-\end_inset
-
-'cartella_del_board_support_package'
 \backslash
-ps7_cortexa9_0
-\backslash
-include
-\begin_inset Quotes erd
-\end_inset
-
-, troveremo una sezione di codice molto simile
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=C"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-/* Definitions for driver MYINTGPIO */ 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_NUM_INSTANCES 3
-\end_layout
-
-\begin_layout Plain Layout
-
-/* Definitions for peripheral MYINTGPIO_0 */ 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_0_DEVICE_ID 0 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_0_S00_AXI_BASEADDR 0x43C00000 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_0_S00_AXI_HIGHADDR 0x43C0FFFF
-\end_layout
-
-\begin_layout Plain Layout
-
-/* Definitions for peripheral MYINTGPIO_1 */ 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_1_DEVICE_ID 1 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_1_S00_AXI_BASEADDR 0x43C20000 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_1_S00_AXI_HIGHADDR 0x43C2FFFF
-\end_layout
-
-\begin_layout Plain Layout
-
-/* Definitions for peripheral MYINTGPIO_2 */ 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_2_DEVICE_ID 2 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_2_S00_AXI_BASEADDR 0x43C40000 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define XPAR_MYINTGPIO_2_S00_AXI_HIGHADDR 0x43C4FFFF
+centering
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-dove è possibile sapere il numero dei nostri custom IP core instanziati
- nel progetto HW il loro indirizzo base e quello più alto associato alla
- periferica.
-\end_layout
-
-\begin_layout Standard
-Oltre a tale informazione dobbiamo anche conoscere di quanto sono stati
- spiazziati i nostri slv_reg rispetto all' indirizzo base, tale informazione
- reperibile nel file situato in 
-\begin_inset Quotes eld
-\end_inset
-
-'cartella_del_board_support_package'
-\backslash
-ps7_cortexa9_0
-\backslash
-libsrc
-\backslash
-'nome_del_ip_core_HW'
-\backslash
-src
-\backslash
-'nome_del_ip_core_HW.h'
-\begin_inset Quotes erd
-\end_inset
-
-, una volta aperto sarà presente una sezione simile in alto nel file
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-#define MYINTGPIO_S00_AXI_SLV_REG0_OFFSET 0 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define MYINTGPIO_S00_AXI_SLV_REG1_OFFSET 4 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define MYINTGPIO_S00_AXI_SLV_REG2_OFFSET 8 
-\end_layout
-
-\begin_layout Plain Layout
-
-#define MYINTGPIO_S00_AXI_SLV_REG3_OFFSET 12
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ottenute queste informazioni possiamo leggere e scrivere valori nei registri.
- 
-\end_layout
-
-\begin_layout Standard
-Per la gestione delle interruzioni invece abbiamo bisogno dato che il nostro
- componente sfrutta le interruzioni dobbiamo conoscere dove sono mappati
- i registri, creati da vivado, che gestiscono e ci danno informazioni sulle
- interruzioni che avvengono, tali indirizzi sono visibile aprendo il block
- design e recandoci nella sezione address editor, visibile in figura.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Graphics
-	filename images/address_editor.png
-	width 100text%
-	height 100theight%
+	filename images/UART_connessione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
@@ -1370,125 +348,39 @@ Per la gestione delle interruzioni invece abbiamo bisogno dato che il nostro
 \end_layout
 
 \begin_layout Standard
-Per conoscere invece di quanto sono spaziati i registri che controllano
- l' evoluzione della gestione dell' interrupt dall' indirizzo base nel file
- 
-\begin_inset Quotes eld
-\end_inset
-
-nome del componente _S_AXI_INTR
-\begin_inset Quotes erd
-\end_inset
-
- presente all' interno del nostro custom IP è presente un process simile
+Un esempio di comunicazione è il seguente:
 \end_layout
 
 \begin_layout Standard
-\begin_inset listings
-inline false
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-process (reg_global_intr_en, reg_intr_en, reg_intr_sts, reg_intr_ack, reg_intr_p
-ending, axi_araddr, S_AXI_ARESETN, intr_reg_rden) 	  variable loc_addr :std_logi
-c_vector(2 downto 0);
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/uart_trasmissione.png
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 
-                                  	begin                               
-                         
-\end_layout
-
-\begin_layout Plain Layout
-
-                       	  if S_AXI_ARESETN = '0' then                  
-                                      	    									reg_data_out  <= (others
- => '0');                                                	  
-\end_layout
-
-\begin_layout Plain Layout
-
-								 else                                                          
-                     	    
-\end_layout
-
-\begin_layout Plain Layout
-
-								 -- Address decoding for reading registers                     
-                   	    
-\end_layout
-
-\begin_layout Plain Layout
-
-								 loc_addr := axi_araddr(4 downto 2);                           
-                   	    
-\end_layout
-
-\begin_layout Plain Layout
-
-								 case loc_addr is                                              
-                   	      
-\end_layout
-
-\begin_layout Plain Layout
-
-								 when "000" =>                                                 
-               	        									 reg_data_out <= x"0000000" & "000" & reg_globa
-l_intr_en(0);              	      
-\end_layout
-
-\begin_layout Plain Layout
-
-									when "001" =>                                                 
-               	        									reg_data_out <= reg_intr_en;          
-                                       	      
-\end_layout
-
-\begin_layout Plain Layout
-
-									when "010" =>                                                 
-               	        									reg_data_out <= reg_intr_sts;         
-                                       	      
-\end_layout
-
-\begin_layout Plain Layout
-
-									when "011" =>                                                 
-               	        									reg_data_out <= reg_intr_ack;         
-                                       	      
-\end_layout
-
-\begin_layout Plain Layout
-
-									when "100" =>                                                 
-               	        									reg_data_out <= reg_intr_pending;     
-                                       	      
-\end_layout
-
-\begin_layout Plain Layout
-
-									when others =>                                                
-                 	        									reg_data_out  <= (others => '0');   
-                                         	    
-\end_layout
-
-\begin_layout Plain Layout
-
-							 	end case;                                                     
-                   	  
-\end_layout
-
-\begin_layout Plain Layout
-
-								end if;                                                        
-                    
-\end_layout
-
-\begin_layout Plain Layout
-
-end process;
 \end_layout
 
 \end_inset
@@ -1497,194 +389,37 @@ end process;
 \end_layout
 
 \begin_layout Standard
-Vediamo che sono presenti cinque registri di dimensione pari a trentadue
- bit aventi il seguente compito:
-\end_layout
-
-\begin_layout Enumerate
-il primo abilita il componente a poter generare interrupt;
-\end_layout
-
-\begin_layout Enumerate
-il secondo dice quali segnali di interrupt vogliamo abilitare;
-\end_layout
-
-\begin_layout Enumerate
-il terzo ci dice quali interruzioni sono avvenute;
-\end_layout
-
-\begin_layout Enumerate
-il quarto quando viene scritto si asserisce che l' interruzione è stata
- gestita;
-\end_layout
-
-\begin_layout Enumerate
-il quinto le interruzioni pendenti;
+La comunicazione inzia con un bit di start, che consiste in una transizione
+ da un valore logico 1 ad uno che valga 0, dopodiché vengono inviati i successiv
+i otto bit di informazione, un bit di parità ed un bit di stop che indica
+ la fine della trasmissione.
 \end_layout
 
 \begin_layout Standard
-La differenza del registro di stato è quello pendenti sta che, una volta
- abilitate tutte le interruzioni quello di stato mostra tutte le interruzioni
- che avvengono nel componente, invece quello pendenti mostra solamente le
- interruzioni avvenute e che sono abilitate.
+Viene effettuata la lettura di un valore dal ricevitore di solito a metà
+ periodo di trasmissione di un bit, ciò può avvenire perché la velocità
+ di comunicazione e nota tra i due dispositivi ed è misurata in baud.
 \end_layout
 
 \begin_layout Standard
-Possiamo procedere alla creazione del driver, instanziamo un nuovo progetto
- vuoto dal menù 
-\begin_inset Quotes eld
-\end_inset
-
-File -> New -> Application Project
-\begin_inset Quotes erd
-\end_inset
-
- e creare un progetto vuoto, sul progetto appena creato andremo ad inserire
- la logica del nostro driver, di seguito verrà fornita un' idea di come
- funziona il nostro driver, per dettagli sulla implementazione riferirsi
- al codice.
-\end_layout
-
-\begin_layout Standard
-Dobbiamo abilitare lo scugic per essere sensibili alle interruzioni, chiamando
- prima la funzione 
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-XScuGic_LookupConfig("id scugic");
-\end_layout
-
-\end_inset
-
- per conoscere la configurazione attuale dello scugic e successivamente
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-XScuGic_CfgInitialize("variabile di tipo XScuGic","variabile configurazione","in
-dirizzo base della CPU");
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Ora possiamo abilitare le interruzioni del nostro componente programmabile:
+Gli errori nella comunicazione possono essere di tre tipi:
 \end_layout
 
 \begin_layout Enumerate
-Abilitiamo l' interruzione scrivendo un uno nel registro reg_intr_en;
+Parity, se il bit di parità non è corretto;
 \end_layout
 
 \begin_layout Enumerate
-Abilitiamo le interruzioni globali del componente un uno nel registro reg_global
-_intr_en;
+Overrun, quando arriva il successivo bit senza che si sia campionato il
+ precedente;
 \end_layout
 
 \begin_layout Enumerate
-Settiamo la routine che gestisce le interruzioni;
+Frame error, non viene rilevato lo stop quando dovrebbe arrivare;
 \end_layout
 
 \begin_layout Enumerate
-Connettiamo l' handler fornito da Xilinx con la logica di handling fornita
- dal processore con la primitiva
-\begin_inset listings
-inline false
-status open
 
-\begin_layout Plain Layout
-
-Xil_ExceptionRegisterHandler
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Assegniamo alla ricezione di un determinato interrupt la routine da noi
- creata per la sua gestione con la primitiva
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-XScuGic_Connect
-\end_layout
-
-\end_inset
-
-così che il gic sappia quale routine lanciare alla ricezione di quella interruzi
-one
-\end_layout
-
-\begin_layout Enumerate
-Abilitiamo le interruzioni nel processore ARM con 
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-Xil_ExceptionEnable
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Settiamo la maschera del nostro componente detector per dire quali pin del
- GPIO vogliamo campionare
-\end_layout
-
-\begin_layout Enumerate
-Infine abilitiamo lo scugic con 
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-XScuGic_Enable
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Nella routine di gestione dell' interruzione :
-\end_layout
-
-\begin_layout Enumerate
-Disabilitiamo l' interuzione scrivendo uno zero nel registro reg_intr_en;
-\end_layout
-
-\begin_layout Enumerate
-Scriviamo un uno nel registro reg_intr_ack per dire al componente che l'
- interruzione è stata catturata;
-\end_layout
-
-\begin_layout Enumerate
-Riabilitiamo le interruzioni sul componente;
 \end_layout
 
 \end_body

@@ -1,0 +1,334 @@
+\hypertarget{main_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.c File Reference}
+\label{main_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.\+c}}
+
+
+programma main che permette a due board di comunicare utilizzando diversi dispositivi di input ed output  
+
+
+
+
+\subsection{Detailed Description}
+programma main che permette a due board di comunicare utilizzando diversi dispositivi di input ed output 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a766b4f823b76fe57002327f6df0a234d}\label{main_8c_a766b4f823b76fe57002327f6df0a234d}} 
+\index{main.\+c@{main.\+c}!Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}}
+\index{Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{Configure\+\_\+\+Peripheral()}{Configure\_Peripheral()}}
+{\footnotesize\ttfamily void Configure\+\_\+\+Peripheral (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{peripheral,  }\item[{uint16\+\_\+t}]{node\+Address,  }\item[{uint16\+\_\+t}]{group\+Address }\end{DoxyParamCaption})}
+
+
+
+Configura le periferiche affinchè possano ricevere ed inviare messaggi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em peripheral} & valore che indica quale periferiche abilitare \\
+\hline
+{\em node\+Address} & indirizzo del nodo da contattare, utilizzato se la comunicazione che lo prevede \\
+\hline
+{\em group\+Address} & indirizzo del gruppo da contattare, utilizzato se la comunicazione che lo prevede \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_af8b91edf48d948475e90024c60b8d13a}\label{main_8c_af8b91edf48d948475e90024c60b8d13a}} 
+\index{main.\+c@{main.\+c}!C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}}
+\index{C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{C\+R\+C\+\_\+\+Check()}{CRC\_Check()}}
+{\footnotesize\ttfamily void C\+R\+C\+\_\+\+Check (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Frame }\end{DoxyParamCaption})}
+
+
+
+Controlla che i due C\+RC ricevuti siano corretti. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Received\+Frame} & frame ricevuto \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a94b4225bd565c3f21d418e13cab1b590}\label{main_8c_a94b4225bd565c3f21d418e13cab1b590}} 
+\index{main.\+c@{main.\+c}!Frame32to8@{Frame32to8}}
+\index{Frame32to8@{Frame32to8}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{Frame32to8()}{Frame32to8()}}
+{\footnotesize\ttfamily void Frame32to8 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{in\+\_\+buffer32,  }\item[{uint8\+\_\+t $\ast$}]{out\+\_\+buffer8 }\end{DoxyParamCaption})}
+
+
+
+Converte un frame da un formato uint32\+\_\+t ad uno uint8\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+buffer32} & puntatore ad un dato di tipo uint32\+\_\+t \\
+\hline
+{\em out\+\_\+buffer8} & puntatore ad un dato di tipo uint8\+\_\+t \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a3b6af21578914e5720d4459156b67819}\label{main_8c_a3b6af21578914e5720d4459156b67819}} 
+\index{main.\+c@{main.\+c}!Frame8to32@{Frame8to32}}
+\index{Frame8to32@{Frame8to32}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{Frame8to32()}{Frame8to32()}}
+{\footnotesize\ttfamily void Frame8to32 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{in\+\_\+buffer8,  }\item[{uint32\+\_\+t $\ast$}]{out\+\_\+buffer32 }\end{DoxyParamCaption})}
+
+
+
+Converte un frame da un formato uint8\+\_\+t ad uno uint32\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+buffer8} & puntatore ad un dato di tipo uint8\+\_\+t \\
+\hline
+{\em out\+\_\+buffer32} & puntatore ad un dato di tipo uint32\+\_\+t \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ab3a928e23e1c9d3da728ea97d7bb5e32}\label{main_8c_ab3a928e23e1c9d3da728ea97d7bb5e32}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback()}{HAL\_CAN\_RxFifo0MsgPendingCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
+
+
+
+Viene utilizzata per sapere se ci sono messaggi da leggere pendenti nel buffer fifo di ricezione del C\+AN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hcan} & handler alla struttura che gestisce C\+AN \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a9a8bf6971f3659c8ab25324b3833d165}\label{main_8c_a9a8bf6971f3659c8ab25324b3833d165}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback()}{HAL\_CAN\_TxMailbox0CompleteCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
+
+
+
+Indica che tutti i messaggi che dovevano essere mandati da quella memoria sono stati inviati. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hcan} & handler alla struttura che gestisce C\+AN \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a580f64f5da1d50107c4a73b749550130}\label{main_8c_a580f64f5da1d50107c4a73b749550130}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}}
+\index{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback()}{HAL\_GPIO\_EXTI\_Callback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+
+
+Viene utilizzata per sapere quando viene premuto l\textquotesingle{} user button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G\+P\+I\+O\+\_\+\+Pin} & il pin del \hyperlink{structGPIO}{G\+P\+IO} a cui è collegato il pin \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a2184443aae265ff78a87a15961ae152d}\label{main_8c_a2184443aae265ff78a87a15961ae152d}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback()}{HAL\_I2C\_ErrorCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c2 }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata nel caso di errore di comunicazione sul canale I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c2} & handler alla struttura che gestisce I2C \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+1-\/ When Slave don\textquotesingle{}t acknowledge it\textquotesingle{}s address, Master restarts communication. 2-\/ When Master don\textquotesingle{}t acknowledge the last data transferred, Slave don\textquotesingle{}t care in this example.\mbox{\Hypertarget{main_8c_aa44a13f1267ff388a3bb8b412fc42149}\label{main_8c_aa44a13f1267ff388a3bb8b412fc42149}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback()}{HAL\_I2C\_MasterRxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c2 }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno master. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c2} & handler alla struttura che gestisce I2C \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a613caac6704693a389560a2c82096d94}\label{main_8c_a613caac6704693a389560a2c82096d94}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback()}{HAL\_I2C\_MasterTxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c2 }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale I2C da parte di un master. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c2} & handler alla struttura che gestisce I2C \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a0a7a3d9a39d359257c383d55a0407b1b}\label{main_8c_a0a7a3d9a39d359257c383d55a0407b1b}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback()}{HAL\_I2C\_SlaveRxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c2 }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c2} & handler alla struttura che gestisce I2C \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_aa8e6c951b14dd66bc90b9c3c0d3be01e}\label{main_8c_aa8e6c951b14dd66bc90b9c3c0d3be01e}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback()}{HAL\_I2C\_SlaveTxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c2 }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale I2C da parte di uno slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c2} & handler alla struttura che gestisce I2C \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ae71c29e701768afa55489b6dcc7d687f}\label{main_8c_ae71c29e701768afa55489b6dcc7d687f}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}}
+\index{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback()}{HAL\_SPI\_ErrorCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata nel caso di errore di comunicazione sul canale S\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & handler alla struttura che gestisce S\+PI \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a3c4eea7120c00e97f8ce73e23cc3e81f}\label{main_8c_a3c4eea7120c00e97f8ce73e23cc3e81f}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback()}{HAL\_SPI\_RxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata alla ricezione di dati sul canale S\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & handler alla struttura che gestisce S\+PI \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a8d5a443b4169f49e381dda4bbe265aeb}\label{main_8c_a8d5a443b4169f49e381dda4bbe265aeb}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback()}{HAL\_SPI\_TxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale S\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & handler alla struttura che gestisce S\+PI \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a945d8c6ae6e925d17599d96449e831d9}\label{main_8c_a945d8c6ae6e925d17599d96449e831d9}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback()}{HAL\_UART\_ErrorCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata nel caso di errore di comunicazione sul canale U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}\label{main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata alla ricezione di dati sul canale U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}\label{main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}} 
+\index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback()}{HAL\_UART\_TxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{Uart\+Handle }\end{DoxyParamCaption})}
+
+
+
+Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a9129f3ffd464f13b97ae8706e215f073}\label{main_8c_a9129f3ffd464f13b97ae8706e215f073}} 
+\index{main.\+c@{main.\+c}!Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}}
+\index{Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{Receive\+\_\+\+C\+R\+C()}{Receive\_CRC()}}
+{\footnotesize\ttfamily uint8\+\_\+t Receive\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Data,  }\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Abilita la ricezione del frame sulle differenti periferiche. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Received\+Data} & struttura contenete i dati ricevuti \\
+\hline
+{\em channel} & indica le periferiche da cui voglio ricevere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a610586cc74404465a8a25a9898cc0048}\label{main_8c_a610586cc74404465a8a25a9898cc0048}} 
+\index{main.\+c@{main.\+c}!Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}}
+\index{Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{Send\+\_\+\+C\+R\+C()}{Send\_CRC()}}
+{\footnotesize\ttfamily void Send\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{M\+SG,  }\item[{uint16\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Invia il messaggio sulle varie periferiche. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+SG} & messaggio da inviare \\
+\hline
+{\em address} & indirizzo della periferica da contattare se previsto dalla modalità di comunicazione \\
+\hline
+{\em channel} & indica le periferiche su cui voglio ricevere \\
+\hline
+\end{DoxyParams}

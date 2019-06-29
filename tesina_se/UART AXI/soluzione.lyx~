@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,9 +54,6 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -75,6 +72,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -104,6 +103,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -116,7 +116,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -781,15 +784,9 @@ ento di un carattere (falling edge di TX_BUSY) oppure se ne è stata completata
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "language=VHDL"
 inline false
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lstlisting}[language=VHDL]     
-\end_layout
 
 \begin_layout Plain Layout
 
@@ -916,14 +913,7 @@ begin{lstlisting}[language=VHDL]
 \begin_layout Plain Layout
 
                                                                        
-        --! alla quale si è interessati    
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}	
+        --! alla quale si è interessati    	
 \end_layout
 
 \end_inset
@@ -1040,17 +1030,6 @@ begin{lstlisting}[language=VHDL]
 \begin_layout Plain Layout
 
     end process;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
 \end_layout
 
 \end_inset
@@ -2785,7 +2764,7 @@ La prima operazione del driver è quella di aprire il file descriptor relativo
  read per mettersi in attesa di eventi interrompenti dal device.
  Una volta risvegliato dalla chiamata il processo si occupa della gestione
  dell'interruzione in maniera analoga alla parte applicativa della ISR vista
- nel capitolo precedente, escludendo dunque i meccanismi interni di lock.
+ nel capitolo precedente.
 \end_layout
 
 \end_body

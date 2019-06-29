@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -223,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -252,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -264,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -2406,17 +2412,22 @@ insmod my_kernel_GPIO.ko
 \end_layout
 
 \begin_layout Standard
+\begin_inset Graphics
+	filename images/insmod.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Se l'operazione è andata a buon fine si visualizzeranno i seguenti messaggi
  stampando il log del kernel tramite il comando dmesg:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Screen insmod
-\end_layout
+\begin_inset Graphics
+	filename images/DMESG_insmod.png
 
 \end_inset
 
@@ -2477,12 +2488,17 @@ rmmod my_kernel_GPIO.ko
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+\begin_inset Graphics
+	filename images/rmmodgpio.png
 
-\begin_layout Plain Layout
-Screen rmmod
+\end_inset
+
+
 \end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/dmesg_rmmodgpio.png
 
 \end_inset
 
@@ -2759,12 +2775,8 @@ A questo punto si ricompila il device-tree generando il file .dtb e lo si
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Screen /dev/uio0_1_2
-\end_layout
+\begin_inset Graphics
+	filename images/uio_list.png
 
 \end_inset
 

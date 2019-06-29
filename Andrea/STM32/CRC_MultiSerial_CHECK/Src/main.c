@@ -1,7 +1,8 @@
 /**
  ******************************************************************************
  * @file           : main.c
- * @brief          : Main program body
+ * @brief          programma main che permette a due board di comunicare 
+ *		   utilizzando diversi dispositivi di input ed output
  ******************************************************************************
 */
 
@@ -17,9 +18,9 @@
 
 #include <stdbool.h>
 
-//Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite
+/*Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite*/
 #define SERIAL_SELECTED SPI_MODE | UART_MODE | I2C_MODE | CAN_MODE
-//Parametro da modificare in base al Master e Slave board
+/*Parametro da modificare in base al Master e Slave board*/
 #define MASTER_BOARD
 
 
@@ -52,20 +53,17 @@ uint32_t TxMailbox;
 
 
 
-/* Private function prototypes -----------------------------------------------*/
+
 void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
 void CRC_Check(uint32_t * ReceivedFrame);
 uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel);
 void Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel);
 void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t groupAddress);
-/* USER CODE END PFP */
 
 
 
 /**
-  * @brief  The application entry point.
-  * @retval int
+  * @brief  il main dell' applicazione
   */
 int main(void)
 {
@@ -115,8 +113,7 @@ int main(void)
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
+  * @brief Gestisce il clock di sistema
   */
 void SystemClock_Config(void)
 {
@@ -124,8 +121,7 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-  /** Initializes the CPU, AHB and APB busses clocks 
-  */
+
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
@@ -138,8 +134,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
-  */
+
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -163,7 +158,11 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+/**
+ * @brief  Converte un frame da un formato uint32_t ad uno uint8_t
+ * @param  in_buffer32 puntatore ad un dato  di tipo uint32_t
+ * @param  out_buffer8  puntatore ad un dato di tipo uint8_t
+ */
 void Frame32to8(uint32_t * in_buffer32, uint8_t * out_buffer8) {
 
 	uint8_t chunk = 0;
@@ -176,7 +175,11 @@ void Frame32to8(uint32_t * in_buffer32, uint8_t * out_buffer8) {
 	}
 
 }
-
+/**
+ * @brief  Converte un frame da un formato uint8_t ad uno uint32_t
+ * @param  in_buffer8 puntatore ad un dato  di tipo uint8_t
+ * @param  out_buffer32  puntatore ad un dato di tipo uint32_t
+ */
 void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32) {
 
 	uint32_t chunk32 = 0;
@@ -194,7 +197,13 @@ void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32) {
 	}
 
 }
-
+/**
+ * @brief  Invia il messaggio sulle varie periferiche
+ * @param  MSG messaggio da inviare
+ * @param  address indirizzo della periferica da contattare se previsto dalla
+ * modalità di comunicazione
+ * @param channel indica le periferiche su cui voglio ricevere
+ */
 void Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel) {
 
 	if (UART_MODE == (UART_MODE & channel) ){
@@ -319,7 +328,11 @@ void Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel) {
 	}
 
 }
-
+/**
+ * @brief  Abilita la ricezione del frame sulle differenti periferiche
+ * @param  ReceivedData struttura contenete i dati ricevuti
+ * @param  channel indica le periferiche da cui voglio ricevere
+ */
 uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 		uint8_t receivedChannel = 0x0;
@@ -432,7 +445,10 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 }
 
-
+/**
+ * @brief  Controlla che i due CRC ricevuti siano corretti
+ * @param  ReceivedFrame frame ricevuto
+ */
 void CRC_Check(uint32_t * ReceivedFrame) {
 
 	MX_CRC_Init(CRC_POLYNOMIAL_1, CRC_DEFAULTVALUE_1);
@@ -455,7 +471,12 @@ void CRC_Check(uint32_t * ReceivedFrame) {
 
 }
 
-
+/**
+ * @brief  Configura le periferiche affinchè possano ricevere ed inviare messaggi
+ * @param  peripheral valore che indica quale periferiche abilitare
+ * @param  nodeAddress indirizzo del nodo da contattare, utilizzato se la comunicazione che lo prevede
+ * @param  groupAddress indirizzo del gruppo da contattare, utilizzato se la comunicazione che lo prevede
+ */
 void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t groupAddress)
 {
 
@@ -484,7 +505,10 @@ void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t gro
 }
 
 
-
+/**
+ * @brief  Funzione chiamata dopo l' invio di dati sul canale UART 
+ * @param  UartHandle handler alla struttura che gestisce UART
+ */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	/* Set transmission flag: transfer complete */
 	UartReady = SET;
@@ -494,7 +518,10 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 
-
+/**
+ * @brief  Funzione chiamata alla ricezione di dati sul canale UART 
+ * @param  UartHandle handler alla struttura che gestisce UART
+ */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	/* Set transmission flag: transfer complete */
 	UartReady = SET;
@@ -505,11 +532,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 /**
- * @brief  UART error callbacks
- * @param  UartHandle: UART handle
- * @note   This example shows a simple way to report transfer error, and you can
- *         add your own implementation.
- * @retval None
+ * @brief Funzione chiamata nel caso di errore di comunicazione sul canale UART
+ * @param  UartHandle handler alla struttura che gestisce UART
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
 	/* Turn LED6 on: Transfer error in reception/transmission process */
@@ -517,24 +541,37 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 #ifdef MASTER_BOARD
-
+/**
+ * @brief  Funzione chiamata dopo l' invio di dati sul canale I2C da parte di un master 
+ * @param  hi2c2 handler alla struttura che gestisce I2C
+ */
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c2) {
 	/* Toggle LED7: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
 }
-
+/**
+ * @brief  Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno master
+ * @param  hi2c2 handler alla struttura che gestisce I2C
+ */
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c2) {
 	/* Toggle LED7: Transfer in reception process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_SET);
 
 }
 #else
+/**
+ * @brief  Funzione chiamata dopo l' invio di dati sul canale I2C da parte di uno slave
+ * @param  hi2c2 handler alla struttura che gestisce I2C
+ */
 void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c2)
 {
 	/* Toggle LED7: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
 }
-
+/**
+ * @brief  Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno slave
+ * @param  hi2c2 handler alla struttura che gestisce I2C
+ */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c2)
 {
 	/* Toggle LED7: Transfer in reception process is correct */
@@ -544,10 +581,8 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c2)
 #endif /* MASTER_BOARD */
 
 /**
- * @brief  I2C error callbacks.
- * @param  I2cHandle: I2C handle
- * @note   This example shows a simple way to report transfer error, and you can
- *         add your own implementation.
+ * @brief  Funzione chiamata nel caso di errore di comunicazione sul canale I2C
+ * @param  hi2c2 handler alla struttura che gestisce I2C
  * @retval None
  */
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c2) {
@@ -560,7 +595,10 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c2) {
 
 	}
 }
-
+/**
+ * @brief  Funzione chiamata dopo l' invio di dati sul canale SPI
+ * @param  hspi handler alla struttura che gestisce SPI
+ */
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
 	/* Turn LED on: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
@@ -568,7 +606,10 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
 	//BSP_LED_On(LED4);
 	wTransferState = TRANSFER_COMPLETE;
 }
-
+/**
+ * @brief  Funzione chiamata alla ricezione di dati sul canale SPI
+ * @param  hspi handler alla struttura che gestisce SPI
+ */
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
 	/* Turn LED on: Transfer in transmission process is correct */
 	//BSP_LED_On(LED3);
@@ -578,20 +619,16 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
 }
 
 /**
- * @brief  SPI error callbacks.
- * @param  hspi: SPI handle
- * @note   This example shows a simple way to report transfer error, and you can
- *         add your own implementation.
- * @retval None
+ * @brief  Funzione chiamata nel caso di errore di comunicazione sul canale SPI
+ * @param  hspi handler alla struttura che gestisce SPI
  */
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
 	wTransferState = TRANSFER_ERROR;
 }
 
 /**
- * @brief EXTI line detection callbacks
- * @param GPIO_Pin: Specifies the pins connected EXTI line
- * @retval None
+ * @brief Viene utilizzata per sapere quando viene premuto l' user button
+ * @param GPIO_Pin il pin del GPIO a cui è collegato il pin
  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == USER_BTN_Pin) {
@@ -600,6 +637,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 /* CAN TX CALLBACK */
+/**
+ * @brief  Indica che tutti i messaggi che dovevano essere mandati
+ * da quella memoria sono stati inviati
+ * @param  hcan handler alla struttura che gestisce CAN
+ */
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
 {
  /* OK: Turn on LED5 */
@@ -608,6 +650,11 @@ void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
 }
 
 /* CAN RX CALLBACK */
+/**
+ * @brief  Viene utilizzata per sapere se ci sono messaggi da leggere 
+ * pendenti nel buffer fifo di ricezione del  CAN
+ * @param  hcan handler alla struttura che gestisce CAN
+ */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 
@@ -634,8 +681,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 }
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
+ * @brief  In caso di un qualsiasi errore viene eseguita questa funzionae
  */
 void Error_Handler(void) {
 
