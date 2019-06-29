@@ -288,7 +288,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1fc617b7</spirit:value>
+            <spirit:value>379b1c8a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -304,7 +304,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1fc617b7</spirit:value>
+            <spirit:value>379b1c8a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -795,7 +795,7 @@
       <spirit:file>
         <spirit:name>hdl/UART_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_bc81117e</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_afd15c35</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -970,8 +970,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>UART_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>16</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-08T17:13:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>33</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-06-29T11:55:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@231345fc_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@47f46930_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
@@ -1178,13 +1178,213 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3f0fe313_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@d647fd0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5898361e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19842b27_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@611eea74_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d0780c8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@545527b5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12a93cc0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35c05acb_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6860c917_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@614a4fec_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55dc0b3e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34683da8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55cccc8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43676e50_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58d73863_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e3327ec_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@79535756_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@865700f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47649417_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5729b0f0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65a387b6_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49ea16bb_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a3f18e7_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c883ea8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58eea866_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a4782d0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7657438f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@139ad8a6_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bb114f4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b245fad_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@121606a1_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f9fb05d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54d1cdbc_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48cc50e2_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40d8d809_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d4b4414_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7febb7f4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53adec8b_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c4076aa_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fd5a7ae_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@282e9c2e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c2e9d1e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ccf21ae_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@174f4ac9_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5467e9a4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50841eca_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ba07a15_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b35f24_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7988f1c5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@597b78a9_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35cb2b83_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13b0f5f1_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6385cc11_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@161e3e64_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1612ae6c_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17331a16_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c1fdc0d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@723c2379_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@583ef501_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41f6c04_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e14dbaf_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19740cac_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73117252_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60e32105_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1afd5eff_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fee2dd2_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a97689d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39308c4a_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@383f90de_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55bb9bf8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@583accf7_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2352fec5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@759d3d49_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ac104df_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41a981bc_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@388a5a47_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48dcda22_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24cc9b19_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53d63571_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36d1f04e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72ff1a0e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e9bf6bf_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cf8afce_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@444e6877_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65461f99_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51661eb2_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@301d68ab_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19099cb6_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73603a5a_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43d6cb01_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42e0f545_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68dee530_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4367c523_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17a7fbf3_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@321398bf_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b62dd85_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1416c7ec_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43d3cd18_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7848ce4d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31eb7977_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20a80fb0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e180060_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b1dec35_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b22fc7c_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@508bc4a9_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3069a951_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75da1d5f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@552fc204_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60f753a_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49775258_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60d5f6ab_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6739ec90_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47f93e48_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5af4c7e4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@723452df_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15cb8795_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a67e64b_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d6732bc_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6014139b_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@559c1e25_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4df8bed8_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4af3dcc3_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ff2d856_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23e6f697_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@342ab212_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ccf1503_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@695c3d3c_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fa44170_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67a7d6_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@55d3fd5b_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@364c431f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31aeee05_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b20feb0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fea7581_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a47be0_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39eedb79_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@760bdb3a_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f6677b7_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4056dce2_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35848e8e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e84a802_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a93f00c_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76fc0972_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44e6bfe4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@295cb1db_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52f30f3e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50e5dce4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d6bd698_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3318e974_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b41a1fd_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@422d8912_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e3813ef_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e367218_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29c8e66e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@275ac72d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75b01f64_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7caec734_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1498a446_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3210a8cc_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@249e5460_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7cd31ae5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@104696da_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7bbcae30_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b878f4e_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2884b33_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67a0d68a_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@60e33c0f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bf6f485_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@516b0050_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@cb88497_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5026cec7_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a3fc7af_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e48a6ca_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75841ead_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@488caeaf_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7948c217_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c1bbda5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e8d277_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e44d9fb_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c6d8270_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b3ef5c4_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71e6878d_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3292e482_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29670aad_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@421acca2_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6fafd858_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13bac6b_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c9f6738_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@aa57525_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19f907b3_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e1fb68f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4357d3a6_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@186bc76c_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c4bf0f9_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d490c12_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ec46769_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@309dedf5_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ffc873f_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e41c9c9_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58ccf71_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71528fde_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c0612ec_ARCHIVE_LOCATION">/home/andrea/SE_workspace/ip_repo/UART_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a566dc17"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2aae4d56"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d3f33057"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="3ab5e3c1"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="d4741837"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="1e4b34fe"/>
