@@ -552,12 +552,12 @@ begin
     changed_bits <= (rx_rising_detect & tx_busy_falling_detect) and intr_mask; -- and con la intr_mask perchè sono interessato a vedere l'edge del sengale
                                                                                -- solo se la relativa interruzione è abilitata   
    
-    change_detected <= global_intr and or_reduce(changed_bits);                -- Segnale che indica se è stato rilevata una variazione di tx_busy o RDA 
+    change_detected <= or_reduce(changed_bits);                                -- Segnale che indica se è stato rilevata una variazione di tx_busy o RDA 
                                                                                -- alla quale si è interessati         
 
 
-    -- delay del segnale pending_intr
-    pending_intr_tmp <= pending_intr;
+       pending_intr_tmp <= pending_intr;
+
 
     -- process per la gestizione della logica di interruzione pedente 
     -- e meccanismo di ack per rimuovere l'interruzione pendente
@@ -571,16 +571,20 @@ begin
     --! @param[in]   ack_intr		cattura un segnale di ack generato dal 
     --!					driver che gestisce l' eccezione
     -------------------------------------------------------------------------------
-    intr_pending : process (S_AXI_ACLK, change_detected, ack_intr)
+    intr_pending : process (S_AXI_ACLK, change_detected, ack_intr,pending_intr_tmp,changed_bits)
     begin
     if (rising_edge (S_AXI_ACLK)) then
-        if (change_detected = '1') then                                        -- se c'è richiesta di interruzione su una delle due line
-            pending_intr <= pending_intr_tmp or changed_bits;                  -- aggiungi la richiesta alle interruzioni pendenti
+        if(S_AXI_ARESETN = '0')then
+            pending_intr <= (others => '0');
         else
-            if (or_reduce(ack_intr)='1') then                                  -- se viene dato un ack
-                pending_intr <= pending_intr_tmp and (not ack_intr);           -- rimuovi la richiesta pendente relativa
-            end if;   
-        end if;   
+            if (change_detected = '1') then                                        -- se c'è richiesta di interruzione su una delle due line
+                pending_intr <= pending_intr_tmp or changed_bits;                  -- aggiungi la richiesta alle interruzioni pendenti
+            elsif (or_reduce(ack_intr)='1') then                                  -- se viene dato un ack
+                    pending_intr <= pending_intr_tmp and (not ack_intr);           -- rimuovi la richiesta pendente relativa
+            else
+                    pending_intr <= pending_intr_tmp;                             --altrimenti pending_intr resta al suo valore precedente
+        end if;
+       end if;   
     end if;
     end process;
     
@@ -595,13 +599,13 @@ begin
     --! @param[in]   pending_intr	registro che identifica le interruzioni 
     --!					pendenti
     -------------------------------------------------------------------------------
-    inst_irq : process(S_AXI_ACLK,pending_intr)
+    inst_irq : process(S_AXI_ACLK,pending_intr,global_intr)
     begin
         if (rising_edge (S_AXI_ACLK)) then
             if ( S_AXI_ARESETN = '0' ) then
                     interrupt <= '0';
             else
-                if (or_reduce(pending_intr) = '1') then                        -- Se c'è almeno un interruzione pendente
+                if (or_reduce(pending_intr) = '1' and global_intr = '1') then  -- Se c'è almeno un interruzione pendente e le interruzioni globali sono abilitate
                     interrupt <= '1';                                          -- interrupt = '1'
                 else
                     interrupt <= '0';                                          -- altrimenti 0
