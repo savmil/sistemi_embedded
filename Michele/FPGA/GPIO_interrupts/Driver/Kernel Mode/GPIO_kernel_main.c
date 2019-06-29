@@ -122,7 +122,7 @@ static int GPIO_probe(struct platform_device *pdev) {
 		}
 	}
 
-	/* Allocazione dell'oggetto GPIO */
+/** Allocazione dell'oggetto GPIO */
 	if ((GPIO_ptr = kmalloc(sizeof(GPIO), GFP_KERNEL)) == NULL) {
 		printk(KERN_ERR "%s: kmalloc ha restituito NULL\n", __func__);
 		return -ENOMEM;
@@ -289,17 +289,17 @@ static irqreturn_t GPIO_irq_handler(int irq, struct pt_regs * regs) {
 		return IRQ_NONE;
 	}
 	
-// Disabilitazione delle interruzioni della periferica
+/** Disabilitazione delle interruzioni della periferica */
 
 	GPIO_GlobalInterruptDisable(GPIO_dev_ptr);
 	GPIO_PinInterruptDisable(GPIO_dev_ptr, GPIO_dev_ptr->irq_mask);
 
-// Setting del valore del flag "can_read"
+/** Setting del valore del flag "can_read" */
 
 	GPIO_SetCanRead(GPIO_dev_ptr);
 	printk(KERN_INFO "funzione %s | valore can_read: %d\n", __func__, GPIO_dev_ptr->can_read);
 
-// Risveglio dei processi sleeping
+/** Risveglio dei processi sleeping */
 
 	GPIO_PinInterruptAck(GPIO_dev_ptr, GPIO_dev_ptr->irq_mask);
 	GPIO_WakeUp(GPIO_dev_ptr);
@@ -330,20 +330,25 @@ static ssize_t GPIO_read (struct file *file_ptr, char *buf, size_t count, loff_t
 	if ((file_ptr->f_flags & O_NONBLOCK) == 0) {
 		printk(KERN_INFO "%s è bloccante\n", __func__);
 
-//Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep
+/** Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep */
+		
 		GPIO_TestCanReadAndSleep(GPIO_dev_ptr);
-//Il processo è risvegliato dall'arrivo di un'interruzione	
+		
+/** Il processo è risvegliato dall'arrivo di un'interruzione	*/
+		
 		GPIO_ResetCanRead(GPIO_dev_ptr);
 	}
 	else {
 		printk(KERN_INFO "%s non è bloccante\n", __func__);
 	}
-//Accesso ai registri del device
+/** Accesso ai registri del device */
+	
 	read_addr = GPIO_GetDeviceAddress(GPIO_dev_ptr)+*off;
 	data_readed = ioread32(read_addr);
 	printk(KERN_INFO "%s | read value: %08x\n", __func__, data_readed);
 	
-//Copia dei dati letti verso l'userspace
+/** Copia dei dati letti verso l'userspace */
+	
 	if (copy_to_user(buf, &data_readed, count))
 		return -EFAULT;
 
@@ -370,10 +375,10 @@ static ssize_t GPIO_write (struct file *file_ptr, const char *buf, size_t size, 
 	GPIO_dev_ptr = file_ptr->private_data;
 	if (*off > GPIO_dev_ptr->res_size)
 		return -EFAULT;
-//Copia dei dati dall'userspace
+/** Copia dei dati dall'userspace */
 	if (copy_from_user(&data_to_write, buf, size))
 		return -EFAULT;
-//Accesso ai registri del device
+/** Accesso ai registri del device */
 	write_addr = GPIO_GetDeviceAddress(GPIO_dev_ptr)+*off;
 	iowrite32(data_to_write, write_addr);
 	return size;
