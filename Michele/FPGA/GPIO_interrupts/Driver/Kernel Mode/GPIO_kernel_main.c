@@ -211,6 +211,7 @@ static int GPIO_open(struct inode *inode, struct file *file_ptr) {
  * @retval 0 se non si verifica nessun errore
  */
 static int GPIO_release(struct inode *inode, struct file *file_ptr) {
+	file_ptr->private_data = NULL;
 	printk(KERN_INFO "Chiamata %s\n", __func__);
 	return 0;
 }
@@ -240,7 +241,7 @@ static loff_t GPIO_llseek (struct file *file_ptr, loff_t off, int whence) {
       case 2: /* SEEK_END */
         newpos = GPIO_dev_ptr->res_size + off;
         break;
-      default: /* can't happen */
+      default: 
         return -EINVAL;
     }
     if (newpos < 0)
