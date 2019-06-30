@@ -40,9 +40,6 @@ Src/main.o: ../Src/main.c \
  /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/i2c.h \
  /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/spi.h \
  /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usart.h \
- /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usb_device.h \
- /home/andrea/Ac6Workspace/CRC_MultiSerial/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usbd_conf.h \
  /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/gpio.h
 
 /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/main.h:
@@ -126,11 +123,5 @@ Src/main.o: ../Src/main.c \
 /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/spi.h:
 
 /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usart.h:
-
-/home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usb_device.h:
-
-/home/andrea/Ac6Workspace/CRC_MultiSerial/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-
-/home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/usbd_conf.h:
 
 /home/andrea/Ac6Workspace/CRC_MultiSerial/Inc/gpio.h:

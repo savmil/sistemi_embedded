@@ -1,8 +1,7 @@
 /**
  ******************************************************************************
  * @file           : main.c
- * @brief          programma main che permette a due board di comunicare 
- *		   utilizzando diversi dispositivi di input ed output
+ * @brief          : Main program body
  ******************************************************************************
 */
 
@@ -13,15 +12,13 @@
 #include "i2c.h"
 #include "spi.h"
 #include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
-
 #include <stdbool.h>
 
-/*Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite*/
-#define SERIAL_SELECTED SPI_MODE | UART_MODE | I2C_MODE | CAN_MODE
-/*Parametro da modificare in base al Master e Slave board*/
-#define MASTER_BOARD
+//Parametro da modificare in base alla seriale richiesta tra le opzioni sopra definite
+#define SERIAL_SELECTED  SPI_MODE | I2C_MODE | UART_MODE
+//Parametro da modificare in base al Master e Slave board
+//#define MASTER_BOARD
 
 
 int tx_callback_count = 0;
@@ -53,17 +50,22 @@ uint32_t TxMailbox;
 
 
 
-
+/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
 void CRC_Check(uint32_t * ReceivedFrame);
-uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel);
+uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address);
 void Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel);
 void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t groupAddress);
+
+uint16_t getSSPin(uint16_t address);
+/* USER CODE END PFP */
 
 
 
 /**
-  * @brief  il main dell' applicazione
+  * @brief  The application entry point.
+  * @retval int
   */
 int main(void)
 {
@@ -97,23 +99,21 @@ int main(void)
 
 	Send_CRC(Frame,0x5,SERIAL_SELECTED);
 
-
-#else
-	Receive_CRC(Frame, SERIAL_SELECTED);
 #endif
 
 
   /* Infinite loop */
 	while (1) {
 				LedOff();
-	//			Send_CRC(Frame, SERIAL_SELECTED);
-	//			LedOff();
-	//			Receive_CRC(Frame, SERIAL_SELECTED);
+				Receive_CRC(Frame, SERIAL_SELECTED,0x10);
+				LedOff();
+				Send_CRC(Frame,0x5,SERIAL_SELECTED);
 	}
 }
 
 /**
-  * @brief Gestisce il clock di sistema
+  * @brief System Clock Configuration
+  * @retval None
   */
 void SystemClock_Config(void)
 {
@@ -121,7 +121,8 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
@@ -134,7 +135,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-
+  /** Initializes the CPU, AHB and APB busses clocks 
+  */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -158,11 +160,7 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-/**
- * @brief  Converte un frame da un formato uint32_t ad uno uint8_t
- * @param  in_buffer32 puntatore ad un dato  di tipo uint32_t
- * @param  out_buffer8  puntatore ad un dato di tipo uint8_t
- */
+
 void Frame32to8(uint32_t * in_buffer32, uint8_t * out_buffer8) {
 
 	uint8_t chunk = 0;
@@ -175,11 +173,7 @@ void Frame32to8(uint32_t * in_buffer32, uint8_t * out_buffer8) {
 	}
 
 }
-/**
- * @brief  Converte un frame da un formato uint8_t ad uno uint32_t
- * @param  in_buffer8 puntatore ad un dato  di tipo uint8_t
- * @param  out_buffer32  puntatore ad un dato di tipo uint32_t
- */
+
 void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32) {
 
 	uint32_t chunk32 = 0;
@@ -197,143 +191,135 @@ void Frame8to32(uint8_t * in_buffer8, uint32_t * out_buffer32) {
 	}
 
 }
-/**
- * @brief  Invia il messaggio sulle varie periferiche
- * @param  MSG messaggio da inviare
- * @param  address indirizzo della periferica da contattare se previsto dalla
- * modalità di comunicazione
- * @param channel indica le periferiche su cui voglio ricevere
- */
+
 void Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel) {
 
-	if (UART_MODE == (UART_MODE & channel) ){
-		//MX_USART2_UART_Init(UART_BAUDRATE);
-		//uint8_t aTxBuffer[BUFFER_SIZE];
-		Frame32to8(MSG, aTxBuffer);
-#ifdef MASTER_BOARD
-		while (UserButtonStatus == 0) {
-			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			HAL_Delay(100);
-		}
-#endif /* MASTER_BOARD */
+	bool UART_ENABLED =  UART_MODE == (UART_MODE & channel) ;
+	bool I2C_ENABLED =  I2C_MODE == (I2C_MODE & channel) ;
+	bool SPI_ENABLED =  SPI_MODE == (SPI_MODE & channel) ;
+	bool CAN_ENABLED =  CAN_MODE == (CAN_MODE & channel) ;
+
+	uint8_t completedChannel = 0;
+
+
+
+	#ifdef MASTER_BOARD
+	while (UserButtonStatus == 0) {
+		HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
+		HAL_Delay(100);
+	}
+	#endif
+
+	uint8_t aTxBuffer[BUFFER_SIZE];
+	Frame32to8(MSG, aTxBuffer);
+
+
+
+	if (UART_ENABLED){
+
 		if (HAL_UART_Transmit_IT(&huart2, (uint8_t*) aTxBuffer, BUFFER_SIZE)
-				!= HAL_OK) {
+				!= HAL_OK)
 			Error_Handler();
-		}
-
-		while (UartReady != SET) {
-			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			HAL_Delay(100);
-		}
-
-		UartReady = RESET;
 	}
 
-	if (I2C_MODE == (I2C_MODE & channel)){
-		Frame32to8(MSG, aTxBuffer);
-#ifdef MASTER_BOARD
 
-		while (UserButtonStatus == 0) {
-			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			HAL_Delay(100);
-		}
+	if (I2C_ENABLED){
 
-		/* Delay to avoid that possible signal rebound is taken as button release */
-		  HAL_Delay(100);
+//		Frame32to8(MSG, aTxBuffer);
+		HAL_Delay(100);
 
 		if (HAL_I2C_Master_Transmit_IT(&hi2c2, (uint16_t) address,
 				(uint8_t*) aTxBuffer, BUFFER_SIZE) != HAL_OK) {
-			/* Error_Handler() function is called when error occurs. */
-
 			 if (HAL_I2C_GetError(&hi2c2) != HAL_I2C_ERROR_AF)
 			    {
 			      Error_Handler();
 			    }
-
 		}
-
-#else
-
-		if(HAL_I2C_Slave_Transmit_IT(&hi2c2, (uint8_t*)aTxBuffer, BUFFER_SIZE)!= HAL_OK)
-		{
-			/* Transfer error in transmission process */
-			Error_Handler();
-		}
-
-#endif /* MASTER_BOARD */
-
-		while (HAL_I2C_GetState(&hi2c2) != HAL_I2C_STATE_READY) {
-			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			HAL_Delay(100);
-		}
-
 
 	}
 
-	if(CAN_MODE == (CAN_MODE & channel)){
-		while (UserButtonStatus == 0) {
-					HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-					HAL_Delay(100);
-				}
 
-		Frame32to8(MSG, aTxBuffer);
+	if(CAN_ENABLED){
 
-		 /*##-4- Start the Transmission process #####################################*/
-		  TxHeader.StdId = address;
-		  TxHeader.ExtId = 0x00;
-		  TxHeader.RTR = CAN_RTR_DATA;
-		  TxHeader.IDE = CAN_ID_STD;
-		  TxHeader.DLC = 8;
-		  TxHeader.TransmitGlobalTime = DISABLE;
+//		Frame32to8(MSG, aTxBuffer);
+
+		TxHeader.StdId = address;
+		TxHeader.ExtId = 0x00;
+		TxHeader.RTR = CAN_RTR_DATA;
+		TxHeader.IDE = CAN_ID_STD;
+		TxHeader.DLC = 8;
+		TxHeader.TransmitGlobalTime = DISABLE;
 
 		for(int i=0;i<BUFFER_SIZE/8;i++){
 			for(int j=0;j<8;j++){
 				CanTx_Frame[j] = aTxBuffer[i*8+j];
 			}
+
 			HAL_CAN_AddTxMessage(&CanHandle, &TxHeader, CanTx_Frame, &TxMailbox);
 			HAL_Delay(50);
+
 		}
+
 	}
 
-	if(SPI_MODE == (SPI_MODE & channel)){
-		Frame32to8(MSG, aTxBuffer);
+	while(completedChannel != (channel & 7)){
 
-#ifdef MASTER_BOARD
-		while (UserButtonStatus == 0) {
-			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			HAL_Delay(100);
+		if (UART_ENABLED && (UartReady == SET)) {
+					UartReady = RESET;
+					completedChannel |= UART_MODE;
 		}
-#endif /* MASTER_BOARD */
 
-		HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_OUTPUT_Pin,
+		if (I2C_ENABLED && (HAL_I2C_GetState(&hi2c2) == HAL_I2C_STATE_READY)) {
+					completedChannel |= I2C_MODE;
+		}
+
+
+
+		if(CAN_ENABLED && tx_callback_count==CAN_CALLBACK_COUNT){
+					completedChannel |= CAN_MODE;
+		}
+
+	}
+
+
+	if(SPI_ENABLED){
+
+
+	#ifdef MASTER_BOARD
+		uint16_t slaveSelectPin = getSSPin(address);
+		HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port,slaveSelectPin ,
 				GPIO_PIN_RESET);
 
-//		HAL_Delay(1000);
+	#else
+		while(HAL_GPIO_ReadPin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_INPUT_Pin)
+				!= GPIO_PIN_RESET){
+		}
+	#endif /* MASTER_BOARD */
 
-		if (HAL_SPI_Transmit_IT(&hspi2, (uint8_t*) aTxBuffer, BUFFER_SIZE)
+
+	if (HAL_SPI_Transmit_IT(&hspi2, (uint8_t*) aTxBuffer, BUFFER_SIZE)
 				!= HAL_OK) {
-			/* Transfer error in transmission process */
 			Error_Handler();
 		}
 
-		while (wTransferState != TRANSFER_COMPLETE) {
-			//HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
-			//HAL_Delay(100);
-		}
 
-		wTransferState = TRANSFER_WAIT;
 
-		HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_OUTPUT_Pin,
-				GPIO_PIN_SET);
+	while (wTransferState != TRANSFER_COMPLETE) {
 	}
+			#ifdef MASTER_BOARD
+			HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin ,
+					GPIO_PIN_SET);
+			#endif
+						wTransferState = TRANSFER_WAIT;
+						completedChannel |= SPI_MODE;
 
+
+//	return completedChannel;
+
+	}
 }
-/**
- * @brief  Abilita la ricezione del frame sulle differenti periferiche
- * @param  ReceivedData struttura contenete i dati ricevuti
- * @param  channel indica le periferiche da cui voglio ricevere
- */
-uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
+
+uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address) {
 
 		uint8_t receivedChannel = 0x0;
 	//	uint8_t rxComplete = 0x0;
@@ -344,7 +330,6 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 		bool CAN_ENABLED		=	(CAN_MODE	& channel) == 	CAN_MODE;
 
 
-		//	HAL_I2C_MspDeInit(&hi2c2);
 
 			if (UART_ENABLED){
 			//uint8_t aRxBuffer[BUFFER_SIZE];
@@ -360,15 +345,15 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 
 			if (I2C_ENABLED){
-
-				#ifdef MASTER_BOARD
+/*
+//				#ifdef MASTER_BOARD
 					//non utilizzare
-					if (HAL_I2C_Master_Receive_IT(&hi2c2, (uint16_t) I2C_ADDRESS,
+					if (HAL_I2C_Master_Receive_IT(&hi2c2, (uint16_t) 0x5,
 							(uint8_t *) I2C_RxBuffer, BUFFER_SIZE) != HAL_OK) {
 						Error_Handler();
 					}
-
-				#else
+*/
+//				#else
 					HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_SET);
 
 					if(HAL_I2C_Slave_Receive_IT(&hi2c2, (uint8_t *)I2C_RxBuffer, BUFFER_SIZE) != HAL_OK)
@@ -376,31 +361,15 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 						Error_Handler();
 					}
 
-				#endif
-			}
-
-			if(SPI_ENABLED){
-
-					while (HAL_GPIO_ReadPin(SPI_EN_INPUT_GPIO_Port, SPI_EN_INPUT_Pin)
-						== GPIO_PIN_SET) {
-					//	HAL_GPIO_TogglePin(GPIOE, LED9_BLUE_Pin);
-					//	HAL_Delay(100);
-					}
-
-					if (HAL_SPI_Receive_IT(&hspi2, (uint8_t*) SPI_RxBuffer, BUFFER_SIZE)
-							!= HAL_OK) {
-						Error_Handler();
-					}
+//				#endif
 			}
 
 
-
-			while(receivedChannel != channel){
+			while(receivedChannel != (channel & 7)){
 
 				  if(UART_ENABLED & (UartReady == SET) )  {
 						UartReady = RESET;
 
-						// uint32_t ReceivedFrame[FRAME_SIZE];
 						Frame8to32(UART_RxBuffer, ReceivedData);
 						CRC_Check(ReceivedData);
 
@@ -417,15 +386,7 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 				  }
 
 
-					if(SPI_ENABLED & (wTransferState == TRANSFER_COMPLETE)){
 
-						wTransferState = TRANSFER_WAIT;
-
-						Frame8to32(SPI_RxBuffer, ReceivedData);
-						CRC_Check(ReceivedData);
-
-						receivedChannel = receivedChannel | SPI_MODE;
-					}
 
 					if(CAN_ENABLED & (rx_callback_count == CAN_CALLBACK_COUNT)){
 
@@ -441,14 +402,51 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel) {
 
 			}
 
+
+			if(SPI_ENABLED){
+								#ifdef MASTER_BOARD
+									uint16_t slaveSelectPin = getSSPin(address);
+									HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin,
+										GPIO_PIN_RESET);
+
+								#else
+
+								while (HAL_GPIO_ReadPin(SPI_EN_INPUT_GPIO_Port, SPI_EN_INPUT_Pin)
+									== GPIO_PIN_SET) {
+								//	HAL_GPIO_TogglePin(GPIOE, LED9_BLUE_Pin);
+								//	HAL_Delay(100);
+								}
+								#endif
+
+								if (HAL_SPI_Receive_IT(&hspi2, (uint8_t*) SPI_RxBuffer, BUFFER_SIZE)
+										!= HAL_OK) {
+									Error_Handler();
+								}
+
+			while((wTransferState != TRANSFER_COMPLETE)){}
+
+								#ifdef MASTER_BOARD
+									HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin,
+										GPIO_PIN_SET);
+								#endif
+
+
+									wTransferState = TRANSFER_WAIT;
+
+
+
+									Frame8to32(SPI_RxBuffer, ReceivedData);
+									CRC_Check(ReceivedData);
+
+									receivedChannel = receivedChannel | SPI_MODE;
+
+
+			}
 					return receivedChannel;
 
 }
 
-/**
- * @brief  Controlla che i due CRC ricevuti siano corretti
- * @param  ReceivedFrame frame ricevuto
- */
+
 void CRC_Check(uint32_t * ReceivedFrame) {
 
 	MX_CRC_Init(CRC_POLYNOMIAL_1, CRC_DEFAULTVALUE_1);
@@ -471,12 +469,7 @@ void CRC_Check(uint32_t * ReceivedFrame) {
 
 }
 
-/**
- * @brief  Configura le periferiche affinchè possano ricevere ed inviare messaggi
- * @param  peripheral valore che indica quale periferiche abilitare
- * @param  nodeAddress indirizzo del nodo da contattare, utilizzato se la comunicazione che lo prevede
- * @param  groupAddress indirizzo del gruppo da contattare, utilizzato se la comunicazione che lo prevede
- */
+
 void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t groupAddress)
 {
 
@@ -505,10 +498,7 @@ void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t gro
 }
 
 
-/**
- * @brief  Funzione chiamata dopo l' invio di dati sul canale UART 
- * @param  UartHandle handler alla struttura che gestisce UART
- */
+
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	/* Set transmission flag: transfer complete */
 	UartReady = SET;
@@ -518,10 +508,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 
-/**
- * @brief  Funzione chiamata alla ricezione di dati sul canale UART 
- * @param  UartHandle handler alla struttura che gestisce UART
- */
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	/* Set transmission flag: transfer complete */
 	UartReady = SET;
@@ -532,8 +519,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 /**
- * @brief Funzione chiamata nel caso di errore di comunicazione sul canale UART
- * @param  UartHandle handler alla struttura che gestisce UART
+ * @brief  UART error callbacks
+ * @param  UartHandle: UART handle
+ * @note   This example shows a simple way to report transfer error, and you can
+ *         add your own implementation.
+ * @retval None
  */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
 	/* Turn LED6 on: Transfer error in reception/transmission process */
@@ -541,37 +531,24 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
 }
 
 #ifdef MASTER_BOARD
-/**
- * @brief  Funzione chiamata dopo l' invio di dati sul canale I2C da parte di un master 
- * @param  hi2c2 handler alla struttura che gestisce I2C
- */
+
 void HAL_I2C_MasterTxCpltCallback(I2C_HandleTypeDef *hi2c2) {
 	/* Toggle LED7: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
 }
-/**
- * @brief  Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno master
- * @param  hi2c2 handler alla struttura che gestisce I2C
- */
+
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c2) {
 	/* Toggle LED7: Transfer in reception process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_SET);
 
 }
 #else
-/**
- * @brief  Funzione chiamata dopo l' invio di dati sul canale I2C da parte di uno slave
- * @param  hi2c2 handler alla struttura che gestisce I2C
- */
 void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c2)
 {
 	/* Toggle LED7: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
 }
-/**
- * @brief  Funzione chiamata alla ricezione di dati sul canale I2C da parte di uno slave
- * @param  hi2c2 handler alla struttura che gestisce I2C
- */
+
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c2)
 {
 	/* Toggle LED7: Transfer in reception process is correct */
@@ -581,8 +558,10 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c2)
 #endif /* MASTER_BOARD */
 
 /**
- * @brief  Funzione chiamata nel caso di errore di comunicazione sul canale I2C
- * @param  hi2c2 handler alla struttura che gestisce I2C
+ * @brief  I2C error callbacks.
+ * @param  I2cHandle: I2C handle
+ * @note   This example shows a simple way to report transfer error, and you can
+ *         add your own implementation.
  * @retval None
  */
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c2) {
@@ -595,10 +574,7 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c2) {
 
 	}
 }
-/**
- * @brief  Funzione chiamata dopo l' invio di dati sul canale SPI
- * @param  hspi handler alla struttura che gestisce SPI
- */
+
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
 	/* Turn LED on: Transfer in transmission process is correct */
 	HAL_GPIO_WritePin(GPIOE, LED4_BLUE_Pin, GPIO_PIN_SET);
@@ -606,10 +582,7 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
 	//BSP_LED_On(LED4);
 	wTransferState = TRANSFER_COMPLETE;
 }
-/**
- * @brief  Funzione chiamata alla ricezione di dati sul canale SPI
- * @param  hspi handler alla struttura che gestisce SPI
- */
+
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
 	/* Turn LED on: Transfer in transmission process is correct */
 	//BSP_LED_On(LED3);
@@ -619,16 +592,20 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi) {
 }
 
 /**
- * @brief  Funzione chiamata nel caso di errore di comunicazione sul canale SPI
- * @param  hspi handler alla struttura che gestisce SPI
+ * @brief  SPI error callbacks.
+ * @param  hspi: SPI handle
+ * @note   This example shows a simple way to report transfer error, and you can
+ *         add your own implementation.
+ * @retval None
  */
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi) {
 	wTransferState = TRANSFER_ERROR;
 }
 
 /**
- * @brief Viene utilizzata per sapere quando viene premuto l' user button
- * @param GPIO_Pin il pin del GPIO a cui è collegato il pin
+ * @brief EXTI line detection callbacks
+ * @param GPIO_Pin: Specifies the pins connected EXTI line
+ * @retval None
  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == USER_BTN_Pin) {
@@ -637,11 +614,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 /* CAN TX CALLBACK */
-/**
- * @brief  Indica che tutti i messaggi che dovevano essere mandati
- * da quella memoria sono stati inviati
- * @param  hcan handler alla struttura che gestisce CAN
- */
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
 {
  /* OK: Turn on LED5 */
@@ -650,11 +622,6 @@ void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
 }
 
 /* CAN RX CALLBACK */
-/**
- * @brief  Viene utilizzata per sapere se ci sono messaggi da leggere 
- * pendenti nel buffer fifo di ricezione del  CAN
- * @param  hcan handler alla struttura che gestisce CAN
- */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 
@@ -681,7 +648,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 }
 
 /**
- * @brief  In caso di un qualsiasi errore viene eseguita questa funzionae
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
  */
 void Error_Handler(void) {
 
@@ -691,5 +659,8 @@ void Error_Handler(void) {
 	}
 }
 
+uint16_t getSSPin(uint16_t address){
+	return SPI_EN_OUTPUT_Pin;
+}
 
 
