@@ -5,7 +5,5 @@ var searchData=
   ['compassaccelero_5fio_5finit',['COMPASSACCELERO_IO_Init',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#ga7ce9cc034e3d64924bd88adae6770d19',1,'stm32f3_discovery.c']]],
   ['compassaccelero_5fio_5fitconfig',['COMPASSACCELERO_IO_ITConfig',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#ga0d94d79fddfe98ed16c8c63c65f186db',1,'stm32f3_discovery.c']]],
   ['compassaccelero_5fio_5fread',['COMPASSACCELERO_IO_Read',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#ga2d4c2b7ccef8b3be4cf0335e9fcffd2f',1,'stm32f3_discovery.c']]],
-  ['compassaccelero_5fio_5fwrite',['COMPASSACCELERO_IO_Write',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#gad84492b8ff84b8112e4e93d35d67f116',1,'stm32f3_discovery.c']]],
-  ['configure_5fperipheral',['Configure_Peripheral',['../main_8c.html#a766b4f823b76fe57002327f6df0a234d',1,'main.c']]],
-  ['crc_5fcheck',['CRC_Check',['../main_8c.html#af8b91edf48d948475e90024c60b8d13a',1,'main.c']]]
+  ['compassaccelero_5fio_5fwrite',['COMPASSACCELERO_IO_Write',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#gad84492b8ff84b8112e4e93d35d67f116',1,'stm32f3_discovery.c']]]
 ];

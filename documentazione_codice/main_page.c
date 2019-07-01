@@ -10,6 +10,8 @@
  *			- Permette la gestione di un gruppo di periferiche dello stesso tipo
  *			@ref GPIO_list.c
  *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref GPIO.c
+ *		@subsubsection Barebone
+ *			- Funzioni per l'utilizzo della periferica GPIO @reg gpio_int.c
  *	@subsection Hardware
  *		- Controlla la generazione dell' interrupt @ref GPIO_v1_0_S00_AXI.vhd
  *		- Top level entity del componente  GPIO_v1_0_S00_AXI @ref GPIO_v1_0.vhd
@@ -22,7 +24,9 @@
  *			@ref UART_kernel_main.c
  *			- Permette la gestione di un gruppo di periferiche dello stesso tipo
  *			@ref UART_list.c
- *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref UART.c UART_interrupt_kernel_mode.c 
+ *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref UART.c 
+ *		@subsubsection Barebone 
+ *			- Funzioni per l'utilizzo della periferica UART @reg myuart.c
  *      @subsection Hardware
  *		- Controlla la generazione dell' interrupt @ref UART_v1_0_S00_AXI.vhd
  *		- Top level entity del componente UART_v1_0_S00_AXI @ref UART_v1_0.vhd

@@ -2,7 +2,10 @@
 #define __GPIO_DEVICE_LIST__
 
 #include "GPIO.h"
-
+/**
+ * @file           : GPIO_list.h
+ * @brief          header file GPIO_list.c
+*/
 /**
  * @brief Struttura dati per la gestione di più device GPIO da parte del driver      
  */

@@ -1,14 +1,14 @@
-\hypertarget{GPIO__kernel__main_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.c File Reference}
-\label{GPIO__kernel__main_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
+\hypertarget{GPIO__kernel__main_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.c File Reference}
+\label{GPIO__kernel__main_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 
 
-Inizializza il driver kernel ed espone le funzionalità del modulo.  
+modulo kernel che governa l\textquotesingle{} utilizzo del driver \hyperlink{structGPIO}{G\+P\+IO}  
 
 
 
 
 \subsection{Detailed Description}
-Inizializza il driver kernel ed espone le funzionalità del modulo. 
+modulo kernel che governa l\textquotesingle{} utilizzo del driver \hyperlink{structGPIO}{G\+P\+IO} 
 
 
 
@@ -35,7 +35,11 @@ Interrupt-\/handler.
 {\em I\+R\+Q\+\_\+\+H\+A\+N\+D\+L\+ED} & dopo aver servito l\textquotesingle{}interruzione \\
 \hline
 \end{DoxyRetVals}
-\mbox{\Hypertarget{GPIO__kernel__main_8c_a325c239634eb54ae285cd460ad10e643}\label{GPIO__kernel__main_8c_a325c239634eb54ae285cd460ad10e643}} 
+Disabilitazione delle interruzioni della periferica
+
+Setting del valore del flag \char`\"{}can\+\_\+read\char`\"{}
+
+Risveglio dei processi sleeping \mbox{\Hypertarget{GPIO__kernel__main_8c_a325c239634eb54ae285cd460ad10e643}\label{GPIO__kernel__main_8c_a325c239634eb54ae285cd460ad10e643}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}}
 \index{G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+llseek()}{GPIO\_llseek()}}
@@ -100,7 +104,7 @@ Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarge
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+probe()}{GPIO\_probe()}}
 {\footnotesize\ttfamily static int G\+P\+I\+O\+\_\+probe (\begin{DoxyParamCaption}\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Inizializzazione del driver \mbox{\Hypertarget{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}\label{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}} 
+Inizializzazione del driver Allocazione dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO} \mbox{\Hypertarget{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}\label{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}}
 \index{G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+read()}{GPIO\_read()}}
@@ -124,7 +128,13 @@ Legge dati dal device.
 \begin{DoxyNote}{Note}
 l\textquotesingle{}aggiunta del flag O\+\_\+\+N\+O\+N\+B\+L\+O\+CK all\textquotesingle{}apertura del file descriptor associato al device farà sì che il processo chiamante non verrà bloccato se alla chiamata di una lettura non troverà dati disponibili 
 \end{DoxyNote}
-\mbox{\Hypertarget{GPIO__kernel__main_8c_a77709311b9a8100bd413ddd92e632a9f}\label{GPIO__kernel__main_8c_a77709311b9a8100bd413ddd92e632a9f}} 
+Test della variabile \char`\"{}can\+\_\+read\char`\"{}, se non sono state rilevate iterruzioni e il flag O\+\_\+\+N\+O\+N\+B\+L\+O\+CK non è stato specificato il processo si mette il sleep
+
+Il processo è risvegliato dall\textquotesingle{}arrivo di un\textquotesingle{}interruzione
+
+Accesso ai registri del device
+
+Copia dei dati letti verso l\textquotesingle{}userspace \mbox{\Hypertarget{GPIO__kernel__main_8c_a77709311b9a8100bd413ddd92e632a9f}\label{GPIO__kernel__main_8c_a77709311b9a8100bd413ddd92e632a9f}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}}
 \index{G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+release()}{GPIO\_release()}}
@@ -185,7 +195,9 @@ Invia dati al device.
 {\em off} & long offset type che indica la posizione alla quale si sta effettuando l\textquotesingle{}accesso \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{GPIO__kernel__main_8c_a1cb526e2e779a460032fd9cb65d5483e}\label{GPIO__kernel__main_8c_a1cb526e2e779a460032fd9cb65d5483e}} 
+Copia dei dati dall\textquotesingle{}userspace
+
+Accesso ai registri del device \mbox{\Hypertarget{GPIO__kernel__main_8c_a1cb526e2e779a460032fd9cb65d5483e}\label{GPIO__kernel__main_8c_a1cb526e2e779a460032fd9cb65d5483e}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}}
 \index{module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{module\+\_\+platform\+\_\+driver()}{module\_platform\_driver()}}

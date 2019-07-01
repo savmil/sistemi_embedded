@@ -27,9 +27,6 @@
  * @param	Maschera per il sengale di enable
  *
  *
- * @return	none
- *
- * @note
  *
  */
 
@@ -51,9 +48,6 @@ void XGPIO_SetDirection(myIntGPIO * myIntGPIOInstance, u32 mask)
  * @param	Valore da scrivere
  *
  *
- * @return	none
- *
- * @note
  *
  */
 void XGPIO_WriteData(myIntGPIO * myIntGPIOInstance, u32 mask)
@@ -74,7 +68,6 @@ void XGPIO_WriteData(myIntGPIO * myIntGPIOInstance, u32 mask)
  *
  * @return	valore a 32bit del segnale READ
  *
- * @note
  *
  */
 uint32_t XGPIO_ReadData(myIntGPIO * myIntGPIOInstance, u32 mask)
@@ -97,7 +90,6 @@ uint32_t XGPIO_ReadData(myIntGPIO * myIntGPIOInstance, u32 mask)
  * 			bit
  *
  *
- * @return	none
  *
  * @note	Se le interruzioni globali non saranno attive nessuna linea potrà attivare
  * 			il segnale di interruzione verso il processore
@@ -123,7 +115,6 @@ void XGPIO_EnableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
  * 			bit
  *
  *
- * @return	none
  *
  * @note	Se le interruzioni globali  saranno attive le altre linee potranno attivare
  * 			il segnale di interruzione verso il processore
@@ -147,7 +138,6 @@ void XGPIO_DisableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
  *			per abilitare le interruzioni.
  *
  *
- * @return	none
  *
  * @note	Abilitare le intrruzioni globali fa si che le linee di interuzioni
  * 			interne vengano inserite nel registro delle interruzioni pendenti
@@ -176,7 +166,6 @@ void XGPIO_GlobalEnableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
  *			per disablitare le interruzioni.
  *
  *
- * @return	none
  *
  * @note	Disabilitare le intrruzioni globali fa si che le linee di interuzioni
  * 			interne  non vengano inserite nel registro delle interruzioni pendenti
@@ -206,7 +195,6 @@ void XGPIO_GlobalDisableInterrupt(myIntGPIO * myIntGPIOInstance, u32 mask)
  * @return	La corrispondenza bit-linea è posizionale. Il valore 1 al bit-iesimo
  * 			indica ack ad interruzione pendente dell'iesima linea.
  *
- * @note
  *
  */
 
@@ -247,9 +235,6 @@ u32 XGPIO_GetPending(myIntGPIO * myIntGPIOInstance)
  * @param 			myIntGpioInstance rappresenta la particola instanza del componente GPIO.
  *
  *
- * @return
- *
- * @note
  */
 void XGPIO_Init(myIntGPIO * myIntGPIOInstance, u32 baseaddr){
 	myIntGPIOInstance->BaseAddress=baseaddr;

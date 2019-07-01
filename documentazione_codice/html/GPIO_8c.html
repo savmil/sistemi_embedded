@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/Kernel_Mode/GPIO.c File Reference</title>
+<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/GPIO.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,7 +58,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_cc52a1bbf6cd6568a34b6bb805da758e.html">Driver</a></li><li class="navelem"><a class="el" href="dir_8c62fee4d32e88b786a77a06e588e5c1.html">Kernel_Mode</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_cc52a1bbf6cd6568a34b6bb805da758e.html">Driver</a></li><li class="navelem"><a class="el" href="dir_d7cff8a237a02370646d1341971cc3fc.html">KERNEL_MODE</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,10 +69,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Funzioni utilizzate per interagire con la singola entità <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> permette la gestione dell' interrupt.  
+<p>permette la gestione del singolo <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Funzioni utilizzate per interagire con la singola entità <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> permette la gestione dell' interrupt. </p>
+<div class="textblock"><p>permette la gestione del singolo <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a35e453e72ddf756e45ee2d312eb760ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35e453e72ddf756e45ee2d312eb760ab">&#9670;&nbsp;</a></span>GPIO_Destroy()</h2>
@@ -319,6 +319,14 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Alloca un range di Mj e min numbers per il device a caratteri</p>
+<p>Inizializza la struttura cdev specificando la struttura file operations associata al device a caratteri</p>
+<p>Crea il device all'interno del filesystem assegnandogli i numbers richiesti in precedenza e ne restituisce il puntatore.</p>
+<p>Aggiunge il device a caratteri al sistema. Se l'operazione va a buon fine sarà possibile vedere il device sotto /dev</p>
+<p>Inizializza la struct resource con il valori recuperati dal device tree corrispondente al device</p>
+<p>Alloca una quantita res_size di memoria fisica per il dispositivo IO a partire dall'inidirzzo res.start e ne resituisce l'inidirizzo</p>
+<p>Mappa la memoria fisca allocata e restituisce l'indirizzo virtuale</p>
+<p>Cerca le specifiche dell'interrupt nel device tree e restituisce il suo numero identificativo</p>
 <p>Inizializzazione della wait-queue per la system-call read() e poll()</p>
 <p>Inizializzazione degli spinlock</p>
 <p>Abilitazione degli interrupt del device </p>

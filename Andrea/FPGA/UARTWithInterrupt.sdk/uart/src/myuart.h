@@ -11,7 +11,10 @@
 #define GLOBAL_INTR		UART_S00_AXI_SLV_REG4_OFFSET
 #define INTR_MASK		UART_S00_AXI_SLV_REG5_OFFSET
 #define ACK_PENDING_REG	UART_S00_AXI_SLV_REG7_OFFSET
-
+/**
+ * @file myuart.h
+ * @brief header file myuart.c
+ */
 /**
  * Una struttura che definisce gli indirizzi del componente GPIO
  */

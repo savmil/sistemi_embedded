@@ -96,9 +96,10 @@ Processes</h2></td></tr>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a45eef1701e94703c5a3cf169c02e5e2c">PROCESS_8</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> )</b></td></tr>
 <tr class="memitem:a29a70265aec87dff63669cc686cdd7b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a29a70265aec87dff63669cc686cdd7b6">gpio_read_sampling</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">gpio_read</span><span class="vhdlchar"> </span></b> )</b></td></tr>
 <tr class="memdesc:a29a70265aec87dff63669cc686cdd7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Campiona i segnali di cui si vuole verificare la generazione di un interrupt.  <a href="#a29a70265aec87dff63669cc686cdd7b6"></a><br /></td></tr>
-<tr class="memitem:a72db935ad9e80a3434cfb113c364c329"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a72db935ad9e80a3434cfb113c364c329">intr_pending</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#aab51abc2eb680c6f972e0d63ab4fc591">change_detected</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0d3233e5bd28024e266252af0b862923">ack_intr</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
-<tr class="memdesc:a72db935ad9e80a3434cfb113c364c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il registro pending.  <a href="#a72db935ad9e80a3434cfb113c364c329"></a><br /></td></tr>
-<tr class="memitem:a48d068c63e454a766cd9703aff942fb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a48d068c63e454a766cd9703aff942fb6">inst_irq</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0bf0e620e2340340488f0616eae3242a">pending_intr</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memitem:a27a13ac4e8c3307360aa906035c2e140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a27a13ac4e8c3307360aa906035c2e140">intr_pending</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">change_detected</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">ack_intr</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">pending_intr_tmp</span><span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:a27a13ac4e8c3307360aa906035c2e140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il registro pending.  <a href="#a27a13ac4e8c3307360aa906035c2e140"></a><br /></td></tr>
+<tr class="memitem:ad49f0dfc577739899b90a7243c22a1cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#ad49f0dfc577739899b90a7243c22a1cd">inst_irq</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">pending_intr</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">global_intr</span><span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:ad49f0dfc577739899b90a7243c22a1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disabilita l' interrupt nel caso di reset del bus e tiene alto il segnale di interrupt finchè rimane pendente.  <a href="#ad49f0dfc577739899b90a7243c22a1cd"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Components"></a>
 Components</h2></td></tr>
@@ -166,31 +167,18 @@ Signals</h2></td></tr>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0a5688bf771f7f78b70bcdaa84c30de3">gpio_read</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">C_S_AXI_DATA_WIDTH</span><span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
 <tr class="memitem:a089ba40f1db66f86ef3f03529c16adaa"><td class="memItemLeft" align="right" valign="top"><a id="a089ba40f1db66f86ef3f03529c16adaa"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a089ba40f1db66f86ef3f03529c16adaa">status_reg_out</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">C_S_AXI_DATA_WIDTH</span><span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memitem:a8f28ae0242944eb4f6ec17c36b15a965"><td class="memItemLeft" align="right" valign="top"><a id="a8f28ae0242944eb4f6ec17c36b15a965"></a>
-<a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a8f28ae0242944eb4f6ec17c36b15a965">status_reg</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a8f28ae0242944eb4f6ec17c36b15a965"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina se un segnale ha generato interrupt <br /></td></tr>
-<tr class="memitem:acb91ede4fa064544169321d67c95c25a"><td class="memItemLeft" align="right" valign="top"><a id="acb91ede4fa064544169321d67c95c25a"></a>
-<a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#acb91ede4fa064544169321d67c95c25a">status_reg_tmp</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memitem:ad2e10b23c9e0d829e7e8428e30b0b150"><td class="memItemLeft" align="right" valign="top"><a id="ad2e10b23c9e0d829e7e8428e30b0b150"></a>
-<a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#ad2e10b23c9e0d829e7e8428e30b0b150">detected_intr</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
 <tr class="memitem:a0bf0e620e2340340488f0616eae3242a"><td class="memItemLeft" align="right" valign="top"><a id="a0bf0e620e2340340488f0616eae3242a"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0bf0e620e2340340488f0616eae3242a">pending_intr</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a0bf0e620e2340340488f0616eae3242a"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina se una interruzione è pendente <br /></td></tr>
 <tr class="memitem:a1918d0075c0c68a8852c4a95d58a7d0b"><td class="memItemLeft" align="right" valign="top"><a id="a1918d0075c0c68a8852c4a95d58a7d0b"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a1918d0075c0c68a8852c4a95d58a7d0b">pending_intr_tmp</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a1918d0075c0c68a8852c4a95d58a7d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">salva interruzioni pendenti precedenti <br /></td></tr>
 <tr class="memitem:a40bebf8f02667c42274d10689286fdbd"><td class="memItemLeft" align="right" valign="top"><a id="a40bebf8f02667c42274d10689286fdbd"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a40bebf8f02667c42274d10689286fdbd">changed_bits</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a40bebf8f02667c42274d10689286fdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">identifica quale pin del <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> sono abilitati descrive se è stato campionanto un interrupt <br /></td></tr>
 <tr class="memitem:abbf01ed939d4259b9f5cd1da3bf8c81d"><td class="memItemLeft" align="right" valign="top"><a id="abbf01ed939d4259b9f5cd1da3bf8c81d"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#abbf01ed939d4259b9f5cd1da3bf8c81d">last_stage</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:abbf01ed939d4259b9f5cd1da3bf8c81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">registro primario del campionatore <br /></td></tr>
 <tr class="memitem:a0d3a1f6396a5b16ea1ae6e06e9af061e"><td class="memItemLeft" align="right" valign="top"><a id="a0d3a1f6396a5b16ea1ae6e06e9af061e"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0d3a1f6396a5b16ea1ae6e06e9af061e">current_stage</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a0d3a1f6396a5b16ea1ae6e06e9af061e"><td class="mdescLeft">&#160;</td><td class="mdescRight">registro secondario del campionatore <br /></td></tr>
 <tr class="memitem:aab51abc2eb680c6f972e0d63ab4fc591"><td class="memItemLeft" align="right" valign="top"><a id="aab51abc2eb680c6f972e0d63ab4fc591"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#aab51abc2eb680c6f972e0d63ab4fc591">change_detected</a> &#160;</td><td class="memItemRight" valign="bottom"><b><span class="vhdlchar">std_logic</span><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:aab51abc2eb680c6f972e0d63ab4fc591"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina se è avvenuta una condizione che ha generato un interrupt <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Instantiations"></a>
 Instantiations</h2></td></tr>
@@ -203,13 +191,10 @@ Aliases</h2></td></tr>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0a26b5213efecf21cdc309cfcf0afa28">global_intr</a> &#160;</td><td class="memItemRight" valign="bottom"> <b><b><span class="vhdlchar">std_logic</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">is</span><span class="vhdlchar"> </span><span class="vhdlchar">slv_reg3</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></b> <b><span class="vhdlchar"> </span></b></td></tr>
 <tr class="memitem:a9ed34406081836f02143766c7416a4ec"><td class="memItemLeft" align="right" valign="top"><a id="a9ed34406081836f02143766c7416a4ec"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a9ed34406081836f02143766c7416a4ec">intr_mask</a> &#160;</td><td class="memItemRight" valign="bottom"> <b><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">is</span><span class="vhdlchar"> </span><span class="vhdlchar">slv_reg4</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></b> <b><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a9ed34406081836f02143766c7416a4ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina se le interruzioni globali sono attive <br /></td></tr>
 <tr class="memitem:a0d3233e5bd28024e266252af0b862923"><td class="memItemLeft" align="right" valign="top"><a id="a0d3233e5bd28024e266252af0b862923"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0d3233e5bd28024e266252af0b862923">ack_intr</a> &#160;</td><td class="memItemRight" valign="bottom"> <b><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">is</span><span class="vhdlchar"> </span><span class="vhdlchar">slv_reg7</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></b> <b><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a0d3233e5bd28024e266252af0b862923"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina quali interrupt sono attivi <br /></td></tr>
 <tr class="memitem:a944e1262283a6b801ed6f23dccd90348"><td class="memItemLeft" align="right" valign="top"><a id="a944e1262283a6b801ed6f23dccd90348"></a>
 <a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a944e1262283a6b801ed6f23dccd90348">gpio_enable</a> &#160;</td><td class="memItemRight" valign="bottom"> <b><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">is</span><span class="vhdlchar"> </span><span class="vhdlchar">slv_reg0</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><b><a class="el" href="classGPIO__v1__0__S00__AXI.html#a16bbf9205afa677edb8a74dcd39ebb9f">width</a></b> <span class="vhdlchar">-</span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></b> <b><span class="vhdlchar"> </span></b></td></tr>
-<tr class="memdesc:a944e1262283a6b801ed6f23dccd90348"><td class="mdescLeft">&#160;</td><td class="mdescRight">determina quali segnali di interrupt pendenti sono stati catturati dal driver <br /></td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a29a70265aec87dff63669cc686cdd7b6"></a>
@@ -242,15 +227,15 @@ Aliases</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">S_AXI_ACLK</td><td>clock del bus AXI </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">gpio_read</td><td>valori del <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> da campionare </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gpio_read</td><td>segnale da campionare </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a48d068c63e454a766cd9703aff942fb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d068c63e454a766cd9703aff942fb6">&#9670;&nbsp;</a></span>inst_irq()</h2>
+<a id="ad49f0dfc577739899b90a7243c22a1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad49f0dfc577739899b90a7243c22a1cd">&#9670;&nbsp;</a></span>inst_irq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +253,13 @@ Aliases</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0bf0e620e2340340488f0616eae3242a">pending_intr</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+          <td class="paramname"><b><span class="vhdlchar">pending_intr</span><span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><span class="vhdlchar">global_intr</span><span class="vhdlchar"> </span></b> <em></em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,12 +273,20 @@ Aliases</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Per la descrizione del componente riferirsi alla documentazione dell' intero design </p>
+
+<p>Disabilita l' interrupt nel caso di reset del bus e tiene alto il segnale di interrupt finchè rimane pendente. </p>
+<p>Per la descrizione del componente riferirsi alla documentazione dell' intero design </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">S_AXI_ACLK</td><td>clock del bus AXI </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pending_intr</td><td>registro che identifica le interruzioni pendenti </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a72db935ad9e80a3434cfb113c364c329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72db935ad9e80a3434cfb113c364c329">&#9670;&nbsp;</a></span>intr_pending()</h2>
+<a id="a27a13ac4e8c3307360aa906035c2e140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a13ac4e8c3307360aa906035c2e140">&#9670;&nbsp;</a></span>intr_pending()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,13 +304,19 @@ Aliases</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#aab51abc2eb680c6f972e0d63ab4fc591">change_detected</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+          <td class="paramname"><b><span class="vhdlchar">change_detected</span><span class="vhdlchar"> </span></b> <em></em> , </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><b><b><a class="el" href="classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a0d3233e5bd28024e266252af0b862923">ack_intr</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+          <td class="paramname"><b><span class="vhdlchar">ack_intr</span><span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><span class="vhdlchar">pending_intr_tmp</span><span class="vhdlchar"> </span></b> <em></em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -327,11 +332,12 @@ Aliases</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gestisce il registro pending. </p>
-<p>Per la descrizione del componente riferirsi alla documentazione dell' intero design </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">S_AXI_ACLK</td><td>clock del bus AXI </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">change_detected</td><td>identifica l' avvenimento dell' interruput su un segnale abilitato </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ack_intr</td><td>cattura un segnale di ack generato dal driver che gestisce l' eccezione </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pending_intr_tmp</td><td>pending temporaneto diventa effettivo se il bit cambia, cioì interruzione </td></tr>
   </table>
   </dd>
 </dl>

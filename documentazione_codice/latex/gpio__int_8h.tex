@@ -1,0 +1,173 @@
+\hypertarget{gpio__int_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.h File Reference}
+\label{gpio__int_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+h}}
+
+
+header \hyperlink{gpio__int_8c}{gpio\+\_\+int.\+c}  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header \hyperlink{gpio__int_8c}{gpio\+\_\+int.\+c} 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio__int_8h_a524147c5a0d6684700bd8adf1673f329}\label{gpio__int_8h_a524147c5a0d6684700bd8adf1673f329}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}}
+\index{X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+A\+C\+K()}{XGPIO\_ACK()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+A\+CK (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di dare A\+CK per processare le singole linee di interruzione del componente \hyperlink{structGPIO}{G\+P\+IO}. L\textquotesingle{}A\+CK rimuove la corrisponde interruzione pendente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Maschera} & per dare l\textquotesingle{}A\+CK .\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La corrispondenza bit-\/linea è posizionale. Il valore 1 al bit-\/iesimo indica ack ad interruzione pendente dell\textquotesingle{}iesima linea. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gpio__int_8h_a459140253a5ca9383bc682041562cb78}\label{gpio__int_8h_a459140253a5ca9383bc682041562cb78}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt()}{XGPIO\_DisableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di disabilitare le singole linee di interruzione del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+Gpio\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Maschera} & per abilitare le linee di interruzioni. La corrispondenza bit-\/linea è posizionale. Scrivere 1 per abilitare la linea nel relativo bit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se le interruzioni globali saranno attive le altre linee potranno attivare il segnale di interruzione verso il processore 
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8h_ac252a724e7be24411fc4e6d15840e2c5}\label{gpio__int_8h_ac252a724e7be24411fc4e6d15840e2c5}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt()}{XGPIO\_EnableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di abilitare le singole linee di interruzione del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+Gpio\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Maschera} & per abilitare le linee di interruzioni. La corrispondenza bit-\/linea è posizionale. Scrivere 1 per abilitare la linea nel relativo bit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se le interruzioni globali non saranno attive nessuna linea potrà attivare il segnale di interruzione verso il processore 
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8h_a15891b2173761e260faf45d955c36617}\label{gpio__int_8h_a15891b2173761e260faf45d955c36617}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}}
+\index{X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Get\+Pending()}{XGPIO\_GetPending()}}
+{\footnotesize\ttfamily u32 X\+G\+P\+I\+O\+\_\+\+Get\+Pending (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance }\end{DoxyParamCaption})}
+
+
+
+Restituisce le interruzioni pendenti del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+Gpio\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore 32bit del registro delle interruzione pendenti del componente
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+La corrispondenza bit-\/linea è posizionale. Il valore 1 al bit-\/iesimo indica interruzione pendente dell\textquotesingle{}iesima linea. 
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8h_a3ca5661f92fa7aad9cbd713f1291a78b}\label{gpio__int_8h_a3ca5661f92fa7aad9cbd713f1291a78b}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt()}{XGPIO\_GlobalDisableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di disabilitare l\textquotesingle{}interruzione del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & rappresenta la particolare instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Maschera} & per disabilitare le interruzioni. Scrivere il valore binario 1 per disablitare le interruzioni.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Disabilitare le intrruzioni globali fa si che le linee di interuzioni interne non vengano inserite nel registro delle interruzioni pendenti e il segnale I\+RQ diretto verso il processore non possa essere asserito se ci sono interruzioni pendenti. 
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8h_a75ea27971f7d37044dcfa4f17290f88f}\label{gpio__int_8h_a75ea27971f7d37044dcfa4f17290f88f}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}}
+\index{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt()}{XGPIO\_GlobalEnableInterrupt()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di abilitare l\textquotesingle{}interruzione del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+G\+P\+I\+O\+Instance} & rappresenta la particolare instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Maschera} & per abilitare le interruzioni. Scrivere il valore binario 1 per abilitare le interruzioni.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Abilitare le intrruzioni globali fa si che le linee di interuzioni interne vengano inserite nel registro delle interruzioni pendenti e il segnale I\+RQ diretto verso il processore possa essere asserito se ci sono interruzioni pendenti. 
+\end{DoxyNote}
+\mbox{\Hypertarget{gpio__int_8h_a8fcec53a02d09d2dbd9e254fb471f56c}\label{gpio__int_8h_a8fcec53a02d09d2dbd9e254fb471f56c}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}}
+\index{X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Init()}{XGPIO\_Init()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{baseaddr }\end{DoxyParamCaption})}
+
+
+
+Inizializza una particolare istanza del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+Gpio\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{gpio__int_8h_a138bc4d3706aa54ce6f26f754831bb5f}\label{gpio__int_8h_a138bc4d3706aa54ce6f26f754831bb5f}} 
+\index{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}}
+\index{X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}}
+\subsubsection{\texorpdfstring{X\+G\+P\+I\+O\+\_\+\+Write\+Data()}{XGPIO\_WriteData()}}
+{\footnotesize\ttfamily void X\+G\+P\+I\+O\+\_\+\+Write\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structmyIntGPIO}{my\+Int\+G\+P\+IO} $\ast$}]{my\+Int\+G\+P\+I\+O\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Scrive sul sengale di write del componente \hyperlink{structGPIO}{G\+P\+IO}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Int\+Gpio\+Instance} & rappresenta la particola instanza del componente \hyperlink{structGPIO}{G\+P\+IO}.\\
+\hline
+{\em Valore} & da scrivere \\
+\hline
+\end{DoxyParams}

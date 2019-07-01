@@ -5,7 +5,10 @@
 #include <linux/module.h>
 
 MODULE_LICENSE("GPL");
-
+/**
+ * @file           : GPIO.c
+ * @brief          permette la gestione del singolo GPIO
+*/
 /**
  * @brief Inizializza una struttura GPIO per il corrispondente device
  *

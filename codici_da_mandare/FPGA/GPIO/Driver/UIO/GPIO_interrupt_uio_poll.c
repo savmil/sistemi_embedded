@@ -8,7 +8,11 @@
 #include <sys/mman.h>
 #include <poll.h>
 #include "GPIO_interrupt_uio_poll.h"
-
+/**
+ * @file GPIO_interrupt_uio_poll.c
+ * @brief permette la gestione del GPIO utilizzando 
+ * un driver di tipo UIO
+ */
 #define	DIR_OFF    	    0  // DIRECTION
 #define	WRITE_OFF	    4  // WRITE
 #define READ_OFF		8  // READ
@@ -26,18 +30,38 @@
 
 typedef u_int8_t u8;
 typedef u_int32_t u32;
-
+/**
+ * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ *
+ * @param addr, puntatore all' indirizzo da voler scrivere
+ * @param offset, offset a partire dall' indirizzo a cui vogliamo scrivere
+ * @param value, valore da voler scrivere 
+ */
 void write_reg(void *addr, unsigned int offset, unsigned int value)
 {
 	*((unsigned*)(addr + offset)) = value;
 }
-
+/**
+ * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ *
+ * @param addr, puntatore all' indirizzo da voler leggere
+ * @param offset, offset a partire dall' indirizzo a cui vogliamo scrivere
+ */
 unsigned int read_reg(void *addr, unsigned int offset)
 {
 	return *((unsigned*)(addr + offset));
 }
 
-
+/**
+ * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ *
+ * @param fd0, valore del file descriptor del primo GPIO
+ * @param fd1, valore del file descriptor del secondo GPIO
+ * @param fd2, valore del file descriptor del terzo GPIO
+ * @param addr_0, indirizzo base della prima periferica GPIO
+ * @param addr_1, indirizzo base della seconda periferica GPIO
+ * @param addr_2, indirizzo base della terza periferica GPIO
+ */
 void wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1, void *addr_2)
 {
 

@@ -1,13 +1,22 @@
+----------------------------------------------------------------------------------
+--! @file	GPIO_v1_0_S00_AXI.vhd
+--! @brief	Componente utilizzato collegare il GPIO al bus AXI e gestire le
+--!		interruzioni
+----------------------------------------------------------------------------------
+--! Viene utilizzato la libreria IEEE
 library ieee;
+--! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;
+--! Vengono utilizzate le funzioni numeriche
 use ieee.numeric_std.all;
+--! Viene utilizzata la libreria misc di utility
 use ieee.std_logic_misc.all;
 
 
 entity GPIO_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
-        width : integer := 4;
+        width : integer := 4; --! determina il numero di GPIO da controllare
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -517,35 +526,37 @@ begin
     end process;
     
     
-    changed_bits <= (last_stage xor current_stage)  and intr_mask and (not gpio_enable);    --! changed_bits indica quali bit sono cambiati nel segnale gpio_read
-                                                                                            --! rispetto all'ultimo ciclo di clock. Un bit alto corrisponde ad un cambiamento
-                                                                                            --! i cambiamenti sono rilevati solo se il bit è mascherato e se è pilotato da pads
-                                                                                            --! e non da read
+    changed_bits <= (last_stage xor current_stage)  and intr_mask and (not gpio_enable);    -- changed_bits indica quali bit sono cambiati nel segnale gpio_read
+                                                                                            -- rispetto all'ultimo ciclo di clock. Un bit alto corrisponde ad un cambiamento
+                                                                                            -- i cambiamenti sono rilevati solo se il bit è mascherato e se è pilotato da pads
+                                                                                            -- e non da read
         
-    change_detected <= global_intr and (or_reduce(changed_bits));                           --! assume valore 1 se c'è almeno un bit di gpio_read cambiato e se le 
-                                                                                            --! interruzioni globali sono abilitate.
+    change_detected <= global_intr and (or_reduce(changed_bits));                           -- assume valore 1 se c'è almeno un bit di gpio_read cambiato e se le 
+                                                                                            -- interruzioni globali sono abilitate.
 
     -- process per la gestizione della logica di interruzione pedente 
     -- e meccanismo di ack per rimuovere le interruzioni pendenti
+
     -------------------------------------------------------------------------------
     --! @brief Gestisce il registro pending
-    --! @details Per la descrizione del componente riferirsi alla documentazione 
-    --!		 dell' intero design
+    --!
     --! @param[in]   S_AXI_ACLK		clock del bus AXI
     --! @param[in]   change_detected	identifica l' avvenimento dell' interruput
     --!					su un segnale abilitato
     --! @param[in]   ack_intr		cattura un segnale di ack generato dal 
     --!					driver che gestisce l' eccezione
+    --! @param[in]   pending_intr_tmp   pending temporaneto diventa effettivo se il bit
+    --!					cambia, cioì interruzione
     -------------------------------------------------------------------------------
     intr_pending : process (S_AXI_ACLK, change_detected, ack_intr,pending_intr_tmp)
     begin
     if (rising_edge (S_AXI_ACLK)) then
-        if (change_detected = '1') then                                                    --! se c'è almeno un cambiamento su GPIO_READ aggiungi il bit al registro
-            pending_intr <= pending_intr_tmp or changed_bits;                               --! delle interruzioni pendenti
-        elsif (or_reduce(ack_intr)='1') then                                                --! se è stato dato un ack  rimuovi la relativa interruzione pendente
+        if (change_detected = '1') then                                                    -- se c'è almeno un cambiamento su GPIO_READ aggiungi il bit al registro
+            pending_intr <= pending_intr_tmp or changed_bits;                               -- delle interruzioni pendenti
+        elsif (or_reduce(ack_intr)='1') then                                                -- se è stato dato un ack  rimuovi la relativa interruzione pendente
                 pending_intr <= pending_intr_tmp and (not ack_intr);
         else
-                pending_intr <= pending_intr_tmp;                                           --! altrimenti il valore del registro non cambia
+                pending_intr <= pending_intr_tmp;                                           -- altrimenti il valore del registro non cambia
         end if;   
     end if;
     end process;

@@ -1,0 +1,248 @@
+\hypertarget{myuart_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+U\+A\+R\+T\+With\+Interrupt.sdk/uart/src/myuart.c File Reference}
+\label{myuart_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+U\+A\+R\+T\+With\+Interrupt.\+sdk/uart/src/myuart.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/\+U\+A\+R\+T\+With\+Interrupt.\+sdk/uart/src/myuart.\+c}}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{myuart_8c_a6fdbe48cd747085a4be0f683b324acf5}\label{myuart_8c_a6fdbe48cd747085a4be0f683b324acf5}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}}
+\index{U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+A\+C\+K()}{UART\_ACK()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+A\+CK (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di dare A\+CK per processare le singole linee di interruzione del componente \hyperlink{structUART}{U\+A\+RT}. L\textquotesingle{}A\+CK rimuove la corrisponde interruzione pendente. La linea 0 corrisponde all\textquotesingle{}interruzione per trasmissione carattere completata. La linea 1 corrisponde all\textquotesingle{}interruzione per ricezione carattere completata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em Maschera} & per dare A\+CK . Scirvere 1 al bit 0 per A\+CK su interruzione trasmissione, 1 al bit 1 per A\+CK su interruzione ricezione\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a851ac6e986d9f3830ac10c479ec0ec7a}\label{myuart_8c_a851ac6e986d9f3830ac10c479ec0ec7a}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}}
+\index{U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Disable\+Interrupt()}{UART\_DisableInterrupt()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di disabilitare le singole linee di interruzione del componente \hyperlink{structUART}{U\+A\+RT}. La linea 0 corrisponde all\textquotesingle{}interruzione per trasmissione carattere completata. La linea 1 corrisponde all\textquotesingle{}interruzione per ricezione carattere completata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em Maschera} & per disabilitare le linee di interruzioni. Scirvere 1 al bit 0 per disabilitare interruzione trasmissione, 1 al bit 1 per disabilitare interruzione ricezione\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a7a7bcdff7166466873a04cedee5f8321}\label{myuart_8c_a7a7bcdff7166466873a04cedee5f8321}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}}
+\index{U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Enable\+Interrupt()}{UART\_EnableInterrupt()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di abilitare le singole linee di interruzione del componente \hyperlink{structUART}{U\+A\+RT}. La linea 0 corrisponde all\textquotesingle{}interruzione per trasmissione carattere completata. La linea 1 corrisponde all\textquotesingle{}interruzione per ricezione carattere completata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em Maschera} & per abilitare le linee di interruzioni. Scirvere 1 al bit 0 per abilitare interruzione trasmissione, 1 al bit 1 per abilitare interruzione ricezione\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_aaf908f35359abc6225e6c5961b7a7258}\label{myuart_8c_aaf908f35359abc6225e6c5961b7a7258}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Data()}{UART\_GetData()}}
+{\footnotesize\ttfamily u32 U\+A\+R\+T\+\_\+\+Get\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance }\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}ultimo dato ricevuto del componente \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore 32bit del dato ricevuto
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Il dato presente nel registro R\+X\+\_\+\+D\+A\+TA è da considerasi valido se nel registro di stato non sono presenti errori. 
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a83e4a4174cbc3fb487d944c245cd7d7b}\label{myuart_8c_a83e4a4174cbc3fb487d944c245cd7d7b}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Pending()}{UART\_GetPending()}}
+{\footnotesize\ttfamily u32 U\+A\+R\+T\+\_\+\+Get\+Pending (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance }\end{DoxyParamCaption})}
+
+
+
+Restituisce la interruzioni del componente \hyperlink{structUART}{U\+A\+RT}. Il bit 0 alto indirca interruzione pendente per trasmissione carattere completata. Il bit 1 alto indirca interruzione pendente per ricezione carattere completata. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore 32bit del registro delle interruzione pendenti del componente
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_adac93fd051ac127928d850356dde4fbe}\label{myuart_8c_adac93fd051ac127928d850356dde4fbe}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Status()}{UART\_GetStatus()}}
+{\footnotesize\ttfamily u32 U\+A\+R\+T\+\_\+\+Get\+Status (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance }\end{DoxyParamCaption})}
+
+
+
+Restituisce il registro di stato del componente \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valore 32bit del registro di stato.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+OE \+\_\+$>$ bit 0 FE -\/ $>$ bit 1 PE -\/$>$ bit 2 R\+DA -\/$>$ bit 3 T\+X\+\_\+\+B\+U\+SY -\/$>$ bit 4 
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a7f3bf33d9b30064000328f55eae16782}\label{myuart_8c_a7f3bf33d9b30064000328f55eae16782}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}}
+\index{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt()}{UART\_GlobalDisableInterrupt()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di disabilitare l\textquotesingle{}interruzione del componente \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particolare instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em Maschera} & per disabilitare le interruzioni. Scrivere il valore binario 1 per disabilitare le interruzioni.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_aa170ac8d7b36e7a3713848059d3db159}\label{myuart_8c_aa170ac8d7b36e7a3713848059d3db159}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}}
+\index{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt()}{UART\_GlobalEnableInterrupt()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{mask }\end{DoxyParamCaption})}
+
+
+
+Permette di abilitare l\textquotesingle{}interruzione del componente \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particolare instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em Maschera} & per abilitare le interruzioni. Scrivere il valore binario 1 per abilitare le interruzioni.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Abilitare le intrruzioni globali fa si che le linee di interuzioni interne attivino il segnale I\+RQ diretto verso il processore. Se le interruzioni globali sono disabilitate il componente rileverà lo stato delle linee di interruzione interne e aggiornerà le interruzioni pendenti senza attivare la linea I\+RQ. 
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a6bda4c4f75821db31648e79ddaeaa773}\label{myuart_8c_a6bda4c4f75821db31648e79ddaeaa773}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}}
+\index{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Init()}{UART\_Init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{baseaddr }\end{DoxyParamCaption})}
+
+
+
+Inizializza la particolare instanza del componente \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em baseaddr} & indica il B\+A\+SE A\+D\+D\+R\+ES in esadecimane del componente \hyperlink{structUART}{U\+A\+RT} da utilizzare.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a584ee083ff0dc40da13aeee212a85c3b}\label{myuart_8c_a584ee083ff0dc40da13aeee212a85c3b}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}}
+\index{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Set\+Data()}{UART\_SetData()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Set\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance,  }\item[{u32}]{data }\end{DoxyParamCaption})}
+
+
+
+Setta il dato (8 bit) da trasmettere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+{\em data} & rappresenta il dato da tramsettere. Solo gli 8 L\+SB verranno trasmessi\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Settare il dato prima di iniziare la trasmissione. Il dato non sarà cancellato dal registro 
+\end{DoxyNote}
+\mbox{\Hypertarget{myuart_8c_a1765e7fe4e4d00b062ae333ed8b58938}\label{myuart_8c_a1765e7fe4e4d00b062ae333ed8b58938}} 
+\index{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}}
+\index{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!myuart.\+c@{myuart.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Start()}{UART\_Start()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Start (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{U\+A\+R\+T\+Instance }\end{DoxyParamCaption})}
+
+
+
+Da inizio alla trasmissione. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+Instance} & rappresenta la particola instanza del componente \hyperlink{structUART}{U\+A\+RT}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}

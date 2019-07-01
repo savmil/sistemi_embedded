@@ -1,8 +1,8 @@
-\hypertarget{GPIO_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+IO.h File Reference}
-\label{GPIO_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h}}
+\hypertarget{GPIO_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+IO.h File Reference}
+\label{GPIO_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+h}}
 
 
-header file \hyperlink{structGPIO}{G\+P\+IO}  
+header file \hyperlink{GPIO_8c}{G\+P\+I\+O.\+c}  
 
 
 \subsection*{Data Structures}
@@ -13,7 +13,7 @@ struct \hyperlink{structGPIO}{G\+P\+IO}
 
 
 \subsection{Detailed Description}
-header file \hyperlink{structGPIO}{G\+P\+IO} 
+header file \hyperlink{GPIO_8c}{G\+P\+I\+O.\+c} 
 
 
 
@@ -136,6 +136,22 @@ Inizializza una struttura \hyperlink{structGPIO}{G\+P\+IO} per il corrispondente
 {\em 0} & se non si è verificato nessun errore \\
 \hline
 \end{DoxyRetVals}
+Alloca un range di Mj e min numbers per il device a caratteri
+
+Inizializza la struttura cdev specificando la struttura file operations associata al device a caratteri
+
+Crea il device all\textquotesingle{}interno del filesystem assegnandogli i numbers richiesti in precedenza e ne restituisce il puntatore.
+
+Aggiunge il device a caratteri al sistema. Se l\textquotesingle{}operazione va a buon fine sarà possibile vedere il device sotto /dev
+
+Inizializza la struct resource con il valori recuperati dal device tree corrispondente al device
+
+Alloca una quantita res\+\_\+size di memoria fisica per il dispositivo IO a partire dall\textquotesingle{}inidirzzo res.\+start e ne resituisce l\textquotesingle{}inidirizzo
+
+Mappa la memoria fisca allocata e restituisce l\textquotesingle{}indirizzo virtuale
+
+Cerca le specifiche dell\textquotesingle{}interrupt nel device tree e restituisce il suo numero identificativo
+
 Inizializzazione della wait-\/queue per la system-\/call read() e poll()
 
 Inizializzazione degli spinlock

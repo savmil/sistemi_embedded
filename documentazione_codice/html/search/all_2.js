@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['baseaddress',['BaseAddress',['../structUART.html#ab50cdd3296629cf5c64dc386145fb2ee',1,'UART']]],
   ['baudrate',['baudrate',['../classUART__v1__0.html#af2979064a441fc814952a2a01b2e0bd3',1,'UART_v1_0']]],
   ['bsp',['BSP',['../group__BSP.html',1,'']]],
   ['bsp_5fgetversion',['BSP_GetVersion',['../group__STM32F3__DISCOVERY__Exported__Functions.html#ga88eb8fe79668f12714ed74ed9ad661ff',1,'stm32f3_discovery.c']]],

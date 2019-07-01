@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/Kernel_Mode/GPIO_kernel_main.c File Reference</title>
+<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/GPIO_kernel_main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,7 +58,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_cc52a1bbf6cd6568a34b6bb805da758e.html">Driver</a></li><li class="navelem"><a class="el" href="dir_8c62fee4d32e88b786a77a06e588e5c1.html">Kernel_Mode</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_cc52a1bbf6cd6568a34b6bb805da758e.html">Driver</a></li><li class="navelem"><a class="el" href="dir_d7cff8a237a02370646d1341971cc3fc.html">KERNEL_MODE</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,10 +70,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Inizializza il driver kernel ed espone le funzionalità del modulo.  
+<p>modulo kernel che governa l' utilizzo del driver <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Inizializza il driver kernel ed espone le funzionalità del modulo. </p>
+<div class="textblock"><p>modulo kernel che governa l' utilizzo del driver <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="af75f24d2c3fa57cbe0155ed32b3598ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af75f24d2c3fa57cbe0155ed32b3598ff">&#9670;&nbsp;</a></span>GPIO_irq_handler()</h2>
@@ -123,6 +123,9 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Disabilitazione delle interruzioni della periferica</p>
+<p>Setting del valore del flag "can_read"</p>
+<p>Risveglio dei processi sleeping </p>
 
 </div>
 </div>
@@ -295,6 +298,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 <p>Inizializzazione del driver </p>
+<p>Allocazione dell'oggetto <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> </p>
 
 </div>
 </div>
@@ -355,6 +359,10 @@ $(function() {
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>l'aggiunta del flag O_NONBLOCK all'apertura del file descriptor associato al device farà sì che il processo chiamante non verrà bloccato se alla chiamata di una lettura non troverà dati disponibili </dd></dl>
+<p>Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep</p>
+<p>Il processo è risvegliato dall'arrivo di un'interruzione</p>
+<p>Accesso ai registri del device</p>
+<p>Copia dei dati letti verso l'userspace </p>
 
 </div>
 </div>
@@ -505,6 +513,8 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Copia dei dati dall'userspace</p>
+<p>Accesso ai registri del device </p>
 
 </div>
 </div>
@@ -605,12 +615,12 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a>,</div><div class="line">        .read       = <a class="code" href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a>,</div><div class="line">        .write      = <a class="code" href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a>,</div><div class="line">        .poll       = <a class="code" href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a>,</div><div class="line">        .open       = <a class="code" href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a>,</div><div class="line">        .release    = <a class="code" href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a79c6e738ce840a31fd9e4de41941bd0f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a></div><div class="ttdeci">static unsigned int GPIO_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:268</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_af76394b0e572b3864def7b9da59e546d"><div class="ttname"><a href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a></div><div class="ttdeci">static ssize_t GPIO_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Legge dati dal device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:324</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a>,</div><div class="line">        .read       = <a class="code" href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a>,</div><div class="line">        .write      = <a class="code" href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a>,</div><div class="line">        .poll       = <a class="code" href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a>,</div><div class="line">        .open       = <a class="code" href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a>,</div><div class="line">        .release    = <a class="code" href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a79c6e738ce840a31fd9e4de41941bd0f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a></div><div class="ttdeci">static unsigned int GPIO_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:269</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_af76394b0e572b3864def7b9da59e546d"><div class="ttname"><a href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a></div><div class="ttdeci">static ssize_t GPIO_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Legge dati dal device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:325</div></div>
 <div class="ttc" id="GPIO__kernel__main_8c_html_a77709311b9a8100bd413ddd92e632a9f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="ttdeci">static int GPIO_release(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata alla chiusura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:216</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a325c239634eb54ae285cd460ad10e643"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a></div><div class="ttdeci">static loff_t GPIO_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:231</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a325c239634eb54ae285cd460ad10e643"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a></div><div class="ttdeci">static loff_t GPIO_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:232</div></div>
 <div class="ttc" id="GPIO__kernel__main_8c_html_adbb434cb7bda775580ff370112a68589"><div class="ttname"><a href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a></div><div class="ttdeci">static int GPIO_open(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata all&amp;#39;apertura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:193</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a8436654b5aa7dfd5932595b05d58ba24"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a></div><div class="ttdeci">static ssize_t GPIO_write(struct file *file_ptr, const char *buf, size_t size, loff_t *off)</div><div class="ttdoc">Invia dati al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:368</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a8436654b5aa7dfd5932595b05d58ba24"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a></div><div class="ttdeci">static ssize_t GPIO_write(struct file *file_ptr, const char *buf, size_t size, loff_t *off)</div><div class="ttdoc">Invia dati al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:374</div></div>
 </div><!-- fragment -->
 <p>Struttura che specifica le funzioni che agiscono sul device. </p>
 

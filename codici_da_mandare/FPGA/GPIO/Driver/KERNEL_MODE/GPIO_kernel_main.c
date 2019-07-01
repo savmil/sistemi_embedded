@@ -27,7 +27,10 @@
 #include <linux/mod_devicetable.h>
 
 #include "GPIO_list.h"
-
+/**
+ * @file           : GPIO_kernel_main.c
+ * @brief          modulo kernel che governa l' utilizzo del driver GPIO
+*/
 /**
  * @brief Nome identificativo del device-driver.
  * Deve corrispondere al valore del campo "compatible" nel device tree source.

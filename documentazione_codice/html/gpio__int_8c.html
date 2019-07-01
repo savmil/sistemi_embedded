@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/Andrea/FPGA/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src/gpio_int.c File Reference</title>
+<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Hardware/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src/gpio_int.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,7 +58,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_a41ecd78d1b6aa7e5e2c7b09616e36cc.html">Andrea</a></li><li class="navelem"><a class="el" href="dir_6660eac34d9a04fa5bfdf8f7c8fe6334.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_d928a0154fba9da5634c3e3aefe8242e.html">GPIOWithInterrupt</a></li><li class="navelem"><a class="el" href="dir_12b93467bd53e39d1ff96b843c447dce.html">GPIOWithInterrupt.sdk</a></li><li class="navelem"><a class="el" href="dir_7378fd76abeada0fc7e70d77f282fc43.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_582765624cc52cdda616c1f7c890d5c6.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_bac633dd4b0dc0db5d86e433a93b888b.html">Hardware</a></li><li class="navelem"><a class="el" href="dir_329dda9bb6ec7ee8ba29bb95e62cc31d.html">GPIOWithInterrupt</a></li><li class="navelem"><a class="el" href="dir_56a85d7ee3023cd57b37b5ef3bf73d41.html">GPIOWithInterrupt.sdk</a></li><li class="navelem"><a class="el" href="dir_f773508ef576eaa344102fad48cf3bcf.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_2e19cb69ed3457b39fa0e8f3188e8fa2.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,16 +95,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione avvisa la periferica di aver servito l' interrupt. </p>
+<p>Permette di dare ACK per processare le singole linee di interruzione del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. L'ACK rimuove la corrisponde interruzione pendente. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera dove per ogni valore uno presente, asserisce il segnale di ack per interrupt associato a tale valore della maschera </td></tr>
+    <tr><td class="paramname">myIntGPIOInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per dare l'ACK .</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>La corrispondenza bit-linea è posizionale. Il valore 1 al bit-iesimo indica ack ad interruzione pendente dell'iesima linea. </dd></dl>
 
 </div>
 </div>
@@ -134,16 +133,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione disabilita i singoli interrupt scrivendo nel registro. </p>
+<p>Permette di disabilitare le singole linee di interruzione del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera che se pari a 1 abilita l' interrupt globali</td></tr>
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per abilitare le linee di interruzioni. La corrispondenza bit-linea è posizionale. Scrivere 1 per abilitare la linea nel relativo bit</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se le interruzioni globali saranno attive le altre linee potranno attivare il segnale di interruzione verso il processore </dd></dl>
 
 </div>
 </div>
@@ -173,16 +171,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione abilita i singoli interrupt scrivendo nel registro. </p>
+<p>Permette di abilitare le singole linee di interruzione del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera che se pari a 1 abilita l' interrupt globali</td></tr>
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per abilitare le linee di interruzioni. La corrispondenza bit-linea è posizionale. Scrivere 1 per abilitare la linea nel relativo bit</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Se le interruzioni globali non saranno attive nessuna linea potrà attivare il segnale di interruzione verso il processore </dd></dl>
 
 </div>
 </div>
@@ -202,15 +199,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione restituisce il valore del registro. </p>
+<p>Restituisce le interruzioni pendenti del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>il valore del registro pending</dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valore 32bit del registro delle interruzione pendenti del componente</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>La corrispondenza bit-linea è posizionale. Il valore 1 al bit-iesimo indica interruzione pendente dell'iesima linea. </dd></dl>
 
 </div>
 </div>
@@ -240,16 +237,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione disabilita tutti gli input globalmente scrivendo nel registro. </p>
+<p>Permette di disabilitare l'interruzione del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera dove per ogni valore uno presente viene disabilitato l' interrupt corrispondente </td></tr>
+    <tr><td class="paramname">myIntGPIOInstance</td><td>rappresenta la particolare instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per disabilitare le interruzioni. Scrivere il valore binario 1 per disablitare le interruzioni.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Disabilitare le intrruzioni globali fa si che le linee di interuzioni interne non vengano inserite nel registro delle interruzioni pendenti e il segnale IRQ diretto verso il processore non possa essere asserito se ci sono interruzioni pendenti. </dd></dl>
 
 </div>
 </div>
@@ -279,16 +275,15 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione abilita tutti gli input globalmente scrivendo nel registro. </p>
+<p>Permette di abilitare l'interruzione del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera dove per ogni valore uno presente viene abilitato l' interrupt corrispondente </td></tr>
+    <tr><td class="paramname">myIntGPIOInstance</td><td>rappresenta la particolare instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per abilitare le interruzioni. Scrivere il valore binario 1 per abilitare le interruzioni.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Abilitare le intrruzioni globali fa si che le linee di interuzioni interne vengano inserite nel registro delle interruzioni pendenti e il segnale IRQ diretto verso il processore possa essere asserito se ci sono interruzioni pendenti. </dd></dl>
 
 </div>
 </div>
@@ -318,16 +313,50 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione scrive nel registro reg_intr_ack per avvisare la periferica di aver servito l' interrupt. </p>
+<p>Inizializza una particolare istanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">baseaddr</td><td>definisce l' indirizzo base della periferica </td></tr>
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a5a0022b182b4d6b5758fb0740b36ea2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a0022b182b4d6b5758fb0740b36ea2a">&#9670;&nbsp;</a></span>XGPIO_ReadData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t XGPIO_ReadData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *&#160;</td>
+          <td class="paramname"><em>myIntGPIOInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u32&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Legge i valori del sengale di read del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -357,16 +386,51 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Questa funzione abilita i singoli interrupt scrivendo nel registro reg_intr_en. </p>
+<p>Setta la direzione del segnale inout del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">myIntGPIOInstance</td><td>definisce i registri di quella particolare istanza del GPIO </td></tr>
-    <tr><td class="paramname">mask</td><td>è la maschera dove per ogni valore uno presente, abilità l' interrupt associato al valore del registro reg_intr_en</td></tr>
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Maschera</td><td>per il sengale di enable </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab177a3d74b14197ad2bdb3247703d9ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab177a3d74b14197ad2bdb3247703d9ca">&#9670;&nbsp;</a></span>XGPIO_WriteData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XGPIO_WriteData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmyIntGPIO.html">myIntGPIO</a> *&#160;</td>
+          <td class="paramname"><em>myIntGPIOInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u32&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scrive sul sengale di write del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">myIntGpioInstance</td><td>rappresenta la particola instanza del componente <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>.</td></tr>
+    <tr><td class="paramname">Valore</td><td>da scrivere </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

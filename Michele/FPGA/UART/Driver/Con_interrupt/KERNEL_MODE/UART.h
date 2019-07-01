@@ -17,7 +17,10 @@
 
 #include <asm/uaccess.h>
 #include <asm/io.h>
-
+/**
+ * @file UART.h
+ * @brief header file UART.c
+ */
 /**
  * @brief Offset dei vari registri interni del device UART
  **/

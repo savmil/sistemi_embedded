@@ -5,7 +5,10 @@
 #define DRIVER_NAME "GPIO"
 
 MODULE_LICENSE("GPL");
-
+/**
+ * @file           : GPIO_list.c
+ * @brief          permette la gestione di più componenti GPIO
+*/
 /**
  * @brief Inizializza una struttura dati GPIO_list
  * @param list puntatore a lista da inizializzare
