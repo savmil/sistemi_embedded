@@ -2,6 +2,16 @@
 \label{UART__interrupt__uio_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
 
 
+permette la gestione della periferica \hyperlink{structUART}{U\+A\+RT} utilizzando un driver di tipo U\+IO  
+
+
+
+
+\subsection{Detailed Description}
+permette la gestione della periferica \hyperlink{structUART}{U\+A\+RT} utilizzando un driver di tipo U\+IO 
+
+
+
 \subsection{Function Documentation}
 \mbox{\Hypertarget{UART__interrupt__uio_8c_ab9734b87bdd5937a4161587344636fd2}\label{UART__interrupt__uio_8c_ab9734b87bdd5937a4161587344636fd2}} 
 \index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!read\+\_\+reg@{read\+\_\+reg}}
@@ -11,21 +21,20 @@
 
 
 
-Permette la lettura in un registro. 
+Utilizzata per leggere un valore da un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro da cui leggere. 
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
 
 
 \begin{DoxyParams}{Parameters}
 {\em addr} & indirizzo virtuale della periferica \\
 \hline
-{\em offset} & offset del registro a cui scrivere\\
+{\em offset} & offset del registro a cui leggere\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+valore presente all\textquotesingle{}interno del registro 
 \end{DoxyReturn}
-\begin{DoxyNote}{Note}
-
-\end{DoxyNote}
 \mbox{\Hypertarget{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}\label{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}} 
 \index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
 \index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
@@ -40,15 +49,9 @@ Attende l\textquotesingle{} arrivo di un interrupt utilizzando la read su un dev
 \begin{DoxyParams}{Parameters}
 {\em file\+\_\+descr} & descrittore del U\+IO driver \\
 \hline
-{\em addr} & indirizzo virtuale della periferica\\
+{\em addr} & indirizzo virtuale della periferica \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\begin{DoxyNote}{Note}
-
-\end{DoxyNote}
 \mbox{\Hypertarget{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}\label{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}} 
 \index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!write\+\_\+reg@{write\+\_\+reg}}
 \index{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
@@ -57,7 +60,9 @@ Attende l\textquotesingle{} arrivo di un interrupt utilizzando la read su un dev
 
 
 
-Permette la scrittura in un registro. 
+Utilizzata per scrivere un valore all\textquotesingle{}interno di un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro in cui scrivere. 
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -65,12 +70,6 @@ Permette la scrittura in un registro.
 \hline
 {\em offset} & offset del registro a cui scrivere \\
 \hline
-{\em valore} & da scrivere\\
+{\em valore} & da scrivere \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\begin{DoxyNote}{Note}
-
-\end{DoxyNote}

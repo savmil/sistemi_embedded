@@ -1,8 +1,9 @@
 var searchData=
 [
+  ['getsspin',['getSSPin',['../main_8c.html#a261447ba4f7390f2166c325cc68b1129',1,'main.c']]],
   ['gpio',['GPIO',['../structGPIO.html',1,'']]],
-  ['gpio_2ec',['GPIO.c',['../GPIO_8c.html',1,'']]],
-  ['gpio_2eh',['GPIO.h',['../GPIO_8h.html',1,'']]],
+  ['gpio_2ec',['gpio.c',['../gpio_8c.html',1,'(Global Namespace)'],['../GPIO_8c.html',1,'(Global Namespace)']]],
+  ['gpio_2eh',['gpio.h',['../gpio_8h.html',1,'(Global Namespace)'],['../GPIO_8h.html',1,'(Global Namespace)']]],
   ['gpio_5fdestroy',['GPIO_Destroy',['../GPIO_8c.html#a35e453e72ddf756e45ee2d312eb760ab',1,'GPIO_Destroy(GPIO* device) :&#160;GPIO.c'],['../GPIO_8h.html#ae9f470eb45c41eb41960b84b006e7f98',1,'GPIO_Destroy(GPIO* device):&#160;GPIO.c']]],
   ['gpio_5fdriver',['GPIO_driver',['../GPIO__kernel__main_8c.html#a92e7fd18b96e1d2fbaf601ae8b14c6f3',1,'GPIO_kernel_main.c']]],
   ['gpio_5fenable',['gpio_enable',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a944e1262283a6b801ed6f23dccd90348',1,'GPIO_v1_0_S00_AXI::arch_imp']]],
@@ -46,5 +47,8 @@ var searchData=
   ['gpio_5fv1_5f0_5fs00_5faxi',['GPIO_v1_0_S00_AXI',['../classGPIO__v1__0__S00__AXI.html',1,'']]],
   ['gpio_5fv1_5f0_5fs00_5faxi_2evhd',['GPIO_v1_0_S00_AXI.vhd',['../GPIO__v1__0__S00__AXI_8vhd.html',1,'']]],
   ['gpio_5fwakeup',['GPIO_WakeUp',['../GPIO_8c.html#a2055d1dae8287604bd216a00b45fbb80',1,'GPIO_WakeUp(GPIO* device) :&#160;GPIO.c'],['../GPIO_8h.html#ae40b29016fc33e8302a0b30f1807e6fc',1,'GPIO_WakeUp(GPIO* device):&#160;GPIO.c']]],
-  ['gpio_5fwrite',['GPIO_write',['../GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24',1,'GPIO_kernel_main.c']]]
+  ['gpio_5fwrite',['GPIO_write',['../GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24',1,'GPIO_kernel_main.c']]],
+  ['gyro_5fio_5finit',['GYRO_IO_Init',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#gab11396b3a6f76ba95ea19290c7e60da5',1,'stm32f3_discovery.c']]],
+  ['gyro_5fio_5fread',['GYRO_IO_Read',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#ga1432dd354981626497d038b4f7149b92',1,'stm32f3_discovery.c']]],
+  ['gyro_5fio_5fwrite',['GYRO_IO_Write',['../group__STM32F3__DISCOVERY__LINK__OPERATIONS.html#ga5d9e3e80db2ee7cb6d8bd2f92d25b339',1,'stm32f3_discovery.c']]]
 ];

@@ -27,7 +27,10 @@
 #include <linux/mod_devicetable.h>
 
 #include "UART_list.h"
-
+/**
+ * @file UART_kernel_main.c
+ * @brief Inizializza il driver kernel ed espone le funzionalità del modulo
+ */
 /**
  * @brief Nome identificativo del device-driver.
  * Deve corrispondere al valore del campo "compatible" nel device tree source.
@@ -93,7 +96,7 @@ static struct file_operations UART_fops = {
 };
 
 /**
- * Inizializzazione del driver
+ * @brief Inizializzazione del driver
  */
 static int UART_probe(struct platform_device *pdev) {
 	int ret = 0;
@@ -122,7 +125,7 @@ static int UART_probe(struct platform_device *pdev) {
 		}
 	}
 
-/** Allocazione dell'oggetto UART */
+/* Allocazione dell'oggetto UART */
 	if ((UART_ptr = kmalloc(sizeof(UART), GFP_KERNEL)) == NULL) {
 		printk(KERN_ERR "%s: kmalloc ha restituito NULL\n", __func__);
 		return -ENOMEM;
@@ -296,13 +299,13 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 		
 	iowrite32(0x00000000, (UART_dev_ptr->vrtl_addr + TX_EN));
 
-/** Disabilitazione delle interruzioni della periferica */	
+/* Disabilitazione delle interruzioni della periferica */	
 	UART_GlobalInterruptDisable(UART_dev_ptr);	
 
 	pending_reg = UART_PendingInterrupt(UART_dev_ptr);
 	
 	if((pending_reg & 0x00000002) == 0x00000002){
-/**---ISR RX--- */
+/*---ISR RX--- */
 		
 		if(UART_dev_ptr->rx_count < UART_dev_ptr->buffer_size){
 			
@@ -311,10 +314,10 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 			
 			if(UART_dev_ptr->rx_count == UART_dev_ptr->buffer_size-1){	
 				
-/** Setting del valore del flag "can_read" */
+/* Setting del valore del flag "can_read" */
 				UART_SetCanRead(UART_dev_ptr);
 
-/** Risveglio dei processi sleeping */
+/* Risveglio dei processi sleeping */
 				UART_RXInterruptAck(UART_dev_ptr);
 				UART_ReadPollWakeUp(UART_dev_ptr);
 			}
@@ -325,7 +328,7 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 		UART_dev_ptr->rx_count++;
 	}
 	else if((pending_reg & 0x00000001) == 0x00000001){
-/**---ISR TX--- */
+/*---ISR TX--- */
 		
 		UART_dev_ptr->tx_count++;
 		
@@ -341,11 +344,11 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 			UART_Start(UART_dev_ptr);
 		}
 		else{
-/** Setting del valore del flag "can_write" */
+/* Setting del valore del flag "can_write" */
 			UART_SetCanWrite(UART_dev_ptr);
 			UART_WriteWakeUp(UART_dev_ptr);
 			
-/** Risveglio dei processi sleeping */					
+/* Risveglio dei processi sleeping */					
 			UART_TXInterruptAck(UART_dev_ptr);
 			UART_GlobalInterruptEnable(UART_dev_ptr);
 		}
@@ -377,20 +380,20 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 	if ((file_ptr->f_flags & O_NONBLOCK) == 0) {
 		printk(KERN_INFO "%s è bloccante\n", __func__);
 
-/** Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep */
+/* Test della variabile "can_read", se non sono state rilevate iterruzioni e il flag O_NONBLOCK non è stato specificato il processo si mette il sleep */
 		UART_TestCanReadAndSleep(UART_dev_ptr);
 		
-/** Il processo è risvegliato dall'arrivo di un'interruzione	*/
+/* Il processo è risvegliato dall'arrivo di un'interruzione	*/
 		UART_ResetCanRead(UART_dev_ptr);
 	}
 	else {
 		printk(KERN_INFO "%s non è bloccante\n", __func__);
 	}
-/** Accesso ai registri del device */
+/* Accesso ai registri del device */
 	read_addr = UART_GetDeviceAddress(UART_dev_ptr)+*off;
 	printk(KERN_INFO "%s | \n", __func__);
 	
-/** Copia dei dati letti verso l'userspace */
+/* Copia dei dati letti verso l'userspace */
 	if (copy_to_user(buf, UART_dev_ptr->buffer_rx, count))
 		return -EFAULT;
 
@@ -420,9 +423,9 @@ static ssize_t UART_write (struct file *file_ptr, const char __user * buf, size_
 	if (*off > UART_dev_ptr->res_size)
 		return -EFAULT;
 	
-/** Test della variabile "can_write" */
+/* Test della variabile "can_write" */
 	UART_TestCanWriteAndSleep(UART_dev_ptr);
-/** Il processo è risvegliato dall'arrivo di un'interruzione che indica la possibilità di effettuare una scrittura */
+/* Il processo è risvegliato dall'arrivo di un'interruzione che indica la possibilità di effettuare una scrittura */
 	UART_ResetCanWrite(UART_dev_ptr);
 	
 	UART_dev_ptr->tx_count = 0;

@@ -1,0 +1,161 @@
+\hypertarget{UART__list_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.h File Reference}
+\label{UART__list_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h}}
+
+
+Header file \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}
+\begin{DoxyCompactList}\small\item\em Struttura dati per la gestione di più device \hyperlink{structUART}{U\+A\+RT} da parte del driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART__list_8h_a69abec0556a598fb9bbef18d91176f5e}\label{UART__list_8h_a69abec0556a598fb9bbef18d91176f5e}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+add()}{UART\_list\_add()}}
+{\footnotesize\ttfamily int U\+A\+R\+T\+\_\+list\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list,  }\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Aggiunge un oggetto \hyperlink{structUART}{U\+A\+RT} alla lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}, lista a cui aggiungere l\textquotesingle{}oggetto \\
+\hline
+{\em device} & puntatore a \hyperlink{structUART}{U\+A\+RT}, oggetto da aggiungere alla lista \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & se è ststo già inserito il numero massimo di device \\
+\hline
+{\em 0} & se l\textquotesingle{}inserimento è avvenuto correttamente \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{UART__list_8h_a7d7e40f1c00273fc50eabab97c6cd662}\label{UART__list_8h_a7d7e40f1c00273fc50eabab97c6cd662}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy()}{UART\_list\_Destroy()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+list\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}, lista da distruggere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART__list_8h_abb0889d36e912fc15b71926b0d50a125}\label{UART__list_8h_abb0889d36e912fc15b71926b0d50a125}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count()}{UART\_list\_device\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Restituisce il numero di device presenti nella lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}, lista di cui si intende conoscere il numero di oggetti \hyperlink{structUART}{U\+A\+RT} contenuti \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+numero di device presenti nella lista 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART__list_8h_a4ce952e52dc8b582db1fb13b56749293}\label{UART__list_8h_a4ce952e52dc8b582db1fb13b56749293}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor()}{UART\_list\_find\_by\_minor()}}
+{\footnotesize\ttfamily \hyperlink{structUART}{U\+A\+RT}$\ast$ U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list,  }\item[{dev\+\_\+t}]{dev }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structUART}{U\+A\+RT} all\textquotesingle{}interno della lista tramite il minor number associato al device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}, lista in cui effettuare la ricerca \\
+\hline
+{\em dev} & major/minor number associato al device, parametro con cui viene invocata la open() o la release() \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structUART}{U\+A\+RT}, se è presente nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART__list_8h_abe4d8b22290914394ce6640dc7188f1f}\label{UART__list_8h_abe4d8b22290914394ce6640dc7188f1f}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev()}{UART\_list\_find\_by\_pdev()}}
+{\footnotesize\ttfamily \hyperlink{structUART}{U\+A\+RT}$\ast$ U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list,  }\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structUART}{U\+A\+RT} all\textquotesingle{}interno della lista tramite il campo pdev. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} in cui effettuare la ricerca \\
+\hline
+{\em pdev} & puntatore a struct platform\+\_\+device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structUART}{U\+A\+RT}, se è contenuto nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART__list_8h_ad170840f331e1382139bbd98b2457edd}\label{UART__list_8h_ad170840f331e1382139bbd98b2457edd}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line()}{UART\_list\_find\_irq\_line()}}
+{\footnotesize\ttfamily \hyperlink{structUART}{U\+A\+RT}$\ast$ U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list,  }\item[{int}]{irq\+\_\+line }\end{DoxyParamCaption})}
+
+
+
+Ricerca un oggetto \hyperlink{structUART}{U\+A\+RT} all\textquotesingle{}interno della lista tramite l\textquotesingle{} interrupt-\/number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list}, lista in cui effettuare la ricerca \\
+\hline
+{\em irq\+\_\+line} & linea di interruzione alla quale il device è connesso \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indirizzo dell\textquotesingle{}oggetto \hyperlink{structUART}{U\+A\+RT}, se è presente nella lista, N\+U\+LL altrimenti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART__list_8h_a58aa8f26f06e7b6282e82e793d76e9a7}\label{UART__list_8h_a58aa8f26f06e7b6282e82e793d76e9a7}} 
+\index{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}}
+\index{U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+list\+\_\+\+Init()}{UART\_list\_Init()}}
+{\footnotesize\ttfamily int U\+A\+R\+T\+\_\+list\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} $\ast$}]{list,  }\item[{uint32\+\_\+t}]{list\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Inizializza una struttura dati \hyperlink{structUART__list}{U\+A\+R\+T\+\_\+list} Istanzia una lista di dimensione pari a list\+\_\+size dispositivi e inizializza i relativi puntatori al valore null. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & puntatore a lista da inizializzare \\
+\hline
+{\em list\+\_\+size} & numero massimo di device che la struttra dati potrà contenere \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/\+E\+N\+O\+M\+EM} & nel caso in cui la struttura non possa essere allocata in memoria \\
+\hline
+{\em 0} & se non si manifestano errori \\
+\hline
+\end{DoxyRetVals}

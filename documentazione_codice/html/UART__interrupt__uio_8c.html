@@ -63,14 +63,18 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">UART_interrupt_uio.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<h2 class="groupheader">Function Documentation</h2>
+
+<p>permette la gestione della periferica <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> utilizzando un driver di tipo UIO  
+<a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>permette la gestione della periferica <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> utilizzando un driver di tipo UIO </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab9734b87bdd5937a4161587344636fd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9734b87bdd5937a4161587344636fd2">&#9670;&nbsp;</a></span>read_reg()</h2>
 
@@ -97,16 +101,16 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Permette la lettura in un registro. </p>
+<p>Utilizzata per leggere un valore da un registro della periferica, specificando l'indirizzo base virtuale e l'offset del registro da cui leggere. </p>
+<p>Dealloca gli oggetti internamente contenuti nella <a class="el" href="structGPIO__list.html" title="Struttura dati per la gestione di più device GPIO da parte del driver. ">GPIO_list</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>indirizzo virtuale della periferica </td></tr>
-    <tr><td class="paramname">offset</td><td>offset del registro a cui scrivere</td></tr>
+    <tr><td class="paramname">offset</td><td>offset del registro a cui leggere</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>valore presente all'interno del registro </dd></dl>
 
 </div>
 </div>
@@ -140,12 +144,10 @@ $(function() {
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file_descr</td><td>descrittore del UIO driver </td></tr>
-    <tr><td class="paramname">addr</td><td>indirizzo virtuale della periferica</td></tr>
+    <tr><td class="paramname">addr</td><td>indirizzo virtuale della periferica </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -181,17 +183,16 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Permette la scrittura in un registro. </p>
+<p>Utilizzata per scrivere un valore all'interno di un registro della periferica, specificando l'indirizzo base virtuale e l'offset del registro in cui scrivere. </p>
+<p>Dealloca gli oggetti internamente contenuti nella <a class="el" href="structGPIO__list.html" title="Struttura dati per la gestione di più device GPIO da parte del driver. ">GPIO_list</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>indirizzo virtuale della periferica </td></tr>
     <tr><td class="paramname">offset</td><td>offset del registro a cui scrivere </td></tr>
-    <tr><td class="paramname">valore</td><td>da scrivere</td></tr>
+    <tr><td class="paramname">valore</td><td>da scrivere </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="section note"><dt>Note</dt><dd></dd></dl>
 
 </div>
 </div>

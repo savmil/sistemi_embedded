@@ -24,6 +24,27 @@ Collaboration diagram for G\+P\+I\+O\+\_\+list\+:\nopagebreak
 \subsection{Detailed Description}
 Struttura dati per la gestione di più device \hyperlink{structGPIO}{G\+P\+IO} da parte del driver. 
 
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structGPIO__list_a170d1d78f27f6ab4c8badaaa4b3f2305}\label{structGPIO__list_a170d1d78f27f6ab4c8badaaa4b3f2305}} 
+\index{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!device\+\_\+count@{device\+\_\+count}}
+\index{device\+\_\+count@{device\+\_\+count}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}}
+\subsubsection{\texorpdfstring{device\+\_\+count}{device\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t device\+\_\+count}
+
+numero di device attivi e gestiti dal driver \mbox{\Hypertarget{structGPIO__list_a1f17219814029f429cd2f3fdf4190e0b}\label{structGPIO__list_a1f17219814029f429cd2f3fdf4190e0b}} 
+\index{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!device\+\_\+list@{device\+\_\+list}}
+\index{device\+\_\+list@{device\+\_\+list}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}}
+\subsubsection{\texorpdfstring{device\+\_\+list}{device\_list}}
+{\footnotesize\ttfamily \hyperlink{structGPIO}{G\+P\+IO}$\ast$$\ast$ device\+\_\+list}
+
+array di puntatori a \hyperlink{structGPIO}{G\+P\+IO}, ciascuno dei quali si riferisce ad un device \mbox{\Hypertarget{structGPIO__list_aeff61809685e5df1b38aec1d871a49bb}\label{structGPIO__list_aeff61809685e5df1b38aec1d871a49bb}} 
+\index{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!list\+\_\+size@{list\+\_\+size}}
+\index{list\+\_\+size@{list\+\_\+size}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+size}{list\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t list\+\_\+size}
+
+dimensione della lista, ovvero il numero massimo di device gestibili 
+
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
 /media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\hyperlink{GPIO__list_8h}{G\+P\+I\+O\+\_\+list.\+h}\end{DoxyCompactItemize}

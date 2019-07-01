@@ -1,28 +1,18 @@
 /**
   ******************************************************************************
-  * File Name          : SPI.h
-  * Description        : This file provides code for the configuration
-  *                      of the SPI instances.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
+  * @file           : spi.h
+  * header file per la configurazione della periferica SPI
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 #ifndef __spi_H
 #define __spi_H
 #ifdef __cplusplus
+
  extern "C" {
 #endif
-
+#endif
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
@@ -37,7 +27,7 @@ enum {
 			TRANSFER_WAIT,
 			TRANSFER_COMPLETE,
 			TRANSFER_ERROR
-		};
+};
 
 
 /* transfer state */

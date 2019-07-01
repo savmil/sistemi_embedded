@@ -790,7 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  =./../codici_da_mandare/GPIO/Hardware/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src ./ ./../codici_da_mandare/FPGA/GPIO/Hardware/GPIO_1.0/hdl/ ./../Andrea/FPGA/ip_repo/UART_1.0/hdl ./../codici_da_mandare/FPGA/GPIO/Driver/Kernel_Mode/ ./../codici_da_mandare/FPGA/GPIO/Driver/UIO ./../Andrea/STM32/CRC_MultiSerial_CHECK/Src
+INPUT                  =./../codici_da_mandare/GPIO/Hardware/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src ./ ./../codici_da_mandare/FPGA/GPIO/Hardware/GPIO_1.0/hdl/ ./../Andrea/FPGA/ip_repo/UART_1.0/hdl ./../codici_da_mandare/FPGA/GPIO/Driver/Kernel_Mode/ ./../codici_da_mandare/FPGA/GPIO/Driver/UIO ./../Andrea/STM32/CRC_MultiSerial_CHECK/Src ./../Andrea/STM32/CRC_MultiSerial_CHECK/Inc ./../Michele/FPGA/UART/Driver/Con_interrupt/KERNEL_MODE ./../Michele/FPGA/UART/Driver/Con_interrupt/UIO
 
 
 # This tag can be used to specify the character encoding of the source files
@@ -2100,7 +2100,7 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED             =
+PREDEFINED             = DOXYGEN_SHOULD_SKIP_THIS
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

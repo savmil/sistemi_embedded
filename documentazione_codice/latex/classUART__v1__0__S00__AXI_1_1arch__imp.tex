@@ -32,15 +32,15 @@
 \item 
 \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a1c2628d089a3915505bce1cba131c80a}{status\+\_\+reg\+\_\+sampling}{\bfseries  ( {\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} , {\bfseries \textcolor{vhdlchar}{uart\+\_\+status\+\_\+reg}\textcolor{vhdlchar}{ }} )}
 \begin{DoxyCompactList}\small\item\em Campiona i segnali di cui si vuole verificare la generazione di un interrupt. \end{DoxyCompactList}\item 
-\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a72db935ad9e80a3434cfb113c364c329}{intr\+\_\+pending}{\bfseries  ( {\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} , {\bfseries \textcolor{vhdlchar}{change\+\_\+detected}\textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a65e0e54a6d565935dd24ce96dbbce53a}{ack\+\_\+intr}} \textcolor{vhdlchar}{ }} )}
+\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a5449c5c114aa406ec50242ff099946a4}{intr\+\_\+pending}{\bfseries  ( {\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} , {\bfseries \textcolor{vhdlchar}{change\+\_\+detected}\textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a65e0e54a6d565935dd24ce96dbbce53a}{ack\+\_\+intr}} \textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a95f416160863ad569dbb9fa2956c526d}{pending\+\_\+intr\+\_\+tmp}} \textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a8b1599924c5da95abaa3e673fc0d2cb7}{changed\+\_\+bits}} \textcolor{vhdlchar}{ }} )}
 \begin{DoxyCompactList}\small\item\em Gestisce il registro pending. \end{DoxyCompactList}\item 
-\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a48d068c63e454a766cd9703aff942fb6}{inst\+\_\+irq}{\bfseries  ( {\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a5595ca2e548ef1d12b7fa2bac3e2aa00}{pending\+\_\+intr}} \textcolor{vhdlchar}{ }} )}
+\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_ad49f0dfc577739899b90a7243c22a1cd}{inst\+\_\+irq}{\bfseries  ( {\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} , {\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a5595ca2e548ef1d12b7fa2bac3e2aa00}{pending\+\_\+intr}} \textcolor{vhdlchar}{ }} , {\bfseries \textcolor{vhdlchar}{global\+\_\+intr}\textcolor{vhdlchar}{ }} )}
 \begin{DoxyCompactList}\small\item\em Disabilita l\textquotesingle{} interrupt nel caso di reset del bus e tiene alto il segnale di interrupt finchè rimane pendente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Components}
  \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a6f88b8988ee3bab3eaaa301212c7f804}{U\+A\+RT}  {\bfseries }  
-\begin{DoxyCompactList}\small\item\em U\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structUART}{U\+A\+RT}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Constants}
  \begin{DoxyCompactItemize}
 \item 
@@ -161,7 +161,7 @@
  \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classUART__v1__0__S00__AXI_1_1arch__imp_ac10de3465f1df3e0e99a80a6db750f9f}\label{classUART__v1__0__S00__AXI_1_1arch__imp_ac10de3465f1df3e0e99a80a6db750f9f}} 
-\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_ac10de3465f1df3e0e99a80a6db750f9f}{inst\+\_\+uart}  {\bfseries uart}   
+\hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_ac10de3465f1df3e0e99a80a6db750f9f}{inst\+\_\+uart}  {\bfseries U\+A\+RT}   
 \end{DoxyCompactItemize}
 \subsection*{Aliases}
  \begin{DoxyCompactItemize}
@@ -177,11 +177,11 @@
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classUART__v1__0__S00__AXI_1_1arch__imp_a48d068c63e454a766cd9703aff942fb6}\label{classUART__v1__0__S00__AXI_1_1arch__imp_a48d068c63e454a766cd9703aff942fb6}} 
+\mbox{\Hypertarget{classUART__v1__0__S00__AXI_1_1arch__imp_ad49f0dfc577739899b90a7243c22a1cd}\label{classUART__v1__0__S00__AXI_1_1arch__imp_ad49f0dfc577739899b90a7243c22a1cd}} 
 \index{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!inst\+\_\+irq@{inst\+\_\+irq}}
 \index{inst\+\_\+irq@{inst\+\_\+irq}!U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}}
 \subsubsection{\texorpdfstring{inst\+\_\+irq()}{inst\_irq()}}
-{\footnotesize\ttfamily  {\bfseries \textcolor{vhdlchar}{ }} inst\+\_\+irq(\begin{DoxyParamCaption}\item[{}]{{\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a5595ca2e548ef1d12b7fa2bac3e2aa00}{pending\+\_\+intr}} \textcolor{vhdlchar}{ }} {\em } }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [Process]}}
+{\footnotesize\ttfamily  {\bfseries \textcolor{vhdlchar}{ }} inst\+\_\+irq(\begin{DoxyParamCaption}\item[{}]{{\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a5595ca2e548ef1d12b7fa2bac3e2aa00}{pending\+\_\+intr}} \textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries \textcolor{vhdlchar}{global\+\_\+intr}\textcolor{vhdlchar}{ }} {\em } }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [Process]}}
 
 
 
@@ -194,11 +194,11 @@ Per la descrizione del componente riferirsi alla documentazione dell\textquotesi
 \mbox{\tt in}  & {\em pending\+\_\+intr} & registro che identifica le interruzioni pendenti \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classUART__v1__0__S00__AXI_1_1arch__imp_a72db935ad9e80a3434cfb113c364c329}\label{classUART__v1__0__S00__AXI_1_1arch__imp_a72db935ad9e80a3434cfb113c364c329}} 
+\mbox{\Hypertarget{classUART__v1__0__S00__AXI_1_1arch__imp_a5449c5c114aa406ec50242ff099946a4}\label{classUART__v1__0__S00__AXI_1_1arch__imp_a5449c5c114aa406ec50242ff099946a4}} 
 \index{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!intr\+\_\+pending@{intr\+\_\+pending}}
 \index{intr\+\_\+pending@{intr\+\_\+pending}!U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}}
 \subsubsection{\texorpdfstring{intr\+\_\+pending()}{intr\_pending()}}
-{\footnotesize\ttfamily  {\bfseries \textcolor{vhdlchar}{ }} intr\+\_\+pending(\begin{DoxyParamCaption}\item[{}]{{\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries \textcolor{vhdlchar}{change\+\_\+detected}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a65e0e54a6d565935dd24ce96dbbce53a}{ack\+\_\+intr}} \textcolor{vhdlchar}{ }} {\em } }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [Process]}}
+{\footnotesize\ttfamily  {\bfseries \textcolor{vhdlchar}{ }} intr\+\_\+pending(\begin{DoxyParamCaption}\item[{}]{{\bfseries \textcolor{vhdlchar}{S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries \textcolor{vhdlchar}{change\+\_\+detected}\textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a65e0e54a6d565935dd24ce96dbbce53a}{ack\+\_\+intr}} \textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a95f416160863ad569dbb9fa2956c526d}{pending\+\_\+intr\+\_\+tmp}} \textcolor{vhdlchar}{ }} {\em } ,  }\item[{}]{{\bfseries {\bfseries \hyperlink{classUART__v1__0__S00__AXI_1_1arch__imp_a8b1599924c5da95abaa3e673fc0d2cb7}{changed\+\_\+bits}} \textcolor{vhdlchar}{ }} {\em } }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [Process]}}
 
 
 
@@ -227,7 +227,7 @@ Campiona i segnali di cui si vuole verificare la generazione di un interrupt.
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em S\+\_\+\+A\+X\+I\+\_\+\+A\+C\+LK} & clock del bus A\+XI \\
 \hline
-\mbox{\tt in}  & {\em uart\+\_\+status\+\_\+reg} & valori del U\+A\+RT da campionare \\
+\mbox{\tt in}  & {\em uart\+\_\+status\+\_\+reg} & valori del \hyperlink{structUART}{U\+A\+RT} da campionare \\
 \hline
 \end{DoxyParams}
 
@@ -253,9 +253,9 @@ segnale di ack. Il bit 0 da ack all\textquotesingle{}interuzione della trasmissi
 
 
 
-U\+A\+RT. 
+\hyperlink{structUART}{U\+A\+RT}. 
 
-componente contenente un ricevitore e un trasmettitore che implementano il protocollo U\+A\+RT. Consulatare documentazione esterna. 
+componente contenente un ricevitore e un trasmettitore che implementano il protocollo \hyperlink{structUART}{U\+A\+RT}. Consulatare documentazione esterna. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

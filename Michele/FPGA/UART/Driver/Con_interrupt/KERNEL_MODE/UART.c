@@ -6,6 +6,10 @@
 #include <linux/module.h>
 
 MODULE_LICENSE("GPL");
+/**
+ * @file UART.c
+ * @brief Permette la comunicazione con la periferica UART
+ */
 
 /**
  * @brief Inizializza una struttura UART per il corrispondente device.
@@ -43,19 +47,19 @@ int UART_Init(		UART* UART_device,
 	UART_device->pdev = pdev;
 	UART_device->class = class;
 		
-/** Alloca un range di Mj e min numbers per il device a caratteri */
+/* Alloca un range di Mj e min numbers per il device a caratteri */
 	
 	if ((error = alloc_chrdev_region(&UART_device->Mm, 0 , 1, file_name)) != 0) {
 		printk(KERN_ERR "%s: alloc_chrdev_region() ha restituito %d\n", __func__, error);
 		return error;
 	}
 	
-/** Inizializza la struttura cdev specificando la struttura file operations associata al device a caratteri */
+/* Inizializza la struttura cdev specificando la struttura file operations associata al device a caratteri */
 	
 	cdev_init (&UART_device->cdev, f_ops);
 	UART_device->cdev.owner = owner;
 	
-/** Crea il device all'interno del filesystem assegnandogli i numbers richiesti in precedenza e ne restituisce il puntatore. */
+/* Crea il device all'interno del filesystem assegnandogli i numbers richiesti in precedenza e ne restituisce il puntatore. */
 	
 	if ((UART_device->dev = device_create(class, NULL, UART_device->Mm, NULL, file_name)) == NULL) {
 		printk(KERN_ERR "%s: device_create() ha restituito NULL\n", __func__);
@@ -63,14 +67,14 @@ int UART_Init(		UART* UART_device,
 		goto device_create_error;
 	}
 	
-/** Aggiunge il device a caratteri al sistema. Se l'operazione va a buon fine sarà possibile vedere il device sotto /dev */
+/* Aggiunge il device a caratteri al sistema. Se l'operazione va a buon fine sarà possibile vedere il device sotto /dev */
 	
 	if ((error = cdev_add(&UART_device->cdev, UART_device->Mm, 1)) != 0) {
 		printk(KERN_ERR "%s: cdev_add() ha restituito %d\n", __func__, error);
 		goto cdev_add_error;
 	}
 	
-/** Inizializza la struct resource con il valori recuperati dal device tree corrispondente al device */
+/* Inizializza la struct resource con il valori recuperati dal device tree corrispondente al device */
 	dev = &pdev->dev;
 	if ((error = of_address_to_resource(dev->of_node, 0, &UART_device->res)) != 0) {
 		printk(KERN_ERR "%s: address_to_resource() ha restituito %d\n", __func__, error);
@@ -79,7 +83,7 @@ int UART_Init(		UART* UART_device,
 	
 	UART_device->res_size = UART_device->res.end - UART_device->res.start + 1;
 	
-/** Alloca una quantita res_size di memoria fisica per il dispositivo IO a partire dall'inidirzzo res.start e ne resituisce l'inidirizzo */
+/* Alloca una quantita res_size di memoria fisica per il dispositivo IO a partire dall'inidirzzo res.start e ne resituisce l'inidirizzo */
 	
 	if ((UART_device->mreg = request_mem_region(UART_device->res.start, UART_device->res_size, file_name)) == NULL) {
 		printk(KERN_ERR "%s: request_mem_region() ha restituito NULL\n", __func__);
@@ -87,7 +91,7 @@ int UART_Init(		UART* UART_device,
 		goto request_mem_region_error;
 	}
 	
-/** Mappa la memoria fisca allocata e restituisce l'indirizzo virtuale */
+/* Mappa la memoria fisca allocata e restituisce l'indirizzo virtuale */
 	
 	if ((UART_device->vrtl_addr = ioremap(UART_device->res.start, UART_device->res_size))==NULL) {
 		printk(KERN_ERR "%s: ioremap() ha restituito NULL\n", __func__);
@@ -95,7 +99,7 @@ int UART_Init(		UART* UART_device,
 		goto ioremap_error;
 	}
 	
-/** Cerca le specifiche dell'interrupt nel device tree e restituisce il suo numero identificativo */
+/* Cerca le specifiche dell'interrupt nel device tree e restituisce il suo numero identificativo */
 	
 	UART_device->irqNumber = irq_of_parse_and_map(dev->of_node, 0);
 	
@@ -106,13 +110,13 @@ int UART_Init(		UART* UART_device,
 	
 	UART_device->irq_mask = irq_mask;
 	
-/** Inizializzazione della wait-queue per la system-call read(), poll() e write() */
+/* Inizializzazione della wait-queue per la system-call read(), poll() e write() */
 	
 	init_waitqueue_head(&UART_device->write_queue);
  	init_waitqueue_head(&UART_device->read_queue);
 	init_waitqueue_head(&UART_device->poll_queue);
 	
-/** Inizializzazione degli spinlock */
+/* Inizializzazione degli spinlock */
 	
 	spin_lock_init(&UART_device->slock_int);
 	spin_lock_init(&UART_device->write_lock);
@@ -120,7 +124,7 @@ int UART_Init(		UART* UART_device,
 	UART_device->can_read = 0;
 	UART_device->can_write = 1;
 
-/** Abilitazione degli interrupt del device */
+/* Abilitazione degli interrupt del device */
 	
  	UART_GlobalInterruptEnable(UART_device);
 	UART_InterruptEnable(UART_device, UART_device->irq_mask);

@@ -1,8 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : I2C.c
-  * Description        : This file provides code for the configuration
-  *                      of the I2C instances.
+  * @file           : i2c.c
+  * Permette la configurazione della periferica I2C
   ******************************************************************************
   */
 
@@ -13,6 +12,12 @@
 I2C_HandleTypeDef hi2c2;
 
 /* I2C2 init function */
+/**
+ * @brief  Funzione di configurazione della periferica I2C
+ * @param  nodeAddress setta l' indentificativo del nodo 
+ * @param  groupAddress setta l' identificato del gruppo
+ * a cui il nodo appartiene
+ */
 void MX_I2C2_Init(uint16_t nodeAddress, uint16_t groupAddress)
 {
 
@@ -37,20 +42,23 @@ void MX_I2C2_Init(uint16_t nodeAddress, uint16_t groupAddress)
   {
     Error_Handler();
   }
-  /** Configure Analogue filter 
-  */
+  
   if (HAL_I2CEx_ConfigAnalogFilter(&hi2c2, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure Digital filter 
-  */
+  
   if (HAL_I2CEx_ConfigDigitalFilter(&hi2c2, 0) != HAL_OK)
   {
     Error_Handler();
   }
 
 }
+/**
+ * @brief  Configura opportunamente l' handler della periferica I2C
+ * ed i pin associati ad essa
+ * @param  i2cHandle handler della periferica I2C
+ */
 
 void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 {
@@ -61,10 +69,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
 
-    /**I2C2 GPIO Configuration    
-    PA9     ------> I2C2_SCL
-    PA10     ------> I2C2_SDA 
-    */
+
 
     GPIO_InitStruct.Pin = GPIO_PIN_9|GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -85,7 +90,10 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
 
   }
 }
-
+/**
+ * @brief  Disabilita la periferica CAN
+ * @param  canHandle handler della periferica CAN
+ */
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 {
 
@@ -96,10 +104,6 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
     /* Peripheral clock disable */
     __HAL_RCC_I2C2_CLK_DISABLE();
   
-    /**I2C2 GPIO Configuration    
-    PA9     ------> I2C2_SCL
-    PA10     ------> I2C2_SDA 
-    */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_9|GPIO_PIN_10);
 
     /* I2C2 interrupt Deinit */

@@ -1,3 +1,4 @@
 <map id="UART_v1_0_S00_AXI" name="UART_v1_0_S00_AXI">
-<area shape="rect" id="node2" href="$classUART__v1__0.html" title="UART_v1_0" alt="" coords="35,80,129,107"/>
+<area shape="rect" id="node3" href="$classUART__v1__0.html" title="UART_v1_0" alt="" coords="35,155,129,181"/>
+<area shape="rect" id="node2" href="$structUART.html" title="Stuttura che astrae un device UART in kernel&#45;mode. Contiene ciò che è necessario al funzionamento del..." alt="" coords="53,5,111,32"/>
 </map>

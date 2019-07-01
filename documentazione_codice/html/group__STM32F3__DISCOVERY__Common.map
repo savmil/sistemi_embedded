@@ -1,0 +1,8 @@
+<map id="STM32F3_DISCOVERY_Common" name="STM32F3_DISCOVERY_Common">
+<area shape="rect" id="node1" href="$group__STM32F3__DISCOVERY__Private__Variables.html" title="STM32F3_DISCOVERY_Private\l_Variables" alt="" coords="495,5,709,47"/>
+<area shape="rect" id="node2" href="$group__STM32F3__DISCOVERY__BUS.html" title="Bus Operation functions" alt="" coords="521,71,683,98"/>
+<area shape="rect" id="node3" href="$group__STM32F3__DISCOVERY__Exported__Functions.html" title="Exported Functions" alt="" coords="535,122,669,149"/>
+<area shape="rect" id="node5" href="$group__STM32F3__DISCOVERY__Private__Constants.html" title="STM32F3_DISCOVERY_Private\l_Constants" alt="" coords="495,173,709,215"/>
+<area shape="rect" id="node7" href="$group__STM32F3__DISCOVERY__LINK__OPERATIONS.html" title="Link Operation functions" alt="" coords="521,239,683,266"/>
+<area shape="rect" id="node6" href="$group__STM32F3__DISCOVERY.html" title="This file provides set of firmware functions to manage Leds and push&#45;button available on STM32F3&#45;Disc..." alt="" coords="5,122,172,149"/>
+</map>

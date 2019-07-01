@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.22)  27 JUN 2019 17:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.6.22)  1 JUL 2019 12:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1035,9 +1035,34 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 LaTeX Warning: Label `index_Driver' multiply defined.
 
 
+LaTeX Warning: Label `index_UIO' multiply defined.
+
+
 LaTeX Warning: Label `index_Hardware' multiply defined.
 
-)
+
+LaTeX Warning: Label `index_UART' multiply defined.
+
+
+LaTeX Warning: Label `index_GPIO' multiply defined.
+
+(./group__STM32F3__DISCOVERY__LINK__OPERATIONS.aux)
+(./group__STM32F3__DISCOVERY__Exported__Constants.aux)
+(./group__STM32F3__DISCOVERY__LED.aux) (./group__STM32F3__DISCOVERY__BUTTON.aux
+) (./group__STM32F3__DISCOVERY__COM.aux)
+(./group__STM32F3__DISCOVERY__COMPONENT.aux)
+(./group__STM32F3__DISCOVERY__Exported__Functions.aux) (./group__BSP.aux)
+(./group__STM32F3__DISCOVERY.aux) (./group__STM32F3__DISCOVERY__Common.aux)
+(./group__STM32F3__DISCOVERY__Private__Constants.aux)
+(./group__STM32F3__DISCOVERY__Private__Variables.aux) (./group__CMSIS.aux)
+(./group__stm32f3xx__system.aux)
+(./group__STM32F3xx__System__Private__Includes.aux)
+(./group__STM32F3xx__System__Private__TypesDefinitions.aux)
+(./group__STM32F3xx__System__Private__Defines.aux)
+(./group__STM32F3xx__System__Private__Macros.aux)
+(./group__STM32F3xx__System__Private__Variables.aux)
+(./group__STM32F3xx__System__Private__FunctionPrototypes.aux)
+(./group__STM32F3xx__System__Private__Functions.aux))
 \openout1 = `refman.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
@@ -1055,7 +1080,8 @@ LaTeX Font Info:    ... okay on input line 117.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 117.
@@ -1201,93 +1227,275 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 2.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 11.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 19.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 11.
+(Font)              scaled to size 6.29996pt on input line 19.
  [1
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+] [2] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 132--132
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/[]Andrea/[]F[]P[]G[]A/ip[]_[]repo/[]U[]A[]R[]T[]_[]1.0/hdl/[]U[]A[]R[]
 T[]_[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/[]Andrea/[]F[]P[]G[]A/ip[]_[]repo/[]U[]A[]R[]T[]_[]1.0/hdl/[]U[]A[]R[]
 T[]_[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 136--136
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--149
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--155
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--229
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--231
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]C[]K
+/[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[
 ] 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[
 ] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--81
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[
 ] 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 299--299
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[
 ] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
+Underfull \hbox (badness 10000) in paragraph at lines 309--309
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[
 ] 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 319--319
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O
 /[]G[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 325--325
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O
 /[]G[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--125
+Underfull \hbox (badness 10000) in paragraph at lines 331--331
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[
 ] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
  [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
 S[]E/git/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[
 ] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--335
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]
+E[] 
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]
+E[] 
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 376--376
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]
+E[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]
+E[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--396
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]U[]
+I[] 
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
+ [][] [][][]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]
+S[]E/git/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]U[]
+I[] 
  []
 
 )
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [5] [6
+ [15] [16
 
 ]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
@@ -1323,12 +1531,12 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 5.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 8.
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 9.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 8.
+(Font)              scaled to size 8.99994pt on input line 9.
  [1
 
 pdfTeX warning (ext4): destination with the same identifier (name{index_Driver}
@@ -1336,29 +1544,53 @@ pdfTeX warning (ext4): destination with the same identifier (name{index_Driver}
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.33 \end{DoxyItemize}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{index_Hardware}) has been already used, duplicate ignored
+l.33 ...get{index_Hardware}{}\subsection{Hardware}
+                                                  \label{index_Hardware}pdfTeX 
+warning (ext4): destination with the same identifier (name{index_UIO}) has been
+ already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.33 \end{DoxyItemize}
-                      ]) [2]
+l.33 ...get{index_Hardware}{}\subsection{Hardware}
+                                                  \label{index_Hardware}]pdfTeX
+ warning (ext4): destination with the same identifier (name{index_UART}) has be
+en already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.55 \end{DoxyItemize}\hypertarget{index_UART}{}
+                                                \subsubsection{U\+A\+RT}\lab...
+pdfTeX warning (ext4): destination with the same identifier (name{index_GPIO}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.59 \end{DoxyItemize}\hypertarget{index_GPIO}{}
+                                                \subsubsection{G\+P\+IO}\lab...
+) [2pdfTeX warning (ext4): destination with the same identifier (name{index_Har
+dware}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.143 \chapter
+              {driver\+\_\+\+U\+A\+R\+T\+\_\+\+U\+IO}]
 Chapter 2.
-(./GPIO.tex) [3
+(./driver_UART_UIO.tex) [3
 
 ] [4
 
 ]
 Chapter 3.
-(./hierarchy.tex) [5] [6
+(./modules.tex) [5] [6
 
 ]
 Chapter 4.
-(./annotated.tex) [7] [8
+(./hierarchy.tex) [7] [8
 
 ]
 Chapter 5.
+(./annotated.tex) [9] [10
+
+]
+Chapter 6.
 (./files.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
@@ -1366,73 +1598,453 @@ it/[]Andrea/[]F[]P[]G[]A/ip[]_[]repo/[]U[]A[]R[]T[]_[]1.[]0/hdl/[][]U[]A[]R[]T[
 ]_[]v1[]_[]0[]_[][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--6
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--7
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--8
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--9
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O/[][]G
 []P[]I[]O[]_[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O/[][]G
 []P[]I[]O[]_[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[
 ]_[]1.[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
  [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
 it/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[
 ]_[]1.[] 
  []
 
-) [9] [10
 
-]
-Chapter 6.
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]E[]R[]
+N[]E[]L[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]E[]R[]
+N[]E[]L[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]E[]R[]
+N[]E[]L[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]E[]R[]
+N[]E[]L[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]U[]I[]O/[
+][]U[]A[]R[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+ [][] \T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/g
+it/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]U[]I[]O/[
+][]U[]A[]R[] 
+ []
+
+) [12]
+Chapter 7.
+(./group__STM32F3__DISCOVERY__BUS.tex
+<group__STM32F3__DISCOVERY__BUS.pdf, id=2440, 409.53pt x 100.375pt>
+File: group__STM32F3__DISCOVERY__BUS.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__BUS.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__BUS.pdf  used on input line
+ 7.
+(pdftex.def)             Requested size: 350.0pt x 85.78934pt.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 20.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 20.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 20.
+ [13
+
+ <./group__STM32F3__DISCOVERY__BUS.pdf>] [14] [15]) [16]
+\openout2 = `group__STM32F3__DISCOVERY__LINK__OPERATIONS.aux'.
+
+
+(./group__STM32F3__DISCOVERY__LINK__OPERATIONS.tex
+<group__STM32F3__DISCOVERY__LINK__OPERATIONS.pdf, id=2495, 409.53pt x 100.375pt
+>
+File: group__STM32F3__DISCOVERY__LINK__OPERATIONS.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__LINK__OPERATIONS.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__LINK__OPERATIONS.pdf  used 
+on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 85.78934pt.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 50.
+ [17
+
+ <./group__STM32F3__DISCOVERY__LINK__OPERATIONS.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18])
+[19]
+\openout2 = `group__STM32F3__DISCOVERY__Exported__Constants.aux'.
+
+ (./group__STM32F3__DISCOVERY__Exported__Constants.tex
+<group__STM32F3__DISCOVERY__Exported__Constants.pdf, id=2536, 412.54124pt x 214
+.8025pt>
+File: group__STM32F3__DISCOVERY__Exported__Constants.pdf Graphic file (type pdf
+)
+<use group__STM32F3__DISCOVERY__Exported__Constants.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__Exported__Constants.pdf  us
+ed on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 182.24211pt.
+) [20
+
+
+ <./group__STM32F3__DISCOVERY__Exported__Constants.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__LED.aux'.
+
+ (./group__STM32F3__DISCOVERY__LED.tex
+<group__STM32F3__DISCOVERY__LED.pdf, id=2558, 366.36874pt x 100.375pt>
+File: group__STM32F3__DISCOVERY__LED.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__LED.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__LED.pdf  used on input line
+ 7.
+(pdftex.def)             Requested size: 350.0pt x 95.89635pt.
+) [21
+
+
+ <./group__STM32F3__DISCOVERY__LED.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__BUTTON.aux'.
+
+
+(./group__STM32F3__DISCOVERY__BUTTON.tex
+<group__STM32F3__DISCOVERY__BUTTON.pdf, id=2570, 388.45125pt x 100.375pt>
+File: group__STM32F3__DISCOVERY__BUTTON.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__BUTTON.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__BUTTON.pdf  used on input l
+ine 7.
+(pdftex.def)             Requested size: 350.0pt x 90.4408pt.
+) [22
+
+
+ <./group__STM32F3__DISCOVERY__BUTTON.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__COM.aux'.
+
+ (./group__STM32F3__DISCOVERY__COM.tex
+<group__STM32F3__DISCOVERY__COM.pdf, id=2582, 370.38374pt x 100.375pt>
+File: group__STM32F3__DISCOVERY__COM.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__COM.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__COM.pdf  used on input line
+ 7.
+(pdftex.def)             Requested size: 350.0pt x 94.85179pt.
+) [23
+
+
+ <./group__STM32F3__DISCOVERY__COM.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__COMPONENT.aux'.
+
+ (./group__STM32F3__DISCOVERY__COMPONENT.tex
+<group__STM32F3__DISCOVERY__COMPONENT.pdf, id=2594, 412.54124pt x 100.375pt>
+File: group__STM32F3__DISCOVERY__COMPONENT.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__COMPONENT.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__COMPONENT.pdf  used on inpu
+t line 7.
+(pdftex.def)             Requested size: 350.0pt x 85.15985pt.
+) [24
+
+
+ <./group__STM32F3__DISCOVERY__COMPONENT.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__Exported__Functions.aux'.
+
+
+(./group__STM32F3__DISCOVERY__Exported__Functions.tex
+<group__STM32F3__DISCOVERY__Exported__Functions.pdf, id=2607, 388.45125pt x 100
+.375pt>
+File: group__STM32F3__DISCOVERY__Exported__Functions.pdf Graphic file (type pdf
+)
+<use group__STM32F3__DISCOVERY__Exported__Functions.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__Exported__Functions.pdf  us
+ed on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 90.4408pt.
+ [25
+
+
+ <./group__STM32F3__DISCOVERY__Exported__Functions.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+[27] [28]) [29]
+\openout2 = `group__BSP.aux'.
+
+ (./group__BSP.tex
+<group__BSP.pdf, id=2665, 279.0425pt x 100.375pt>
+File: group__BSP.pdf Graphic file (type pdf)
+<use group__BSP.pdf>
+Package pdftex.def Info: group__BSP.pdf  used on input line 7.
+(pdftex.def)             Requested size: 278.0pt x 100.00255pt.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 14.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 14.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 14.
+) [30
+
+
+ <./group__BSP.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY.aux'.
+
+
+(./group__STM32F3__DISCOVERY.tex
+<group__STM32F3__DISCOVERY.pdf, id=2681, 485.815pt x 100.375pt>
+File: group__STM32F3__DISCOVERY.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY.pdf  used on input line 12.
+(pdftex.def)             Requested size: 350.0pt x 72.31282pt.
+) [31
+
+
+ <./group__STM32F3__DISCOVERY.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__Common.aux'.
+
+
+(./group__STM32F3__DISCOVERY__Common.tex
+<group__STM32F3__DISCOVERY__Common.pdf, id=2697, 610.28pt x 277.035pt>
+File: group__STM32F3__DISCOVERY__Common.pdf Graphic file (type pdf)
+<use group__STM32F3__DISCOVERY__Common.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__Common.pdf  used on input l
+ine 7.
+(pdftex.def)             Requested size: 350.0pt x 158.88806pt.
+) [32
+
+
+ <./group__STM32F3__DISCOVERY__Common.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__Private__Constants.aux'.
+
+ (./group__STM32F3__DISCOVERY__Private__Constants.tex
+<group__STM32F3__DISCOVERY__Private__Constants.pdf, id=2718, 448.67625pt x 111.
+41624pt>
+File: group__STM32F3__DISCOVERY__Private__Constants.pdf Graphic file (type pdf)
+
+<use group__STM32F3__DISCOVERY__Private__Constants.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__Private__Constants.pdf  use
+d on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 86.91621pt.
+) [33
+
+
+ <./group__STM32F3__DISCOVERY__Private__Constants.pdf>]
+\openout2 = `group__STM32F3__DISCOVERY__Private__Variables.aux'.
+
+
+(./group__STM32F3__DISCOVERY__Private__Variables.tex
+<group__STM32F3__DISCOVERY__Private__Variables.pdf, id=2730, 448.67625pt x 111.
+41624pt>
+File: group__STM32F3__DISCOVERY__Private__Variables.pdf Graphic file (type pdf)
+
+<use group__STM32F3__DISCOVERY__Private__Variables.pdf>
+Package pdftex.def Info: group__STM32F3__DISCOVERY__Private__Variables.pdf  use
+d on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 86.91621pt.
+) [34
+
+
+ <./group__STM32F3__DISCOVERY__Private__Variables.pdf>]
+\openout2 = `group__CMSIS.aux'.
+
+ (./group__CMSIS.tex
+<group__CMSIS.pdf, id=2744, 266.9975pt x 100.375pt>
+File: group__CMSIS.pdf Graphic file (type pdf)
+<use group__CMSIS.pdf>
+Package pdftex.def Info: group__CMSIS.pdf  used on input line 7.
+(pdftex.def)             Requested size: 266.0pt x 100.01021pt.
+) [35
+
+
+ <./group__CMSIS.pdf>]
+\openout2 = `group__stm32f3xx__system.aux'.
+
+ (./group__stm32f3xx__system.tex
+<group__stm32f3xx__system.pdf, id=2760, 448.67625pt x 406.51875pt>
+File: group__stm32f3xx__system.pdf Graphic file (type pdf)
+<use group__stm32f3xx__system.pdf>
+Package pdftex.def Info: group__stm32f3xx__system.pdf  used on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 317.12675pt.
+) [36
+
+
+ <./group__stm32f3xx__system.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__Includes.aux'.
+
+
+(./group__STM32F3xx__System__Private__Includes.tex
+<group__STM32F3xx__System__Private__Includes.pdf, id=2787, 363.3575pt x 111.416
+24pt>
+File: group__STM32F3xx__System__Private__Includes.pdf Graphic file (type pdf)
+<use group__STM32F3xx__System__Private__Includes.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__Includes.pdf  used 
+on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+) [37
+
+
+ <./group__STM32F3xx__System__Private__Includes.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__TypesDefinitions.aux'.
+
+
+(./group__STM32F3xx__System__Private__TypesDefinitions.tex
+<group__STM32F3xx__System__Private__TypesDefinitions.pdf, id=2800, 363.3575pt x
+ 111.41624pt>
+File: group__STM32F3xx__System__Private__TypesDefinitions.pdf Graphic file (typ
+e pdf)
+<use group__STM32F3xx__System__Private__TypesDefinitions.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__TypesDefinitions.pd
+f  used on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+) [38
+
+
+ <./group__STM32F3xx__System__Private__TypesDefinitions.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__Defines.aux'.
+
+
+(./group__STM32F3xx__System__Private__Defines.tex
+<group__STM32F3xx__System__Private__Defines.pdf, id=2812, 363.3575pt x 111.4162
+4pt>
+File: group__STM32F3xx__System__Private__Defines.pdf Graphic file (type pdf)
+<use group__STM32F3xx__System__Private__Defines.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__Defines.pdf  used o
+n input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+) [39
+
+
+ <./group__STM32F3xx__System__Private__Defines.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__Macros.aux'.
+
+ (./group__STM32F3xx__System__Private__Macros.tex
+<group__STM32F3xx__System__Private__Macros.pdf, id=2825, 363.3575pt x 111.41624
+pt>
+File: group__STM32F3xx__System__Private__Macros.pdf Graphic file (type pdf)
+<use group__STM32F3xx__System__Private__Macros.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__Macros.pdf  used on
+ input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+)
+[40
+
+
+ <./group__STM32F3xx__System__Private__Macros.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__Variables.aux'.
+
+
+(./group__STM32F3xx__System__Private__Variables.tex
+<group__STM32F3xx__System__Private__Variables.pdf, id=2837, 363.3575pt x 111.41
+624pt>
+File: group__STM32F3xx__System__Private__Variables.pdf Graphic file (type pdf)
+<use group__STM32F3xx__System__Private__Variables.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__Variables.pdf  used
+ on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+) [41
+
+
+ <./group__STM32F3xx__System__Private__Variables.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__FunctionPrototypes.aux'.
+
+
+(./group__STM32F3xx__System__Private__FunctionPrototypes.tex
+<group__STM32F3xx__System__Private__FunctionPrototypes.pdf, id=2849, 363.3575pt
+ x 111.41624pt>
+File: group__STM32F3xx__System__Private__FunctionPrototypes.pdf Graphic file (t
+ype pdf)
+<use group__STM32F3xx__System__Private__FunctionPrototypes.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__FunctionPrototypes.
+pdf  used on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+) [42
+
+
+ <./group__STM32F3xx__System__Private__FunctionPrototypes.pdf>]
+\openout2 = `group__STM32F3xx__System__Private__Functions.aux'.
+
+
+(./group__STM32F3xx__System__Private__Functions.tex
+<group__STM32F3xx__System__Private__Functions.pdf, id=2861, 363.3575pt x 111.41
+624pt>
+File: group__STM32F3xx__System__Private__Functions.pdf Graphic file (type pdf)
+<use group__STM32F3xx__System__Private__Functions.pdf>
+Package pdftex.def Info: group__STM32F3xx__System__Private__Functions.pdf  used
+ on input line 7.
+(pdftex.def)             Requested size: 350.0pt x 107.32388pt.
+
+Underfull \hbox (badness 10000) detected at line 26
+[][][]
+ []
+
+[43
+
+
+ <./group__STM32F3xx__System__Private__Functions.pdf>]) [44]
+Chapter 8.
 (./classGPIO__v1__0_1_1arch__imp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 19--19
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/c
@@ -1440,30 +2052,10 @@ odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[]_[]
 1.[]
  []
 
-) (./classGPIO__v1__0__S00__AXI_1_1arch__imp.tex
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 34.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 34.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 34.
- [11]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 152.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 152.
- [12]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 190.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 190.
+) (./classGPIO__v1__0__S00__AXI_1_1arch__imp.tex [45
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 190.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 190.
+
+] [46]
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <8> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 207.
 LaTeX Font Info:    Font shape `T1/pcr/bx/it' in size <8> not available
@@ -1474,7 +2066,7 @@ LaTeX Font Info:    Font shape `T1/pcr/bx/it' in size <7> not available
 (Font)              Font shape `T1/pcr/b/it' tried instead on input line 207.
 LaTeX Font Info:    Font shape `T1/pcr/b/it' in size <7> not available
 (Font)              Font shape `T1/pcr/b/sl' tried instead on input line 207.
- [13]
+ [47]
 Underfull \hbox (badness 10000) in paragraph at lines 232--232
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/c
 odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[]_[]
@@ -1486,12 +2078,12 @@ LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 38.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 38.
- [14]
+ [48]
 LaTeX Font Info:    Font shape `TS1/phv/bx/n' in size <10> not available
 (Font)              Font shape `TS1/phv/b/n' tried instead on input line 105.
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 105.
- [15] [16]
+ [49] [50]
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <7> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 240.
 
@@ -1501,7 +2093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--262
 v1[]_[]0[]_[][]S00[]
  []
 
-) (./classUART__v1__0_1_1arch__imp.tex) (./structGPIO.tex [17]
+) (./classUART__v1__0_1_1arch__imp.tex) (./structGPIO.tex [51]
 Underfull \hbox (badness 10000) in paragraph at lines 20--20
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/c
 odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]Mode
@@ -1509,34 +2101,34 @@ odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]Mode
  []
 
 ) (./structGPIO__list.tex
-<structGPIO__list__coll__graph.pdf, id=1158, 160.6pt x 167.62625pt>
+<structGPIO__list__coll__graph.pdf, id=3209, 160.6pt x 167.62625pt>
 File: structGPIO__list__coll__graph.pdf Graphic file (type pdf)
 <use structGPIO__list__coll__graph.pdf>
 Package pdftex.def Info: structGPIO__list__coll__graph.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 160.0pt x 167.00427pt.
- [18 <./structGPIO__list__coll__graph.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 29--29
+ [52 <./structGPIO__list__coll__graph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/c
 odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_[][]Mode
 /[][]G[]
  []
 
 ) (./classGPIO__v1__0.tex
-<classGPIO__v1__0__inherit__graph.pdf, id=1178, 192.72pt x 156.585pt>
+<classGPIO__v1__0__inherit__graph.pdf, id=3230, 192.72pt x 156.585pt>
 File: classGPIO__v1__0__inherit__graph.pdf Graphic file (type pdf)
 <use classGPIO__v1__0__inherit__graph.pdf>
 Package pdftex.def Info: classGPIO__v1__0__inherit__graph.pdf  used on input li
 ne 9.
 (pdftex.def)             Requested size: 192.0pt x 155.99922pt.
-<classGPIO__v1__0__coll__graph.pdf, id=1179, 192.72pt x 156.585pt>
+<classGPIO__v1__0__coll__graph.pdf, id=3231, 192.72pt x 156.585pt>
 File: classGPIO__v1__0__coll__graph.pdf Graphic file (type pdf)
 <use classGPIO__v1__0__coll__graph.pdf>
 Package pdftex.def Info: classGPIO__v1__0__coll__graph.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 192.0pt x 155.99922pt.
- [19 <./classGPIO__v1__0__inherit__graph.pdf> <./classGPIO__v1__0__coll__graph.
-pdf
+ [53] [54 <./classGPIO__v1__0__inherit__graph.pdf> <./classGPIO__v1__0__coll__g
+raph.pdf
 
 pdfTeX warning: pdflatex (file ./classGPIO__v1__0__coll__graph.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -1548,54 +2140,64 @@ odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[]_[]
  []
 
 ) (./classGPIO__v1__0__S00__AXI.tex
-<classGPIO__v1__0__S00__AXI__inherit__graph.pdf, id=1235, 192.72pt x 156.585pt>
+<classGPIO__v1__0__S00__AXI__inherit__graph.pdf, id=3298, 192.72pt x 156.585pt>
 
 File: classGPIO__v1__0__S00__AXI__inherit__graph.pdf Graphic file (type pdf)
 <use classGPIO__v1__0__S00__AXI__inherit__graph.pdf>
 Package pdftex.def Info: classGPIO__v1__0__S00__AXI__inherit__graph.pdf  used o
 n input line 9.
 (pdftex.def)             Requested size: 192.0pt x 155.99922pt.
- [20] [21 <./classGPIO__v1__0__S00__AXI__inherit__graph.pdf>]
+ [55] [56 <./classGPIO__v1__0__S00__AXI__inherit__graph.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 123--123
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/c
 odici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I[]O[]_[]
 1.[]
  []
 
+) (./structUART__list.tex [57]
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[]K[]E[]R[]N[]E
+[]L[]_[][]M[]
+ []
+
 ) (./classUART__v1__0.tex
-<classUART__v1__0__inherit__graph.pdf, id=1330, 195.73125pt x 156.585pt>
+<classUART__v1__0__inherit__graph.pdf, id=3421, 195.73125pt x 156.585pt>
 File: classUART__v1__0__inherit__graph.pdf Graphic file (type pdf)
 <use classUART__v1__0__inherit__graph.pdf>
 Package pdftex.def Info: classUART__v1__0__inherit__graph.pdf  used on input li
 ne 9.
 (pdftex.def)             Requested size: 195.0pt x 156.00879pt.
-<classUART__v1__0__coll__graph.pdf, id=1331, 195.73125pt x 156.585pt>
+<classUART__v1__0__coll__graph.pdf, id=3422, 195.73125pt x 156.585pt>
 File: classUART__v1__0__coll__graph.pdf Graphic file (type pdf)
 <use classUART__v1__0__coll__graph.pdf>
 Package pdftex.def Info: classUART__v1__0__coll__graph.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 195.0pt x 156.00879pt.
- [22 <./classUART__v1__0__inherit__graph.pdf>]
-[23 <./classUART__v1__0__coll__graph.pdf>]) (./classUART__v1__0__S00__AXI.tex
-<classUART__v1__0__S00__AXI__inherit__graph.pdf, id=1423, 195.73125pt x 156.585
+ [58 <./classUART__v1__0__inherit__graph.pdf> <./classUART__v1__0__coll__graph.
+pdf
+
+pdfTeX warning: pdflatex (file ./classUART__v1__0__coll__graph.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>] [59]) (./classUART__v1__0__S00__AXI.tex
+<classUART__v1__0__S00__AXI__inherit__graph.pdf, id=3508, 195.73125pt x 156.585
 pt>
 File: classUART__v1__0__S00__AXI__inherit__graph.pdf Graphic file (type pdf)
 <use classUART__v1__0__S00__AXI__inherit__graph.pdf>
 Package pdftex.def Info: classUART__v1__0__S00__AXI__inherit__graph.pdf  used o
 n input line 9.
 (pdftex.def)             Requested size: 195.0pt x 156.00879pt.
-
-[24 <./classUART__v1__0__S00__AXI__inherit__graph.pdf>]
+ [60 <./classUART__v1__0__S00__AXI__inherit__graph.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
 ]Andrea/[]F[]P[]G[]A/ip[]_[]repo/[]U[]A[]R[]T[]_[]1.[]0/hdl/[][]U[]A[]R[]T[]_[]
 v1[]_[]0[]_[][]S00[]
  []
 
-) [25] [26
+) [61] [62
 
 ]
-Chapter 7.
+Chapter 9.
 (./UART__v1__0_8vhd.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
@@ -1608,79 +2210,350 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 t/[]Andrea/[]F[]P[]G[]A/ip[]_[]repo/[]U[]A[]R[]T[]_[]
  []
 
-) (./GPIO_8c.tex
+) (./can_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
  []
 
-[27]
-Overfull \vbox (0.32321pt too high) has occurred while \output is active []
+[63]) (./crc_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
 
+[64]) (./gpio_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
 
-[28]
-Underfull \hbox (badness 10000) detected at line 55
-[][][]
+) (./i2c_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
  []
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
-Underfull \hbox (badness 10000) detected at line 143
-[][][]
- []
-
-[30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[65]) (./main_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `TS1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 16.
+) (./spi_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+[66]) (./stm32f3__discovery_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 34.16548pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31]) (./GPIO_8h.tex
+[67]) (./stm32f3xx__hal__conf_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
  []
 
-[32]
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+[68]) (./stm32f3xx__it_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[69]) (./usart_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+[70]) (./can_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[71]) (./crc_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [72])
+(./gpio_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[73]) (./i2c_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+[74]) (./main_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[75] [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
+ Make it at least 22.16548pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33]
-Underfull \hbox (badness 10000) detected at line 60
-[][][]
- []
-
-[34]
-Underfull \hbox (badness 10000) detected at line 148
-[][][]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
+[77] [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36])
-(./GPIO__kernel__main_8c.tex
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[79] [80]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 22.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[81]) (./spi_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+[82]) (./stm32f3__discovery_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[83]
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][][]
+ []
+
+) (./stm32f3xx__it_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+) (./system__stm32f3xx_8c.tex [84]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][][]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 27.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 27.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 27.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 28.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 28.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 28.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 29.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 29.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 29.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 30.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 30.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 30.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 31.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 32.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 32.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 32.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delimiter' on input line 33.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 33.
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[85]) (./usart_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [86])
+(./GPIO_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
 t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
@@ -1692,103 +2565,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37]
-Underfull \hbox (badness 10000) detected at line 47
-[][][]
- []
-
-[38]
-Underfull \hbox (badness 10000) detected at line 84
-[][][]
- []
-
-
-Overfull \vbox (14.00278pt too high) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[39]
-Underfull \hbox (badness 10000) detected at line 114
-[][][]
- []
-
-[40]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[41]) (./GPIO__list_8c.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
- []
-
-[42]
-Underfull \hbox (badness 10000) detected at line 60
-[][][]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[43]
-Underfull \hbox (badness 10000) detected at line 80
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 100
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 120
-[][][]
- []
-
-[44]) (./GPIO__list_8h.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 34.16548pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[45]
+[87]
 Underfull \hbox (badness 10000) detected at line 65
 [][][]
  []
 
+[88]
 
-Overfull \vbox (9.3449pt too high) has occurred while \output is active []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
-[46]
-Underfull \hbox (badness 10000) detected at line 85
+[89]
+Underfull \hbox (badness 10000) detected at line 153
 [][][]
  []
 
+[90]
 
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[91]) (./GPIO_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 125
+[92]
+Underfull \hbox (badness 10000) detected at line 70
 [][][]
  []
 
@@ -1798,20 +2606,323 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[47]) (./GPIO__interrupt__uio__poll_8c.tex
+[93] [94]
+Underfull \hbox (badness 10000) detected at line 158
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[95] [96]) (./GPIO__kernel__main_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
 t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
  []
 
-[48]) (./GPIO__interrupt__uio__poll_8h.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[97]
+Underfull \hbox (badness 10000) detected at line 57
+[][][]
+ []
+
+[98]
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 124
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[99] [100]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[101]) (./GPIO__list_8c.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--1
 []\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
 t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (1.97978pt too high) has occurred while \output is active []
+
+
+[102]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[103]
+Underfull \hbox (badness 10000) detected at line 90
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 110
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+[104]) (./GPIO__list_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[105]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+
+Overfull \vbox (24.0573pt too high) has occurred while \output is active []
+
+
+[106]
+Underfull \hbox (badness 10000) detected at line 95
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 135
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[107]) (./GPIO__interrupt__uio__poll_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+ []
+
+[108]) (./GPIO__interrupt__uio__poll_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[109]
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+[110]) (./GPIO__v1__0_8vhd.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+ []
+
+) (./GPIO__v1__0__S00__AXI_8vhd.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+ []
+
+) (./UART_8c.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[111]
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+[112]
+Underfull \hbox (badness 10000) detected at line 46
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 83
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[113] [114]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[115] [116]
+Underfull \hbox (badness 10000) detected at line 201
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[117]
+Overfull \vbox (12.37248pt too high) has occurred while \output is active []
+
+
+[118]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[119] [120]) (./UART__kernel__main_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[121]
+Underfull \hbox (badness 10000) detected at line 72
+[][][]
+ []
+
+[122]
+Underfull \hbox (badness 10000) detected at line 109
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 133
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[123] [124]) (./UART__list_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[125]
+Overfull \vbox (1.63322pt too high) has occurred while \output is active []
+
+
+[126]
+Underfull \hbox (badness 10000) detected at line 70
+[][][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[127]
+Underfull \hbox (badness 10000) detected at line 90
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 110
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+[128]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[129]) (./UART__list_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+[130]
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+
+Overfull \vbox (23.64323pt too high) has occurred while \output is active []
 
 
 
@@ -1820,26 +2931,64 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49]) (./GPIO__v1__0_8vhd.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+[131]
+Underfull \hbox (badness 10000) detected at line 95
+[][][]
  []
 
-[50]) (./GPIO__v1__0__S00__AXI_8vhd.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
-t/codici[]_[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]
+
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
  []
 
-)
+
+Underfull \hbox (badness 10000) detected at line 135
+[][][]
+ []
+
+[132]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 34.16548pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51] [52
+[133]) (./UART__interrupt__uio_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][][]
+ []
+
+[134]) (./UART__interrupt__uio_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--1
+[]\T1/phv/bc/n/14.4 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/gi
+t/[]Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[135]
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+[136])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 34.16548pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[137] [138
 
 ] (./refman.ind
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
@@ -1867,101 +3016,445 @@ A[]
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 7--9
-\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
-[][]
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 9--11
-\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
-[][]
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 11--13
-\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
-[][]
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 13--15
-\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
-[][]
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--17
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--19
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--19
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--39
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--39
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+\T1/phv/m/n/10 Andrea/[]S[]T[]M32/[]C[]R[]C[]_[][]Multi[]Serial[]_[][]C[]H[]E[]
+C[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--55
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--55
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+[]\T1/phv/m/n/10 /media/saverio/[]O[]S/[]Users/[]Saverio/[]Desktop/[]S[]E/git/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+\T1/phv/m/n/10 Michele/[]F[]P[]G[]A/[]U[]A[]R[]T/[]Driver/[]Con[]_[]interrupt/[
+]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
 \T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
+\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+\T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]Kernel[]_
+[][]
+ []
+
+
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+ [139
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 \T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O/[
 ]G[]P[]I[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--21
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
 \T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Driver/[]U[]I[]O/[
 ]G[]P[]I[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 \T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 \T1/phv/m/n/10 _[]da[]_[]mandare/[]F[]P[]G[]A/[]G[]P[]I[]O/[]Hardware/[]G[]P[]I
 []
  []
 
-[53
-
-
-] [54] [55
-
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
- (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 186.
+[140] [141] [142] [143] [144] [145])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 238.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 238.
+ (./refman.aux
+(./group__STM32F3__DISCOVERY__LINK__OPERATIONS.aux)
+(./group__STM32F3__DISCOVERY__Exported__Constants.aux)
+(./group__STM32F3__DISCOVERY__LED.aux) (./group__STM32F3__DISCOVERY__BUTTON.aux
+) (./group__STM32F3__DISCOVERY__COM.aux)
+(./group__STM32F3__DISCOVERY__COMPONENT.aux)
+(./group__STM32F3__DISCOVERY__Exported__Functions.aux) (./group__BSP.aux)
+(./group__STM32F3__DISCOVERY.aux) (./group__STM32F3__DISCOVERY__Common.aux)
+(./group__STM32F3__DISCOVERY__Private__Constants.aux)
+(./group__STM32F3__DISCOVERY__Private__Variables.aux) (./group__CMSIS.aux)
+(./group__stm32f3xx__system.aux)
+(./group__STM32F3xx__System__Private__Includes.aux)
+(./group__STM32F3xx__System__Private__TypesDefinitions.aux)
+(./group__STM32F3xx__System__Private__Defines.aux)
+(./group__STM32F3xx__System__Private__Macros.aux)
+(./group__STM32F3xx__System__Private__Variables.aux)
+(./group__STM32F3xx__System__Private__FunctionPrototypes.aux)
+(./group__STM32F3xx__System__Private__Functions.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 238.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 238.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 20B79B706B893BD372343217C2DE23A5;31733.
+(rerunfilecheck)             Checksum: 90452BC570551BC99175B2855F9AA37D;103777.
+
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 238.
  ) 
 Here is how much of TeX's memory you used:
- 16069 strings out of 494839
- 256248 string characters out of 6178684
- 362255 words of memory out of 5000000
- 18449 multiletter control sequences out of 15000+600000
- 68757 words of font info for 93 fonts, out of 8000000 for 9000
+ 17788 strings out of 494839
+ 301283 string characters out of 6178684
+ 428519 words of memory out of 5000000
+ 19188 multiletter control sequences out of 15000+600000
+ 69070 words of font info for 94 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 53i,16n,92p,4883b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
-bo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
-etic/uhvro8a.pfb>
-Output written on refman.pdf (63 pages, 300165 bytes).
+ 53i,16n,92p,4884b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{UART__kernel__main_8c_a9dc0e4187f4bf823ae23f86d94
+3a7d64} has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{stm32f3xx__it_8c_aeddaa97a139c92c174f5fcccedc2859b}
+ has been referenced but does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{stm32f3__discovery_8h_a643816dfbad5c734fc25a29ce8d3
+5bb1} has been referenced but does not exist, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courie
+r/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrbo8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
+ro8a.pfb>
+Output written on refman.pdf (163 pages, 536336 bytes).
 PDF statistics:
- 2422 PDF objects out of 2487 (max. 8388607)
- 2189 compressed objects within 22 object streams
- 634 named destinations out of 1000 (max. 500000)
- 1068 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5560 PDF objects out of 6186 (max. 8388607)
+ 5124 compressed objects within 52 object streams
+ 1406 named destinations out of 1440 (max. 500000)
+ 3410 words of extra memory for PDF output out of 10000 (max. 10000000)
 

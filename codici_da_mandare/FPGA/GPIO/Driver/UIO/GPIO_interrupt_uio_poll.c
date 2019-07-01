@@ -10,7 +10,6 @@
 #include "GPIO_interrupt_uio_poll.h"
 /**
  * @file GPIO_interrupt_uio_poll.c
- * @page GPIO interrupt uio poll
  * @brief permette la gestione del GPIO utilizzando 
  * un driver di tipo UIO
  */

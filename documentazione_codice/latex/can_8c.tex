@@ -1,0 +1,55 @@
+\hypertarget{can_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.c File Reference}
+\label{can_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c}}
+
+
+\subsection{Detailed Description}
+Permette la configurazione della periferica C\+AN 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{can_8c_aba23a87010915ffd251b01b5a534e33a}\label{can_8c_aba23a87010915ffd251b01b5a534e33a}} 
+\index{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}!can.\+c@{can.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init()}{HAL\_CAN\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def$\ast$}]{can\+Handle }\end{DoxyParamCaption})}
+
+
+
+Disabilita la periferica C\+AN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+Handle} & handler della periferica C\+AN \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{can_8c_a51e3dc371d0e6c1370b1582d5e3da475}\label{can_8c_a51e3dc371d0e6c1370b1582d5e3da475}} 
+\index{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}!can.\+c@{can.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init()}{HAL\_CAN\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def$\ast$}]{can\+Handle }\end{DoxyParamCaption})}
+
+
+
+Configura opportunamente l\textquotesingle{} handler della periferica C\+AN ed i pin associati ad essa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+Handle} & handler della periferica C\+AN \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{can_8c_ad8f8f053f0a92d3cb26adece4d32c116}\label{can_8c_ad8f8f053f0a92d3cb26adece4d32c116}} 
+\index{can.\+c@{can.\+c}!M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}}
+\index{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}!can.\+c@{can.\+c}}
+\subsubsection{\texorpdfstring{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init()}{MX\_CAN\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+C\+A\+N\+\_\+\+Init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{node\+Address,  }\item[{uint16\+\_\+t}]{group\+Address }\end{DoxyParamCaption})}
+
+
+
+Funzione di configurazione della periferica C\+AN modalità di utilizzo, filtri. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Address} & setta l\textquotesingle{} indentificativo del nodo \\
+\hline
+{\em group\+Address} & setta l\textquotesingle{} identificato del gruppo a cui il nodo appartiene \\
+\hline
+\end{DoxyParams}

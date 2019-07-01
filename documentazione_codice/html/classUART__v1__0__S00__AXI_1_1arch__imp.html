@@ -98,15 +98,15 @@ Processes</h2></td></tr>
 <a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a6b83b9626c3e03102e58d7d89aad43eb">PROCESS_17</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> )</b></td></tr>
 <tr class="memitem:a1c2628d089a3915505bce1cba131c80a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a1c2628d089a3915505bce1cba131c80a">status_reg_sampling</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">uart_status_reg</span><span class="vhdlchar"> </span></b> )</b></td></tr>
 <tr class="memdesc:a1c2628d089a3915505bce1cba131c80a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Campiona i segnali di cui si vuole verificare la generazione di un interrupt.  <a href="#a1c2628d089a3915505bce1cba131c80a"></a><br /></td></tr>
-<tr class="memitem:a72db935ad9e80a3434cfb113c364c329"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a72db935ad9e80a3434cfb113c364c329">intr_pending</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">change_detected</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a65e0e54a6d565935dd24ce96dbbce53a">ack_intr</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
-<tr class="memdesc:a72db935ad9e80a3434cfb113c364c329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il registro pending.  <a href="#a72db935ad9e80a3434cfb113c364c329"></a><br /></td></tr>
-<tr class="memitem:a48d068c63e454a766cd9703aff942fb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a48d068c63e454a766cd9703aff942fb6">inst_irq</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a5595ca2e548ef1d12b7fa2bac3e2aa00">pending_intr</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
-<tr class="memdesc:a48d068c63e454a766cd9703aff942fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disabilita l' interrupt nel caso di reset del bus e tiene alto il segnale di interrupt finchè rimane pendente.  <a href="#a48d068c63e454a766cd9703aff942fb6"></a><br /></td></tr>
+<tr class="memitem:a5449c5c114aa406ec50242ff099946a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a5449c5c114aa406ec50242ff099946a4">intr_pending</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">change_detected</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a65e0e54a6d565935dd24ce96dbbce53a">ack_intr</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a95f416160863ad569dbb9fa2956c526d">pending_intr_tmp</a></b> <span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a8b1599924c5da95abaa3e673fc0d2cb7">changed_bits</a></b> <span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:a5449c5c114aa406ec50242ff099946a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il registro pending.  <a href="#a5449c5c114aa406ec50242ff099946a4"></a><br /></td></tr>
+<tr class="memitem:ad49f0dfc577739899b90a7243c22a1cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#ad49f0dfc577739899b90a7243c22a1cd">inst_irq</a>&#160;</td><td class="memItemRight" valign="bottom"><b> ( <b><span class="vhdlchar">S_AXI_ACLK</span><span class="vhdlchar"> </span></b> , <b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a5595ca2e548ef1d12b7fa2bac3e2aa00">pending_intr</a></b> <span class="vhdlchar"> </span></b> , <b><span class="vhdlchar">global_intr</span><span class="vhdlchar"> </span></b> )</b></td></tr>
+<tr class="memdesc:ad49f0dfc577739899b90a7243c22a1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disabilita l' interrupt nel caso di reset del bus e tiene alto il segnale di interrupt finchè rimane pendente.  <a href="#ad49f0dfc577739899b90a7243c22a1cd"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Components"></a>
 Components</h2></td></tr>
- <tr class="memitem:a6f88b8988ee3bab3eaaa301212c7f804"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a6f88b8988ee3bab3eaaa301212c7f804">UART</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  </td></tr>
-<tr class="memdesc:a6f88b8988ee3bab3eaaa301212c7f804"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART.  <a href="#a6f88b8988ee3bab3eaaa301212c7f804"></a><br /></td></tr>
+ <tr class="memitem:a6f88b8988ee3bab3eaaa301212c7f804"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a6f88b8988ee3bab3eaaa301212c7f804">UART</a>&#160;</td><td class="memItemRight" valign="bottom">  <b></b>  <em><a class="el" href="structUART.html">&lt;Entity UART&gt; </a></em></td></tr>
+<tr class="memdesc:a6f88b8988ee3bab3eaaa301212c7f804"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>.  <a href="#a6f88b8988ee3bab3eaaa301212c7f804"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Constants"></a>
 Constants</h2></td></tr>
@@ -194,7 +194,7 @@ Signals</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Instantiations"></a>
 Instantiations</h2></td></tr>
  <tr class="memitem:ac10de3465f1df3e0e99a80a6db750f9f"><td class="memItemLeft" align="right" valign="top"><a id="ac10de3465f1df3e0e99a80a6db750f9f"></a>
-<a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#ac10de3465f1df3e0e99a80a6db750f9f">inst_uart</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>uart</b>  </td></tr>
+<a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#ac10de3465f1df3e0e99a80a6db750f9f">inst_uart</a>&#160;</td><td class="memItemRight" valign="bottom">  <b>UART</b>  <em><a class="el" href="structUART.html">&lt;Entity UART&gt;</a></em></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Aliases"></a>
 Aliases</h2></td></tr>
@@ -206,8 +206,8 @@ Aliases</h2></td></tr>
 <tr class="memitem:a65e0e54a6d565935dd24ce96dbbce53a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a65e0e54a6d565935dd24ce96dbbce53a">ack_intr</a> &#160;</td><td class="memItemRight" valign="bottom"> <b><b><span class="vhdlchar">std_logic_vector</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar"> </span><span class="vhdlchar">is</span><span class="vhdlchar"> </span><span class="vhdlchar">slv_reg7</span><span class="vhdlchar"> </span><span class="vhdlchar">(</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">1</span> <span class="vhdlchar"> </span><span class="vhdlchar">downto</span><span class="vhdlchar"> </span><span class="vhdlchar"> </span> <span class="vhdldigit">0</span> <span class="vhdlchar"> </span><span class="vhdlchar">)</span><span class="vhdlchar"> </span></b></b> <b><span class="vhdlchar"> </span></b></td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a48d068c63e454a766cd9703aff942fb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d068c63e454a766cd9703aff942fb6">&#9670;&nbsp;</a></span>inst_irq()</h2>
+<a id="ad49f0dfc577739899b90a7243c22a1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad49f0dfc577739899b90a7243c22a1cd">&#9670;&nbsp;</a></span>inst_irq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +225,13 @@ Aliases</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a5595ca2e548ef1d12b7fa2bac3e2aa00">pending_intr</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a5595ca2e548ef1d12b7fa2bac3e2aa00">pending_intr</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><span class="vhdlchar">global_intr</span><span class="vhdlchar"> </span></b> <em></em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -251,8 +257,8 @@ Aliases</h2></td></tr>
 
 </div>
 </div>
-<a id="a72db935ad9e80a3434cfb113c364c329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72db935ad9e80a3434cfb113c364c329">&#9670;&nbsp;</a></span>intr_pending()</h2>
+<a id="a5449c5c114aa406ec50242ff099946a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5449c5c114aa406ec50242ff099946a4">&#9670;&nbsp;</a></span>intr_pending()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,7 +282,19 @@ Aliases</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a65e0e54a6d565935dd24ce96dbbce53a">ack_intr</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a65e0e54a6d565935dd24ce96dbbce53a">ack_intr</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a95f416160863ad569dbb9fa2956c526d">pending_intr_tmp</a></b> <span class="vhdlchar"> </span></b> <em></em> , </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><b><b><a class="el" href="classUART__v1__0__S00__AXI_1_1arch__imp.html#a8b1599924c5da95abaa3e673fc0d2cb7">changed_bits</a></b> <span class="vhdlchar"> </span></b> <em></em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -333,7 +351,7 @@ Aliases</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">S_AXI_ACLK</td><td>clock del bus AXI </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">uart_status_reg</td><td>valori del UART da campionare </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">uart_status_reg</td><td>valori del <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> da campionare </td></tr>
   </table>
   </dd>
 </dl>
@@ -407,8 +425,8 @@ Aliases</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>UART. </p>
-<p>componente contenente un ricevitore e un trasmettitore che implementano il protocollo UART. Consulatare documentazione esterna. </p>
+<p><a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. </p>
+<p>componente contenente un ricevitore e un trasmettitore che implementano il protocollo <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. Consulatare documentazione esterna. </p>
 
 </div>
 </div>

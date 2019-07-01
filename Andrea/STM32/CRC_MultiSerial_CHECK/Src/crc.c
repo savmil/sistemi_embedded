@@ -1,19 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : CRC.c
-  * Description        : This file provides code for the configuration
-  *                      of the CRC instances.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
+  *@file           : crc.c
+  *Permetta la configurazione della periferica CRC
   ******************************************************************************
   */
 
@@ -27,6 +15,13 @@
 CRC_HandleTypeDef hcrc;
 
 /* CRC init function */
+/**
+ * @brief  Funzione di configurazione della periferica CRC
+ * @param  CRC_Polynomial polinomio utilizzato per calcolare il CRC
+ * @param  CRC_DefaultValue valore utilizzato per effettura una operazione
+ * di XOR prima che il CRC venga calcolato 
+ * a cui il nodo appartiene
+ */
 void MX_CRC_Init(uint32_t CRC_Polynomial, uint32_t CRC_DefaultValue) {
 
 	hcrc.Instance = CRC;
@@ -42,7 +37,11 @@ void MX_CRC_Init(uint32_t CRC_Polynomial, uint32_t CRC_DefaultValue) {
 	}
 
 }
-
+/**
+ * @brief  Configura opportunamente l' handler della periferica CRC
+ * ed i pin associati ad essa
+ * @param  crcHandle handler della periferica CRC
+ */
 void HAL_CRC_MspInit(CRC_HandleTypeDef* crcHandle)
 {
 
@@ -58,7 +57,10 @@ void HAL_CRC_MspInit(CRC_HandleTypeDef* crcHandle)
   /* USER CODE END CRC_MspInit 1 */
   }
 }
-
+/**
+ * @brief  Disabilita la periferica CRC
+ * @param  crcHandle handler della periferica CRC
+ */
 void HAL_CRC_MspDeInit(CRC_HandleTypeDef* crcHandle)
 {
 

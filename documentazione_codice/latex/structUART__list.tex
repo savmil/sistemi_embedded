@@ -1,0 +1,51 @@
+\hypertarget{structUART__list}{}\section{U\+A\+R\+T\+\_\+list Struct Reference}
+\label{structUART__list}\index{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}}
+
+
+Struttura dati per la gestione di più device \hyperlink{structUART}{U\+A\+RT} da parte del driver.  
+
+
+
+
+{\ttfamily \#include $<$U\+A\+R\+T\+\_\+list.\+h$>$}
+
+
+
+Collaboration diagram for U\+A\+R\+T\+\_\+list\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{structUART__list__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+
+
+\subsection{Detailed Description}
+Struttura dati per la gestione di più device \hyperlink{structUART}{U\+A\+RT} da parte del driver. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structUART__list_a170d1d78f27f6ab4c8badaaa4b3f2305}\label{structUART__list_a170d1d78f27f6ab4c8badaaa4b3f2305}} 
+\index{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+count@{device\+\_\+count}}
+\index{device\+\_\+count@{device\+\_\+count}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}}
+\subsubsection{\texorpdfstring{device\+\_\+count}{device\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t device\+\_\+count}
+
+numero di device attivi e gestiti dal driver \mbox{\Hypertarget{structUART__list_a851af86c80724adf330596f12617066b}\label{structUART__list_a851af86c80724adf330596f12617066b}} 
+\index{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+list@{device\+\_\+list}}
+\index{device\+\_\+list@{device\+\_\+list}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}}
+\subsubsection{\texorpdfstring{device\+\_\+list}{device\_list}}
+{\footnotesize\ttfamily \hyperlink{structUART}{U\+A\+RT}$\ast$$\ast$ device\+\_\+list}
+
+array di puntatori a \hyperlink{structUART}{U\+A\+RT}, ciascuno dei quali si riferisce ad un device \mbox{\Hypertarget{structUART__list_aeff61809685e5df1b38aec1d871a49bb}\label{structUART__list_aeff61809685e5df1b38aec1d871a49bb}} 
+\index{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!list\+\_\+size@{list\+\_\+size}}
+\index{list\+\_\+size@{list\+\_\+size}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}}
+\subsubsection{\texorpdfstring{list\+\_\+size}{list\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t list\+\_\+size}
+
+dimensione della lista, ovvero il numero massimo di device gestibili 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\hyperlink{UART__list_8h}{U\+A\+R\+T\+\_\+list.\+h}\end{DoxyCompactItemize}

@@ -29,7 +29,6 @@
 #include "GPIO_list.h"
 /**
  * @file GPIO_kernel_main.c
- * @page GPIO kernel main
  * @brief Inizializza il driver kernel ed espone le funzionalità del modulo
  */
 /**

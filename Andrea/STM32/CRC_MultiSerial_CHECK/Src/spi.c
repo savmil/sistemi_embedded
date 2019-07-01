@@ -1,8 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : SPI.c
-  * Description        : This file provides code for the configuration
-  *                      of the SPI instances.
+  * @file           : spi.c
+  * Permette la configurazione della periferica SPI
   ******************************************************************************
   */
 
@@ -13,6 +12,11 @@
 SPI_HandleTypeDef hspi2;
 
 /* SPI2 init function */
+
+/**
+ * @brief  Funzione di configurazione della periferica SPI
+ * @param
+ */
 void MX_SPI2_Init(void)
 {
 
@@ -46,6 +50,12 @@ void MX_SPI2_Init(void)
 
 }
 
+/**
+ * @brief  Configura opportunamente l' handler della periferica SPI
+ * ed i pin associati ad essa
+ * @param  spiHandle handler della periferica SPI
+ */
+
 void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
 {
 
@@ -59,11 +69,6 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
   
     __HAL_RCC_GPIOF_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**SPI2 GPIO Configuration    
-    PF9     ------> SPI2_SCK
-    PB14     ------> SPI2_MISO
-    PB15     ------> SPI2_MOSI 
-    */
     GPIO_InitStruct.Pin = GPIO_PIN_9;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -86,6 +91,11 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
   }
 }
 
+/**
+ * @brief  Disabilita la periferica SPI
+ * @param  spiHandle handler della periferica SPI
+ */
+
 void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 {
 
@@ -95,11 +105,6 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
     /* Peripheral clock disable */
     __HAL_RCC_SPI2_CLK_DISABLE();
   
-    /**SPI2 GPIO Configuration    
-    PF9     ------> SPI2_SCK
-    PB14     ------> SPI2_MISO
-    PB15     ------> SPI2_MOSI 
-    */
     HAL_GPIO_DeInit(GPIOF, GPIO_PIN_9);
 
     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_14|GPIO_PIN_15);

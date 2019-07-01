@@ -7,7 +7,6 @@
 MODULE_LICENSE("GPL");
 /**
  * @file GPIO.c
- * @page GPIO
  * @brief Funzioni utilizzate per interagire con la singola entità GPIO
  * permette la gestione dell' interrupt 
  */

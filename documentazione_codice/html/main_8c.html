@@ -219,14 +219,40 @@ $(function() {
 
 </div>
 </div>
-<a id="ab3a928e23e1c9d3da728ea97d7bb5e32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3a928e23e1c9d3da728ea97d7bb5e32">&#9670;&nbsp;</a></span>HAL_CAN_RxFifo0MsgPendingCallback()</h2>
+<a id="a261447ba4f7390f2166c325cc68b1129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a261447ba4f7390f2166c325cc68b1129">&#9670;&nbsp;</a></span>getSSPin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void HAL_CAN_RxFifo0MsgPendingCallback </td>
+          <td class="memname">uint16_t getSSPin </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ritorna il pin <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> a cui è collegato lo slave dato l' indirizzo </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>indirizzo della periferica SPI </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a826b909f5f4004cc453acf361663f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a826b909f5f4004cc453acf361663f6">&#9670;&nbsp;</a></span>HAL_CAN_RxFifo0MsgPendingCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MX void HAL_CAN_RxFifo0MsgPendingCallback </td>
           <td>(</td>
           <td class="paramtype">CAN_HandleTypeDef *&#160;</td>
           <td class="paramname"><em>hcan</em></td><td>)</td>
@@ -528,10 +554,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Funzione chiamata nel caso di errore di comunicazione sul canale UART. </p>
+<p>Funzione chiamata nel caso di errore di comunicazione sul canale <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce UART </td></tr>
+    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -554,10 +580,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Funzione chiamata alla ricezione di dati sul canale UART. </p>
+<p>Funzione chiamata alla ricezione di dati sul canale <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce UART </td></tr>
+    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -580,18 +606,18 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Funzione chiamata dopo l' invio di dati sul canale UART. </p>
+<p>Funzione chiamata dopo l' invio di dati sul canale <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce UART </td></tr>
+    <tr><td class="paramname">UartHandle</td><td>handler alla struttura che gestisce <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a9129f3ffd464f13b97ae8706e215f073"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9129f3ffd464f13b97ae8706e215f073">&#9670;&nbsp;</a></span>Receive_CRC()</h2>
+<a id="ae20365087f09118bf9f8ceca48ac9f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20365087f09118bf9f8ceca48ac9f26">&#9670;&nbsp;</a></span>Receive_CRC()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -606,7 +632,13 @@ $(function() {
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>channel</em>&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -621,6 +653,7 @@ $(function() {
   <table class="params">
     <tr><td class="paramname">ReceivedData</td><td>struttura contenete i dati ricevuti </td></tr>
     <tr><td class="paramname">channel</td><td>indica le periferiche da cui voglio ricevere </td></tr>
+    <tr><td class="paramname">address</td><td>indica lo slave SPI con cui voglio comunicare, permettendomi di scegliere lo slave select opportuno </td></tr>
   </table>
   </dd>
 </dl>
@@ -664,10 +697,32 @@ $(function() {
   <table class="params">
     <tr><td class="paramname">MSG</td><td>messaggio da inviare </td></tr>
     <tr><td class="paramname">address</td><td>indirizzo della periferica da contattare se previsto dalla modalità di comunicazione </td></tr>
-    <tr><td class="paramname">channel</td><td>indica le periferiche su cui voglio ricevere </td></tr>
+    <tr><td class="paramname">channel</td><td>indica le periferiche su cui voglio inviare </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aaefc144e0974bbc1f66d6fd799cf5727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaefc144e0974bbc1f66d6fd799cf5727">&#9670;&nbsp;</a></span>SystemClock_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SystemClock_Config </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gestisce il clock di sistema. </p>
+<p>Initializes the CPU, AHB and APB busses clocks</p>
+<p>Initializes the CPU, AHB and APB busses clocks</p>
 
 </div>
 </div>

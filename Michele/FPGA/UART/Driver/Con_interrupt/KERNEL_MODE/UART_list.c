@@ -3,6 +3,10 @@
 #include <linux/module.h>
 
 MODULE_LICENSE("GPL");
+/**
+ * @file UART_list.c
+ * @brief Gestisce una lista di device UART
+ */
 
 /**
  * @brief Inizializza una struttura dati UART_list

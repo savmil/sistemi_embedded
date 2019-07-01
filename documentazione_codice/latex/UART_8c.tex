@@ -1,0 +1,385 @@
+\hypertarget{UART_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+RT.c File Reference}
+\label{UART_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c}}
+
+
+Permette la comunicazione con la periferica \hyperlink{structUART}{U\+A\+RT}.  
+
+
+
+
+\subsection{Detailed Description}
+Permette la comunicazione con la periferica \hyperlink{structUART}{U\+A\+RT}. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART_8c_a51239a7a13bf3c94e532e2024fd5f803}\label{UART_8c_a51239a7a13bf3c94e532e2024fd5f803}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}}
+\index{U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Destroy()}{UART\_Destroy()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Rimuove un device \hyperlink{structUART}{U\+A\+RT} con le relative strutture kernel allocate per il suo funzionamento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT} che indica l\textquotesingle{}istanza \hyperlink{structUART}{U\+A\+RT} da rimuovere \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a6e612c59bd0e9c5211b3361819ec0cf4}\label{UART_8c_a6e612c59bd0e9c5211b3361819ec0cf4}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Data()}{UART\_GetData()}}
+{\footnotesize\ttfamily uint8\+\_\+t U\+A\+R\+T\+\_\+\+Get\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Restituisce il valore contenuto nel registro R\+X\+\_\+\+R\+EG del dispositivo \hyperlink{structUART}{U\+A\+RT} specificato. dal parametro device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valore contenuto nel registro ricezione del device 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART_8c_ad9208cc5ebb44809e384d407f043d83f}\label{UART_8c_ad9208cc5ebb44809e384d407f043d83f}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Device\+Address()}{UART\_GetDeviceAddress()}}
+{\footnotesize\ttfamily void$\ast$ U\+A\+R\+T\+\_\+\+Get\+Device\+Address (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Restituisce l\textquotesingle{}indirizzo virtuale di memoria cui è mappato un device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_ad20cd0d5c0b6e2066689eb66dde66f14}\label{UART_8c_ad20cd0d5c0b6e2066689eb66dde66f14}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}}
+\index{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask()}{UART\_GetPollMask()}}
+{\footnotesize\ttfamily unsigned U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT} $\ast$}]{device,  }\item[{struct file $\ast$}]{file\+\_\+ptr,  }\item[{struct poll\+\_\+table\+\_\+struct $\ast$}]{wait }\end{DoxyParamCaption})}
+
+
+
+Verifica che le operazioni di lettura risultino non-\/bloccanti. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+{\em file} & puntatore al descrittore file del device \\
+\hline
+{\em wait} & puntatore alla struttura poll\+\_\+table\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maschera di bit che indica se sia possibile effettuare operazioni di lettura non bloccanti.
+\end{DoxyReturn}
+Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{UART_8c_a5596d073df9afad803e277876b806342}\label{UART_8c_a5596d073df9afad803e277876b806342}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}}
+\index{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable()}{UART\_GlobalInterruptDisable()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Disabilitazione interrupt globali. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a620ea79ab9de52233620cc4f0f173c59}\label{UART_8c_a620ea79ab9de52233620cc4f0f173c59}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}}
+\index{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable()}{UART\_GlobalInterruptEnable()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Abilitazione interrupt globali. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a8410639cfc3e0d2df7dc08dbbb7558e8}\label{UART_8c_a8410639cfc3e0d2df7dc08dbbb7558e8}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}}
+\index{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Init()}{UART\_Init()}}
+{\footnotesize\ttfamily int U\+A\+R\+T\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{U\+A\+R\+T\+\_\+device,  }\item[{struct module $\ast$}]{owner,  }\item[{struct platform\+\_\+device $\ast$}]{pdev,  }\item[{struct class$\ast$}]{class,  }\item[{const char$\ast$}]{driver\+\_\+name,  }\item[{const char$\ast$}]{device\+\_\+name,  }\item[{uint32\+\_\+t}]{serial,  }\item[{struct file\+\_\+operations $\ast$}]{f\+\_\+ops,  }\item[{irq\+\_\+handler\+\_\+t}]{irq\+\_\+handler,  }\item[{uint32\+\_\+t}]{irq\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+Inizializza una struttura \hyperlink{structUART}{U\+A\+RT} per il corrispondente device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em U\+A\+R\+T\+\_\+device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, corrispondente al device su cui operare \\
+\hline
+{\em owner} & puntatore a struttura struct module, proprietario del device (T\+H\+I\+S\+\_\+\+M\+O\+D\+U\+LE) \\
+\hline
+{\em pdev} & puntatore a struct platform\+\_\+device \\
+\hline
+{\em driver\+\_\+name} & nome del driver \\
+\hline
+{\em device\+\_\+name} & nome del device \\
+\hline
+{\em serial} & numero seriale del device \\
+\hline
+{\em f\+\_\+ops} & puntatore a struttura struct file\+\_\+operations, specifica le funzioni che agiscono sul device \\
+\hline
+{\em irq\+\_\+handler} & puntatore irq\+\_\+handler\+\_\+t alla funzione che gestisce gli interrupt generati dal device \\
+\hline
+{\em irq\+\_\+mask} & maschera delle interruzioni attive del device\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & se non si è verificato nessun errore \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{UART_8c_a1a5636247a4b4a253c29bbfa062b53f8}\label{UART_8c_a1a5636247a4b4a253c29bbfa062b53f8}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}}
+\index{U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Interrupt\+Disable()}{UART\_InterruptDisable()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Interrupt\+Disable (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device,  }\item[{unsigned}]{mask }\end{DoxyParamCaption})}
+
+
+
+Disabilitazione interrupt per i singoli pin del device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare\\
+\hline
+{\em mask} & maschera di selezione degli interrupt da disabilitare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a4a4cb6070f135a8554f827ea9bd42453}\label{UART_8c_a4a4cb6070f135a8554f827ea9bd42453}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}}
+\index{U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Interrupt\+Enable()}{UART\_InterruptEnable()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Interrupt\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device,  }\item[{unsigned}]{mask }\end{DoxyParamCaption})}
+
+
+
+Abilitazione interrupt per i singoli pin del device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+{\em mask} & maschera di selezione degli interrupt da abilitare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a262938cc984c4043252db0d5dd4e34be}\label{UART_8c_a262938cc984c4043252db0d5dd4e34be}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}}
+\index{U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Pending\+Interrupt()}{UART\_PendingInterrupt()}}
+{\footnotesize\ttfamily unsigned U\+A\+R\+T\+\_\+\+Pending\+Interrupt (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Fornisce una maschera che indica quali interrupt non sono ancora stati serviti e che quindi risultano pending. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maschera riportante gli interrupt che non sono stati ancora serviti 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART_8c_a1fcfdbda25b1470d83e12cbe67715916}\label{UART_8c_a1fcfdbda25b1470d83e12cbe67715916}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}}
+\index{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up()}{UART\_ReadPollWakeUp()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Risveglia i processi in attesa sulle code di read e poll. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a3f9dd4e780147abfad30794c6b8e5f6b}\label{UART_8c_a3f9dd4e780147abfad30794c6b8e5f6b}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}}
+\index{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read()}{UART\_ResetCanRead()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Reset\+Can\+Read (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per resettare il flag \char`\"{}can\+\_\+read\char`\"{} di uno specifico device \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_af0ab071a9d19e670ad04dc4b14055199}\label{UART_8c_af0ab071a9d19e670ad04dc4b14055199}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}}
+\index{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write()}{UART\_ResetCanWrite()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Reset\+Can\+Write (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per resettare il flag \char`\"{}can\+\_\+write\char`\"{} di uno specifico device \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a02ce946c03d357503e24968259d5e359}\label{UART_8c_a02ce946c03d357503e24968259d5e359}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}}
+\index{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack()}{UART\_RXInterruptAck()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Invia al device notifica di servizio dell\textquotesingle{}interrupt relativa alla ricezione. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a7264bce2281b9cdda95c0f3fa296be50}\label{UART_8c_a7264bce2281b9cdda95c0f3fa296be50}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}}
+\index{U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Set\+Can\+Read()}{UART\_SetCanRead()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Set\+Can\+Read (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per asserire il flag \char`\"{}can\+\_\+read\char`\"{} di uno specifico device \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_abcfd99fe471e42981a364345f6a7be49}\label{UART_8c_abcfd99fe471e42981a364345f6a7be49}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}}
+\index{U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Set\+Can\+Write()}{UART\_SetCanWrite()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Set\+Can\+Write (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Utilizzata per asserire il flag \char`\"{}can\+\_\+write\char`\"{} di uno specifico device \hyperlink{structUART}{U\+A\+RT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_adbbf26e4070853be4f81a889c6b612d5}\label{UART_8c_adbbf26e4070853be4f81a889c6b612d5}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}}
+\index{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Set\+Data()}{UART\_SetData()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Set\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device,  }\item[{uint8\+\_\+t}]{data\+To\+Send }\end{DoxyParamCaption})}
+
+
+
+Inserisce all\textquotesingle{}interno del registro D\+A\+T\+A\+\_\+\+IN del dispositivo \hyperlink{structUART}{U\+A\+RT} specificato tramite il parametro device il valore indicato nel parametro data\+To\+Send. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+{\em data\+To\+Send} & valore da inserire all\textquotesingle{}interno del registro \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_ac9bb67c2254ca40a163aa1f02f52b71b}\label{UART_8c_ac9bb67c2254ca40a163aa1f02f52b71b}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}}
+\index{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Start()}{UART\_Start()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Start (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Asserisce il segnale T\+X\+\_\+\+EN iniziando la trasmissione. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_ad74485a710df84cb8f6ae182da025fad}\label{UART_8c_ad74485a710df84cb8f6ae182da025fad}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}}
+\index{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep()}{UART\_TestCanReadAndSleep()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Testa il valore del flag \char`\"{}can\+\_\+read\char`\"{}. Se è uguale a 0, ovvero non è possibile effettuare una lettura, mette in sleep il processo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a0a950e7f2a0f9651944c5b77e2a2c8c9}\label{UART_8c_a0a950e7f2a0f9651944c5b77e2a2c8c9}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}}
+\index{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep()}{UART\_TestCanWriteAndSleep()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Testa il valore del flag \char`\"{}can\+\_\+write\char`\"{}. Se è uguale a 0, ovvero non è possibile effettuare una lettura, mette in sleep il processo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a10473e2a6bedc04f6ec6458ab3e6a158}\label{UART_8c_a10473e2a6bedc04f6ec6458ab3e6a158}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}}
+\index{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack()}{UART\_TXInterruptAck()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Invia al device notifica di servizio dell\textquotesingle{}interrupt relativa alla trasmissione. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART_8c_a60f853b737175309a666ff0aa98d1bc1}\label{UART_8c_a60f853b737175309a666ff0aa98d1bc1}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}}
+\index{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up()}{UART\_WriteWakeUp()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+\+Write\+Wake\+Up (\begin{DoxyParamCaption}\item[{\hyperlink{structUART}{U\+A\+RT}$\ast$}]{device }\end{DoxyParamCaption})}
+
+
+
+Risveglia i processi in attesa sulla coda di write. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & puntatore a struttura \hyperlink{structUART}{U\+A\+RT}, che si riferisce al device su cui operare \\
+\hline
+\end{DoxyParams}

@@ -67,8 +67,17 @@ $(function() {
 GPIO</h1>
 <h2><a class="anchor" id="Driver"></a>
 Driver</h2>
+<h3><a class="anchor" id="UIO"></a>
+UIO</h3>
 <ul>
-<li>Funzioni driver <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> gpio_int.c </li>
+<li>Funzioni per la gestione del driver <a class="el" href="GPIO__interrupt__uio__poll_8c.html">GPIO_interrupt_uio_poll.c</a> </li>
+</ul>
+<h3><a class="anchor" id="Kernel"></a>
+Kernel</h3>
+<ul>
+<li>Modulo kernel che permette di interagire con la periferica <a class="el" href="GPIO__kernel__main_8c.html">GPIO_kernel_main.c</a></li>
+<li>Permette la gestione di un gruppo di periferiche dello stesso tipo <a class="el" href="GPIO__list_8c.html">GPIO_list.c</a></li>
+<li>Funzionalità utilizzate per controllare un singolo dipositivo <a class="el" href="GPIO_8c.html">GPIO.c</a> </li>
 </ul>
 <h2><a class="anchor" id="Hardware"></a>
 Hardware</h2>
@@ -83,12 +92,14 @@ Driver</h2>
 <h3><a class="anchor" id="UIO"></a>
 UIO</h3>
 <ul>
-<li>gestione del componente UART utilizzando il driver uio UART_interrupt_uio.c </li>
+<li>gestione del componente <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> utilizzando il driver uio <a class="el" href="UART__interrupt__uio_8c.html">UART_interrupt_uio.c</a> </li>
 </ul>
 <h3><a class="anchor" id="KERNEL"></a>
 KERNEL</h3>
 <ul>
-<li>gestione del componente UART in modalità kernel UART_interrupt_kernel_mode.c </li>
+<li>Modulo kernel che permette di interagire con la periferica <a class="el" href="UART__kernel__main_8c.html">UART_kernel_main.c</a></li>
+<li>Permette la gestione di un gruppo di periferiche dello stesso tipo <a class="el" href="UART__list_8c.html">UART_list.c</a></li>
+<li>Funzionalità utilizzate per controllare un singolo dipositivo <a class="el" href="UART_8c.html">UART.c</a> UART_interrupt_kernel_mode.c </li>
 </ul>
 <h2><a class="anchor" id="Hardware"></a>
 Hardware</h2>
@@ -96,10 +107,37 @@ Hardware</h2>
 <li>Controlla la generazione dell' interrupt <a class="el" href="UART__v1__0__S00__AXI_8vhd.html">UART_v1_0_S00_AXI.vhd</a></li>
 <li>Top level entity del componente <a class="el" href="classUART__v1__0__S00__AXI.html">UART_v1_0_S00_AXI</a> <a class="el" href="UART__v1__0_8vhd.html">UART_v1_0.vhd</a> </li>
 </ul>
-<h1><a class="anchor" id="CRC"></a>
-CRC</h1>
-<p>@ F3</p><ul>
-<li>gestione dell' invio, calcolo e check del CRC <a class="el" href="main_8c.html">main.c</a> </li>
+<h1><a class="anchor" id="Progetto_finale"></a>
+Progetto_finale</h1>
+<ul>
+<li>gestione dell' invio e ricazione dei dati sulle varie periferiche con calcolo e check del CRC <a class="el" href="main_8c.html">main.c</a> </li>
+</ul>
+<h2><a class="anchor" id="Periferiche"></a>
+Periferiche</h2>
+<h3><a class="anchor" id="CAN"></a>
+CAN</h3>
+<ul>
+<li>funzioni per configurare la periferica CAN <a class="el" href="can_8c.html">can.c</a> </li>
+</ul>
+<h3><a class="anchor" id="SPI"></a>
+SPI</h3>
+<ul>
+<li>funzioni per configurare la periferica SPI <a class="el" href="spi_8c.html">spi.c</a> </li>
+</ul>
+<h3><a class="anchor" id="I2C"></a>
+I2C</h3>
+<ul>
+<li>funzioni per configurare la periferica I2C <a class="el" href="i2c_8c.html">i2c.c</a> </li>
+</ul>
+<h3><a class="anchor" id="UART"></a>
+UART</h3>
+<ul>
+<li>funzioni per configurare la periferica <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> <a class="el" href="usart_8c.html">usart.c</a> </li>
+</ul>
+<h3><a class="anchor" id="GPIO"></a>
+GPIO</h3>
+<ul>
+<li>funzioni per configurare i banchi del <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> <a class="el" href="gpio_8c.html">gpio.c</a> </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

@@ -1,19 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : CAN.c
-  * Description        : This file provides code for the configuration
-  *                      of the CAN instances.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
+  * @file           : can.c
+  * Permette la configurazione della periferica CAN
   ******************************************************************************
   */
 
@@ -25,6 +13,13 @@ CAN_FilterTypeDef sFilterConfig;
 
 
 /* CAN init function */
+/**
+ * @brief  Funzione di configurazione della periferica CAN
+ * modalità di utilizzo, filtri
+ * @param  nodeAddress setta l' indentificativo del nodo 
+ * @param  groupAddress setta l' identificato del gruppo
+ * a cui il nodo appartiene
+ */
 void MX_CAN_Init(uint16_t nodeAddress, uint16_t groupAddress)
 {
 /*
@@ -103,7 +98,11 @@ void MX_CAN_Init(uint16_t nodeAddress, uint16_t groupAddress)
 	Error_Handler();
   }
 }
-
+/**
+ * @brief  Configura opportunamente l' handler della periferica CAN
+ * ed i pin associati ad essa
+ * @param  canHandle handler della periferica CAN
+ */
 void HAL_CAN_MspInit(CAN_HandleTypeDef* canHandle)
 {
 
@@ -144,7 +143,10 @@ GPIO_InitTypeDef   GPIO_InitStruct;
   /* USER CODE END CAN_MspInit 1 */
 
 }
-
+/**
+ * @brief  Disabilita la periferica CAN
+ * @param  canHandle handler della periferica CAN
+ */
 void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
 {
 

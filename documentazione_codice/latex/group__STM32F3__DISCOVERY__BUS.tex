@@ -1,0 +1,181 @@
+\hypertarget{group__STM32F3__DISCOVERY__BUS}{}\section{Bus Operation functions}
+\label{group__STM32F3__DISCOVERY__BUS}\index{Bus Operation functions@{Bus Operation functions}}
+Collaboration diagram for Bus Operation functions\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__STM32F3__DISCOVERY__BUS}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga8361271ff9fae68927a67c607e431eab}\label{group__STM32F3__DISCOVERY__BUS_ga8361271ff9fae68927a67c607e431eab}} 
+\index{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}}
+\index{I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{I2\+Cx\+\_\+\+Error()}{I2Cx\_Error()}}
+{\footnotesize\ttfamily static void I2\+Cx\+\_\+\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+I2\+C3 error treatment function. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga73173918954bb7c4d175c84d0397ae5f}\label{group__STM32F3__DISCOVERY__BUS_ga73173918954bb7c4d175c84d0397ae5f}} 
+\index{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}}
+\index{I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{I2\+Cx\+\_\+\+Init()}{I2Cx\_Init()}}
+{\footnotesize\ttfamily static void I2\+Cx\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Discovery I2\+Cx Bus initialization. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga659d63031419804f85e3590de210b5c6}\label{group__STM32F3__DISCOVERY__BUS_ga659d63031419804f85e3590de210b5c6}} 
+\index{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}}
+\index{I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{I2\+Cx\+\_\+\+Msp\+Init()}{I2Cx\_MspInit()}}
+{\footnotesize\ttfamily static void I2\+Cx\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Discovery I2\+Cx M\+SP Initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c} & I2C handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_gafea397a7a4aa6c24435397d6a1e681a8}\label{group__STM32F3__DISCOVERY__BUS_gafea397a7a4aa6c24435397d6a1e681a8}} 
+\index{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}}
+\index{I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{I2\+Cx\+\_\+\+Read\+Data()}{I2Cx\_ReadData()}}
+{\footnotesize\ttfamily static uint8\+\_\+t I2\+Cx\+\_\+\+Read\+Data (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Addr,  }\item[{uint8\+\_\+t}]{Reg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Read a value in a register of the device through B\+US. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Addr} & Device address on B\+US Bus. \\
+\hline
+{\em Reg} & The target register address to write \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Data} & read at register @ \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga073ead3d65fe41a407171480f9c0b74e}\label{group__STM32F3__DISCOVERY__BUS_ga073ead3d65fe41a407171480f9c0b74e}} 
+\index{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}}
+\index{I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{I2\+Cx\+\_\+\+Write\+Data()}{I2Cx\_WriteData()}}
+{\footnotesize\ttfamily static void I2\+Cx\+\_\+\+Write\+Data (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Addr,  }\item[{uint8\+\_\+t}]{Reg,  }\item[{uint8\+\_\+t}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Write a value in a register of the device through B\+US. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Addr} & Device address on B\+US Bus. \\
+\hline
+{\em Reg} & The target register address to write \\
+\hline
+{\em Value} & The target register value to be written \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga05479250053954dce6706c7c64fbc746}\label{group__STM32F3__DISCOVERY__BUS_ga05479250053954dce6706c7c64fbc746}} 
+\index{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}}
+\index{S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{S\+P\+Ix\+\_\+\+Error()}{SPIx\_Error()}}
+{\footnotesize\ttfamily static void S\+P\+Ix\+\_\+\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+S\+P\+Ix error treatment function. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_ga411b8bc3e3c513999639449b40dca4a2}\label{group__STM32F3__DISCOVERY__BUS_ga411b8bc3e3c513999639449b40dca4a2}} 
+\index{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}}
+\index{S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{S\+P\+Ix\+\_\+\+Init()}{SPIx\_Init()}}
+{\footnotesize\ttfamily static void S\+P\+Ix\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+S\+P\+Ix Bus initialization. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_gac2a32a81a80a73a794887876add1b82d}\label{group__STM32F3__DISCOVERY__BUS_gac2a32a81a80a73a794887876add1b82d}} 
+\index{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}}
+\index{S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{S\+P\+Ix\+\_\+\+Msp\+Init()}{SPIx\_MspInit()}}
+{\footnotesize\ttfamily static void S\+P\+Ix\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+S\+PI M\+SP Init. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & S\+PI handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__STM32F3__DISCOVERY__BUS_gaca16be8c665e3e886f1b7333dd778728}\label{group__STM32F3__DISCOVERY__BUS_gaca16be8c665e3e886f1b7333dd778728}} 
+\index{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}}
+\index{S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}!Bus Operation functions@{Bus Operation functions}}
+\subsubsection{\texorpdfstring{S\+P\+Ix\+\_\+\+Write\+Read()}{SPIx\_WriteRead()}}
+{\footnotesize\ttfamily static uint8\+\_\+t S\+P\+Ix\+\_\+\+Write\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sends a Byte through the S\+PI interface and return the Byte received from the S\+PI bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Byte} & Byte send. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & received byte value \\
+\hline
+\end{DoxyRetVals}

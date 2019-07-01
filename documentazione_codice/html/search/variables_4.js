@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['gpio_5fdriver',['GPIO_driver',['../GPIO__kernel__main_8c.html#a92e7fd18b96e1d2fbaf601ae8b14c6f3',1,'GPIO_kernel_main.c']]],
-  ['gpio_5fenable',['gpio_enable',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a944e1262283a6b801ed6f23dccd90348',1,'GPIO_v1_0_S00_AXI::arch_imp']]],
-  ['gpio_5ffops',['GPIO_fops',['../GPIO__kernel__main_8c.html#add4b2f7c403fc3cdf3e986623efae4f8',1,'GPIO_kernel_main.c']]]
+  ['device_5fcount',['device_count',['../structGPIO__list.html#a170d1d78f27f6ab4c8badaaa4b3f2305',1,'GPIO_list::device_count()'],['../structUART__list.html#a170d1d78f27f6ab4c8badaaa4b3f2305',1,'UART_list::device_count()']]],
+  ['device_5flist',['device_list',['../structGPIO__list.html#a1f17219814029f429cd2f3fdf4190e0b',1,'GPIO_list::device_list()'],['../structUART__list.html#a851af86c80724adf330596f12617066b',1,'UART_list::device_list()']]]
 ];

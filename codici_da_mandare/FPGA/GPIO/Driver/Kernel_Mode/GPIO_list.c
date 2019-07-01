@@ -7,7 +7,6 @@
 MODULE_LICENSE("GPL");
 /**
  * @file GPIO_list.c
- * @page GPIO list
  * @brief Permette di avere una serie di GPIO sotto lo stesso device
  */
 /**
@@ -34,7 +33,6 @@ int GPIO_list_Init(GPIO_list *list, uint32_t list_size) {
 
 /**
  * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
- *
  * @param list puntatore a GPIO_list, lista da distruggere
  */
 void GPIO_list_Destroy(GPIO_list* list) {

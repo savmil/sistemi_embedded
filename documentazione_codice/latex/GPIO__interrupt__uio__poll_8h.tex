@@ -2,6 +2,16 @@
 \label{GPIO__interrupt__uio__poll_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
 
 
+header file \hyperlink{structGPIO}{G\+P\+IO} interrupt uio poll  
+
+
+
+
+\subsection{Detailed Description}
+header file \hyperlink{structGPIO}{G\+P\+IO} interrupt uio poll 
+
+
+
 \subsection{Function Documentation}
 \mbox{\Hypertarget{GPIO__interrupt__uio__poll_8h_a5fa96fe10ac62639ffae7412b23fd1fa}\label{GPIO__interrupt__uio__poll_8h_a5fa96fe10ac62639ffae7412b23fd1fa}} 
 \index{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!read\+\_\+reg@{read\+\_\+reg}}
@@ -17,9 +27,21 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \begin{DoxyParams}{Parameters}
 {\em addr,puntatore} & all\textquotesingle{} indirizzo da voler leggere \\
 \hline
-{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere \\
+{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere\\
 \hline
 \end{DoxyParams}
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui leggere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valore presente all\textquotesingle{}interno del registro 
+\end{DoxyReturn}
 \mbox{\Hypertarget{GPIO__interrupt__uio__poll_8h_ab2f398880fc06a6357ed85b17b1595e6}\label{GPIO__interrupt__uio__poll_8h_ab2f398880fc06a6357ed85b17b1595e6}} 
 \index{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
 \index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}}
@@ -61,6 +83,17 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \hline
 {\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere \\
 \hline
-{\em value,valore} & da voler scrivere \\
+{\em value,valore} & da voler scrivere\\
+\hline
+\end{DoxyParams}
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui scrivere \\
+\hline
+{\em valore} & da scrivere \\
 \hline
 \end{DoxyParams}

@@ -81,11 +81,26 @@ Converte un frame da un formato uint8\+\_\+t ad uno uint32\+\_\+t.
 {\em out\+\_\+buffer32} & puntatore ad un dato di tipo uint32\+\_\+t \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{main_8c_ab3a928e23e1c9d3da728ea97d7bb5e32}\label{main_8c_ab3a928e23e1c9d3da728ea97d7bb5e32}} 
+\mbox{\Hypertarget{main_8c_a261447ba4f7390f2166c325cc68b1129}\label{main_8c_a261447ba4f7390f2166c325cc68b1129}} 
+\index{main.\+c@{main.\+c}!get\+S\+S\+Pin@{get\+S\+S\+Pin}}
+\index{get\+S\+S\+Pin@{get\+S\+S\+Pin}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{get\+S\+S\+Pin()}{getSSPin()}}
+{\footnotesize\ttfamily uint16\+\_\+t get\+S\+S\+Pin (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+ritorna il pin \hyperlink{structGPIO}{G\+P\+IO} a cui è collegato lo slave dato l\textquotesingle{} indirizzo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & indirizzo della periferica S\+PI \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a0a826b909f5f4004cc453acf361663f6}\label{main_8c_a0a826b909f5f4004cc453acf361663f6}} 
 \index{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}}
 \index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}!main.\+c@{main.\+c}}
 \subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback()}{HAL\_CAN\_RxFifo0MsgPendingCallback()}}
-{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily MX void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
 
 
 
@@ -259,11 +274,11 @@ Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale S\+PI.
 
 
 
-Funzione chiamata nel caso di errore di comunicazione sul canale U\+A\+RT. 
+Funzione chiamata nel caso di errore di comunicazione sul canale \hyperlink{structUART}{U\+A\+RT}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+{\em Uart\+Handle} & handler alla struttura che gestisce \hyperlink{structUART}{U\+A\+RT} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}\label{main_8c_a9fc70122d6af8fd1cfd4d515ca68192a}} 
@@ -274,11 +289,11 @@ Funzione chiamata nel caso di errore di comunicazione sul canale U\+A\+RT.
 
 
 
-Funzione chiamata alla ricezione di dati sul canale U\+A\+RT. 
+Funzione chiamata alla ricezione di dati sul canale \hyperlink{structUART}{U\+A\+RT}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+{\em Uart\+Handle} & handler alla struttura che gestisce \hyperlink{structUART}{U\+A\+RT} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}\label{main_8c_a8b7c3eb59acb57cee8fe62f1ba0c10c6}} 
@@ -289,18 +304,18 @@ Funzione chiamata alla ricezione di dati sul canale U\+A\+RT.
 
 
 
-Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale U\+A\+RT. 
+Funzione chiamata dopo l\textquotesingle{} invio di dati sul canale \hyperlink{structUART}{U\+A\+RT}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em Uart\+Handle} & handler alla struttura che gestisce U\+A\+RT \\
+{\em Uart\+Handle} & handler alla struttura che gestisce \hyperlink{structUART}{U\+A\+RT} \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{main_8c_a9129f3ffd464f13b97ae8706e215f073}\label{main_8c_a9129f3ffd464f13b97ae8706e215f073}} 
+\mbox{\Hypertarget{main_8c_ae20365087f09118bf9f8ceca48ac9f26}\label{main_8c_ae20365087f09118bf9f8ceca48ac9f26}} 
 \index{main.\+c@{main.\+c}!Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}}
 \index{Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}!main.\+c@{main.\+c}}
 \subsubsection{\texorpdfstring{Receive\+\_\+\+C\+R\+C()}{Receive\_CRC()}}
-{\footnotesize\ttfamily uint8\+\_\+t Receive\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Data,  }\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily uint8\+\_\+t Receive\+\_\+\+C\+RC (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{Received\+Data,  }\item[{uint8\+\_\+t}]{channel,  }\item[{uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
 
 
 
@@ -311,6 +326,8 @@ Abilita la ricezione del frame sulle differenti periferiche.
 {\em Received\+Data} & struttura contenete i dati ricevuti \\
 \hline
 {\em channel} & indica le periferiche da cui voglio ricevere \\
+\hline
+{\em address} & indica lo slave S\+PI con cui voglio comunicare, permettendomi di scegliere lo slave select opportuno \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{main_8c_a610586cc74404465a8a25a9898cc0048}\label{main_8c_a610586cc74404465a8a25a9898cc0048}} 
@@ -329,6 +346,19 @@ Invia il messaggio sulle varie periferiche.
 \hline
 {\em address} & indirizzo della periferica da contattare se previsto dalla modalità di comunicazione \\
 \hline
-{\em channel} & indica le periferiche su cui voglio ricevere \\
+{\em channel} & indica le periferiche su cui voglio inviare \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{main_8c_aaefc144e0974bbc1f66d6fd799cf5727}\label{main_8c_aaefc144e0974bbc1f66d6fd799cf5727}} 
+\index{main.\+c@{main.\+c}!System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}}
+\index{System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{System\+Clock\+\_\+\+Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gestisce il clock di sistema. 
+
+Initializes the C\+PU, A\+HB and A\+PB busses clocks
+
+Initializes the C\+PU, A\+HB and A\+PB busses clocks

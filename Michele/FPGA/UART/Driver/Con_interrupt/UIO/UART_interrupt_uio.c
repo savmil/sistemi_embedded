@@ -8,7 +8,10 @@
 #include <sys/mman.h>
 #include <string.h> 
 #include "UART_interrupt_uio.h"
-
+/**
+ * @file UART_interrupt_uio.c
+ * @brief permette la gestione della periferica UART utilizzando un driver di tipo UIO
+ */
 #define	DATA_IN   		0	// DATA TO SEND
 #define	TX_EN	        4	// TRANSFER ENABLE (0)
 #define	STATUS_REG      8   // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
@@ -42,10 +45,8 @@ char * buffer_rx;
  * @param	addr indirizzo virtuale della periferica
  * @param	offset offset del registro a cui scrivere
  * @param	valore da scrivere
+ *	
  *
- * @return	
- *
- * @note
  *
  */
 void write_reg(void *addr, unsigned int offset, unsigned int value)
@@ -55,15 +56,14 @@ void write_reg(void *addr, unsigned int offset, unsigned int value)
 /**
  *
  * @brief	Utilizzata per leggere un valore da un registro
- *			della periferica, specificando l'indirizzo base virtuale e 
- *			l'offset del registro da cui leggere
+ *		della periferica, specificando l'indirizzo base virtuale e 
+ *		l'offset del registro da cui leggere
  *
  * @param	addr indirizzo virtuale della periferica
  * @param	offset offset del registro a cui leggere
  *
  * @return	valore presente all'interno del registro
  *
- * @note
  *
  */
 unsigned int read_reg(void *addr, unsigned int offset)
@@ -79,9 +79,6 @@ unsigned int read_reg(void *addr, unsigned int offset)
  * @param	file_descr descrittore del UIO driver
  * @param	addr indirizzo virtuale della periferica
  *
- * @return	
- *
- * @note
  *
  */
 void wait_for_interrupt(int file_descr, void *addr)
@@ -96,11 +93,11 @@ void wait_for_interrupt(int file_descr, void *addr)
 	u_int32_t reg_sent_data = 0;
 	u_int32_t reg_received_data = 0;
 	
-/** Attesa sul file descriptor in attesa di ricevere un'interruzione*/
+/* Attesa sul file descriptor in attesa di ricevere un'interruzione*/
 	read(file_descr, (void *)&pending, sizeof(int));
-/** Interruzione ricevuta*/
+/* Interruzione ricevuta*/
 
-/** Disasserisce il transfer enable e disabilita le interruzioni */
+/* Disasserisce il transfer enable e disabilita le interruzioni */
 	write_reg(addr, TX_EN, 0); 
 	write_reg(addr, GLOBAL_INTR_EN, 0); 
 	
@@ -126,12 +123,12 @@ void wait_for_interrupt(int file_descr, void *addr)
 					printf("%c",buffer_rx[i]);
 			
 			}
-/** ACK ricezione */	
+/* ACK ricezione */	
 		write_reg(addr, INTR_ACK_PEND, RX); 
 		sleep(1);
 		write_reg(addr, INTR_ACK_PEND, 0); 
 		
-/** Riabilitazione interruzioni*/
+/* Riabilitazione interruzioni*/
 		write_reg(addr, GLOBAL_INTR_EN, 1); 
 	}	
 	else if((pending_reg & 0x00000001) == 0x00000001){
@@ -146,13 +143,13 @@ void wait_for_interrupt(int file_descr, void *addr)
 			printf("ISR TX - start sending next value: %c\n", buffer_tx[tx_count]);
 			write_reg(addr, DATA_IN, buffer_tx[tx_count]);
 			
-/** ACK trasmissione*/		
+/* ACK trasmissione*/		
 			write_reg(addr, INTR_ACK_PEND, TX); 
 			sleep(1); 
-/** Riabilitazione interruzioni*/
+/* Riabilitazione interruzioni*/
 			write_reg(addr, INTR_ACK_PEND, 0); 
 			write_reg(addr, GLOBAL_INTR_EN, 1); 
-/** Abilitazione del trasferimento */
+/* Abilitazione del trasferimento */
 			write_reg(addr, TX_EN, 1); 
 		}
 		else{
@@ -164,7 +161,7 @@ sleep(1);
 		}
 	}	
 	
-/** Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema UIO */
+/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema UIO */
 	
 	int ret = write(file_descr, (void *)&reenable, sizeof(int));
 	
@@ -194,23 +191,23 @@ int main(int argc, char *argv[]){
 	
 	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.", buffer_tx, DIM);
 	
-/** Abilitazione interruzioni globali */
+/* Abilitazione interruzioni globali */
 	write_reg(uart_ptr, GLOBAL_INTR_EN, 1); 
 	
-/** Abilitazione interruzioni */
+/* Abilitazione interruzioni */
 	write_reg(uart_ptr, INTR_EN, INTR_MASK); 
 	
-/** Settaggio del primo carattere da mandare */
+/* Settaggio del primo carattere da mandare */
 	write_reg(uart_ptr, DATA_IN, buffer_tx[0]);
 	
-/** Abilitazione del trasferimento */
+/* Abilitazione del trasferimento */
 	write_reg(uart_ptr, TX_EN, 1); 
 	
 	while(tx_count < buffer_size){
 		wait_for_interrupt(file_descr, uart_ptr);
 	}
 
-/** Fa l'unmap del device UART */
+/* Fa l'unmap del device UART */
 	munmap(uart_ptr, dimensione_pag);
 	
 	free(buffer_rx);

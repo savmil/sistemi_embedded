@@ -1,0 +1,91 @@
+\hypertarget{UART__interrupt__uio_8h}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.h File Reference}
+\label{UART__interrupt__uio_8h}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}}
+
+
+header file U\+A\+R\+T\+\_\+interrupt\+\_\+uio  
+
+
+
+
+\subsection{Detailed Description}
+header file U\+A\+R\+T\+\_\+interrupt\+\_\+uio 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{UART__interrupt__uio_8h_a5fa96fe10ac62639ffae7412b23fd1fa}\label{UART__interrupt__uio_8h_a5fa96fe10ac62639ffae7412b23fd1fa}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!read\+\_\+reg@{read\+\_\+reg}}
+\index{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}}
+\subsubsection{\texorpdfstring{read\+\_\+reg()}{read\_reg()}}
+{\footnotesize\ttfamily unsigned int read\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr,puntatore} & all\textquotesingle{} indirizzo da voler leggere \\
+\hline
+{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere\\
+\hline
+\end{DoxyParams}
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui leggere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valore presente all\textquotesingle{}interno del registro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{UART__interrupt__uio_8h_aca2ec726f2895894ad943fe04338f4a0}\label{UART__interrupt__uio_8h_aca2ec726f2895894ad943fe04338f4a0}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
+\index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}}
+\subsubsection{\texorpdfstring{wait\+\_\+for\+\_\+interrupt()}{wait\_for\_interrupt()}}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+interrupt (\begin{DoxyParamCaption}\item[{int}]{file\+\_\+descr,  }\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Attende l\textquotesingle{} arrivo di un interrupt utilizzando la read su un device U\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+descr} & descrittore del U\+IO driver \\
+\hline
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART__interrupt__uio_8h_a19948bb35adde231ba424f7bc14289ee}\label{UART__interrupt__uio_8h_a19948bb35adde231ba424f7bc14289ee}} 
+\index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!write\+\_\+reg@{write\+\_\+reg}}
+\index{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}}
+\subsubsection{\texorpdfstring{write\+\_\+reg()}{write\_reg()}}
+{\footnotesize\ttfamily void write\+\_\+reg (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{offset,  }\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr,puntatore} & all\textquotesingle{} indirizzo da voler scrivere \\
+\hline
+{\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere \\
+\hline
+{\em value,valore} & da voler scrivere\\
+\hline
+\end{DoxyParams}
+Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & indirizzo virtuale della periferica \\
+\hline
+{\em offset} & offset del registro a cui scrivere \\
+\hline
+{\em valore} & da scrivere \\
+\hline
+\end{DoxyParams}

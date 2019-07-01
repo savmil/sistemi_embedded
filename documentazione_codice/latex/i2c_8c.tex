@@ -1,0 +1,55 @@
+\hypertarget{i2c_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.c File Reference}
+\label{i2c_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c}}
+
+
+\subsection{Detailed Description}
+Permette la configurazione della periferica I2C 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{i2c_8c_a766e7421a54562b56553edf2c0ea2b0d}\label{i2c_8c_a766e7421a54562b56553edf2c0ea2b0d}} 
+\index{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}!i2c.\+c@{i2c.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init()}{HAL\_I2C\_MspDeInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def$\ast$}]{i2c\+Handle }\end{DoxyParamCaption})}
+
+
+
+Disabilita la periferica C\+AN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+Handle} & handler della periferica C\+AN \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{i2c_8c_ad2772e691857ff1529b05d7740fed007}\label{i2c_8c_ad2772e691857ff1529b05d7740fed007}} 
+\index{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}!i2c.\+c@{i2c.\+c}}
+\subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init()}{HAL\_I2C\_MspInit()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def$\ast$}]{i2c\+Handle }\end{DoxyParamCaption})}
+
+
+
+Configura opportunamente l\textquotesingle{} handler della periferica I2C ed i pin associati ad essa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+Handle} & handler della periferica I2C \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{i2c_8c_af76023438fff9d161ee571ea544fb302}\label{i2c_8c_af76023438fff9d161ee571ea544fb302}} 
+\index{i2c.\+c@{i2c.\+c}!M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}}
+\index{M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}!i2c.\+c@{i2c.\+c}}
+\subsubsection{\texorpdfstring{M\+X\+\_\+\+I2\+C2\+\_\+\+Init()}{MX\_I2C2\_Init()}}
+{\footnotesize\ttfamily void M\+X\+\_\+\+I2\+C2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{node\+Address,  }\item[{uint16\+\_\+t}]{group\+Address }\end{DoxyParamCaption})}
+
+
+
+Funzione di configurazione della periferica I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Address} & setta l\textquotesingle{} indentificativo del nodo \\
+\hline
+{\em group\+Address} & setta l\textquotesingle{} identificato del gruppo a cui il nodo appartiene \\
+\hline
+\end{DoxyParams}

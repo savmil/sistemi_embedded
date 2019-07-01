@@ -19,8 +19,7 @@
 #include <asm/io.h>
 /**
  * @file GPIO.h
- * @page GPIO header
- * @brief 
+ * @brief header file GPIO
  */
 /**
  * Offset dei vari registri interni del device GPIO
