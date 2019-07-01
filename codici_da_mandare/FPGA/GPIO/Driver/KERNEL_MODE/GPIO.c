@@ -5,11 +5,7 @@
 #include <linux/module.h>
 
 MODULE_LICENSE("GPL");
-/**
- * @file GPIO.c
- * @brief Funzioni utilizzate per interagire con la singola entità GPIO
- * permette la gestione dell' interrupt 
- */
+
 /**
  * @brief Inizializza una struttura GPIO per il corrispondente device
  *
@@ -46,13 +42,19 @@ int GPIO_Init(		GPIO* GPIO_device,
 	GPIO_device->pdev = pdev;
 	GPIO_device->class = class;
 		
+/** Alloca un range di Mj e min numbers per il device a caratteri */	
+	
 	if ((error = alloc_chrdev_region(&GPIO_device->Mm, 0 , 1, file_name)) != 0) {
 		printk(KERN_ERR "%s: alloc_chrdev_region() ha restituito %d\n", __func__, error);
 		return error;
 	}
 
+/** Inizializza la struttura cdev specificando la struttura file operations associata al device a caratteri */
+
 	cdev_init (&GPIO_device->cdev, f_ops);
 	GPIO_device->cdev.owner = owner;
+
+/** Crea il device all'interno del filesystem assegnandogli i numbers richiesti in precedenza e ne restituisce il puntatore. */
 	
 	if ((GPIO_device->dev = device_create(class, NULL, GPIO_device->Mm, NULL, file_name)) == NULL) {
 		printk(KERN_ERR "%s: device_create() ha restituito NULL\n", __func__);
@@ -60,30 +62,41 @@ int GPIO_Init(		GPIO* GPIO_device,
 		goto device_create_error;
 	}
 	
+/** Aggiunge il device a caratteri al sistema. Se l'operazione va a buon fine sarà possibile vedere il device sotto /dev */
+
+	
 	if ((error = cdev_add(&GPIO_device->cdev, GPIO_device->Mm, 1)) != 0) {
 		printk(KERN_ERR "%s: cdev_add() ha restituito %d\n", __func__, error);
 		goto cdev_add_error;
 	}
-	
+
+/** Inizializza la struct resource con il valori recuperati dal device tree corrispondente al device */
+
 	dev = &pdev->dev;
 	if ((error = of_address_to_resource(dev->of_node, 0, &GPIO_device->res)) != 0) {
 		printk(KERN_ERR "%s: address_to_resource() ha restituito %d\n", __func__, error);
 		goto of_address_to_resource_error;
 	}
 	GPIO_device->res_size = GPIO_device->res.end - GPIO_device->res.start + 1;
+
+/** Alloca una quantita res_size di memoria fisica per il dispositivo IO a partire dall'inidirzzo res.start e ne resituisce l'inidirizzo */	
 	
 	if ((GPIO_device->mreg = request_mem_region(GPIO_device->res.start, GPIO_device->res_size, file_name)) == NULL) {
 		printk(KERN_ERR "%s: request_mem_region() ha restituito NULL\n", __func__);
 		error = -ENOMEM;
 		goto request_mem_region_error;
 	}
+
+/** Mappa la memoria fisca allocata e restituisce l'indirizzo virtuale */
 	
 	if ((GPIO_device->vrtl_addr = ioremap(GPIO_device->res.start, GPIO_device->res_size))==NULL) {
 		printk(KERN_ERR "%s: ioremap() ha restituito NULL\n", __func__);
 		error = -ENOMEM;
 		goto ioremap_error;
 	}
-	
+
+/** Cerca le specifiche dell'interrupt nel device tree e restituisce il suo numero identificativo */
+
 	GPIO_device->irqNumber = irq_of_parse_and_map(dev->of_node, 0);
 	if ((error = request_irq(GPIO_device->irqNumber , irq_handler, 0, file_name, NULL)) != 0) {
 		printk(KERN_ERR "%s: request_irq() ha restituito %d\n", __func__, error);
@@ -126,7 +139,7 @@ no_error:
 	printk(KERN_INFO " Driver succesfully probed at Virtual Address 0x%08lx\n", (unsigned long) GPIO_device->vrtl_addr);
 	
 	return error;
-}EXPORT_SYMBOL(GPIO_Init);
+}
 
 /**
  * @brief Rimuove un device GPIO con le relative strutture kernel allocate per il suo funzionamento
@@ -145,7 +158,7 @@ void GPIO_Destroy(GPIO* device) {
 	cdev_del(&device->cdev);
 	unregister_chrdev_region(device->Mm, 1);
 	
-}EXPORT_SYMBOL(GPIO_Destroy);
+}
 
 /**
 * @brief Utilizzata per asserire il flag "can_read" di uno specifico device GPIO
@@ -158,7 +171,7 @@ void GPIO_SetCanRead(GPIO* device) {
 	spin_lock_irqsave(&device->slock_int, flags);
 	device-> can_read = 1;
 	spin_unlock_irqrestore(&device->slock_int, flags);
-}EXPORT_SYMBOL(GPIO_SetCanRead);
+}
 
 /**
  * @brief Utilizzata per resettare il flag "can_read" di uno specifico device GPIO
@@ -171,7 +184,7 @@ void GPIO_ResetCanRead(GPIO* device) {
 	spin_lock_irqsave(&device->slock_int, flags);
 	device-> can_read = 0;
 	spin_unlock_irqrestore(&device->slock_int, flags);
-}EXPORT_SYMBOL(GPIO_ResetCanRead);
+}
 
 /**
  * @brief Testa il valore del flag "can_read". Se è uguale a 0, ovvero non è possibile effettuare
@@ -182,7 +195,7 @@ void GPIO_ResetCanRead(GPIO* device) {
 
 void GPIO_TestCanReadAndSleep(GPIO* device) {
 	wait_event_interruptible(device->read_queue, (device->can_read != 0));
-}EXPORT_SYMBOL(GPIO_TestCanReadAndSleep);
+}
 
 /**
  * @brief Verifica che le operazioni di lettura risultino non-bloccanti.
@@ -201,13 +214,12 @@ unsigned GPIO_GetPollMask(GPIO *device, struct file *file_ptr, struct poll_table
 	unsigned mask = 0;
 	poll_wait(file_ptr, &device->poll_queue,  wait);
 	spin_lock(&device->slock_int);
-	printk(KERN_INFO "Poll, valore can_read = %d", device->can_read);
+	printk(KERN_INFO "%s called, can_read = %d",__func__, device->can_read);
 	if(device->can_read)
 		mask = POLLIN | POLLRDNORM;
 	spin_unlock(&device->slock_int);
-	printk(KERN_INFO "Poll, ritorna mask = %d", mask);
 	return mask;
-}EXPORT_SYMBOL(GPIO_GetPollMask);
+}
 
 /**
  * @brief Risveglia i processi in attesa sulle code di read e poll.
@@ -218,7 +230,7 @@ unsigned GPIO_GetPollMask(GPIO *device, struct file *file_ptr, struct poll_table
 void GPIO_WakeUp(GPIO* device) {
 	wake_up_interruptible(&device->read_queue);
 	wake_up_interruptible(&device->poll_queue);
-}EXPORT_SYMBOL(GPIO_WakeUp);
+}
 
 /**
  * @brief Restituisce l'indirizzo virtuale di memoria cui è mappato un device
@@ -227,7 +239,7 @@ void GPIO_WakeUp(GPIO* device) {
  */
 extern void* GPIO_GetDeviceAddress(GPIO* device) {
 	return device->vrtl_addr;
-}EXPORT_SYMBOL(GPIO_GetDeviceAddress);
+}
 
 /**
  * @brief Abilitazione interrupt globali;
@@ -236,7 +248,7 @@ extern void* GPIO_GetDeviceAddress(GPIO* device) {
  */
 void GPIO_GlobalInterruptEnable(GPIO* device) {
 	iowrite32(1, (device->vrtl_addr + GLOBAL_INTR_EN));
-}EXPORT_SYMBOL(GPIO_GlobalInterruptEnable);
+}
 
 /**
  * @brief Disabilitazione interrupt globali;
@@ -245,7 +257,7 @@ void GPIO_GlobalInterruptEnable(GPIO* device) {
  */
 void GPIO_GlobalInterruptDisable(GPIO* device) {
 	iowrite32(0, (device->vrtl_addr + GLOBAL_INTR_EN));
-}EXPORT_SYMBOL(GPIO_GlobalInterruptDisable);
+}
 
 /**
  * @brief Abilitazione interrupt per i singoli pin del device.
@@ -257,7 +269,7 @@ void GPIO_PinInterruptEnable(GPIO* device, unsigned mask) {
 	unsigned reg_value = ioread32((device->vrtl_addr + INTR_EN));
 	reg_value |= mask;
 	iowrite32(reg_value, (device->vrtl_addr + INTR_EN));
-}EXPORT_SYMBOL(GPIO_PinInterruptEnable);
+}
 
 /**
  * @brief Disabilitazione interrupt per i singoli pin del device.
@@ -270,7 +282,7 @@ void GPIO_PinInterruptDisable(GPIO* device, unsigned mask) {
 	unsigned reg_value = ioread32((device->vrtl_addr + INTR_EN));
 	reg_value &= ~mask;
 	iowrite32(reg_value, (device->vrtl_addr + INTR_EN));
-}EXPORT_SYMBOL(GPIO_PinInterruptDisable);
+}
 
 /**
  * @brief Fornisce una maschera che indica quali interrupt non sono ancora stati serviti
@@ -281,7 +293,7 @@ void GPIO_PinInterruptDisable(GPIO* device, unsigned mask) {
  */
 unsigned GPIO_PendingPinInterrupt(GPIO* device) {
 	return ioread32((device->vrtl_addr + INTR_ACK_PEND));
-}EXPORT_SYMBOL(GPIO_PendingPinInterrupt);
+}
 
 /**
  * @brief Invia al device notifica di servizio di un interrupt;

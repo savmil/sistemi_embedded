@@ -2,17 +2,14 @@
 #define __GPIO_DEVICE_LIST__
 
 #include "GPIO.h"
-/**
- * @file GPIO_list.h
- * @brief header file GPIO_list
- */
+
 /**
  * @brief Struttura dati per la gestione di più device GPIO da parte del driver      
  */
 typedef struct {
-	GPIO **device_list;	    /**< 	 	array di puntatori a GPIO, ciascuno dei quali si riferisce ad un device*/
-	uint32_t list_size;			/**< 		dimensione della lista, ovvero il numero massimo di device gestibili*/
-	uint32_t device_count;		/**< 	 	numero di device attivi e gestiti dal driver */
+	GPIO **device_list;	    // 	array di puntatori a GPIO, ciascuno dei quali si riferisce ad un device
+	uint32_t list_size;			//	dimensione della lista, ovvero il numero massimo di device gestibili
+	uint32_t device_count;		// 	numero di device attivi e gestiti dal driver */
 } GPIO_list;
 
 extern int GPIO_list_Init(GPIO_list *list, uint32_t list_size);

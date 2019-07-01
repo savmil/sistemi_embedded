@@ -17,10 +17,7 @@
 
 #include <asm/uaccess.h>
 #include <asm/io.h>
-/**
- * @file GPIO.h
- * @brief header file GPIO
- */
+
 /**
  * Offset dei vari registri interni del device GPIO
  **/

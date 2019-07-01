@@ -5,10 +5,7 @@
 #define DRIVER_NAME "GPIO"
 
 MODULE_LICENSE("GPL");
-/**
- * @file GPIO_list.c
- * @brief Permette di avere una serie di GPIO sotto lo stesso device
- */
+
 /**
  * @brief Inizializza una struttura dati GPIO_list
  * @param list puntatore a lista da inizializzare
@@ -33,6 +30,7 @@ int GPIO_list_Init(GPIO_list *list, uint32_t list_size) {
 
 /**
  * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ *
  * @param list puntatore a GPIO_list, lista da distruggere
  */
 void GPIO_list_Destroy(GPIO_list* list) {
