@@ -1,18 +1,11 @@
-----------------------------------------------------------------------------------
---! @file
---! @brief	Top level entity del custom IP core GPIO_V1_0_S00_AXI.VHD
-----------------------------------------------------------------------------------
---! Viene utilizzata la libreria IEEE
 library ieee;
---! Sono utilizzati i segnali della standard logic
 use ieee.std_logic_1164.all;
---! Vengono utilizzate le funzioni numeriche
 use ieee.numeric_std.all;
 
 entity GPIO_v1_0 is
 	generic (
 		-- Users to add parameters here
-        width : integer := 4;	--! determina il numero di GPIO da controllare
+        width : integer := 4;
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -23,8 +16,8 @@ entity GPIO_v1_0 is
 	);
 	port (
 		-- Users to add ports here
-        pads : inout std_logic_vector(width-1 downto 0); --! se GPIO in modalità lettura mostra il valore letto, altrimenti forza un valore in uscita
-        interrupt : out std_logic; --! segnale di interrupt
+        pads : inout std_logic_vector(width-1 downto 0);
+        interrupt : out std_logic;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 

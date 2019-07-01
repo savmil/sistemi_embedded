@@ -10,6 +10,7 @@
 
 source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andrea/SE_workspace/ip_repo/UART_1.0'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/andrea/SE_workspace/ip_repo/GPIO_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/andrea/VIvado/Vivado/2018.3/data/ip'.
 Command: synth_design -top design_1_wrapper -part xc7z010clg400-1
@@ -17,9 +18,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 27991 
+INFO: Helper process launched with PID 8740 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 1409.988 ; gain = 19.906 ; free physical = 9154 ; free virtual = 13878
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1409.988 ; gain = 19.906 ; free physical = 7718 ; free virtual = 14456
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
 INFO: [Synth 8-3491] module 'design_1' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/synth/design_1.vhd:1374' bound to instance 'design_1_i' of component 'design_1' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:73]
@@ -29,52 +30,52 @@ INFO: [Synth 8-638] synthesizing module 'design_1_GPIO_0_0' [/home/andrea/SE_wor
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 5 - type: integer 
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_0_0/synth/design_1_GPIO_0_0.vhd:153]
-INFO: [Synth 8-638] synthesizing module 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:50]
+INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_0_0/synth/design_1_GPIO_0_0.vhd:153]
+INFO: [Synth 8-638] synthesizing module 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:50]
 	Parameter width bound to: 4 - type: integer 
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 5 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 5 - type: integer 
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO_v1_0_S00_AXI' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:7' bound to instance 'GPIO_v1_0_S00_AXI_inst' of component 'GPIO_v1_0_S00_AXI' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:89]
-INFO: [Synth 8-638] synthesizing module 'GPIO_v1_0_S00_AXI' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:89]
+INFO: [Synth 8-3491] module 'GPIO_v1_0_S00_AXI' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:7' bound to instance 'GPIO_v1_0_S00_AXI_inst' of component 'GPIO_v1_0_S00_AXI' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'GPIO_v1_0_S00_AXI' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:89]
 	Parameter width bound to: 4 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-226] default block is never used [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:278]
-INFO: [Synth 8-226] default block is never used [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:444]
+INFO: [Synth 8-226] default block is never used [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:276]
+INFO: [Synth 8-226] default block is never used [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:442]
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO_Array' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:34' bound to instance 'inst_gpio_array' of component 'GPIO_Array' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:488]
-INFO: [Synth 8-638] synthesizing module 'GPIO_Array' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:45]
+INFO: [Synth 8-3491] module 'GPIO_Array' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:34' bound to instance 'inst_gpio_array' of component 'GPIO_Array' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:486]
+INFO: [Synth 8-638] synthesizing module 'GPIO_Array' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:45]
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:58]
-INFO: [Synth 8-638] synthesizing module 'GPIO' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'GPIO' (1#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:43]
-INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:58]
-INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:58]
-INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'GPIO_Array' (2#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/src/GPIO_Array.vhd:45]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:269]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:273]
-WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:276]
-WARNING: [Synth 8-3848] Net status_reg_out in module/entity GPIO_v1_0_S00_AXI does not have driver. [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:130]
-INFO: [Synth 8-256] done synthesizing module 'GPIO_v1_0_S00_AXI' (3#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0_S00_AXI.vhd:89]
-INFO: [Synth 8-256] done synthesizing module 'GPIO_v1_0' (4#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:50]
+INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:58]
+INFO: [Synth 8-638] synthesizing module 'GPIO' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'GPIO' (1#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:43]
+INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:58]
+INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:58]
+INFO: [Synth 8-3491] module 'GPIO' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO.vhd:34' bound to instance 'gpio_map' of component 'gpio' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:58]
+INFO: [Synth 8-256] done synthesizing module 'GPIO_Array' (2#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/src/GPIO_Array.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:267]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:271]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:274]
+WARNING: [Synth 8-3848] Net status_reg_out in module/entity GPIO_v1_0_S00_AXI does not have driver. [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 'GPIO_v1_0_S00_AXI' (3#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0_S00_AXI.vhd:89]
+INFO: [Synth 8-256] done synthesizing module 'GPIO_v1_0' (4#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:50]
 INFO: [Synth 8-256] done synthesizing module 'design_1_GPIO_0_0' (5#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_0_0/synth/design_1_GPIO_0_0.vhd:84]
 INFO: [Synth 8-3491] module 'design_1_GPIO_1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_1_0/synth/design_1_GPIO_1_0.vhd:56' bound to instance 'GPIO_1' of component 'design_1_GPIO_1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/synth/design_1.vhd:1765]
 INFO: [Synth 8-638] synthesizing module 'design_1_GPIO_1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_1_0/synth/design_1_GPIO_1_0.vhd:84]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 5 - type: integer 
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_1_0/synth/design_1_GPIO_1_0.vhd:153]
+INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_1_0/synth/design_1_GPIO_1_0.vhd:153]
 INFO: [Synth 8-256] done synthesizing module 'design_1_GPIO_1_0' (6#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_1_0/synth/design_1_GPIO_1_0.vhd:84]
 INFO: [Synth 8-3491] module 'design_1_GPIO_2_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_2_0/synth/design_1_GPIO_2_0.vhd:56' bound to instance 'GPIO_2' of component 'design_1_GPIO_2_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/synth/design_1.vhd:1791]
 INFO: [Synth 8-638] synthesizing module 'design_1_GPIO_2_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_2_0/synth/design_1_GPIO_2_0.vhd:84]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 5 - type: integer 
 	Parameter width bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/e56a/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_2_0/synth/design_1_GPIO_2_0.vhd:153]
+INFO: [Synth 8-3491] module 'GPIO_v1_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ipshared/cee8/hdl/GPIO_v1_0.vhd:5' bound to instance 'U0' of component 'GPIO_v1_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_2_0/synth/design_1_GPIO_2_0.vhd:153]
 INFO: [Synth 8-256] done synthesizing module 'design_1_GPIO_2_0' (7#1) [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_GPIO_2_0/synth/design_1_GPIO_2_0.vhd:84]
 INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/synth/design_1.vhd:1817]
 INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/synth/design_1_processing_system7_0_0.v:60]
@@ -1369,7 +1370,7 @@ WARNING: [Synth 8-3331] design axi_crossbar_v2_1_19_axi_crossbar has unconnected
 WARNING: [Synth 8-3331] design axi_crossbar_v2_1_19_axi_crossbar has unconnected port s_axi_arcache[2]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 9159 ; free virtual = 13884
+Finished RTL Elaboration : Time (s): cpu = 00:00:24 ; elapsed = 00:00:35 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 7717 ; free virtual = 14456
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1382,10 +1383,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 9164 ; free virtual = 13890
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 7722 ; free virtual = 14462
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:33 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 9164 ; free virtual = 13890
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1556.738 ; gain = 166.656 ; free physical = 7722 ; free virtual = 14462
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1402,7 +1403,7 @@ Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.
 Finished Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0_board.xdc] for cell 'design_1_i/rst_ps7_0_50M/U0'
 Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0.xdc] for cell 'design_1_i/rst_ps7_0_50M/U0'
 Finished Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_50M_0/design_1_rst_ps7_0_50M_0.xdc] for cell 'design_1_i/rst_ps7_0_50M/U0'
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 8899 ; free virtual = 13624
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 7456 ; free virtual = 14195
 Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/constrs_1/new/constr.xdc]
 WARNING: [Vivado 12-584] No ports matched 'interrupt_0'. [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/constrs_1/new/constr.xdc:5]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.srcs/constrs_1/new/constr.xdc:5]
@@ -1417,26 +1418,26 @@ Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.
 Finished Parsing XDC File [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.runs/synth_1/dont_touch.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.runs/synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 8899 ; free virtual = 13624
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 7456 ; free virtual = 14195
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 8900 ; free virtual = 13625
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 7455 ; free virtual = 14195
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 13 instances were transformed.
   FDR => FDRE: 12 instances
   SRL16 => SRL16E: 1 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 8900 ; free virtual = 13625
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 8899 ; free virtual = 13624
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 7455 ; free virtual = 14195
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1830.809 ; gain = 0.000 ; free physical = 7455 ; free virtual = 14195
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:40 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 8994 ; free virtual = 13719
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 7550 ; free virtual = 14290
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:40 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 8994 ; free virtual = 13719
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:42 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 7550 ; free virtual = 14290
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1449,12 +1450,12 @@ Applied set_property DONT_TOUCH = true for design_1_i/processing_system7_0. (con
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/rst_ps7_0_50M. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/GPIO_1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/GPIO_2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/xlconcat_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:40 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 8995 ; free virtual = 13721
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:43 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 7552 ; free virtual = 14292
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axi_protocol_converter_v2_1_18_b2s_rd_cmd_fsm'
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -1485,7 +1486,7 @@ INFO: [Synth 8-4471] merging register 'seq_cnt_en_reg' into 'from_sys_reg' [/hom
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'axi_protocol_converter_v2_1_18_b2s_rd_cmd_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:41 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 8986 ; free virtual = 13712
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:44 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 7543 ; free virtual = 14283
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1815,7 +1816,7 @@ WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GE
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d5) is unused and will be removed from module proc_sys_reset.
 WARNING: [Synth 8-3332] Sequential element (EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d6) is unused and will be removed from module proc_sys_reset.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 8962 ; free virtual = 13692
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:47 . Memory (MB): peak = 1830.809 ; gain = 440.727 ; free physical = 7519 ; free virtual = 14263
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1827,13 +1828,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:49 . Memory (MB): peak = 1925.793 ; gain = 535.711 ; free physical = 8687 ; free virtual = 13417
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:59 . Memory (MB): peak = 1924.793 ; gain = 534.711 ; free physical = 7242 ; free virtual = 13986
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:51 . Memory (MB): peak = 1989.832 ; gain = 599.750 ; free physical = 8645 ; free virtual = 13375
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:01:08 . Memory (MB): peak = 1989.832 ; gain = 599.750 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1845,7 +1846,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:53 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8643 ; free virtual = 13373
+Finished Technology Mapping : Time (s): cpu = 00:01:03 ; elapsed = 00:01:17 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13944
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1870,7 +1871,7 @@ INFO: [Synth 8-5365] Flop inst/gen_axilite.gen_b2s_conv.axilite_b2s/SI_REG/ar.ar
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished IO Insertion : Time (s): cpu = 00:01:08 ; elapsed = 00:01:21 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13944
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1883,7 +1884,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:08 ; elapsed = 00:01:21 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13944
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1895,25 +1896,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:09 ; elapsed = 00:01:22 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:09 ; elapsed = 00:01:22 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:09 ; elapsed = 00:01:23 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:09 ; elapsed = 00:01:23 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1954,8 +1955,8 @@ Report Cell Usage:
 |4     |LUT1    |   153|
 |5     |LUT2    |    40|
 |6     |LUT3    |   283|
-|7     |LUT4    |   132|
-|8     |LUT5    |   262|
+|7     |LUT4    |   141|
+|8     |LUT5    |   253|
 |9     |LUT6    |   279|
 |10    |MUXF7   |    12|
 |11    |PS7     |     1|
@@ -2029,17 +2030,17 @@ Report Instance Areas:
 |55    |    xlconcat_0                                     |design_1_xlconcat_0_0                                          |     0|
 +------+---------------------------------------------------+---------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 8644 ; free virtual = 13375
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:09 ; elapsed = 00:01:23 . Memory (MB): peak = 1997.840 ; gain = 607.758 ; free physical = 7200 ; free virtual = 13945
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 142 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:50 . Memory (MB): peak = 1997.840 ; gain = 333.688 ; free physical = 8701 ; free virtual = 13432
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:54 . Memory (MB): peak = 1997.848 ; gain = 607.758 ; free physical = 8712 ; free virtual = 13442
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:18 . Memory (MB): peak = 1997.840 ; gain = 333.688 ; free physical = 7258 ; free virtual = 14002
+Synthesis Optimization Complete : Time (s): cpu = 00:01:09 ; elapsed = 00:01:23 . Memory (MB): peak = 1997.848 ; gain = 607.758 ; free physical = 7268 ; free virtual = 14013
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 51 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.855 ; gain = 0.000 ; free physical = 8642 ; free virtual = 13372
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.855 ; gain = 0.000 ; free physical = 7199 ; free virtual = 13943
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 21 instances were transformed.
   FDR => FDRE: 8 instances
@@ -2047,12 +2048,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRL16 => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-251 Infos, 119 Warnings, 2 Critical Warnings and 0 Errors encountered.
+252 Infos, 119 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:55 . Memory (MB): peak = 2029.855 ; gain = 639.867 ; free physical = 8861 ; free virtual = 13591
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.855 ; gain = 0.000 ; free physical = 8861 ; free virtual = 13591
+synth_design: Time (s): cpu = 00:01:15 ; elapsed = 00:01:28 . Memory (MB): peak = 2029.855 ; gain = 639.867 ; free physical = 7416 ; free virtual = 14160
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.855 ; gain = 0.000 ; free physical = 7416 ; free virtual = 14160
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/andrea/SE_workspace/GPIOWithInterrupt/GPIOWithInterrupt.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May  7 12:48:31 2019...
+INFO: [Common 17-206] Exiting Vivado at Mon Jul  1 21:46:14 2019...

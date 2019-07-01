@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
---Date        : Tue May  7 12:44:12 2019
+--Date        : Mon Jul  1 21:44:32 2019
 --Host        : andrea-X580VD running 64-bit Ubuntu 18.04.2 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1489,6 +1489,14 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_50M_0;
+  component design_1_xlconcat_0_0 is
+  port (
+    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    In2 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    dout : out STD_LOGIC_VECTOR ( 2 downto 0 )
+  );
+  end component design_1_xlconcat_0_0;
   component design_1_GPIO_0_0 is
   port (
     pads : inout STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -1570,14 +1578,6 @@ architecture STRUCTURE of design_1 is
     s00_axi_aresetn : in STD_LOGIC
   );
   end component design_1_GPIO_2_0;
-  component design_1_xlconcat_0_0 is
-  port (
-    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    In2 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 2 downto 0 )
-  );
-  end component design_1_xlconcat_0_0;
   signal GPIO_0_interrupt : STD_LOGIC;
   signal GPIO_1_interrupt : STD_LOGIC;
   signal GPIO_2_interrupt : STD_LOGIC;

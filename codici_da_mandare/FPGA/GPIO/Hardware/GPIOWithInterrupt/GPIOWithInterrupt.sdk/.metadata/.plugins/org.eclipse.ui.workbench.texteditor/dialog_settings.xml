@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="DEVICE_ID" key="selection"/>
+		<item value="GPIO" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="UART"/>
 			<item value="device_id"/>
 			<item value="MYINTGPIO_mWriteReg"/>
 			<item value="MYINTGPIO_mReadReg"/>
@@ -16,6 +17,7 @@
 			<item value="FABRIC"/>
 		</list>
 		<list key="replacehistory">
+			<item value="GPIO"/>
 			<item value="GPIO_mWriteReg"/>
 			<item value="GPIO_mReadReg"/>
 			<item value="XPAR_FABRIC_GPIO_0_INTERRUPT_INTR"/>

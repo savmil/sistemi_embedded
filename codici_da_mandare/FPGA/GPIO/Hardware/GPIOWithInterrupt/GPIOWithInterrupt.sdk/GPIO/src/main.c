@@ -7,12 +7,16 @@
 #include "xil_types.h"
 #include "xscugic.h"
 
-#define INTC_DEVICE_ID		XPAR_SCUGIC_0_DEVICE_ID
+#define INTC_DEVICE_ID			XPAR_SCUGIC_0_DEVICE_ID
 #define BASE_ADDR_GPIO0			0x43C00000
 #define BASE_ADDR_GPIO1			0x43C10000
 #define BASE_ADDR_GPIO2			0x43C20000
-
-
+/*******************************************************************************
+*
+*				MAIN TEST DEL DISPOSITIVO GPIO.
+*				SWITCH E BUTTON PER TESTARE
+*
+***********************************************************************************/
 myIntGPIO GPIO_Switch,GPIO_Button,GPIO_Led;
 
 volatile static int InterruptProcessed = FALSE;
@@ -23,10 +27,11 @@ void LedISR();
 
 int SetupInterrupt(){
 
+	int Status;
 	XScuGic InterruptController;
 	XScuGic_Config *GicConfig;
-	int Status;
 
+	/*configurazione del GIC*/
 	GicConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
 	Status = XScuGic_CfgInitialize(&InterruptController,GicConfig, GicConfig->CpuBaseAddress);
 	if ( Status != XST_SUCCESS) return XST_FAILURE;
@@ -35,6 +40,8 @@ int SetupInterrupt(){
 			(Xil_ExceptionHandler)XScuGic_InterruptHandler,&InterruptController);
 	Xil_ExceptionEnable();
 
+
+	/* Mappa l'handler alla corrispondente linea di interruzione del GIC */
 	Status = XScuGic_Connect(&InterruptController,XPAR_FABRIC_GPIO_0_INTERRUPT_INTR,
 			(Xil_ExceptionHandler)SwitchISR,(void *)&InterruptController);
 	if ( Status != XST_SUCCESS) return XST_FAILURE;
@@ -48,6 +55,7 @@ int SetupInterrupt(){
 	if ( Status != XST_SUCCESS) return XST_FAILURE;
 
 
+	/*abilita la corrispondente linea di interruzione del GIC */
 	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_0_INTERRUPT_INTR);
 	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_1_INTERRUPT_INTR);
 	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_2_INTERRUPT_INTR);
@@ -62,11 +70,12 @@ int main(void){
 
 	SetupInterrupt();
 
+	/*init dei GPIO */
 	XGPIO_Init(&GPIO_Switch, BASE_ADDR_GPIO0);
 	XGPIO_Init(&GPIO_Button, BASE_ADDR_GPIO1);
 	XGPIO_Init(&GPIO_Led, BASE_ADDR_GPIO2);
 
-
+	/*abilitazione di tutte le linee interne e delle interruzioni locali */
 	XGPIO_EnableInterrupt(&GPIO_Switch,0xF);
 	XGPIO_GlobalEnableInterrupt(&GPIO_Switch,0x01);
 
@@ -87,25 +96,28 @@ int main(void){
 }
 
 void SwitchISR(){
-	XGPIO_DisableInterrupt(&GPIO_Switch,0x01);
+	XGPIO_GlobalDisableInterrupt(&GPIO_Switch,0x01);
 	InterruptProcessed = TRUE;
 	print("\n\n**********ISR SWITCH***********\n\n");
-	XGPIO_ACK(&GPIO_Switch,0x0F);
-	XGPIO_EnableInterrupt(&GPIO_Switch,0x01);
+	uint8_t pendingReg = XGPIO_GetPending(&GPIO_Switch);
+	XGPIO_ACK(&GPIO_Switch,pendingReg);
+	XGPIO_GlobalEnableInterrupt(&GPIO_Switch,0x01);
 }
 
 void ButtonISR(){
-	XGPIO_DisableInterrupt(&GPIO_Button,0x01);
+	XGPIO_GlobalDisableInterrupt(&GPIO_Button,0x01);
 	InterruptProcessed = TRUE;
 	print("\n\n**********ISR BUTTON***********\n\n");
-	XGPIO_ACK(&GPIO_Button,0x0F);
-	XGPIO_EnableInterrupt(&GPIO_Button,0x01);
+	uint8_t pendingReg = XGPIO_GetPending(&GPIO_Button);
+	XGPIO_ACK(&GPIO_Button,pendingReg);
+	XGPIO_GlobalEnableInterrupt(&GPIO_Button,0x01);
 }
 
 void LedISR(){
-	XGPIO_DisableInterrupt(&GPIO_Led,0x01);
+	XGPIO_GlobalDisableInterrupt(&GPIO_Led,0x01);
 	InterruptProcessed = TRUE;
 	print("\n\n**********ISR LED***********\n\n");
-	XGPIO_ACK(&GPIO_Led,0x0F);
-	XGPIO_EnableInterrupt(&GPIO_Led,0x01);
+	uint8_t pendingReg = XGPIO_GetPending(&GPIO_Led);
+	XGPIO_ACK(&GPIO_Led,pendingReg);
+	XGPIO_GlobalEnableInterrupt(&GPIO_Led,0x01);
 }
