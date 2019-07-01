@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,6 +54,9 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -72,8 +75,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -103,7 +104,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -116,10 +116,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -1051,9 +1048,7 @@ status open
 
 \begin_layout Plain Layout
 
-
-\backslash
-begin{lstlisting}[language=VHDL]     
+     
 \end_layout
 
 \begin_layout Plain Layout
@@ -1139,17 +1134,6 @@ begin{lstlisting}[language=VHDL]
     end process;
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\end_layout
-
 \end_inset
 
 
@@ -1181,6 +1165,299 @@ Driver Kernel Mode
 Per una spiegazione più dettagliata della scrittura del driver sottoforma
  di modulo kernel si rimanda alla sezione corrispondente del precedente
  capitolo.
+ Per l'astrazione del nostro device UART si è realizzata una struct, definita
+ nel file UART.h, che contiene tutte le informazioni necessarie per la gestione
+ del dispositivo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Stuttura che astrae un device UART in kernel-mode.
+\end_layout
+
+\begin_layout Plain Layout
+
+ * Contiene ciò che è necessario al funzionamento del driver.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+typedef struct {
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Major e minor number associati al device (M: identifica il driver associato
+ al device; m: utilizzato dal driver per discriminare il singolo device
+ tra quelli a lui associati) */
+\end_layout
+
+\begin_layout Plain Layout
+
+	dev_t Mm;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore a struttura platform_device cui l'oggetto UART si riferisce
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct platform_device *pdev; 
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Stuttura per l'astrazione di un device a caratteri */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct cdev cdev;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore alla struttura che rappresenta l'istanza del device */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct device* dev;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore a struttura che rappresenta una vista alto livello del device
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct class*  class;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Interrupt-number a cui il device è connesso */
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t irqNumber;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore alla regione di memoria cui il device è mappato */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct resource *mreg;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Device Resource Structure */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct resource res;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Maschera delle interruzioni interne attive per il device */
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t irq_mask;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** res.end - res.start; numero di indirizzi associati alla periferica.
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t res_size;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Indirizzo base virtuale della periferica */
+\end_layout
+
+\begin_layout Plain Layout
+
+	void __iomem *vrtl_addr;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** wait queue per la sys-call read() */
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait_queue_head_t read_queue;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** wait queue per la sys-call poll()*/			
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait_queue_head_t poll_queue;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** wait queue per la sys-call write()*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait_queue_head_t write_queue;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Flag che indica, quando asserito, la possibilità di effettuale una chiamata
+ a read*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t can_read;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Flag che indica, quando asserito, la possibilità di effettuale una chiamata
+ a write*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t can_write;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile
+ can_read*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	spinlock_t slock_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile
+ can_write*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	spinlock_t write_lock;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Buffer utilizzato per contenere i caratteri da trasmettere*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint8_t * buffer_tx;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Buffer utilizzato per contenere i caratteri da ricevere*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint8_t * buffer_rx;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Contatore del numero di caratteri trasmessi*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t tx_count;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Contatore del numero di caratteri ricevuti*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t rx_count;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Dimensione dei buffer ricezione/trasmissione*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t buffer_size;
+\end_layout
+
+\begin_layout Plain Layout
+
+} UART;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per le funzioni necessarie all'interfacciamento con il device si rimanda
+ alla documentazione interna.
+ Il device è stato gestito come un 
+\series bold
+character device
+\series default
+.
  Vengono analizzate nel seguito le funzionalità delle system-call offerte
  dal modulo:
 \end_layout
