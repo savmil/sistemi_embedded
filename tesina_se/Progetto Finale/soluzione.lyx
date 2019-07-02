@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -205,9 +205,6 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -226,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -255,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -344,6 +347,141 @@ I2C può essere utilizzato sia in modalità multislave che in modalità multimas
  CAN è un bus puramente multimaster.
 \end_layout
 
+\begin_layout Standard
+I collegamenti tra le board per testare il funzionamento dell' applicativo
+ sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+UART
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/UART.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I2C
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/I2C_pin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SPI
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/SPI_pin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Architettura Software
 \end_layout
@@ -415,15 +553,25 @@ Send_CRC: prende in ingresso un puntatore al buffer contenente il messaggio
  Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
 i la funzione ritornerà il valore -1, negando dunque la trasmissione.
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="5">
 <features tabularvalignment="middle">
@@ -655,6 +803,7 @@ Configure_Peripheral: prende in ingresso una maschera che indica i canali
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -664,6 +813,19 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename images/livelli.png
 	scale 50
@@ -698,11 +860,25 @@ one e l'interfacciamento con le varie periferiche utilizzate.
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename images/includes.png
 	scale 50

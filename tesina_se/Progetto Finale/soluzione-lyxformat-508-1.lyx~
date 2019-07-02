@@ -1,28 +1,11 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass book
 \begin_preamble
-% LOGO
-\usepackage{eso-pic,graphicx}
-\makeatletter
-\newcommand\BackgroundPicture[2]{
-\setlength{\unitlength}{1pt}
-\put(0,\strip@pt\paperheight){
-\parbox[t][\paperheight]{\paperwidth}{
-\vfill
-\centering\includegraphics[angle=#2]{#1}
-\vfill
-}
-}
-}
-\makeatother
-%Per i marigini
-\sloppy
-
 \usepackage{listings,xcolor,courier,bookmark}
 \usepackage{listingsutf8}
 \definecolor{darkblue}{named}{blue}
@@ -56,17 +39,20 @@ morecomment=[s]{--}
 
 \renewcommand*{\lstlistingname}{Codice Componente}
 
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\fancyhead{} % cancella tutti i campi
-\fancyfoot{} % cancella tutti i campi
+\fancyhead{} 
+\fancyfoot{} 
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Elaborato di ASE: Architettura dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
 \cfoot{}
 \usepackage{tikz}
 \usetikzlibrary{matrix,calc}
@@ -128,7 +114,7 @@ morecomment=[s]{--}
 {
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
 \draw (0,0) grid (4,4);
-\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {cd} node [pos=0.7,below left,anchor=north east] {ab} ++(135:1);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {zv} node [pos=0.7,below left,anchor=north east] {xy} ++(135:1);
 %
 \matrix (mapa) [matrix of nodes,
         column sep={0.8cm,between origins},
@@ -219,14 +205,12 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
-\hypersetup{hidelinks}
-\usepackage[italian]{varioref}
-\usepackage{caption}
-\colorlet{BLACK}{black}
-\captionsetup{tableposition=top,figureposition=bottom,font=small,format=hang,labelfont={sf,bf}}
-\usepackage{hyperref}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
+\master Tesina.lyx
 \maintain_unincluded_children false
 \language italian
 \language_package default
@@ -236,20 +220,18 @@ morecomment=[s]{--}
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
-\font_default_family rmdefault
+\font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize 12
+\paperfontsize default
 \spacing single
 \use_hyperref false
 \papersize default
@@ -273,7 +255,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -285,11 +266,8 @@ morecomment=[s]{--}
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\paragraph_indentation 0bp
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -302,114 +280,106 @@ morecomment=[s]{--}
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Utilizzare questo file per generare il pdf dell'intera tesina
+\begin_layout Section
+Scelte Progettuali
 \end_layout
 
+\begin_layout Subsection
+Modalità di Trasmissione
+\end_layout
+
+\begin_layout Standard
+La trasmissione può essere effettuata con tre modalità differenti: unicast,
+ multicast e broadcast.
+\end_layout
+
+\begin_layout Itemize
+Unicast: il nodo master manda il messaggio ad un solo nodo destinatario.
+ Per la trasmissione in questa modalità sono disponibili tutte le periferiche.
+\end_layout
+
+\begin_layout Itemize
+Multicast: il nodo master manda il messaggio ad un insieme di nodi identificato
+ da un unico indirizzo detto indirizzo del gruppo.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Itemize
+Broadcast: il nodo master manda il mesaggio a tutti i nodi collegati al
+ bus.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Subsection
+Configurazione della Rete
+\end_layout
+
+\begin_layout Standard
+Le periferiche, fatta eccezione per la seriale 
+\begin_inset Quotes eld
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{frontmatter}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{Roman}
-\end_layout
-
+point to point
+\begin_inset Quotes erd
 \end_inset
 
-
+ UART, offrono diverse possibilità riguardo la configurazione della rete.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il numero del gruppo nel tag title
+I2C può essere utilizzato sia in modalità multislave che in modalità multimaster.
+ Nella prima solo un nodo può controllare il bus, dunque gli altri nodi
+ non possono prendere iniziativa di trasmissione se non sotto richiesta
+ del master.
+ Nella seconda modalità invece ogni nodo può essere master, per cui è richiesto
+ un arbitraggio del bus.
+ Nel caso specifico è stata scelta la prima modalità, per cui ogni invio
+ sul canale I2C viene effettuato in modalità master e ogni ricezione in
+ modalità slave.
+ Per quanto riguarda invece SPI è stata scelta la modalità multislave, poichè
+ la modalità multimaster sarebbe realizzabile solo predisponendo due Slave
+ Select per ogni coppia di nodi.
+ CAN è un bus puramente multimaster.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-title{} 
-\end_layout
-
-\end_inset
-
-
+\begin_layout Subsection
+Architettura Software
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il nome dei componenti del gruppo
-\end_layout
-
-\end_inset
-
-
+L'architettura software, come richiesto, è composta da due livelli.
+ Il livello più alto astrae le primitive che regolano il funzionamento dell'appl
+icazione, ovvero:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-author{
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
+\begin_inset listings
+lstparams "language=C"
+inline false
 status open
 
 \begin_layout Plain Layout
 
+void CRC_Check(uint32_t * ReceivedFrame);
+\end_layout
 
-\backslash
-maketitle
+\begin_layout Plain Layout
+
+uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t
+ mode);
+\end_layout
+
+\begin_layout Plain Layout
+
+void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t
+ groupAddress);
 \end_layout
 
 \end_inset
@@ -417,137 +387,339 @@ maketitle
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
+\begin_layout Itemize
+CRC_Check: prende in ingresso un puntatore al buffer contenente il messaggio
+ ricevuto.
+ Quest'ultimo è composto dal payload e dai due CRC di 32 bit calcolati dal
+ nodo che ha trasmesso il messaggio.
+ La funzione calcola i due CRC relativi al payload ricevuto e li confronta
+ con quelli ricevuti, se sono uguali accende i led 10 e 3 di colore verde.
+\end_layout
+
+\begin_layout Itemize
+Receive_CRC: prende in ingresso un puntatore al buffer che verrà utilizzato
+ per salvare il messaggio ricevuto, una maschera che indica i canali sui
+ quali effettuare la ricezione e il parametro address, utilizzato nel caso
+ la trasmissione sia richiesta su SPI per effettuare il matching con il
+ corrispondente segnale di Slave Select.
+\end_layout
+
+\begin_layout Itemize
+Send_CRC: prende in ingresso un puntatore al buffer contenente il messaggio
+ da trasmettere, l'indirizzo del nodo destinazione (utilizzato solo da I2C,
+ SPI e CAN), una maschera che indica su quali canali effettuare la trasmissione
+ e la modalità di trasmissione.
+ Nel precedente paragrafo è stato evidenziato il fatto che l'unico canale
+ su cui è possibile effettuare una cominucazione in modalità multicast e
+ broadcast risulti essere CAN.
+ Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
+i la funzione ritornerà il valore -1, negando dunque la trasmissione.
+\begin_inset Float table
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
 
-
-\backslash
-setcounter{page}{1}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{frontmatter}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Copiare l'input per ogni esercizio svolto in modo da includerlo nel PDF
- della tesina.
- Modificare il path come di seguito:
 \end_layout
 
 \begin_layout Plain Layout
-esercizio01/Tesina.lyx ->esercizio02/Tesina.lyx e così via.
- 
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-
-\end_layout
-
-\begin_layout Chapter
-Installare linux su zybo
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio01/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-GPIO
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio02/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
+\begin_layout Plain Layout
 UART
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "UART AXI/Tesina.lyx"
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I2C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UNICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BROADCAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Chapter
-Progetto finale
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Configure_Peripheral: prende in ingresso una maschera che indica i canali
+ da configurare, l'indirizzo del nodo e del gruppo a cui appartiene per
+ le inizializzazioni delle periferiche CAN e I2C.
+ Nel caso il nodo sia un master allora la periferica SPI verrà configurata
+ come tale, altrimenti come slave.
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Progetto Finale/Tesina.lyx"
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/livelli.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Architettura Software
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il secondo livello è composto da tutti i driver implementati per l'inizializzazi
+one e l'interfacciamento con le varie periferiche utilizzate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/includes.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 

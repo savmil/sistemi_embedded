@@ -6,23 +6,6 @@
 \origin unavailable
 \textclass book
 \begin_preamble
-% LOGO
-\usepackage{eso-pic,graphicx}
-\makeatletter
-\newcommand\BackgroundPicture[2]{
-\setlength{\unitlength}{1pt}
-\put(0,\strip@pt\paperheight){
-\parbox[t][\paperheight]{\paperwidth}{
-\vfill
-\centering\includegraphics[angle=#2]{#1}
-\vfill
-}
-}
-}
-\makeatother
-%Per i marigini
-\sloppy
-
 \usepackage{listings,xcolor,courier,bookmark}
 \usepackage{listingsutf8}
 \definecolor{darkblue}{named}{blue}
@@ -56,17 +39,20 @@ morecomment=[s]{--}
 
 \renewcommand*{\lstlistingname}{Codice Componente}
 
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\fancyhead{} % cancella tutti i campi
-\fancyfoot{} % cancella tutti i campi
+\fancyhead{} 
+\fancyfoot{} 
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Elaborato di ASE: Architettura dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
 \cfoot{}
 \usepackage{tikz}
 \usetikzlibrary{matrix,calc}
@@ -128,7 +114,7 @@ morecomment=[s]{--}
 {
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
 \draw (0,0) grid (4,4);
-\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {cd} node [pos=0.7,below left,anchor=north east] {ab} ++(135:1);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {zv} node [pos=0.7,below left,anchor=north east] {xy} ++(135:1);
 %
 \matrix (mapa) [matrix of nodes,
         column sep={0.8cm,between origins},
@@ -219,14 +205,9 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
-\hypersetup{hidelinks}
-\usepackage[italian]{varioref}
-\usepackage{caption}
-\colorlet{BLACK}{black}
-\captionsetup{tableposition=top,figureposition=bottom,font=small,format=hang,labelfont={sf,bf}}
-\usepackage{hyperref}
 \end_preamble
 \use_default_options true
+\master Tesina.lyx
 \maintain_unincluded_children false
 \language italian
 \language_package default
@@ -236,7 +217,7 @@ morecomment=[s]{--}
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
-\font_default_family rmdefault
+\font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -249,7 +230,7 @@ morecomment=[s]{--}
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize 12
+\paperfontsize default
 \spacing single
 \use_hyperref false
 \papersize default
@@ -285,7 +266,7 @@ morecomment=[s]{--}
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
+\paragraph_indentation 0bp
 \is_math_indent 0
 \math_numbering_side default
 \quotes_style english
@@ -302,256 +283,469 @@ morecomment=[s]{--}
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Utilizzare questo file per generare il pdf dell'intera tesina
-\end_layout
-
-\end_inset
-
-
+\begin_layout Section
+Periferiche
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{frontmatter}
+Nel seguito vengono presentate le principali caratteristiche delle connessioni
+ utizzate all'interno del progetto.
 \end_layout
 
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{Roman}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il numero del gruppo nel tag title
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-title{} 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il nome dei componenti del gruppo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-author{
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-maketitle
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-setcounter{page}{1}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{frontmatter}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Copiare l'input per ogni esercizio svolto in modo da includerlo nel PDF
- della tesina.
- Modificare il path come di seguito:
-\end_layout
-
-\begin_layout Plain Layout
-esercizio01/Tesina.lyx ->esercizio02/Tesina.lyx e così via.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Installare linux su zybo
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio01/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-GPIO
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio02/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
+\begin_layout Subsection
 UART
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "UART AXI/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Progetto finale
+UART è un protocollo asincrono in cui la comunicazione è solamente punto
+ punto, ha bisogno solamente due fili per la comunicazione, a cui bisogna
+ aggiungere il cavo per potarle allo stesso potenziale affinché sia possibile
+ capire se è stato inviato un valore 1 oppure 0 come mostrato in figura.
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Progetto Finale/Tesina.lyx"
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
 
 \end_inset
 
 
+\begin_inset Graphics
+	filename images/UART_connessione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un esempio di comunicazione è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/uart_trasmissione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La comunicazione inzia con un bit di start, che consiste in una transizione
+ da un valore logico 1 ad uno che valga 0, dopodiché vengono inviati i successiv
+i otto bit di informazione, un bit di parità ed un bit di stop che indica
+ la fine della trasmissione.
+\end_layout
+
+\begin_layout Standard
+Viene effettuata la lettura di un valore dal ricevitore di solito a metà
+ periodo di trasmissione di un bit, ciò può avvenire perché la velocità
+ di comunicazione e nota tra i due dispositivi ed è misurata in baud.
+\end_layout
+
+\begin_layout Standard
+Gli errori nella comunicazione possono essere di tre tipi:
+\end_layout
+
+\begin_layout Enumerate
+Parity, se il bit di parità non è corretto;
+\end_layout
+
+\begin_layout Enumerate
+Overrun, quando arriva il successivo bit senza che si sia campionato il
+ precedente;
+\end_layout
+
+\begin_layout Enumerate
+Frame error, non viene rilevato lo stop quando dovrebbe arrivare;
+\end_layout
+
+\begin_layout Subsection
+Spi
+\end_layout
+
+\begin_layout Standard
+Spi è un protocollo singolo master e multi slave che sono collegabili utilizzand
+o il seguente schema
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/SPI_Schema.gif
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il device master si collega agli slave, con i pin SCLK che corrisponde al
+ clock che tempifica la comunicazione, MOSI (master output slave input)
+ l' interfaccia che invia i dati dal master allo slave, MISO (master input
+ slave output) l' interfaccia che invia i dati dallo slave al master e SS
+ (slave select), il cui scopo consiste nel selezionare lo slave con cui
+ comunicare, asserendo di solito uno zero logico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/spi_trasmissione.png
+	lyxscale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo aver selezionato la periferica asserendo lo slave select, ad ogni colpo
+ di clock il bit più significato dello shift register del master va ad occupare
+ il bit meno significativo dello shift register dello slave, la stessa cosa
+ avviene per il bit più significato contenuto dallo slave.
+\end_layout
+
+\begin_layout Subsection
+I2C
+\end_layout
+
+\begin_layout Standard
+I2C è un protocollo sincrono, multimaster e multislave a differenza di SPI
+ utilizza un numero di connessione minore per inviare dati
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/i2c_collegamenti.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SCL è l' interfaccia utilizzata dal master per temporizzare la comunicazione
+ mente invece SDA viene utilizzata per inviare i dati.
+\end_layout
+
+\begin_layout Standard
+Una comunicazione I2C di solito consta di questa sequenza
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/I2C_trasmissione.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Lo start bit è dato da uno zero logico presente sull' interfaccia dato ed
+ un successivo abbassamento della linea di clock, dopodiché ad ogni oscillazione
+ del clock viene inviato un bit sul pin SDA, il primo dato inviato consiste
+ nell' indirizzo della periferica con cui parlare seguito dal tipo di operazione
+ se di lettura o di scrittua, se la comunicazione è andata a buon fine si
+ riceve un ack, sull' interfaccia SDA dopo l' invio dell' ultimo bit si
+ trova uno 0, dopodiché è possibile inviare un dato allo stesso in cui si
+ invia un indirizzo, la comunicazione termina quando il clock viene settato
+ ad un 1 logico e il pin SDA si pone allo stesso stato.
+\end_layout
+
+\begin_layout Subsection
+CAN
+\end_layout
+
+\begin_layout Standard
+Bus utilizzato solitamente nel campo automotive è di tipo asincrono, multimaster
+ e multislave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/CAN_collegamento.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I dispositivi si collegano tra di loro utilizzando solamente due collegamenti
+ CANL e CANH, tali valori sono pilotati al fine di generare uno 0 o 1 fisico
+ sulla linea di comunicazione, poiché si asserisce uno zero quando la differenza
+ tra CANH e CANL è maggiore di una determinata soglia, mentre invece si
+ asserisce uno quando tale differenza è zero.
+\end_layout
+
+\begin_layout Standard
+Il valore fisico 0 viene detto bit dominante, invece un 1 viene detto bit
+ recessivo, possiamo capire il perché di questi nomi osservando un esempio
+ di comunicazione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/CAN_trasmissione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I frame inviati sul bus CAN hanno la struttura mostrata in figura, le parti
+ di maggiore importanza consistono nel bit di inizio frame, l' indirizzo
+ del nodo da voler contattare (o del gruppo poiché possiamo assegnare lo
+ stesso indirizzo ad un insieme di dispositivi) il dato, il campo del CRC
+ per controllare che la trasmissione sia andata a buon fine è l' end of
+ frame.
+\end_layout
+
+\begin_layout Standard
+Il bit 0 viene detto dominante poiché se nello stesso momento sul bus un
+ altro dispositivo invia un 1, su quest'ultimo verrà forzato uno 0, avendo
+ poi i dispositivi la possibilità di leggere il valore sul bus oltre che
+ quello di imporre un valore su di esso, se questi leggono un valore diverso
+ da quello che hanno settato il dispositivo non continua la trasmissione
+ poiché nel protocollo CAN l' indirizzo avente il valore più basso ha la
+ priorita maggiore (un indirizzo di soli 0 ha priorità massima).
+\end_layout
+
+\begin_layout Standard
+Di CAN ne esiste una versione successiva a questa in cui l' indirizzo è
+ formato da 29 bit invece di 11.
+\end_layout
+
+\begin_layout Subsection
+CRC
+\end_layout
+
+\begin_layout Standard
+Il CRC è una tecnica utilizzata per la rilevazione  di errori che possono
+ occorrere durante la trasmissione di una sequenza di bit.
 \end_layout
 
 \end_body

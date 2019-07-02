@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -205,9 +205,6 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -226,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -255,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -738,6 +741,24 @@ Di CAN ne esiste una versione successiva a questa in cui l' indirizzo è
 
 \begin_layout Subsection
 CRC
+\end_layout
+
+\begin_layout Standard
+Il CRC è una tecnica utilizzata per la rilevazione di errori che possono
+ occorrere durante la trasmissione di una sequenza di bit.
+\end_layout
+
+\begin_layout Standard
+L' algoritmo consiste nel dividere la sequenza di bit che vogliamo inviare,
+ per un polinomio divisore che deve essere conosciuto dal trasmettitore
+ e dal ricevitore affinchè questo possa rilevare l' errore.
+\end_layout
+
+\begin_layout Standard
+Di algoritmi per il calcolo del CRC ne esistono tanti poiché differiscono
+ dal polinomio utilizzato o in alcuni casi vi sono procedure pre-CRC che
+ fanno restituire un resto dalla operazione di divisione con peculiarità
+ che sono utili per determinare gli errori riscontrati.
 \end_layout
 
 \end_body
