@@ -404,6 +404,7 @@ I2C
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -445,6 +446,7 @@ SPI
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -897,6 +899,550 @@ centering
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsubsection
+CAN
+\end_layout
+
+\begin_layout Standard
+In CAN bisogna prestare particolarmente attenzione agli indirizzi che si
+ danno alle periferiche e di come questi vengono gestiti:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST; 
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;				   
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterIdHigh = nodeAddress<<5;								 
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterIdLow = groupAddress<<5;								
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel nostro caso abbiamo scelto di utilizzare la modalità id_list dei filtri,
+ cioè un nodo si ritiene destinatario di un messaggio solamente se l' indirizzo
+ di destinazione corrisponde ad no presente nella sua lista, gli indirizzi
+ che utilizziamo sono a 16 bit poiché il numero di periferiche utilizzate
+ non è eccessivo (avere un indirizzo di 16 bit vuol dire che stiamo inviando
+ i dati utilizzando il protocollo CAN A), dopodichè diamo alla board un
+ indirizzo per essere contattata come entitò singola o parte di un gruppo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TxHeader.StdId = address; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.ExtId = 0x00; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.RTR = CAN_RTR_DATA; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.IDE = CAN_ID_STD; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.DLC = 8; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.TransmitGlobalTime = DISABLE;
+\end_layout
+
+\begin_layout Plain Layout
+
+for(int i=0;i<BUFFER_SIZE/8;i++){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int j=0;j<8;j++){ 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		CanTx_Frame[j] = aTxBuffer[i*8+j]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		HAL_CAN_AddTxMessage(&CanHandle, &TxHeader, CanTx_Frame, &TxMailbox);
+\end_layout
+
+\begin_layout Plain Layout
+
+		HAL_Delay(50);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In figura viene mostrato come viene creato un frame CAN, inseriamo l' indirizzo
+ della periferica da contattare (notiamo che è supportato il protocollo
+ CAN B) , indichiamo che vogliamo inviare dei dati che utilizziamo un frame
+ CAN A, il numero di byte che vengono utilizzati per codificare il dato
+ e se utilizzare il time stamp.
+\end_layout
+
+\begin_layout Standard
+Creiamo tanti frame affinché possiamo trasmettere tutto il contenuto di
+ aTxBuffer ed aggiungiamo tale messaggio alla Mailbox di invio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_CAN_GetRxMessage(&CanHandle, CAN_RX_FIFO0, &RxHeader, CanRx_Frame);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if((RxHeader.RTR != CAN_RTR_DATA) ||  (RxHeader.IDE != CAN_ID_STD) ||(RxHeader.DLC
+ != 8)){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		Error_Handler(); 	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		BSP_LED_On(LED5); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(int k=0; k<8; k++){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			CAN_RxBuffer[rx_callback_count*8+k] = CanRx_Frame[k]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		}   
+\end_layout
+
+\begin_layout Plain Layout
+
+	rx_callback_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(rx_callback_count == CAN_CALLBACK_COUNT){ 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		uint32_t ReceivedData[FRAME_SIZE]; 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		Frame8to32(CAN_RxBuffer, ReceivedData); 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		CRC_Check(ReceivedData); }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando un messaggio CAN arriva al dispositivo viene attivata questa Callback
+ che come prima operazione preleva il frame dalla mailbox e controlla con
+ i campi del frame se il messaggio sia corretto e che il CRC ricevuto sia
+ corretto.
+\end_layout
+
+\begin_layout Subsubsection
+I2C
+\end_layout
+
+\begin_layout Standard
+Per quando riguarda I2C la parte importante riguarda l' assegnazione dell'
+ indirizzo da dare alla periferica, come mostrato nel codice
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hi2c2.Init.OwnAddress1 = nodeAddress;   
+\end_layout
+
+\begin_layout Plain Layout
+
+hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_10BIT;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la trasmissione semplicemente basta indicare chi contattare, cosa inviare
+ e quanto grande sia questo dato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HAL_I2C_Master_Transmit_IT(&hi2c2, (uint16_t) address,(uint8_t*) aTxBuffer,
+ BUFFER_SIZE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come possiamo notare la board quando invia lo fa da master del bus.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda la ricezione abbiamo un qualcosa di simile e riceviamo
+ da slave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HAL_I2C_Slave_Receive_IT(&hi2c2, (uint8_t *)I2C_RxBuffer, BUFFER_SIZE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+SPI
+\end_layout
+
+\begin_layout Standard
+Per SPI riguardo alla configurazione non ci sono particolari riflessione
+ da fare mentre invece è importante notare come si ricava qual è la periferica
+ da conttattare.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+uint16_t getSSPin(uint16_t address){ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return SPI_EN_OUTPUT_Pin; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questa funzione viene utilizzata per indicare quale pin di GPIO permette
+ di attivare lo slave select per contattare lo slave che vogliamo, si è
+ evitato di utilizzare il pin NSS fornito dal ST poiché quando vi sono più
+ periferiche a dover comunicare tale funzionalità non è robusta per questo
+ motivo utilizziao un pin di GPIO in modalità OUTPUT che adempie lo stesso
+ compito del NSS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#ifdef MASTER_BOARD 		
+\end_layout
+
+\begin_layout Plain Layout
+
+uint16_t slaveSelectPin = getSSPin(address); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port,slaveSelectPin , GPIO_PIN_RESET);
+\end_layout
+
+\begin_layout Plain Layout
+
+#else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+while(HAL_GPIO_ReadPin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_INPUT_Pin) != GPIO_PIN_RE
+SET){ 		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif /* MASTER_BOARD */
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se siamo master della comunicazione abilitiamo tale il pin di GPIO per comunicar
+e con quella board, invece lo slave attende fino a che quel pin non venga
+ inviato il segnale che il master voglia parlare con lui.
+\end_layout
+
+\begin_layout Standard
+Le funzioni per la ricezione e per la trasmisisone sono simile a quelle
+ della periferica I2C.
+\end_layout
+
+\begin_layout Subsubsection
+UART
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+huart2.Init.BaudRate = Baudrate;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.WordLength = UART_WORDLENGTH_8B;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.StopBits = UART_STOPBITS_1;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.Parity = UART_PARITY_NONE;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La configurazione di UART consiste nell' indicare la velocità di comunicazione
+ e la struttura del frame da inviare, il numero di bit per il dato, quanti
+ bit di stop e se utilizzare il bit di parità.
+\end_layout
+
+\begin_layout Standard
+Per la trasmissione vale lo stesso concetto visto in I2C e in SPI, mentre
+ invece per la ricezione prima di effettare la prossima aspettiamo che il
+ pin RX non sia più utilizzato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+while(HAL_UART_GetState(&huart2) == HAL_UART_STATE_BUSY_RX){ 				
+\end_layout
+
+\begin_layout Plain Layout
+
+	;; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (HAL_UART_Receive_IT(&huart2, (uint8_t *) UART_RxBuffer, BUFFER_SIZE)
+ != HAL_OK) 					
+\end_layout
+
+\begin_layout Plain Layout
+
+	Error_Handler(); 			
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+CRC
+\end_layout
+
+\begin_layout Standard
+Il CRC viene settato in modo tale da utilizzare i polinomi descritti nella
+ specifica
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_DISABLE; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.GeneratingPolynomial = CRC_Polynomial; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.CRCLength = CRC_POLYLENGTH_32B; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.DefaultInitValueUse = CRC_DefaultValue;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abbiamo dato anche la possibilità di utilizzare un valore di inizializzazione
+ nel caso in un successivo futuro questo dovesse essere richiesto.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
