@@ -281,376 +281,343 @@ morecomment=[s]{--}
 \begin_body
 
 \begin_layout Section
-Scelte Progettuali
+Periferiche
+\end_layout
+
+\begin_layout Standard
+Nel seguito vengono presentate le principali caratteristiche delle connessioni
+ utizzate all'interno del progetto.
 \end_layout
 
 \begin_layout Subsection
-Modalità di Trasmissione
-\end_layout
-
-\begin_layout Standard
-La trasmissione può essere effettuata con tre modalità differenti: unicast,
- multicast e broadcast.
-\end_layout
-
-\begin_layout Itemize
-Unicast: il nodo master manda il messaggio ad un solo nodo destinatario.
- Per la trasmissione in questa modalità sono disponibili tutte le periferiche.
-\end_layout
-
-\begin_layout Itemize
-Multicast: il nodo master manda il messaggio ad un insieme di nodi identificato
- da un unico indirizzo detto indirizzo del gruppo.
- Per la trasmissione in questa modalità è disponibile solo la periferica
- CAN.
-\end_layout
-
-\begin_layout Itemize
-Broadcast: il nodo master manda il mesaggio a tutti i nodi collegati al
- bus.
- Per la trasmissione in questa modalità è disponibile solo la periferica
- CAN.
-\end_layout
-
-\begin_layout Subsection
-Configurazione della Rete
-\end_layout
-
-\begin_layout Standard
-Le periferiche, fatta eccezione per la seriale 
-\begin_inset Quotes eld
-\end_inset
-
-point to point
-\begin_inset Quotes erd
-\end_inset
-
- UART, offrono diverse possibilità riguardo la configurazione della rete.
-\end_layout
-
-\begin_layout Standard
-I2C può essere utilizzato sia in modalità multislave che in modalità multimaster.
- Nella prima solo un nodo può controllare il bus, dunque gli altri nodi
- non possono prendere iniziativa di trasmissione se non sotto richiesta
- del master.
- Nella seconda modalità invece ogni nodo può essere master, per cui è richiesto
- un arbitraggio del bus.
- Nel caso specifico è stata scelta la prima modalità, per cui ogni invio
- sul canale I2C viene effettuato in modalità master e ogni ricezione in
- modalità slave.
- Per quanto riguarda invece SPI è stata scelta la modalità multislave, poichè
- la modalità multimaster sarebbe realizzabile solo predisponendo due Slave
- Select per ogni coppia di nodi.
- CAN è un bus puramente multimaster.
-\end_layout
-
-\begin_layout Subsection
-Architettura Software
-\end_layout
-
-\begin_layout Standard
-L'architettura software, come richiesto, è composta da due livelli.
- Il livello più alto astrae le primitive che regolano il funzionamento dell'appl
-icazione, ovvero:
-\end_layout
-
-\begin_layout Standard
-\begin_inset listings
-lstparams "language=C"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-void CRC_Check(uint32_t * ReceivedFrame);
-\end_layout
-
-\begin_layout Plain Layout
-
-uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address);
-\end_layout
-
-\begin_layout Plain Layout
-
-uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t
- mode);
-\end_layout
-
-\begin_layout Plain Layout
-
-void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t
- groupAddress);
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-CRC_Check: prende in ingresso un puntatore al buffer contenente il messaggio
- ricevuto.
- Quest'ultimo è composto dal payload e dai due CRC di 32 bit calcolati dal
- nodo che ha trasmesso il messaggio.
- La funzione calcola i due CRC relativi al payload ricevuto e li confronta
- con quelli ricevuti, se sono uguali accende i led 10 e 3 di colore verde.
-\end_layout
-
-\begin_layout Itemize
-Receive_CRC: prende in ingresso un puntatore al buffer che verrà utilizzato
- per salvare il messaggio ricevuto, una maschera che indica i canali sui
- quali effettuare la ricezione e il parametro address, utilizzato nel caso
- la trasmissione sia richiesta su SPI per effettuare il matching con il
- corrispondente segnale di Slave Select.
-\end_layout
-
-\begin_layout Itemize
-Send_CRC: prende in ingresso un puntatore al buffer contenente il messaggio
- da trasmettere, l'indirizzo del nodo destinazione (utilizzato solo da I2C,
- SPI e CAN), una maschera che indica su quali canali effettuare la trasmissione
- e la modalità di trasmissione.
- Nel precedente paragrafo è stato evidenziato il fatto che l'unico canale
- su cui è possibile effettuare una cominucazione in modalità multicast e
- broadcast risulti essere CAN.
- Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
-i la funzione ritornerà il valore -1, negando dunque la trasmissione.
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="5">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 UART
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Standard
+UART è un protocollo asincrono in cui la comunicazione è solamente punto
+ punto, ha bisogno solamente due fili per la comunicazione, a cui bisogna
+ aggiungere il cavo per potarle allo stesso potenziale affinché sia possibile
+ capire se è stato inviato un valore 1 oppure 0 come mostrato in figura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/UART_connessione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un esempio di comunicazione è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/uart_trasmissione.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La comunicazione inzia con un bit di start, che consiste in una transizione
+ da un valore logico 1 ad uno che valga 0, dopodiché vengono inviati i successiv
+i otto bit di informazione, un bit di parità ed un bit di stop che indica
+ la fine della trasmissione.
+\end_layout
+
+\begin_layout Standard
+Viene effettuata la lettura di un valore dal ricevitore di solito a metà
+ periodo di trasmissione di un bit, ciò può avvenire perché la velocità
+ di comunicazione e nota tra i due dispositivi ed è misurata in baud.
+\end_layout
+
+\begin_layout Standard
+Gli errori nella comunicazione possono essere di tre tipi:
+\end_layout
+
+\begin_layout Enumerate
+Parity, se il bit di parità non è corretto;
+\end_layout
+
+\begin_layout Enumerate
+Overrun, quando arriva il successivo bit senza che si sia campionato il
+ precedente;
+\end_layout
+
+\begin_layout Enumerate
+Frame error, non viene rilevato lo stop quando dovrebbe arrivare;
+\end_layout
+
+\begin_layout Subsection
+Spi
+\end_layout
+
+\begin_layout Standard
+Spi è un protocollo singolo master e multi slave che sono collegabili utilizzand
+o il seguente schema
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/SPI_Schema.gif
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il device master si collega agli slave, con i pin SCLK che corrisponde al
+ clock che tempifica la comunicazione, MOSI (master output slave input)
+ l' interfaccia che invia i dati dal master allo slave, MISO (master input
+ slave output) l' interfaccia che invia i dati dallo slave al master e SS
+ (slave select), il cui scopo consiste nel selezionare lo slave con cui
+ comunicare, asserendo di solito uno zero logico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/spi_trasmissione.png
+	lyxscale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo aver selezionato la periferica asserendo lo slave select, ad ogni colpo
+ di clock il bit più significato dello shift register del master va ad occupare
+ il bit meno significativo dello shift register dello slave, la stessa cosa
+ avviene per il bit più significato contenuto dallo slave.
+\end_layout
+
+\begin_layout Subsection
 I2C
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
+\begin_layout Standard
+I2C è un protocollo sincrono, multimaster e multislave a differenza di SPI
+ utilizza un numero di connessione minore per inviare dati
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
-SPI
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
 \end_layout
 
 \end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
+
+
+\begin_inset Graphics
+	filename images/i2c_collegamenti.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SCL è l' interfaccia utilizzata dal master per temporizzare la comunicazione
+ mente invece SDA viene utilizzata per inviare i dati.
+\end_layout
+
+\begin_layout Standard
+Una comunicazione I2C di solito consta di questa sequenza
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/I2C_trasmissione.png
+	lyxscale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Lo start bit è dato da uno zero logico presente sull' interfaccia dato ed
+ un successivo abbassamento della linea di clock, dopodiché ad ogni oscillazione
+ del clock viene inviato un bit sul pin SDA, il primo dato inviato consiste
+ nell' indirizzo della periferica con cui parlare seguito dal tipo di operazione
+ se di lettura o di scrittua, se la comunicazione è andata a buon fine si
+ riceve un ack, sull' interfaccia SDA dopo l' invio dell' ultimo bit si
+ trova uno 0, dopodiché è possibile inviare un dato allo stesso in cui si
+ invia un indirizzo, la comunicazione termina quando il clock viene settato
+ ad un 1 logico e il pin SDA si pone allo stesso stato.
+\end_layout
+
+\begin_layout Subsection
 CAN
 \end_layout
 
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-UNICAST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-MULTICAST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-BROADCAST
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✕
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-✓
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Configure_Peripheral: prende in ingresso una maschera che indica i canali
- da configurare, l'indirizzo del nodo e del gruppo a cui appartiene per
- le inizializzazioni delle periferiche CAN e I2C.
- Nel caso il nodo sia un master allora la periferica SPI verrà configurata
- come tale, altrimenti come slave.
+\begin_layout Standard
+Bus utilizzato solitamente nel campo automotive è di tipo asincrono, multimaster
+ e multislave.
 \end_layout
 
 \begin_layout Standard
@@ -664,25 +631,24 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
-	filename images/livelli.png
-	scale 50
+	filename images/CAN_collegamento.png
 
 \end_inset
 
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Architettura Software
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -692,8 +658,17 @@ Architettura Software
 \end_layout
 
 \begin_layout Standard
-Il secondo livello è composto da tutti i driver implementati per l'inizializzazi
-one e l'interfacciamento con le varie periferiche utilizzate.
+I dispositivi si collegano tra di loro utilizzando solamente due collegamenti
+ CANL e CANH, tali valori sono pilotati al fine di generare uno 0 o 1 fisico
+ sulla linea di comunicazione, poiché si asserisce uno zero quando la differenza
+ tra CANH e CANL è maggiore di una determinata soglia, mentre invece si
+ asserisce uno quando tale differenza è zero.
+\end_layout
+
+\begin_layout Standard
+Il valore fisico 0 viene detto bit dominante, invece un 1 viene detto bit
+ recessivo, possiamo capire il perché di questi nomi osservando un esempio
+ di comunicazione:
 \end_layout
 
 \begin_layout Standard
@@ -703,14 +678,30 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename images/includes.png
-	scale 50
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
 
 \end_inset
 
 
-\begin_inset Caption Standard
+\begin_inset Graphics
+	filename images/CAN_trasmissione.png
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 
@@ -721,9 +712,32 @@ status open
 
 \end_layout
 
-\end_inset
+\begin_layout Standard
+I frame inviati sul bus CAN hanno la struttura mostrata in figura, le parti
+ di maggiore importanza consistono nel bit di inizio frame, l' indirizzo
+ del nodo da voler contattare (o del gruppo poiché possiamo assegnare lo
+ stesso indirizzo ad un insieme di dispositivi) il dato, il campo del CRC
+ per controllare che la trasmissione sia andata a buon fine è l' end of
+ frame.
+\end_layout
 
+\begin_layout Standard
+Il bit 0 viene detto dominante poiché se nello stesso momento sul bus un
+ altro dispositivo invia un 1, su quest'ultimo verrà forzato uno 0, avendo
+ poi i dispositivi la possibilità di leggere il valore sul bus oltre che
+ quello di imporre un valore su di esso, se questi leggono un valore diverso
+ da quello che hanno settato il dispositivo non continua la trasmissione
+ poiché nel protocollo CAN l' indirizzo avente il valore più basso ha la
+ priorita maggiore (un indirizzo di soli 0 ha priorità massima).
+\end_layout
 
+\begin_layout Standard
+Di CAN ne esiste una versione successiva a questa in cui l' indirizzo è
+ formato da 29 bit invece di 11.
+\end_layout
+
+\begin_layout Subsection
+CRC
 \end_layout
 
 \end_body

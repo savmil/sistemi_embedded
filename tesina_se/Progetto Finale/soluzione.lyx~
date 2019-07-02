@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -205,6 +205,9 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -223,8 +226,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -254,7 +255,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,10 +267,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -284,54 +281,400 @@ morecomment=[s]{--}
 \begin_body
 
 \begin_layout Section
-Soluzione
-\end_layout
-
-\begin_layout Standard
-Il progetto è stato realizzato utilizzando delle board della ST Micro Eletronics
-, specificatamente le STMF3DISCOVERY, prima di addentrarci nelle soluzioni
- adottate per gestire la comunicazione ed il controllo del messaggio inviato,
- mostriamo i protocolli che governano le varie comunicazioni.
+Scelte Progettuali
 \end_layout
 
 \begin_layout Subsection
-Periferiche
+Modalità di Trasmissione
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
+La trasmissione può essere effettuata con tre modalità differenti: unicast,
+ multicast e broadcast.
+\end_layout
+
+\begin_layout Itemize
+Unicast: il nodo master manda il messaggio ad un solo nodo destinatario.
+ Per la trasmissione in questa modalità sono disponibili tutte le periferiche.
+\end_layout
+
+\begin_layout Itemize
+Multicast: il nodo master manda il messaggio ad un insieme di nodi identificato
+ da un unico indirizzo detto indirizzo del gruppo.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Itemize
+Broadcast: il nodo master manda il mesaggio a tutti i nodi collegati al
+ bus.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Subsection
+Configurazione della Rete
+\end_layout
+
+\begin_layout Standard
+Le periferiche, fatta eccezione per la seriale 
+\begin_inset Quotes eld
+\end_inset
+
+point to point
+\begin_inset Quotes erd
+\end_inset
+
+ UART, offrono diverse possibilità riguardo la configurazione della rete.
+\end_layout
+
+\begin_layout Standard
+I2C può essere utilizzato sia in modalità multislave che in modalità multimaster.
+ Nella prima solo un nodo può controllare il bus, dunque gli altri nodi
+ non possono prendere iniziativa di trasmissione se non sotto richiesta
+ del master.
+ Nella seconda modalità invece ogni nodo può essere master, per cui è richiesto
+ un arbitraggio del bus.
+ Nel caso specifico è stata scelta la prima modalità, per cui ogni invio
+ sul canale I2C viene effettuato in modalità master e ogni ricezione in
+ modalità slave.
+ Per quanto riguarda invece SPI è stata scelta la modalità multislave, poichè
+ la modalità multimaster sarebbe realizzabile solo predisponendo due Slave
+ Select per ogni coppia di nodi.
+ CAN è un bus puramente multimaster.
+\end_layout
+
+\begin_layout Subsection
+Architettura Software
+\end_layout
+
+\begin_layout Standard
+L'architettura software, come richiesto, è composta da due livelli.
+ Il livello più alto astrae le primitive che regolano il funzionamento dell'appl
+icazione, ovvero:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void CRC_Check(uint32_t * ReceivedFrame);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t
+ mode);
+\end_layout
+
+\begin_layout Plain Layout
+
+void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t
+ groupAddress);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CRC_Check: prende in ingresso un puntatore al buffer contenente il messaggio
+ ricevuto.
+ Quest'ultimo è composto dal payload e dai due CRC di 32 bit calcolati dal
+ nodo che ha trasmesso il messaggio.
+ La funzione calcola i due CRC relativi al payload ricevuto e li confronta
+ con quelli ricevuti, se sono uguali accende i led 10 e 3 di colore verde.
+\end_layout
+
+\begin_layout Itemize
+Receive_CRC: prende in ingresso un puntatore al buffer che verrà utilizzato
+ per salvare il messaggio ricevuto, una maschera che indica i canali sui
+ quali effettuare la ricezione e il parametro address, utilizzato nel caso
+ la trasmissione sia richiesta su SPI per effettuare il matching con il
+ corrispondente segnale di Slave Select.
+\end_layout
+
+\begin_layout Itemize
+Send_CRC: prende in ingresso un puntatore al buffer contenente il messaggio
+ da trasmettere, l'indirizzo del nodo destinazione (utilizzato solo da I2C,
+ SPI e CAN), una maschera che indica su quali canali effettuare la trasmissione
+ e la modalità di trasmissione.
+ Nel precedente paragrafo è stato evidenziato il fatto che l'unico canale
+ su cui è possibile effettuare una cominucazione in modalità multicast e
+ broadcast risulti essere CAN.
+ Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
+i la funzione ritornerà il valore -1, negando dunque la trasmissione.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 UART
 \end_layout
 
-\begin_layout Standard
-Uart è un protocollo che ha bisogno solamente due fili per la comunicazione,
- a cui bisogna aggiungere il cavo per potarle allo stesso potenziale affinché
- sia possibile capire se è stato inviato un valore 1 oppure 0 come mostrato
- in figura.
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I2C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UNICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BROADCAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Configure_Peripheral: prende in ingresso una maschera che indica i canali
+ da configurare, l'indirizzo del nodo e del gruppo a cui appartiene per
+ le inizializzazioni delle periferiche CAN e I2C.
+ Nel caso il nodo sia un master allora la periferica SPI verrà configurata
+ come tale, altrimenti come slave.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
-\backslash
-centering
 \end_layout
 
-\end_inset
-
-
+\begin_layout Plain Layout
 \begin_inset Graphics
-	filename images/UART_connessione.png
+	filename images/livelli.png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Architettura Software
+\end_layout
 
 \end_inset
 
@@ -344,81 +687,6 @@ centering
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Un esempio di comunicazione è il seguente:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename images/uart_trasmissione.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La comunicazione inzia con un bit di start, che consiste in una transizione
- da un valore logico 1 ad uno che valga 0, dopodiché vengono inviati i successiv
-i otto bit di informazione, un bit di parità ed un bit di stop che indica
- la fine della trasmissione.
-\end_layout
-
-\begin_layout Standard
-Viene effettuata la lettura di un valore dal ricevitore di solito a metà
- periodo di trasmissione di un bit, ciò può avvenire perché la velocità
- di comunicazione e nota tra i due dispositivi ed è misurata in baud.
-\end_layout
-
-\begin_layout Standard
-Gli errori nella comunicazione possono essere di tre tipi:
-\end_layout
-
-\begin_layout Enumerate
-Parity, se il bit di parità non è corretto;
-\end_layout
-
-\begin_layout Enumerate
-Overrun, quando arriva il successivo bit senza che si sia campionato il
- precedente;
-\end_layout
-
-\begin_layout Enumerate
-Frame error, non viene rilevato lo stop quando dovrebbe arrivare;
-\end_layout
-
-\begin_layout Enumerate
 
 \end_layout
 

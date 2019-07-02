@@ -190,6 +190,18 @@ filename "traccia.lyx"
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
+filename "periferiche.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand input
 filename "soluzione.lyx"
 
 \end_inset
