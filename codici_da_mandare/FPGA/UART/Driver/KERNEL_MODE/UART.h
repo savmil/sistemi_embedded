@@ -43,7 +43,6 @@ typedef struct {
 	uint32_t irqNumber; 		  		// 	Interrupt-number a cui il device è connesso 
 	struct resource *mreg;		  		//	Puntatore alla regione di memoria cui il device è mappato
 	struct resource res;          		//  Device Resource Structure 
-	uint32_t irq_mask;			  		//	Maschera delle interruzioni interne attive per il device 
 	uint32_t res_size; 		      		//	res.end - res.start; numero di indirizzi associati alla periferica. 
 	void __iomem *vrtl_addr; 	  		//	Indirizzo base virtuale della periferica 
 	wait_queue_head_t read_queue; 		//  wait queue per la sys-call read() 				
@@ -55,9 +54,6 @@ typedef struct {
 	spinlock_t write_lock;				//  Spinlock usato per garantire l'accesso in mutua esclusione alla variabile can_write
 	uint8_t * buffer_tx;				//  Buffer utilizzato per contenere i caratteri da trasmettere
 	uint8_t * buffer_rx;				//  Buffer utilizzato per contenere i caratteri da ricevere
-	uint32_t tx_count;					//  Contatore che indica il numero di caratteri trasmessi
-	uint32_t rx_count;					//  Contatore che indica il numero di caratteri ricevuti
-	uint32_t buffer_size;				//	Dimensione dei buffer ricezione/trasmissione
 } UART;
 
 int UART_Init(				UART* UART_device,
@@ -68,8 +64,8 @@ int UART_Init(				UART* UART_device,
 							const char* device_name,
 							uint32_t serial,
 							struct file_operations *f_pdevs,
-							irq_handler_t irq_handler,
-							uint32_t irq_mask);
+							irq_handler_t irq_handler
+							);
 
 void UART_Destroy(UART* device);
 

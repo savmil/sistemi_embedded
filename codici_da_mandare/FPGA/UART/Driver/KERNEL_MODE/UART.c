@@ -5,6 +5,9 @@
 #include <linux/poll.h>
 #include <linux/module.h>
 
+#include <asm/delay.h>
+#include <linux/delay.h>
+
 MODULE_LICENSE("GPL");
 /**
  * @file UART.c
@@ -36,8 +39,8 @@ int UART_Init(		UART* UART_device,
 					const char* device_name,
 					uint32_t serial,
 					struct file_operations *f_ops,
-					irq_handler_t irq_handler,
-					uint32_t irq_mask) {
+					irq_handler_t irq_handler)
+					{
 	int error = 0;
 	struct device *dev = NULL;
 
@@ -107,9 +110,7 @@ int UART_Init(		UART* UART_device,
 		printk(KERN_ERR "%s: request_irq() ha restituito %d\n", __func__, error);
 		goto irq_of_parse_and_map_error;
 	}
-	
-	UART_device->irq_mask = irq_mask;
-	
+		
 /* Inizializzazione della wait-queue per la system-call read(), poll() e write() */
 	
 	init_waitqueue_head(&UART_device->write_queue);
@@ -127,7 +128,6 @@ int UART_Init(		UART* UART_device,
 /* Abilitazione degli interrupt del device */
 	
  	UART_GlobalInterruptEnable(UART_device);
-	UART_InterruptEnable(UART_device, UART_device->irq_mask);
 	
 	goto no_error;
 
@@ -159,7 +159,7 @@ no_error:
 void UART_Destroy(UART* device) {
 	
 	UART_GlobalInterruptDisable(device);
-	UART_InterruptDisable(device, device->irq_mask);
+	UART_InterruptDisable(device, 3);
 
 	free_irq(device->irqNumber, NULL);
 	iounmap(device->vrtl_addr);
@@ -399,4 +399,5 @@ uint8_t UART_GetData(UART* device){
  */
 void UART_Start(UART* device){
 	iowrite32(0x00000001, (device->vrtl_addr + TX_EN));
+	udelay(100);
 }

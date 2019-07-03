@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <string.h> 
+#include <poll.h>
 #include "UART_interrupt_uio.h"
 /**
  * @file UART_interrupt_uio.c
@@ -23,7 +24,8 @@
 #define TX				1	
 #define RX				2
 
-#define INTR_MASK 3
+#define TIMEOUT			5000
+
 /**
  * @file UART_interrupt_uio.c
  * @page driver_UART_UIO
@@ -35,6 +37,7 @@ int tx_count, rx_count =0;
 int buffer_size = 0;
 char * buffer_tx;
 char * buffer_rx;
+struct pollfd poll_fds [2];
 
 /**
  *
@@ -76,98 +79,102 @@ unsigned int read_reg(void *addr, unsigned int offset)
  * @brief	Attende l' arrivo di un interrupt utilizzando la read 
  *			su un device UIO
  *
- * @param	file_descr descrittore del UIO driver
- * @param	addr indirizzo virtuale della periferica
- *
+ * @param	poll_fds struct contenente i due descrittori del file per 
+ *			i due device UART
+ * @param	uart_rx_ptr indirizzo virtuale della periferica UART utilizzata 
+ *			in ricezione
+ * @param   uart_tx_ptr indirizzo virtuale della periferica UART utilizzata 
+ *			in trasmissione
  *
  */
-void wait_for_interrupt(int file_descr, void *addr)
+void wait_for_interrupt(struct pollfd * poll_fds, void *uart_rx_ptr, void *uart_tx_ptr)
 {
-	
-	printf("Waiting for interrupts......");
-	
-	int i = 0;
-	int pending = 0;
+	int pending =0;
 	int reenable = 1;
 	u_int32_t pending_reg = 0;
 	u_int32_t reg_sent_data = 0;
 	u_int32_t reg_received_data = 0;
 	
-/* Attesa sul file descriptor in attesa di ricevere un'interruzione*/
-	read(file_descr, (void *)&pending, sizeof(int));
-/* Interruzione ricevuta*/
+	int ret = poll(poll_fds, 2, TIMEOUT);
+	if (ret > 0){
+			
+/** Se vi è un'interruzione sul device UIO0 associato all'UART per la ricezione */
+		if(poll_fds[0].revents && POLLIN){ 
+
+			read(poll_fds[0].fd, (void *)&pending, sizeof(int));
+			
+/* Disabilita le interruzioni */ 
+			write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 0); 
+		
+			pending_reg = read_reg(uart_rx_ptr, INTR_ACK_PEND);
+					
+			if((pending_reg & RX) == RX){
+
+				printf("ISR RX detected!\n");
+
+				if(rx_count <= buffer_size){
+					rx_count++;
+					reg_received_data = read_reg(uart_rx_ptr, RX_REG);
+					printf("ISR RX - value received: %c\n", reg_received_data);
+					buffer_rx[rx_count] = reg_received_data;
+				}
+/* ACK ricezione */	
+				write_reg(uart_rx_ptr, INTR_ACK_PEND, RX);
+				write_reg(uart_rx_ptr, INTR_ACK_PEND, 0); 
+/* Riabilitazione interruzioni*/
+				write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 1); 
+			}	
+/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema UIO */
+			write(poll_fds[0].fd, (void *)&reenable, sizeof(int));
+		}
+		
+/** Se vi è un'interruzione sul device UIO0 associato all'UART per la trasmissione */
+		if(poll_fds[1].revents && POLLIN){
+			
+			read(poll_fds[1].fd, (void *)&pending, sizeof(int));
 
 /* Disasserisce il transfer enable e disabilita le interruzioni */
-	write_reg(addr, TX_EN, 0); 
-	write_reg(addr, GLOBAL_INTR_EN, 0); 
-	
-	printf("IRQ detected!\n");
-	
-	pending_reg = read_reg(addr, INTR_ACK_PEND);
-//	printf("Pending reg: %08x\n", pending_reg); // STAMPA DEBUG
-	
-	if((pending_reg & 0x00000002) == 0x00000002){
-
-		printf("---ISR RX---\n");
+			write_reg(uart_tx_ptr, TX_EN, 0); 
+			write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 0); 
 		
-		if(rx_count <= buffer_size){
-			rx_count++;
-			reg_received_data = read_reg(addr, RX_REG);
-			printf("ISR RX - value received: %c\n", reg_received_data);
-			buffer_rx[rx_count] = reg_received_data;
+			pending_reg = read_reg(uart_tx_ptr, INTR_ACK_PEND);
+			
+			if((pending_reg & TX) == TX){
 
-			
-			if(rx_count == buffer_size){
-				printf("Trasmissione/Ricezione completata, valore ricevuto: ");
-				for(i=0; i<=rx_count; i++)
-					printf("%c",buffer_rx[i]);
-				printf("\n");
-			}
-		}
-/* ACK ricezione */	
-		write_reg(addr, INTR_ACK_PEND, RX); 
-		write_reg(addr, INTR_ACK_PEND, 0); 
-		
-/* Riabilitazione interruzioni*/
-		write_reg(addr, GLOBAL_INTR_EN, 1); 
-	}	
-	else if((pending_reg & 0x00000001) == 0x00000001){
+				printf("ISR TX Detected\n");
+				tx_count++;
 
-		printf("---ISR TX---\n");
-		tx_count++;
-		
-		if(tx_count < buffer_size){
-			
-			reg_sent_data = read_reg(addr, DATA_IN);
-			printf("ISR TX - value sent: %c\n", reg_sent_data);
-			printf("ISR TX - start sending next value: %c\n", buffer_tx[tx_count]);
-			write_reg(addr, DATA_IN, buffer_tx[tx_count]);
-			
+				if(tx_count <= buffer_size){
+
+					reg_sent_data = read_reg(uart_tx_ptr, DATA_IN);
+					printf("ISR TX - value sent: %c\n", reg_sent_data);
+					
 /* ACK trasmissione*/		
-			write_reg(addr, INTR_ACK_PEND, TX); 		 
+					write_reg(uart_tx_ptr, INTR_ACK_PEND, TX); 		 
+					write_reg(uart_tx_ptr, INTR_ACK_PEND, 0); 
+					
 /* Riabilitazione interruzioni*/
-			write_reg(addr, INTR_ACK_PEND, 0); 
-			write_reg(addr, GLOBAL_INTR_EN, 1); 
-/* Abilitazione del trasferimento */
-			write_reg(addr, TX_EN, 1); 
-		}
-		else{
-			write_reg(addr, INTR_ACK_PEND, TX); 
-			write_reg(addr, INTR_ACK_PEND, 0); 
-			write_reg(addr, GLOBAL_INTR_EN, 1); 
-		}
-	}	
-	
-/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema UIO */
-	
-	int ret = write(file_descr, (void *)&reenable, sizeof(int));
-	
-}
+					write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 1); 
 
+/* Abilitazione del trasferimento nuovo carattere */
+					if(tx_count != buffer_size){
+						printf("ISR TX - start sending next value: %c\n", buffer_tx[tx_count]);
+						write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);	
+						write_reg(uart_tx_ptr, TX_EN, 1); 
+					}
+				}	
+
+		}
+/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema UIO */
+		write(poll_fds[1].fd, (void *)&reenable, sizeof(int));
+	}
+}
+}	
 int main(int argc, char *argv[]){
 	
-	int j;
-	void *uart_ptr;
+	int j,i;
+	void * uart_rx_ptr;
+	void * uart_tx_ptr;
 	
 	int DIM = strlen(argv[1]);
 	buffer_size = DIM;	
@@ -176,36 +183,64 @@ int main(int argc, char *argv[]){
 	
 	buffer_tx = argv[1];
 	
-	int file_descr = open("/dev/uio0", O_RDWR);
-	if (file_descr < 1){
+	int rx_file_descr = open("/dev/uio0", O_RDWR);
+	if (rx_file_descr < 1){
 		printf("Errore nell'accesso al device UIO.\n");
 		return -1;
 	}
 	
 	unsigned dimensione_pag = sysconf(_SC_PAGESIZE);
-
-	uart_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED, file_descr, 0);
+	uart_rx_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED, rx_file_descr, 0);
 	
-	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.", buffer_tx, DIM);
-	
-/* Abilitazione interruzioni globali */
-	write_reg(uart_ptr, GLOBAL_INTR_EN, 1); 
-	
-/* Abilitazione interruzioni */
-	write_reg(uart_ptr, INTR_EN, INTR_MASK); 
-	
-/* Settaggio del primo carattere da mandare */
-	write_reg(uart_ptr, DATA_IN, buffer_tx[0]);
-	
-/* Abilitazione del trasferimento */
-	write_reg(uart_ptr, TX_EN, 1); 
-	
-	while(tx_count < buffer_size){
-		wait_for_interrupt(file_descr, uart_ptr);
+	int tx_file_descr = open("/dev/uio1", O_RDWR);
+	if (tx_file_descr < 1){
+		printf("Errore nell'accesso al device UIO.\n");
+		return -1;
 	}
 
-/* Fa l'unmap del device UART */
-	munmap(uart_ptr, dimensione_pag);
+	uart_tx_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED, tx_file_descr, 0);
+	
+	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.\n", buffer_tx, DIM);
+	
+/* Abilitazione interruzioni globali */
+	write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 1); 	
+/* Abilitazione interruzioni */
+	write_reg(uart_rx_ptr, INTR_EN, RX); 
+	
+/* Abilitazione interruzioni globali */
+	write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 1); 
+/* Abilitazione interruzioni */
+	write_reg(uart_tx_ptr, INTR_EN, TX); 	
+	
+/* Settaggio del primo carattere da mandare */
+	write_reg(uart_tx_ptr, DATA_IN, buffer_tx[0]);
+	
+/* Abilitazione del trasferimento */
+	write_reg(uart_tx_ptr, TX_EN, 1); 
+	
+	poll_fds[0].fd = rx_file_descr;
+	poll_fds[0].events = POLLIN;  
+	
+	poll_fds[1].fd = tx_file_descr;
+	poll_fds[1].events = POLLIN;
+	
+	while(tx_count < buffer_size){
+		 printf("Waiting for interrupts...... ");
+		//sleep(1);
+		wait_for_interrupt(poll_fds, uart_rx_ptr, uart_tx_ptr);
+	}
+
+	printf("Trasmissione/Ricezione completata, valore ricevuto: ");
+	for(i=0; i<=rx_count; i++)
+		printf("%c",buffer_rx[i]);
+	
+	printf("\n");
+/* Fa l'unmap dei device UART */
+	munmap(uart_tx_ptr, dimensione_pag);
+	munmap(uart_rx_ptr, dimensione_pag);
+
+	close(tx_file_descr);
+	close(rx_file_descr);	
 	
 	free(buffer_rx);
 	return 0;

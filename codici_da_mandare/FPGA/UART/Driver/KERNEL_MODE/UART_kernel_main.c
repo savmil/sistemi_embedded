@@ -42,6 +42,9 @@
  */
 #define DRIVER_FNAME "UART%d"
 
+#define TX 1
+#define RX 2
+
 MODULE_AUTHOR("gruppo 3");
 MODULE_DESCRIPTION("UART device-driver kernel mode");
 MODULE_VERSION("1.0");
@@ -139,8 +142,7 @@ static int UART_probe(struct platform_device *pdev) {
 								DRIVER_FNAME,
 								UART_list_device_count(device_list),
 								&UART_fops,
-								(irq_handler_t) UART_irq_handler,
-								INTR_MASK)) != 0) {
+								(irq_handler_t) UART_irq_handler)) != 0) {
 		printk(KERN_ERR "%s: UART_Init() ha restituito %d\n", __func__, ret);
 		kfree(UART_ptr);
 		return ret;
@@ -195,12 +197,30 @@ static int UART_open(struct inode *inode, struct file *file_ptr) {
 	printk(KERN_INFO "Chiamata %s\n", __func__);
 
 	printk(KERN_INFO "%s\n\tminor : %d", __func__, MINOR(inode->i_cdev->dev));
-
+	
 	if ((UART_ptr = UART_list_find_by_minor(device_list, inode->i_cdev->dev)) == NULL) {
 		printk(KERN_INFO "%s: UART_list_find_by_minor() ha restituito NULL\n", __func__);
 		return -1;
 	}
 
+	if(UART_ptr->buffer_tx != NULL)
+		kfree(UART_ptr->buffer_tx);
+	
+	if(UART_ptr->buffer_rx != NULL)
+		kfree(UART_ptr->buffer_rx);
+	
+	UART_ptr->buffer_tx = (uint8_t *) kmalloc(sizeof(uint8_t), GFP_KERNEL);
+	if (UART_ptr->buffer_tx == NULL ) {
+		printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
+		return -ENOMEM;
+	}
+
+	UART_ptr->buffer_rx = (uint8_t *) kmalloc(sizeof(uint8_t), GFP_KERNEL);
+	if (UART_ptr->buffer_rx == NULL ) {
+		printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
+		return -ENOMEM;
+	}
+	
 	file_ptr->private_data = UART_ptr;
 	return 0;
 }
@@ -271,6 +291,7 @@ static unsigned int UART_poll (struct file *file_ptr, struct poll_table_struct *
 	unsigned int mask;
 	printk(KERN_INFO "Chiamata %s\n", __func__);
 	UART_dev = file_ptr->private_data;
+	UART_InterruptEnable(UART_dev, RX);
 	mask = UART_GetPollMask(UART_dev, file_ptr, wait);
 	return mask;
 }
@@ -297,63 +318,44 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 		return IRQ_NONE;
 	}
 		
-	iowrite32(0x00000000, (UART_dev_ptr->vrtl_addr + TX_EN));
-
 /* Disabilitazione delle interruzioni della periferica */	
 	UART_GlobalInterruptDisable(UART_dev_ptr);	
 
 	pending_reg = UART_PendingInterrupt(UART_dev_ptr);
 	
-	if((pending_reg & 0x00000002) == 0x00000002){
+	if((pending_reg & RX) == RX){
 /*---ISR RX--- */
 		
-		if(UART_dev_ptr->rx_count < UART_dev_ptr->buffer_size){
-			
-			UART_dev_ptr->buffer_rx[UART_dev_ptr->rx_count] = UART_GetData(UART_dev_ptr);
-			printk(KERN_INFO"ISR RX - value received: %c\n", UART_dev_ptr->buffer_rx[UART_dev_ptr->rx_count]);
-			
-			if(UART_dev_ptr->rx_count == UART_dev_ptr->buffer_size-1){	
-				
+		UART_dev_ptr->buffer_rx[0] = UART_GetData(UART_dev_ptr);
+		printk(KERN_INFO"ISR RX - value received: %c\n", UART_dev_ptr->buffer_rx[0]);
+						
 /* Setting del valore del flag "can_read" */
-				UART_SetCanRead(UART_dev_ptr);
+		UART_SetCanRead(UART_dev_ptr);
 
 /* Risveglio dei processi sleeping */
-				UART_RXInterruptAck(UART_dev_ptr);
-				UART_ReadPollWakeUp(UART_dev_ptr);
-			}
-		}
-		
-		UART_RXInterruptAck(UART_dev_ptr);
 		UART_GlobalInterruptEnable(UART_dev_ptr);
-		UART_dev_ptr->rx_count++;
+		UART_RXInterruptAck(UART_dev_ptr);
+		UART_ReadPollWakeUp(UART_dev_ptr);
+		
 	}
-	else if((pending_reg & 0x00000001) == 0x00000001){
+	else if((pending_reg & TX) == TX){
 /*---ISR TX--- */
 		
-		UART_dev_ptr->tx_count++;
+		iowrite32(0x00000000, (UART_dev_ptr->vrtl_addr + TX_EN));
 		
-		if(UART_dev_ptr->tx_count < UART_dev_ptr->buffer_size){
-			
-			reg_sent_data = ioread32(UART_dev_ptr->vrtl_addr + DATA_IN);
-			printk(KERN_INFO"ISR TX - start sending next value: %c\n", UART_dev_ptr->buffer_tx[UART_dev_ptr->tx_count]);
+		reg_sent_data = ioread32(UART_dev_ptr->vrtl_addr + DATA_IN);
+		printk(KERN_INFO"ISR TX - sent value: %c\n", reg_sent_data);
 				
-			UART_SetData(UART_dev_ptr, UART_dev_ptr->buffer_tx[UART_dev_ptr->tx_count]);
-			
-			UART_TXInterruptAck(UART_dev_ptr);
-			UART_GlobalInterruptEnable(UART_dev_ptr);
-			UART_Start(UART_dev_ptr);
-		}
-		else{
 /* Setting del valore del flag "can_write" */
-			UART_SetCanWrite(UART_dev_ptr);
-			UART_WriteWakeUp(UART_dev_ptr);
+		UART_SetCanWrite(UART_dev_ptr);
+		
 			
-/* Risveglio dei processi sleeping */					
-			UART_TXInterruptAck(UART_dev_ptr);
-			UART_GlobalInterruptEnable(UART_dev_ptr);
+/* Risveglio dei processi sleeping */
+		UART_TXInterruptAck(UART_dev_ptr);
+		UART_GlobalInterruptEnable(UART_dev_ptr);
+		UART_WriteWakeUp(UART_dev_ptr);
 		}
-	}	
-	
+		
 	return IRQ_HANDLED;
 	
 }
@@ -373,10 +375,13 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 	UART *UART_dev_ptr;
 	void* read_addr;
 	printk(KERN_INFO "Chiamata %s\n", __func__);
+	
 	UART_dev_ptr = file_ptr->private_data;
 	if (*off > UART_dev_ptr->res_size)
 		return -EFAULT;
 
+	UART_InterruptEnable(UART_dev_ptr, RX);
+	
 	if ((file_ptr->f_flags & O_NONBLOCK) == 0) {
 		printk(KERN_INFO "%s è bloccante\n", __func__);
 
@@ -391,14 +396,14 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 	}
 /* Accesso ai registri del device */
 	read_addr = UART_GetDeviceAddress(UART_dev_ptr)+*off;
-	printk(KERN_INFO "%s | \n", __func__);
+	printk(KERN_INFO "%s risvegliata \n", __func__);
 	
 /* Copia dei dati letti verso l'userspace */
 	if (copy_to_user(buf, UART_dev_ptr->buffer_rx, count))
 		return -EFAULT;
 
 	UART_GlobalInterruptEnable(UART_dev_ptr);
-	UART_InterruptEnable(UART_dev_ptr, UART_dev_ptr->irq_mask);
+	UART_InterruptDisable(UART_dev_ptr, RX);
 	
 	return count;
 }
@@ -415,28 +420,20 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 static ssize_t UART_write (struct file *file_ptr, const char __user * buf, size_t count, loff_t * off) {
 
 	char * my_int_uart_phrase;
-	int j;
 	UART *UART_dev_ptr;
 	
 	printk(KERN_INFO "Chiamata %s\n", __func__);
+	
 	UART_dev_ptr = file_ptr->private_data;
 	if (*off > UART_dev_ptr->res_size)
 		return -EFAULT;
+	
+	UART_InterruptEnable(UART_dev_ptr, TX);
 	
 /* Test della variabile "can_write" */
 	UART_TestCanWriteAndSleep(UART_dev_ptr);
 /* Il processo è risvegliato dall'arrivo di un'interruzione che indica la possibilità di effettuare una scrittura */
 	UART_ResetCanWrite(UART_dev_ptr);
-	
-	UART_dev_ptr->tx_count = 0;
-	UART_dev_ptr->rx_count = 0;
-	UART_dev_ptr->buffer_size = 0;
-	
-	if(UART_dev_ptr->buffer_tx != NULL)
-		kfree(UART_dev_ptr->buffer_tx);
-	
-	if(UART_dev_ptr->buffer_rx != NULL)
-		kfree(UART_dev_ptr->buffer_rx);
 	
 	if ((my_int_uart_phrase = kmalloc(sizeof(char)*count, GFP_KERNEL)) == NULL ) {
 		printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
@@ -446,34 +443,19 @@ static ssize_t UART_write (struct file *file_ptr, const char __user * buf, size_
 	if (copy_from_user(my_int_uart_phrase, buf, count))
 		return -EFAULT;
 
-	UART_dev_ptr->buffer_size = count;
-
-	UART_dev_ptr->buffer_tx = (uint8_t *) kmalloc((UART_dev_ptr->buffer_size)*sizeof(uint8_t), GFP_KERNEL);
-	if (UART_dev_ptr->buffer_tx == NULL ) {
-		printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
-		return -ENOMEM;
-	}
-
-	UART_dev_ptr->buffer_rx = (uint8_t *) kmalloc((UART_dev_ptr->buffer_size)*sizeof(uint8_t), GFP_KERNEL);
-	if (UART_dev_ptr->buffer_rx == NULL ) {
-		printk(KERN_ERR "%s: kmalloc return NULL\n", __func__);
-		return -ENOMEM;
-	}
-
-	for(j=0; j<UART_dev_ptr->buffer_size; j++){
-
-		UART_dev_ptr->buffer_tx[j] = my_int_uart_phrase[j];								  
+	UART_dev_ptr->buffer_tx[0] = my_int_uart_phrase[0];								  
 		
-	}
-
-	printk(KERN_INFO"Start sending first value: %c", UART_dev_ptr->buffer_tx[0]);
+	printk(KERN_INFO"Write sending value: %c", UART_dev_ptr->buffer_tx[0]);
 	
 	UART_SetData(UART_dev_ptr, UART_dev_ptr->buffer_tx[0]);
 	UART_Start(UART_dev_ptr);
 	
 	kfree(my_int_uart_phrase);
 	
-	return UART_dev_ptr->buffer_size;
+	UART_GlobalInterruptEnable(UART_dev_ptr);
+	//UART_InterruptDisable(UART_dev_ptr, TX);
+	
+	return count;
 }
 
 /**

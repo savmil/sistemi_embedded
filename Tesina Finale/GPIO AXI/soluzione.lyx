@@ -1,0 +1,5639 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{listings,xcolor,courier,bookmark}
+\usepackage{listingsutf8}
+\definecolor{darkblue}{named}{blue}
+\definecolor{darkred}{named}{red}
+\definecolor{grau}{named}{gray}
+\let\Righttorque\relax
+\lstset{
+captionpos=b,
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+keywordstyle=\color{darkblue},
+stringstyle=\color{darkred},
+extendedchars=true,
+basicstyle=\small\ttfamily,
+showstringspaces=false,
+tabsize=2,
+numbers=left,
+numberstyle=\tiny,
+breakautoindent  = true,
+breakindent      = 2em,
+breaklines       = true,
+postbreak        = ,
+prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
+showspaces=false, 
+showtabs=false, 
+showstringspaces=false,
+language=VHDL,
+frame=single,
+morecomment=[s]{--}
+}
+
+
+\renewcommand*{\lstlistingname}{Codice Componente}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{} 
+\fancyfoot{} 
+
+\fancyhead[RO,LE]{\bfseries \leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
+\cfoot{}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+%isolated term
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - node
+%#3 - filling color
+\newcommand{\implicantsol}[3][0]{
+    \draw[rounded corners=3pt, fill=#3, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#2.south east)+(-45:#1)$);
+    }
+
+
+%internal group
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicant}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#3.south east)+(-45:#1)$);
+    }
+
+%group lateral borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantcostats}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.east |- #2.north)+(90:#1)$)-| ($(#2.east)+(0:#1)$) |- ($(rf.east |- #3.south)+(-90:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.west |- #2.north)+(90:#1)$) -| ($(#3.west)+(180:#1)$) |- ($(cf.west |- #3.south)+(-90:#1)$);
+}
+
+%group top-bottom borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantdaltbaix}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.south -| #2.west)+(180:#1)$) |- ($(#2.south)+(-90:#1)$) -| ($(cf.south -| #3.east)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.north -| #2.west)+(180:#1)$) |- ($(#3.north)+(90:#1)$) -| ($(rf.north -| #3.east)+(0:#1)$);
+}
+
+%group corners
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - filling color
+\newcommand{\implicantcantons}[2][0]{
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -| ($(0.east |- cf.south)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$);
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -|  ($(0.east |- cf.south)+(0:#1)$) [sharp corners] ($(rf.east |- 0.south)+(-90:#1)$) |-  ($(0.east |- cf.south)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$) [sharp corners] ($(rf.east |- 8.north)+(90:#1)$) |- ($(8.east |- rf.north)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$) [sharp corners]($(cf.west |- 2.south)+(-90:#1)$) |- ($(2.west |- cf.south)+(180:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$) [sharp corners] ($(cf.west |- 10.north)+(90:#1)$) |- ($(10.west |- rf.north)+(180:#1)$) ;
+}
+
+%Empty Karnaugh map 4x4
+\newenvironment{Karnaugh}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,4);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {zv} node [pos=0.7,below left,anchor=north east] {xy} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=8.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
+|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
+|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x4
+\newenvironment{Karnaughvuit}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {bc} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=4.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x2
+\newenvironment{Karnaughquatre}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (2,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {b} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=2.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+          \& |(c00)| 0          \& |(c01)| 1  \\
+|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
+|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Defines 8 or 16 values (0,1,X)
+\newcommand{\contingut}[1]{%
+\foreach \x [count=\xi from 0]  in {#1}
+     \path (\xi) node {\x};
+}
+
+%Places 1 in listed positions
+\newcommand{\minterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {1};
+}
+
+%Places 0 in listed positions
+\newcommand{\maxterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {0};
+}
+
+%Places X in listed positions
+\newcommand{\indeterminats}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {X};
+}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Soluzione
+\end_layout
+
+\begin_layout Subsection
+Descrizione GPIO
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/GPIO.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schema singolo GPIO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il GPIO (
+\emph on
+general purpose input output
+\emph default
+) permettere di leggere o scrivere un valore sul segnale 
+\emph on
+PAD
+\emph default
+ che è un segnale di 
+\emph on
+inout
+\emph default
+ per il componente.
+\end_layout
+
+\begin_layout Standard
+Se il segnale di input 
+\emph on
+ENABLE
+\emph default
+ è asserito allora 
+\emph on
+WRITE
+\emph default
+ viene forzato sul segnale 
+\emph on
+PAD
+\emph default
+, altrimenti il segnale 
+\emph on
+PAD
+\emph default
+ è di input per il componente.
+ Il segnale 
+\emph on
+READ
+\emph default
+ mostra il valore corrente del segnale 
+\emph on
+PAD
+\emph default
+.
+ Si omette il codice del componente vhdl in quanto basilare, verrà istanziato
+ un componente GPIO_Array composto da un numero generico (
+\emph on
+width
+\emph default
+) di singoli GPIO.
+\end_layout
+
+\begin_layout Subsection
+Creazione Custom IP
+\end_layout
+
+\begin_layout Standard
+Per utilizzare il componente è necessario che la sua interfaccia sia conforme
+ al bus AXI.
+ Vivado permettere di adattare il nostro componente GPIO_Array al bus AXI
+ inglobandolo all'interno di un wrapper che ne implementa l'interfaccia.
+ Si mostra di seguito il procedimento da seguire:
+\end_layout
+
+\begin_layout Enumerate
+Dal menù di Vivado selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Tools->Create and Package New IP
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Si aprirà la seguente finestra
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/new_ip.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Finestra create and package new ip
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+, selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Create a New AXI4 peripheral
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+, di nuovo 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/NewAxi4.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Finestra create new AXI Peripheral
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compilare i vari campi con le informazioni dell'IP.
+ In questa finestra è importante il la directory 
+\begin_inset Quotes eld
+\end_inset
+
+IP location
+\begin_inset Quotes erd
+\end_inset
+
+ che permette di selezionare in quale cartella salveremo il nostro custom
+ IP.
+ Si consiglia di creare un'unica repository per tutti i custom ip.
+ Dopo aver compilato tutti i campi, procedere cliccando su 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/IP_information.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Create and Package New IP : Passo 3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Nella finestra successiva è possibile configurare il tipo di interfaccia
+ del nostro componente.
+ Nel nostro caso l'interfaccia da uilizzare è 
+\emph on
+AXI LITE 
+\emph default
+e il device deve essere uno Slave in quanto non gestisce le transizioni
+ del bus AXI.
+ Il parametro 
+\emph on
+number of register
+\emph default
+ indica il numero di registri (
+\series bold
+SLAVE_REG
+\series default
+) che utilizzeremo per interfacciare il nostro componente alla CPU.
+ Nel nostro caso i registri necessari sono tre: uno per pilotare il segnale
+ di WRITE, uno per il segnale di ENABLE e uno per leggere il segnale READ.
+ Si noti che il numero di registri minimo è 4 quindi uno rimarrà inutilizzato,
+ il segnale PAD è un segnale di inout per il componente, non necessita di
+ comunicare con il bus quindi non avrà un registro dedicato.
+ Clicchiamo su 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+ una volta settati i parametri desiderati.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/Interface.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Create and Package New IP : Passo 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Edit IP
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ e successivamente cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+Finish
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Si aprirà una nuova istanza di Vivado in cui è possibile modificare il
+ custom IP.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/end_wizard.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Create and Package New IP : Passo 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Nella nuova finestra vediamo che sono stati creati due nuovi file, uno con
+ il nome del nostro custom IP che rappresenta il top module e uno con nome
+ 
+\begin_inset Quotes eld
+\end_inset
+
+nomeip_S00_AXI
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/GPIO inst.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Custom IP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Modifica Default IP Core
+\end_layout
+
+\begin_layout Subsubsection
+Istanziazione del componente GPIO_Array
+\end_layout
+
+\begin_layout Standard
+Il componente istanziato da vivado è un wrapper che implementa l'interfacci
+ AXI, all'interno del quale dovremo inserire il nostro GPIO_Array in modo
+ da permettergli di comunicare sul bus.
+ Uno schematico è riportato in nella seguente figura.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/axi gpio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schema IP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aggiungiamo al design creato da Vivado il nostro i sorgenti vhdl di componenti
+ GPIO_Array ed il singolo GPIO cliccando su 
+\begin_inset Quotes eld
+\end_inset
+
+Add Sources
+\begin_inset Quotes erd
+\end_inset
+
+ presente sulla sinistra della interfaccia.
+ Una volta fatto ciò instanziamo il nostro componente (GPIO_Array) nel modulo
+ 
+\begin_inset Quotes eld
+\end_inset
+
+GPIO_v1_0_S00_AXI
+\begin_inset Quotes erd
+\end_inset
+
+.
+ E' necessario farlo nella sezione indicata da Vivado tra i seguenti commenti
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+-- Add user logic here
+\end_layout
+
+\begin_layout Plain Layout
+
+-- User logic ends
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per prima cosa è necessario riportare fra le interfacce dei due componenti
+ i segnali che necessitano di comunicare con l'esterno dell'ip e non con
+ il bus axi.
+ Il codice che va aggiunto nelle interfacce dei due componenti è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+-- Users to add ports here
+\end_layout
+
+\begin_layout Plain Layout
+
+        	pads : inout std_logic_vector(width-1 downto 0);         
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt : out std_logic; --! segnale di interrupt
+\end_layout
+
+\begin_layout Plain Layout
+
+-- User ports ends
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aggiungiamo i parametri del nostro componente, in questo caso 
+\emph on
+width
+\emph default
+, tra i seguenti commenti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+-- Users to add parameters here
+\end_layout
+
+\begin_layout Plain Layout
+
+   width : integer := 4;
+\end_layout
+
+\begin_layout Plain Layout
+
+-- User parameters ends
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti che sarà necessario aggiungere i segnali e i parametri sopra riportati
+ anche nell'instanziazione del componente GPIO_v1_0_S00_AXI nel top module.
+\end_layout
+
+\begin_layout Standard
+Superata la prima fase è necessario interfacciare correttamente i segnali
+ del nostro GPIO_Array con il bus e il processore.
+ Per fare cioè il componente utilizza gli slave_reg, dei registri con i
+ quali sarà possibile scrivere
+\backslash
+leggere i valori dei segnali di ENABLE, WRITE e READ.
+ Collegheremo dunque i sengali di READ e WRITE oppurtunemente nell'istanziazione
+ del componente come segue:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+gpio_inst : GPIO_Array      
+\end_layout
+
+\begin_layout Plain Layout
+
+generic map(width => width)     
+\end_layout
+
+\begin_layout Plain Layout
+
+port map(    enable => slv_reg0(width-1 downto 0),     			   
+\end_layout
+
+\begin_layout Plain Layout
+
+			 write => slv_reg1(width-1 downto 0),
+\end_layout
+
+\begin_layout Plain Layout
+
+			 read => gpio_read(width-1 downto 0),
+\end_layout
+
+\begin_layout Plain Layout
+
+			 pads =>pads);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I signali di ENABLE e di WRITE vengono pilotati dai registri 
+\series bold
+\emph on
+slv_reg0
+\series default
+\emph default
+ ed 
+\series bold
+\emph on
+slv_reg1
+\series default
+\emph default
+.
+ Il valore di READ viene salvato nel registro 
+\series bold
+\emph on
+gpio_read
+\series default
+\emph default
+ perchè, per leggerlo, non può essere usato uno degli slv_reg generati automatic
+amente da vivado in quanto READ, essendo un pin di output per il GPIO, forzerebb
+e dei valori sullo slave reg.
+ Anche il bus axi, tramite un process detto 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+di scrittura
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, forza dei valori sugli slave reg che quindi si ritroverebbero pilotati
+ da due segnali contemporaneamente.
+ Per eliminare questo conflitto viene introdotto un nuovo segnale 
+\series bold
+\emph on
+gpio_read
+\series default
+\emph default
+ che verrà pilotato esclusivamente dal read del nostro GPIO_Array (Figura
+ 0.9).
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/slave reg.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Corretta gestione dei segnali di output del componente GPIO_Array
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Segue il codice del process 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+di lettura
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ modificato opportunamente per leggere il valore di READ:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+process (slv_reg0, slv_reg1, gpio_read, slv_reg3, slv_reg4, slv_reg5, status_reg
+_out, slv_reg7_out, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
+\end_layout
+
+\begin_layout Plain Layout
+
+	variable loc_addr :std_logic_vector(OPT_MEM_ADDR_BITS downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	    -- Address decoding for reading registers
+\end_layout
+
+\begin_layout Plain Layout
+
+	    loc_addr := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB);
+\end_layout
+
+\begin_layout Plain Layout
+
+	    case loc_addr is
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"000" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"001" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"010" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= gpio_read;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"011" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg3;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"100" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg4;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"101" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg5;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"110" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= status_reg_out;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when b"111" =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out <= slv_reg7_out;
+\end_layout
+
+\begin_layout Plain Layout
+
+	      when others =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	        reg_data_out  <= (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	    end case;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process; 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In questo caso invece di leggere lo 
+\series bold
+\emph on
+slv_reg2
+\series default
+\emph default
+ verrà letto il segnale 
+\series bold
+\emph on
+gpio_read
+\series default
+\emph default
+.
+ Si noti che questo procedimento va applicato per tutti i segnali di out
+ del componente instanziato.
+\end_layout
+
+\begin_layout Subsubsection
+Gestione delle interruzioni
+\end_layout
+
+\begin_layout Standard
+Segue la logica creata per permettere all'ip di lavorare sotto interruzioni.
+ Siamo interessati a generare un evento di interruzione ogni qual volta
+ vi sia una variazione del segnale di READ del GPIO_Array.
+ La variazione deve asserire il segnale di interrupt se e solo se:
+\end_layout
+
+\begin_layout Itemize
+Le interruzioni globali del componente sono abilitate
+\end_layout
+
+\begin_layout Itemize
+La singola linea interna del GPIO_Array è abilitata (
+\emph on
+mascherata
+\emph default
+) a genereare l'interruzione
+\end_layout
+
+\begin_layout Itemize
+Il segnale di READ è pilotato da PADS e non da WRITE
+\end_layout
+
+\begin_layout Standard
+Per catturare le variazione del segnale READ è stato utilizzato il seguente
+ process:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	gpio_read_sampling : process (S_AXI_ACLK, gpio_read)
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (rising_edge (S_AXI_ACLK)) then
+\end_layout
+
+\begin_layout Plain Layout
+
+	    if ( S_AXI_ARESETN = '0' ) then
+\end_layout
+
+\begin_layout Plain Layout
+
+	        last_stage <= (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	        current_stage <= (others => '0');
+\end_layout
+
+\begin_layout Plain Layout
+
+	    else
+\end_layout
+
+\begin_layout Plain Layout
+
+	        last_stage <= gpio_read(width-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	        current_stage <= last_stage;
+\end_layout
+
+\begin_layout Plain Layout
+
+	     end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	    end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	changed_bits <= (last_stage xor current_stage)  and intr_mask and (not
+ gpio_enable);   --!  indica quale bit, 
+\end_layout
+
+\begin_layout Plain Layout
+
+																								se mascherato e pilotato da pads, 
+\end_layout
+
+\begin_layout Plain Layout
+
+																								è cambiato
+\end_layout
+
+\begin_layout Plain Layout
+
+	change_detected <= global_intr and (or_reduce(changed_bits));						   --!
+ il segnale assume valore 1 se e solo se 
+\end_layout
+
+\begin_layout Plain Layout
+
+																								le interruzioni globali sono abilitate e 
+\end_layout
+
+\begin_layout Plain Layout
+
+																								c'è un cambiamento del segnale READ
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti che siamo interessati a qulunque variazione del segnale read con
+ le relazioni sopra elencate.
+\end_layout
+
+\begin_layout Standard
+Il process viene sintetizzato da vivado come due Flip-Flop collegati in
+ cascata, necessari per campionare il valore di gpio_read con il clock.
+ Al primo colpo di clock il primo flip flop salva il valore del segnale,
+ al secondo colpo di clock il secondo flip flop conterrà il valore precedentemen
+te salvato nel primo.
+ I due segnali sono posti in xor per vedere se ci sono variazioni.
+ Segue uno schematico della soluzione realizzata (non considerare Q negato):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/detector.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schema rilevamento fronti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un secondo process viene utilizzato per la gestione del registro delle interruzi
+oni pendenti (
+\series bold
+\emph on
+pending_intr
+\series default
+\emph default
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=VHDL"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	pending_intr_tmp <= pending_intr;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	intr_pending : process (S_AXI_ACLK, change_detected, ack_intr)
+\end_layout
+
+\begin_layout Plain Layout
+
+    begin
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (rising_edge (S_AXI_ACLK)) then
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (change_detected = '1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+            pending_intr <= pending_intr_tmp or changed_bits;
+\end_layout
+
+\begin_layout Plain Layout
+
+        elsif (or_reduce(ack_intr)='1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+            pending_intr <= pending_intr_tmp and (not ack_intr);
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+			pending_intr <= pending_intr_tmp;
+\end_layout
+
+\begin_layout Plain Layout
+
+        end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+    end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+    end process;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il valore del registro pending è dato da il valore di una precedente interruzion
+e non servita oppure ad una interuzione rilevata (changed_bits).
+ Il registro contiene un 1 nella posizione relativa al GPIO che chiede di
+ generare un interrupt.
+\end_layout
+
+\begin_layout Standard
+Nello stesso process è gestito anche il meccanismo di ack utilizzato per
+ pulire il relativo bit ne registro pending.
+ Il segnale ack_intr deve contenere un 1 nella posizione relativa al gpio
+ al quale si vuol dare l'ack.
+\end_layout
+
+\begin_layout Standard
+Nel caso arrivi un segnale di ack bisogna cambiare il bit relativo al registro
+ pending della interruzione servita.
+\end_layout
+
+\begin_layout Standard
+L' ultimo process infine occorre per la generazione del segnale di interrupt
+ che va portato all'esterno dell'ip:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+inst_irq : process(S_AXI_ACLK,pending_intr)
+\end_layout
+
+\begin_layout Plain Layout
+
+    begin
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (rising_edge (S_AXI_ACLK)) then
+\end_layout
+
+\begin_layout Plain Layout
+
+            if ( S_AXI_ARESETN = '0' ) then
+\end_layout
+
+\begin_layout Plain Layout
+
+                    interrupt <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+            else
+\end_layout
+
+\begin_layout Plain Layout
+
+                if (or_reduce(pending_intr) = '1' and global_intr = '1')
+ then
+\end_layout
+
+\begin_layout Plain Layout
+
+                   interrupt <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+                else
+\end_layout
+
+\begin_layout Plain Layout
+
+                    interrupt <= '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+                   end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+            end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+        end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+    end process;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tale segnale è altro nel caso vi siano interruzioni pendenti e le interruzioni
+ globali siano abilitate, nel caso di reset del bus o non vi siano interruzioni
+ o le stesse siano disabilitate è pari a 0.
+\end_layout
+
+\begin_layout Standard
+Dopo aver instaziato il componente nella top level entity avente il nome
+ del nostro custom IP possiamo procedere con l' impacchettamento del nostro
+ componente.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/package_ip.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Package IP
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nella sezione 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+File Groups
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Merge changes from File Groups Wizard
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+, in 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Customization Parameters
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ su 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Merge changes from Customization Parameters Wizard
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+, selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Hidden Parameters
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ si aprirà tale finestra
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/parameter_hidden.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da qui è possibile rendere visibile questo parametro da configurare cliccando
+ sul box 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Visible in Customization GUI
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ e settarne i valori che può assumere cliccando su 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Specify Range
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Recarsi infine su 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Review and Package
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Re-Package IP
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ per ottenere il custom ip, facendo chiudere la finestra di vivado.
+\end_layout
+
+\begin_layout Subsection
+Creazione del block design
+\end_layout
+
+\begin_layout Standard
+Istanziamo 3 IP ognuno con dimensione 4.
+ Serviranno a controllare rispettivamente switch, led e button.
+ Cliccare sul menù di sinistra 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Create block design
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ inserire i parametri desiderati e cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+OK
+\begin_inset Quotes erd
+\end_inset
+
+ verrà mostrato questo workspace
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/design_block.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cliccare sul pulsante + ed inserire il custom IP creato insieme al processore
+ ZYNQ, appariranno due pulsanti 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Run Block Automation
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+Run Connection Automation
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+che cilccati fanno si che i vari componenti si collegheranno tra di loro
+ automaticamente.
+ Successivamente è necessario rendere esterni i pin che si vuole pilotare
+ dalla board.
+ Cliccare con il tasto destro del mouse su un pin e selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+Make external
+\begin_inset Quotes erd
+\end_inset
+
+, successivamente selezionare l' icona contrassegnata da un simbolo di spunta.
+ Il risultato è il seguente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/block design completo.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Block design completo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per permettere alla PL di interrompere la PS è necessario abilitare le interruzi
+oni dello zynq processing system.
+ Cliccare due volte sul componente e recarsi nella sezione Interrupt e abilitare
+ 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+PL-PS interrupt port
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/enable interrupt.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Abilitazione interrupt Zynq Processing System
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La linea di interrutp che apparirà sul processing system è unica, quindi
+ è necessario utilizzare il componente Concat per collegare i 3 GPIO_Array.
+ Il size verrà automaticamente aggiornato.
+\end_layout
+
+\begin_layout Standard
+Bisogna generare ora un 
+\emph on
+wrapper HDL
+\emph default
+ affinchè il block design sia sintetizzabile.
+ Recandosi nella sezione 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+Sources
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, tasto destro sul nome del block design e selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+Create HDL Wrapper...
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ cliccando 
+\begin_inset Quotes eld
+\end_inset
+
+OK
+\begin_inset Quotes erd
+\end_inset
+
+ ed essendo sicuri che sia selezionata l' opzione 
+\begin_inset Quotes eld
+\end_inset
+
+Let Vivado manage wrapper and auto-update
+\begin_inset Quotes erd
+\end_inset
+
+ fatto ciò procedere alla sintesi.
+ 
+\end_layout
+
+\begin_layout Standard
+Una volta terminata, selezionare dal sottomenù 
+\begin_inset Quotes eld
+\end_inset
+
+Open Synthesized Design
+\begin_inset Quotes erd
+\end_inset
+
+ e da un menù a tendina in alto a destra 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+I/O Planning
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ verrà mostrata la seguente schermata
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/set_constraints.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pin dopo la sintesi
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In basso sono presenti i pin che sono stati resti esterni, bisogna selezionare
+ il tip di 
+\begin_inset Quotes eld
+\end_inset
+
+I/O Std
+\begin_inset Quotes erd
+\end_inset
+
+ di solito è quello mostrato in figura ed i 
+\begin_inset Quotes eld
+\end_inset
+
+Package Pin
+\begin_inset Quotes erd
+\end_inset
+
+ una volta fatto salvare i constraints cliccando sull' icone del floppy
+ blu e dando un nome al file di constraint, una volta fatto si può generare
+ il bitstream.
+\end_layout
+
+\begin_layout Standard
+Terminato il processo possiamo esportarlo dal menù 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+File -> Export -> Export Hardware...
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+ assicurarsi che sia spuntata l'opzione 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+Include bitstream
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ e selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+OK
+\begin_inset Quotes erd
+\end_inset
+
+, si può ora procedere alla creazione del driver linux, lanciando SDK dal
+ menù 
+\begin_inset Quotes eld
+\end_inset
+
+File->Launch SDK
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Driver Standalone
+\end_layout
+
+\begin_layout Standard
+Il driver ora presentato, viene eseguito direttamente dalla sezione PS della
+ board senza il supporto di un sistema operativo.
+\end_layout
+
+\begin_layout Standard
+Per poter procedere alla scrittura del driver, dobbiamo sapere dove i registri
+ del nostro componente hardware sono stati mappati, tale informazione può
+ essere reperita dal file 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+xparameters.h
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ presente nella directory 
+\begin_inset Quotes eld
+\end_inset
+
+'
+\series bold
+cartella_del_board_support_package'
+\backslash
+ps7_cortexa9_0
+\backslash
+include
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+, troveremo una sezione di codice simile alla seguente
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* Definitions for driver MYINTGPIO */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_NUM_INSTANCES 3
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Definitions for peripheral MYINTGPIO_0 */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_0_DEVICE_ID 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_0_S00_AXI_BASEADDR 0x43C00000 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_0_S00_AXI_HIGHADDR 0x43C0FFFF
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Definitions for peripheral MYINTGPIO_1 */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_1_DEVICE_ID 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_1_S00_AXI_BASEADDR 0x43C20000 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_1_S00_AXI_HIGHADDR 0x43C2FFFF
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Definitions for peripheral MYINTGPIO_2 */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_2_DEVICE_ID 2 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_2_S00_AXI_BASEADDR 0x43C40000 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define XPAR_MYINTGPIO_2_S00_AXI_HIGHADDR 0x43C4FFFF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove è possibile sapere il numero dei nostri custom IP core instanziati
+ nel progetto HW il loro indirizzo base e quello più alto associato alla
+ periferica.
+\end_layout
+
+\begin_layout Standard
+Oltre a tale informazione dobbiamo anche conoscere di quanto sono stati
+ spiazziati i nostri slv_reg rispetto all' indirizzo base, tale informazione
+ reperibile nel file situato in 
+\begin_inset Quotes eld
+\end_inset
+
+'cartella_del_board_support_package'
+\backslash
+ps7_cortexa9_0
+\backslash
+libsrc
+\backslash
+'nome_del_ip_core_HW'
+\backslash
+src
+\backslash
+'nome_del_ip_core_HW.h'
+\begin_inset Quotes erd
+\end_inset
+
+, neql quale, una volta aperto, sarà presente una sezione simile:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#define MYINTGPIO_S00_AXI_SLV_REG0_OFFSET 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define MYINTGPIO_S00_AXI_SLV_REG1_OFFSET 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define MYINTGPIO_S00_AXI_SLV_REG2_OFFSET 8 
+\end_layout
+
+\begin_layout Plain Layout
+
+#define MYINTGPIO_S00_AXI_SLV_REG3_OFFSET 12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ottenute queste informazioni possiamo leggere e scrivere valori nei registri.
+ 
+\end_layout
+
+\begin_layout Standard
+Per gli indirizzi base degli ip si consulti l'Address Editor di Vivado.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/address_editor.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Adress delle periferiche
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Possiamo procedere alla creazione del driver, instanziamo un nuovo progetto
+ vuoto dal menù 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+File -> New -> Application Project
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+ e creare un progetto vuoto.
+ La PS della Zynq 7000 è composta da 
+\emph on
+Cortex-A9
+\emph default
+ e un 
+\emph on
+GIC pl390 interrupt controller.
+ 
+\emph default
+Si mostano per completezza alcune nozioni sul GIC, che non avendo un SO,
+ andrà gestito direttamente.
+ Si mostra uno schema generico del GIC.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/GIC.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schema logico GIC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'interruzione che abbiamo bisogno di gestire sono interruzioni provenienti
+ dalla PL e qundi visti dal GIC come interruzioni SPI.
+ Sarebbe possibile indicare, per ogni interruzione, quale dei due Cortex
+ deve gestirla, ma lasciamo questa scelta al GIC.
+ Ogni linea di interrupt è identificata da un ID unico.
+ Per il funzionamento interno riferirsi a 
+\series bold
+\emph on
+ug585-Zynq-7000-TRM.
+\end_layout
+
+\begin_layout Standard
+Noi ci interfacceremo solo con il modello di programmazione del GIC utilizzando
+ i driver offerti da Xilinx nella libreria 
+\series bold
+\emph on
+scugic.
+\end_layout
+
+\begin_layout Standard
+Il workflow da eseguire per configurare il device è il seguente:
+\end_layout
+
+\begin_layout Enumerate
+Configurare il GIC.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	int Status;
+\end_layout
+
+\begin_layout Plain Layout
+
+	/* Istanza del Gic */
+\end_layout
+
+\begin_layout Plain Layout
+
+	XScuGic InterruptController;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	/*Istanza della configurazione del Gic*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	XScuGic_Config *GicConfig;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	GicConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	Status = XScuGic_CfgInitialize(&InterruptController,GicConfig, GicConfig->CpuBa
+seAddress);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ( Status != XST_SUCCESS) return XST_FAILURE;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questa fase di inizializzazione e fissa.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Abilitare la gestione delle eccezioni relative al Gic (opzionale ma utile)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+\end_layout
+
+\begin_layout Plain Layout
+
+			(Xil_ExceptionHandler)XScuGic_InterruptHandler,&InterruptController);
+\end_layout
+
+\begin_layout Plain Layout
+
+	Xil_ExceptionEnable();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questa fase di inizializzazione e fissa.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Associare alle 3 le linee di interruzione i relativi handler
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	Status = XScuGic_Connect(&InterruptController,XPAR_FABRIC_GPIO_0_INTERRUPT_INTR
+,
+\end_layout
+
+\begin_layout Plain Layout
+
+			(Xil_ExceptionHandler)SwitchISR,(void *)&InterruptController);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ( Status != XST_SUCCESS) return XST_FAILURE;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	Status = XScuGic_Connect(&InterruptController,XPAR_FABRIC_GPIO_1_INTERRUPT_INTR
+,
+\end_layout
+
+\begin_layout Plain Layout
+
+			(Xil_ExceptionHandler)ButtonISR,(void *)&InterruptController);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ( Status != XST_SUCCESS) return XST_FAILURE;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	Status = XScuGic_Connect(&InterruptController,XPAR_FABRIC_GPIO_2_INTERRUPT_INTR
+,
+\end_layout
+
+\begin_layout Plain Layout
+
+			(Xil_ExceptionHandler)LedISR,(void *)&InterruptController);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ( Status != XST_SUCCESS) return XST_FAILURE;
+\end_layout
+
+\end_inset
+
+La define 
+\series bold
+XPAR_FABRIC_GPIO_0_INTERRUPT_INTR
+\series default
+ indica la'ID della linea di interruzione al quale è collegato l'ip GPIO_0.
+ E' possibile trovarla del fine 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+\emph on
+xparameters.h
+\series default
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Il parametro SwitchISR è il nome dell'handler.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Enable della linea di interruzione
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_0_INTERRUPT_INTR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_1_INTERRUPT_INTR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	XScuGic_Enable(&InterruptController,XPAR_FABRIC_GPIO_2_INTERRUPT_INTR);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Si mostra di seguito una routine esempio di gestione dell' interruzione
+ che:
+\end_layout
+
+\begin_layout Enumerate
+Disabilita le interruzioni globali dell'ip.
+\end_layout
+
+\begin_layout Enumerate
+Verifica quale delle linee chiedono di essere servite;
+\end_layout
+
+\begin_layout Enumerate
+Da l'ack alle linee pendenti
+\end_layout
+
+\begin_layout Enumerate
+Riabilitia le interruzioni globali del componente;
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+	void SwitchISR(){
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	XGPIO_GlobalDisableInterrupt(&GPIO_Switch,0x01);
+\end_layout
+
+\begin_layout Plain Layout
+
+	InterruptProcessed = TRUE;
+\end_layout
+
+\begin_layout Plain Layout
+
+	print("
+\backslash
+n
+\backslash
+n**********ISR SWITCH***********
+\backslash
+n
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint8_t pendingReg = XGPIO_GetPending(&GPIO_Switch);
+\end_layout
+
+\begin_layout Plain Layout
+
+	XGPIO_ACK(&GPIO_Switch,pendingReg);
+\end_layout
+
+\begin_layout Plain Layout
+
+	XGPIO_GlobalEnableInterrupt(&GPIO_Switch,0x01);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Driver Linux
+\end_layout
+
+\begin_layout Standard
+La seguente sezione mostra come scrivere un driver con il supporto di un
+ sistema operativo Linux.
+ In questo ambiente è possibile scrivere un driver come un modulo kernel
+ oppure utilizzando l'Userspace I/O (UIO).
+ In entrambi i casi la prima operazione da effettuare è quella di creare
+ un First Stage Boot Loader e un Device-Tree come mostrato nel primo capitolo.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Kernel Mode
+\end_layout
+
+\begin_layout Standard
+Un driver può essere scritto sottoforma di modulo kernel e poi caricato
+ dinamicamente.
+ Questa pratica fornisce più flessibilità rispetto al 
+\begin_inset Quotes eld
+\end_inset
+
+build statico
+\begin_inset Quotes erd
+\end_inset
+
+ di un modulo all'interno del kernel, in quanto potrebbe risultare non necessari
+o inserire moduli che poi non verranno utilizzati.
+ Per l'astrazione del nostro device GPIO si è realizzata una struct, definita
+ nel file GPIO.h, che contiene tutte le informazioni necessarie per la gestione
+ del dispositivo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Stuttura che astrae un device GPIO in kernel-mode.
+\end_layout
+
+\begin_layout Plain Layout
+
+ * Contiene ciò che è necessario al funzionamento del driver.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+typedef struct {
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Major e minor number associati al device (M: identifica il driver associato
+ al device; m: utilizzato dal driver per discriminare il singolo device
+ tra quelli a lui associati)*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	dev_t Mm;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore a struttura platform_device cui l'oggetto GPIO si riferisce
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct platform_device *pdev;  	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Stuttura per l'astrazione di un device a caratteri */
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct cdev cdev;	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore alla struttura che rappresenta l'istanza del device*/		  	
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct device* dev;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore a struttura che rappresenta una vista alto livello del device*/			
+      
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct class*  class;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Interrupt-number a cui il device è connesso*/		        
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t irqNumber; 
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Puntatore alla regione di memoria cui il device è mappato*/		      
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct resource *mreg;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Device Resource Structure*/		 	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct resource res; 
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Maschera delle interruzioni interne attive per il device*/         
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t irq_mask;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** res.end - res.start; numero di indirizzi associati alla periferica.*/			
+ 	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t res_size; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Indirizzo base virtuale della periferica*/	    	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	void __iomem *vrtl_addr;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** wait queue per la sys-call read() */	  	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait_queue_head_t read_queue;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** wait queue per la sys-call poll()*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	wait_queue_head_t poll_queue;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Flag che indica, quando asserito, la possibilità di effettuale una chiamata
+ a read*/   
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t can_read;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile
+ can_read*/  
+\end_layout
+
+\begin_layout Plain Layout
+
+	spinlock_t slock_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+} GPIO;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per le funzioni necessarie all'interfacciamento con il device si rimanda
+ alla documentazione interna.
+ Il device è stato gestito come un 
+\series bold
+character device
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+All'inserimento del modulo viene chiamata la funzione 
+\series bold
+Probe
+\series default
+, la quale si occupa dell'inizializzazione del driver chiamando la funzione
+ GPIO_Init() del device da registrare.
+ Questa deve occuparsi dunque di tutte le operazioni necessarie alla registrazio
+ne e all'inserimento di un dispositivo a caratteri all'interno del sistema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Inizializza una struttura GPIO per il corrispondente device
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	GPIO_device puntatore a struttura GPIO, corrispondente al device
+ su cui operare
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	owner puntatore a struttura struct module, proprietario del device
+ (THIS_MODULE)
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	pdev puntatore a struct platform_device
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	driver_name nome del driver
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	device_name nome del device
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	serial numero seriale del device
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	f_ops puntatore a struttura struct file_operations, specifica
+ le funzioni che agiscono sul device
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	irq_handler puntatore irq_handler_t alla funzione che gestisce
+ gli interrupt generati dal device
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @param 	irq_mask maschera delle interruzioni attive del device
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @retval "0" se non si è verificato nessun errore
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @details
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+int GPIO_Init(		GPIO* GPIO_device,
+\end_layout
+
+\begin_layout Plain Layout
+
+					struct module *owner,
+\end_layout
+
+\begin_layout Plain Layout
+
+					struct platform_device *pdev,
+\end_layout
+
+\begin_layout Plain Layout
+
+					struct class*  class,
+\end_layout
+
+\begin_layout Plain Layout
+
+					const char* driver_name,
+\end_layout
+
+\begin_layout Plain Layout
+
+					const char* device_name,
+\end_layout
+
+\begin_layout Plain Layout
+
+					uint32_t serial,
+\end_layout
+
+\begin_layout Plain Layout
+
+					struct file_operations *f_ops,
+\end_layout
+
+\begin_layout Plain Layout
+
+					irq_handler_t irq_handler,
+\end_layout
+
+\begin_layout Plain Layout
+
+					uint32_t irq_mask) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	int error = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct device *dev = NULL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	char *file_name = kmalloc(strlen(driver_name) + 5, GFP_KERNEL);
+\end_layout
+
+\begin_layout Plain Layout
+
+	sprintf(file_name, device_name, serial);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->pdev = pdev;
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->class = class;
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Alloca un range di Mj e min numbers per il device a caratteri */	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((error = alloc_chrdev_region(&GPIO_device->Mm, 0 , 1, file_name)) !=
+ 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: alloc_chrdev_region() ha restituito %d
+\backslash
+n", __func__, error);
+\end_layout
+
+\begin_layout Plain Layout
+
+		return error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Inizializza la struttura cdev specificando la struttura file operations
+ associata al device a caratteri */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	cdev_init (&GPIO_device->cdev, f_ops);
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->cdev.owner = owner;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Crea il device all'interno del filesystem assegnandogli i numbers richiesti
+ in precedenza e ne restituisce il puntatore.
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((GPIO_device->dev = device_create(class, NULL, GPIO_device->Mm, NULL,
+ file_name)) == NULL) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: device_create() ha restituito NULL
+\backslash
+n", __func__);
+\end_layout
+
+\begin_layout Plain Layout
+
+		error = -ENOMEM;
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto device_create_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Aggiunge il device a caratteri al sistema.
+ Se l'operazione va a buon fine sarà possibile vedere il device sotto /dev
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((error = cdev_add(&GPIO_device->cdev, GPIO_device->Mm, 1)) != 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: cdev_add() ha restituito %d
+\backslash
+n", __func__, error);
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto cdev_add_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Inizializza la struct resource con il valori recuperati dal device tree
+ corrispondente al device */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	dev = &pdev->dev;
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((error = of_address_to_resource(dev->of_node, 0, &GPIO_device->res))
+ != 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: address_to_resource() ha restituito %d
+\backslash
+n", __func__, error);
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto of_address_to_resource_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->res_size = GPIO_device->res.end - GPIO_device->res.start + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Alloca una quantita res_size di memoria fisica per il dispositivo IO
+ a partire dall'inidirzzo res.start e ne resituisce l'inidirizzo */	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((GPIO_device->mreg = request_mem_region(GPIO_device->res.start, GPIO_device-
+>res_size, file_name)) == NULL) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: request_mem_region() ha restituito NULL
+\backslash
+n", __func__);
+\end_layout
+
+\begin_layout Plain Layout
+
+		error = -ENOMEM;
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto request_mem_region_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Mappa la memoria fisca allocata e restituisce l'indirizzo virtuale */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((GPIO_device->vrtl_addr = ioremap(GPIO_device->res.start, GPIO_device->res_s
+ize))==NULL) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: ioremap() ha restituito NULL
+\backslash
+n", __func__);
+\end_layout
+
+\begin_layout Plain Layout
+
+		error = -ENOMEM;
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto ioremap_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Cerca le specifiche dell'interrupt nel device tree e restituisce il
+ suo numero identificativo */
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->irqNumber = irq_of_parse_and_map(dev->of_node, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if ((error = request_irq(GPIO_device->irqNumber , irq_handler, 0, file_name,
+ NULL)) != 0) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printk(KERN_ERR "%s: request_irq() ha restituito %d
+\backslash
+n", __func__, error);
+\end_layout
+
+\begin_layout Plain Layout
+
+		goto irq_of_parse_and_map_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->irq_mask = irq_mask;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Inizializzazione della wait-queue per la system-call read() e poll()
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+ 	init_waitqueue_head(&GPIO_device->read_queue);
+\end_layout
+
+\begin_layout Plain Layout
+
+	init_waitqueue_head(&GPIO_device->poll_queue);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Inizializzazione degli spinlock */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	spin_lock_init(&GPIO_device->slock_int);
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_device->can_read = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Abilitazione degli interrupt del device */
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+ 	GPIO_GlobalInterruptEnable(GPIO_device);
+\end_layout
+
+\begin_layout Plain Layout
+
+	GPIO_PinInterruptEnable(GPIO_device, GPIO_device->irq_mask);
+\end_layout
+
+\begin_layout Plain Layout
+
+	goto no_error;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	irq_of_parse_and_map_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+		iounmap(GPIO_device->vrtl_addr);
+\end_layout
+
+\begin_layout Plain Layout
+
+	ioremap_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+		release_mem_region(GPIO_device->res.start, GPIO_device->res_size);
+\end_layout
+
+\begin_layout Plain Layout
+
+	request_mem_region_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+	of_address_to_resource_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+	cdev_add_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+		device_destroy(GPIO_device->class, GPIO_device->Mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+	device_create_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+		cdev_del(&GPIO_device->cdev);
+\end_layout
+
+\begin_layout Plain Layout
+
+		unregister_chrdev_region(GPIO_device->Mm, 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+no_error:
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printk(KERN_INFO " IRQ registered as %d
+\backslash
+n", GPIO_device->irqNumber);	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printk(KERN_INFO " Driver succesfully probed at Virtual Address 0x%08lx
+\backslash
+n", (unsigned long) GPIO_device->vrtl_addr);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return error;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando invece il modulo viene rimosso viene chiamata la funzione 
+\series bold
+Remove
+\series default
+, la quale effettua le operazioni inverse chiamando la funzione GPIO_Destroy.
+ Sia la Probe che la Remove devono essere ridefinite all'interno del modulo
+ e si utilizza la struttura platform_driver per effettuare il matching.
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Definisce le funzioni probe() e remove() da chiamare al caricamento
+ del driver.
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+static struct platform_driver GPIO_driver = {
+\end_layout
+
+\begin_layout Plain Layout
+
+	.driver = {
+\end_layout
+
+\begin_layout Plain Layout
+
+				.name = DRIVER_NAME,
+\end_layout
+
+\begin_layout Plain Layout
+
+				.owner = THIS_MODULE,
+\end_layout
+
+\begin_layout Plain Layout
+
+				.of_match_table = of_match_ptr(__test_int_driver_id),
+\end_layout
+
+\begin_layout Plain Layout
+
+		},	
+\end_layout
+
+\begin_layout Plain Layout
+
+	.probe = GPIO_probe,
+\end_layout
+
+\begin_layout Plain Layout
+
+	.remove = GPIO_remove	
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La funzione of_match_ptr(__test_int_driver_id) si occupa di effettuare il
+ matching con i device contenuti all'interno del device-tree.
+ Per ogni device contenente un campo compatible uguale a quello specificato
+ mediante la struttura of_device_id verrà chiamata la funzione di Probe
+ per far sì che il driver possa gestire quel device.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Identifica il device all'interno del device tree
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+static const struct of_device_id __test_int_driver_id[]={
+\end_layout
+
+\begin_layout Plain Layout
+
+	{.compatible = "GPIO"},
+\end_layout
+
+\begin_layout Plain Layout
+
+	{}
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dato che un driver può gestire più di un singolo device GPIO è stato implementat
+o un meccanismo di gestione tramite lista.
+ La Probe dunque inizializza il corrispondente device GPIO e lo inserisce
+ all'interno della lista, se questa non contiene già il numero massimo consentit
+o di dispositivi.
+ Il device all'interno del sistema operativo Linux è visto come un file,
+ per cui il device driver deve implementare tutte le system-call per l'interfacc
+iamento con un file.
+ La corrispondenza tra queste e la relativa funzione fornita dal driver
+ viene stabilita attraverso la struttura file_operations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/**
+\end_layout
+
+\begin_layout Plain Layout
+
+ * @brief Struttura che specifica le funzioni che agiscono sul device
+\end_layout
+
+\begin_layout Plain Layout
+
+ *
+\end_layout
+
+\begin_layout Plain Layout
+
+ */
+\end_layout
+
+\begin_layout Plain Layout
+
+static struct file_operations GPIO_fops = {
+\end_layout
+
+\begin_layout Plain Layout
+
+		.owner    = THIS_MODULE,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.llseek   = GPIO_llseek,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.read     = GPIO_read,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.write    = GPIO_write,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.poll     = GPIO_poll,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.open     = GPIO_open,
+\end_layout
+
+\begin_layout Plain Layout
+
+		.release  = GPIO_rele
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+owner: rappresenta puntatore al modulo che è il possessore della struttura.
+ Ha lo scopo di evitare che il modulo venga rimosso quando uno delle funzionalià
+ fornite è in uso.
+ Inizializzato mediante la macro THIS_MODULE
+\end_layout
+
+\begin_layout Itemize
+GPIO_llseek: sposta l'offset di lettura/scrittura sul file.
+\end_layout
+
+\begin_layout Itemize
+GPIO_read: utilizzata per leggere dal device.
+ La chiamata a GPIO_read potrebbe avvenire quando il device non ha dati
+ disponibili, in questo caso il processo chiamante deve essere messo in
+ una coda di processi sleeping in modo tale da mascherare all'esterno le
+ dinamiche interne del device.
+ Per far ciò viene utilizzata una variabile 
+\begin_inset Quotes eld
+\end_inset
+
+can_read
+\begin_inset Quotes erd
+\end_inset
+
+.
+ La funzione read effettua un controllo sullo stato di quest'ultima e se
+ rileva che non è possibile effettuare una lettura mette il processo in
+ sleep.
+ L'ISR avrà il compito di settare la variabile per poter rendere possibile
+ la lettura e risvegliare i processi dalla coda.
+ Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
+ fornite dal kernel.
+ 
+\end_layout
+
+\begin_layout Itemize
+GPIO_write: utilizzata per inviare dati al device.
+\end_layout
+
+\begin_layout Itemize
+GPIO_poll: utilizzata per verificare se un'operazione di lettura sul device
+ risulti bloccante.
+ Verifica lo stato della variabile can_read e in caso sia possibile effettuare
+ una lettura ritorna un'opportuna maschera.
+\end_layout
+
+\begin_layout Itemize
+GPIO_open: chiamata all'apertura del file descriptor associato al device.
+ Se alla chiamata viene specificato il flag O_NONBLOCK tutte le operazioni
+ di lettura sul file descriptor aperto non risulteranno essere bloccanti.
+\end_layout
+
+\begin_layout Itemize
+GPIO_release: chiamata alla chiusura del file descriptor associato al device.
+\end_layout
+
+\begin_layout Standard
+Il codice allegato è diviso in:
+\end_layout
+
+\begin_layout Itemize
+GPIO.h/GPIO.c : definizione e implementazione di una struttura che astrae
+ il nostro device GPIO in kernel mode.
+ Contiene ciò che è necessario al funzionamento del driver, compreso lo
+ spinlock per l'accesso in mutua esclusione alla variabile can_read e le
+ wait_queue.
+\end_layout
+
+\begin_layout Itemize
+GPIO_list.h/GPIO_list.c : definizione e implementazione di una lista di oggetti
+ GPIO.
+ Fornisce tutte le funzioni necessarie per l'interfacciamento quali inizializzaz
+ione, cancellazione, aggiunta oggetto, ricerca.
+\end_layout
+
+\begin_layout Itemize
+GPIO_kernel_main.c: rappresenta il vero e proprio modulo kernel che reimplementa
+ le tutte funzioni necessarie all'interfacciamento.
+\end_layout
+
+\begin_layout Standard
+Per compilare il modulo è sufficiente lanciare lo script 
+\begin_inset Quotes eld
+\end_inset
+
+prepare_environment.sh
+\begin_inset Quotes erd
+\end_inset
+
+ prima di dare il comando make.
+ Segue il Makefile utilizzato per la compilazione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=make"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+obj-m += my_kernel_GPIO.o
+\end_layout
+
+\begin_layout Plain Layout
+
+my_kernel_GPIO-objs :=GPIO_kernel_main.o GPIO.o GPIO_list.o
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+all:
+\end_layout
+
+\begin_layout Plain Layout
+
+	make -C linux-xlnx/ M=$(PWD) modules
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+clean:
+\end_layout
+
+\begin_layout Plain Layout
+
+	make -C linux-xlnx/ M=$(PWD) clean
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una volta ottenuto il kernel object (.ko) l'ultima operazione da effettuare
+ è quella di inserirlo mediante il comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+insmod my_kernel_GPIO.ko
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/insmod.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se l'operazione è andata a buon fine si visualizzeranno i seguenti messaggi
+ stampando il log del kernel tramite il comando 
+\series bold
+\emph on
+dmesg
+\series default
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/DMESG_insmod.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Log del kernel dopo 
+\series bold
+\emph on
+insmod
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per mostrare il corretto funzionamento di tutte le funzionalità implementate
+ sono state create due user application: read_block_user_app.c, read_NON_block_us
+er_app.c e poll_user_app.c che sono allegate.
+\end_layout
+
+\begin_layout Itemize
+read_block_user_app.c : l'utente specifica tramite linea di comando quale
+ GPIO vuole utilizzare (-s GPIO0 switches; -b GPIO1 buttons; -l GPIO2 leds).
+ Effettua in un loop infinito la chiamata a read per controllare se siano
+ presenti nuovi valori da leggere sul dispositivo selezionato.
+\end_layout
+
+\begin_layout Itemize
+read_NON_block_user_app.c : l'utente specifica tramite linea di comando quale
+ GPIO vuole utilizzare (-s GPIO0 switches; -b GPIO1 buttons; -l GPIO2 leds).
+ Effettua in un loop infinito la chiamata a read (distanziate l'una dall'altra
+ di un tempo specificato tramite il parametro TIMEOUT per rendere verificabile
+ il funzionamento) per controllare se siano presenti nuovi valori da leggere
+ sul dispositivo.
+ L'apertura del device è effettuata specificando il flag O_NONBLOCK per
+ cui le chiamate a read non saranno mai bloccanti.
+\end_layout
+
+\begin_layout Itemize
+poll_user_app.c : l'utente specifica tramite linea di comando quale GPIO
+ vuole utilizzare (-s GPIO0 switches; -b GPIO1 buttons; -l GPIO2 leds).
+ Effettua una chiamata a poll con un TIMEOUT specificato: se prima della
+ scadenza di questo vengono rilevati nuovi valori da leggere la funzione
+ ritorna la maschera degli eventi rilevati e viene effettuata una chiamata
+ a read che non sarà bloccante; altrimenti la funzione ritorna il valore
+ 0 e non verrà effettuata la chiamata a read in quanto bloccante.
+\end_layout
+
+\begin_layout Standard
+Per rimuove il modulo impartire il comando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rmmod my_kernel_GPIO.ko
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/rmmodgpio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/dmesg_rmmodgpio.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Log kernel dopo rimozioni moduli
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+UIO
+\end_layout
+
+\begin_layout Standard
+L'Userspace I/O (UIO) è un framework che permette di gestire i driver direttamen
+te nell'userspace e fornisce meccanismi di 
+\series bold
+gestione delle interruzioni a livello utente
+\series default
+.
+ La prima operazione da effettuare prima di scrivere un driver UIO è recarsi
+ all'interno del progetto del device-tree e aggiungere ai bootargs nel file
+ system-top.dts il parametro 
+\begin_inset Quotes eld
+\end_inset
+
+uio_pdrv_genirq.of_id=generic-uio
+\begin_inset Quotes erd
+\end_inset
+
+ e all'interno del file pl.dtsi impostare il campo compatible dei device
+ GPIO a "generic-uio".
+ Segue il file pl.dtsi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/ {
+\end_layout
+
+\begin_layout Plain Layout
+
+	amba_pl: amba_pl {
+\end_layout
+
+\begin_layout Plain Layout
+
+		#address-cells = <1>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		#size-cells = <1>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		compatible = "simple-bus";
+\end_layout
+
+\begin_layout Plain Layout
+
+		ranges ;
+\end_layout
+
+\begin_layout Plain Layout
+
+		GPIO_0: GPIO@43c00000 {
+\end_layout
+
+\begin_layout Plain Layout
+
+			/* This is a place holder node for a custom IP, user may need to update
+ the entries */
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock-names = "s00_axi_aclk";
+\end_layout
+
+\begin_layout Plain Layout
+
+			clocks = <&clkc 15>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			compatible = "generic-uio";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-names = "interrupt";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-parent = <&intc>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupts = <0 29 4>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg = <0x43c00000 0x10000>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-addr-width = <0x5>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-data-width = <0x20>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+		GPIO_1: GPIO@43c10000 {
+\end_layout
+
+\begin_layout Plain Layout
+
+			/* This is a place holder node for a custom IP, user may need to update
+ the entries */
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock-names = "s00_axi_aclk";
+\end_layout
+
+\begin_layout Plain Layout
+
+			clocks = <&clkc 15>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			compatible = "generic-uio";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-names = "interrupt";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-parent = <&intc>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupts = <0 30 4>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg = <0x43c10000 0x10000>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-addr-width = <0x5>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-data-width = <0x20>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+		GPIO_2: GPIO@43c20000 {
+\end_layout
+
+\begin_layout Plain Layout
+
+			/* This is a place holder node for a custom IP, user may need to update
+ the entries */
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock-names = "s00_axi_aclk";
+\end_layout
+
+\begin_layout Plain Layout
+
+			clocks = <&clkc 15>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			compatible = "generic-uio";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-names = "interrupt";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-parent = <&intc>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupts = <0 31 4>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg = <0x43c20000 0x10000>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-addr-width = <0x5>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-data-width = <0x20>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
+	};
+\end_layout
+
+\begin_layout Plain Layout
+
+};
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A questo punto si ricompila il device-tree generando il file .dtb e lo si
+ sposta nella partizione di BOOT della SD Card.
+ All'avvio del sistema operativo si potranno osservare sotto /dev i tre
+ device.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/uio_list.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il driver userspace effettuerà il mapping dei device per poi mettersi in
+ attesa di notifica di interrupt tramite chiamata a read.
+ Segue uno schema generale.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/uio.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Segue il codice relativo al driver UIO:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <unistd.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdlib.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <stdio.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <limits.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/types.h> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/stat.h> 
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <fcntl.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <sys/mman.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include <poll.h>
+\end_layout
+
+\begin_layout Plain Layout
+
+#include "GPIO_interrupt_uio_poll.h"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define DIR_OFF    	 0  // DIRECTION
+\end_layout
+
+\begin_layout Plain Layout
+
+#define WRITE_OFF	   4  // WRITE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define READ_OFF		8  // READ
+\end_layout
+
+\begin_layout Plain Layout
+
+#define GLOBAL_INTR_EN  12 // GLOBAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_EN         16 // LOCAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_ACK_PEND   28 // PENDING/ACK REGISTER
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_MASK 15
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#define TIMEOUT 2000
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+typedef u_int8_t u8;
+\end_layout
+
+\begin_layout Plain Layout
+
+typedef u_int32_t u32;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void write_reg(void *addr, unsigned int offset, unsigned int value)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	*((unsigned*)(addr + offset)) = value;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+unsigned int read_reg(void *addr, unsigned int offset)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	return *((unsigned*)(addr + offset));
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void wait_for_interrupt(int fd0, int fd1, int fd2, void *addr_0, void *addr_1,
+ void *addr_2)
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	int pending = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	int reenable = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	u32 read_value;
+\end_layout
+
+\begin_layout Plain Layout
+
+	struct pollfd poll_fds [3];
+\end_layout
+
+\begin_layout Plain Layout
+
+	int ret;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("Waiting for interrupts....
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[0].fd = fd0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[0].events = POLLIN;  //The field events is an input parameter,
+ a bit mask specifying the
+\end_layout
+
+\begin_layout Plain Layout
+
+       						   //events the application is interested in for the file descripto
+r fd.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+							      //Means that we are interested at the event: there is data
+ to read.
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[1].fd = fd1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[1].events = POLLIN;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[2].fd = fd2;
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[2].events = POLLIN;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// non blocking wait for an interrupt on file descriptors specified in
+ the pollfd structure*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	ret = poll(poll_fds, 3, TIMEOUT); //timeout of TIMEOUT ms
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (ret > 0){
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(poll_fds[0].revents && POLLIN){
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				read(fd0, (void *)&pending, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_0, GLOBAL_INTR_EN, 0); //disabilito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("**********ISR SWITCH***********
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+				read_value = read_reg(addr_0, READ_OFF);
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("Read value: %08x
+\backslash
+n", read_value);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_0, INTR_ACK_PEND, INTR_MASK); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_0, INTR_ACK_PEND, 0); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_0, GLOBAL_INTR_EN, 1); //abiito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				write(fd0, (void *)&reenable, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(poll_fds[1].revents && POLLIN){
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				read(fd1, (void *)&pending, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_1, GLOBAL_INTR_EN, 0); //disabilito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("**********ISR BUTTON***********
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+				read_value = read_reg(addr_1, READ_OFF);
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("Read value: %08x
+\backslash
+n", read_value);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_1, INTR_ACK_PEND, INTR_MASK); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_1, INTR_ACK_PEND, 0); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_1, GLOBAL_INTR_EN, 1); //abiito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				write(fd1, (void *)&reenable, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(poll_fds[2].revents && POLLIN){
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+				read(fd2, (void *)&pending, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_2, GLOBAL_INTR_EN, 0); //disabilito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("**********ISR LED***********
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+				read_value = read_reg(addr_2, READ_OFF);
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("Read value: %08x
+\backslash
+n", read_value);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_2, INTR_ACK_PEND, INTR_MASK); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_2, INTR_ACK_PEND, 0); //ACK
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(addr_2, GLOBAL_INTR_EN, 1); //abiito interruzioni
+\end_layout
+
+\begin_layout Plain Layout
+
+				write(fd2, (void *)&reenable, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int main(int argc, char *argv[]){
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	void *gpio_0_ptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	void *gpio_1_ptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	void *gpio_2_ptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//---------------------MAPPING GPIO_0---------------------//
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fd_gpio_0 = open("/dev/uio0", O_RDWR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (fd_gpio_0 < 1){
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Errore nell'accesso al device UIO0.
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	unsigned dimensione_pag = sysconf(_SC_PAGESIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	gpio_0_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ fd_gpio_0, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_0_ptr, GLOBAL_INTR_EN, 1); // abilitazione interruzioni
+ globali
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_0_ptr, INTR_EN, INTR_MASK); // abilitazione interruzioni
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//---------------------MAPPING GPIO_1---------------------//
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fd_gpio_1 = open("/dev/uio1", O_RDWR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (fd_gpio_1 < 1){
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Errore nell'accesso al device UIO1.
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	gpio_1_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ fd_gpio_1, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_1_ptr, GLOBAL_INTR_EN, 1); // abilitazione interruzioni
+ globali
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_1_ptr, INTR_EN, INTR_MASK); // abilitazione interruzioni
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+	//---------------------MAPPING GPIO_2---------------------//
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	int fd_gpio_2 = open("/dev/uio2", O_RDWR);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if (fd_gpio_2 < 1){
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Errore nell'accesso al device UIO2.
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	gpio_2_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ fd_gpio_2, 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_2_ptr, GLOBAL_INTR_EN, 1); // abilitazione interruzioni
+ globali
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(gpio_2_ptr, INTR_EN, INTR_MASK); // abilitazione interruzioni
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	while (1) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Calling function wait_for_interrupt: ");
+\end_layout
+
+\begin_layout Plain Layout
+
+		wait_for_interrupt(fd_gpio_0, fd_gpio_1, fd_gpio_2, gpio_0_ptr, gpio_1_ptr,
+ gpio_2_ptr);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// unmap the gpio device
+\end_layout
+
+\begin_layout Plain Layout
+
+	munmap(gpio_0_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+	munmap(gpio_1_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+	munmap(gpio_2_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La prima operazione del driver, come introdotto all'inizio della sezione,
+ è quella di aprire tre file descriptor sui tre device uio corrispondenti
+ ai tre GPIO.
+ Successivamente calcola la dimensione della pagina e effettua il mapping
+ tramite chiamata a mmap().
+ Si è scelto di non effettuare chiamate a read() bloccanti ma di utilizzare
+ la system call poll() per verificare se sono disponibili nuovi dati prima
+ di effettuare una lettura.
+ La funzione prende in ingresso un array di strutture pollfd composte da
+ tre campi:
+\end_layout
+
+\begin_layout Enumerate
+file desctiptor: descrittore del file associato al device.
+\end_layout
+
+\begin_layout Enumerate
+events: maschera di bit che indica gli eventi, relativi al file descriptor,
+ ai quali l'applicazione è interessata.
+\end_layout
+
+\begin_layout Enumerate
+revents: maschera riempita dal kernel contenente gli eventi rilevati.
+ 
+\end_layout
+
+\begin_layout Standard
+La chiamata poll() prende in ingresso la suddetta struttura, un intero che
+ indica quanti oggetti sono presenti in quest'ultima e un parametro che
+ indica il tempo che il processo deve attendere notifiche di eventi dal
+ device espresso in millisecondi.
+\end_layout
+
+\end_body
+\end_document
