@@ -1,9 +1,16 @@
-\hypertarget{can_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.c File Reference}
-\label{can_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c}}
+\hypertarget{can_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.c File Reference}
+\label{can_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.\+c}}
+
+
+Permette la configurazione della periferica C\+AN.  
+
+
 
 
 \subsection{Detailed Description}
-Permette la configurazione della periferica C\+AN 
+Permette la configurazione della periferica C\+AN. 
+
+
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{can_8c_aba23a87010915ffd251b01b5a534e33a}\label{can_8c_aba23a87010915ffd251b01b5a534e33a}} 
@@ -53,3 +60,10 @@ Funzione di configurazione della periferica C\+AN modalità di utilizzo, filtri.
 {\em group\+Address} & setta l\textquotesingle{} identificato del gruppo a cui il nodo appartiene \\
 \hline
 \end{DoxyParams}
+messaggi sono filtrati utilizzando una lista di ID
+
+si utilizzano due da filtri 16 bit, dato che limite della rete risulta essere i 10 bit dell\textquotesingle{}indirizzo di I2C
+
+indirizzo dispositivo
+
+indirizzo gruppo 

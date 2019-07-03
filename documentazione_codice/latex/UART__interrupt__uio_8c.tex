@@ -1,5 +1,5 @@
-\hypertarget{UART__interrupt__uio_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.c File Reference}
-\label{UART__interrupt__uio_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
+\hypertarget{UART__interrupt__uio_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.c File Reference}
+\label{UART__interrupt__uio_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
 
 
 permette la gestione della periferica \hyperlink{structUART}{U\+A\+RT} utilizzando un driver di tipo U\+IO  
@@ -35,11 +35,11 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \begin{DoxyReturn}{Returns}
 valore presente all\textquotesingle{}interno del registro 
 \end{DoxyReturn}
-\mbox{\Hypertarget{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}\label{UART__interrupt__uio_8c_a83b9aa906d9274a45aefcd04a699a93a}} 
+\mbox{\Hypertarget{UART__interrupt__uio_8c_ae652d21ba3de22e6343ae7bde0d608a7}\label{UART__interrupt__uio_8c_ae652d21ba3de22e6343ae7bde0d608a7}} 
 \index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}}
 \index{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
 \subsubsection{\texorpdfstring{wait\+\_\+for\+\_\+interrupt()}{wait\_for\_interrupt()}}
-{\footnotesize\ttfamily void wait\+\_\+for\+\_\+interrupt (\begin{DoxyParamCaption}\item[{int}]{file\+\_\+descr,  }\item[{void $\ast$}]{addr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void wait\+\_\+for\+\_\+interrupt (\begin{DoxyParamCaption}\item[{struct pollfd $\ast$}]{poll\+\_\+fds,  }\item[{void $\ast$}]{uart\+\_\+rx\+\_\+ptr,  }\item[{void $\ast$}]{uart\+\_\+tx\+\_\+ptr }\end{DoxyParamCaption})}
 
 
 
@@ -47,12 +47,16 @@ Attende l\textquotesingle{} arrivo di un interrupt utilizzando la read su un dev
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+\_\+descr} & descrittore del U\+IO driver \\
+{\em poll\+\_\+fds} & struct contenente i due descrittori del file per i due device \hyperlink{structUART}{U\+A\+RT} \\
 \hline
-{\em addr} & indirizzo virtuale della periferica \\
+{\em uart\+\_\+rx\+\_\+ptr} & indirizzo virtuale della periferica \hyperlink{structUART}{U\+A\+RT} utilizzata in ricezione \\
+\hline
+{\em uart\+\_\+tx\+\_\+ptr} & indirizzo virtuale della periferica \hyperlink{structUART}{U\+A\+RT} utilizzata in trasmissione \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}\label{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}} 
+Se vi è un\textquotesingle{}interruzione sul device U\+I\+O0 associato all\textquotesingle{}\hyperlink{structUART}{U\+A\+RT} per la ricezione
+
+Se vi è un\textquotesingle{}interruzione sul device U\+I\+O0 associato all\textquotesingle{}\hyperlink{structUART}{U\+A\+RT} per la trasmissione \mbox{\Hypertarget{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}\label{UART__interrupt__uio_8c_a967a78bccad98fd07accc16dd33243fe}} 
 \index{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!write\+\_\+reg@{write\+\_\+reg}}
 \index{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}}
 \subsubsection{\texorpdfstring{write\+\_\+reg()}{write\_reg()}}

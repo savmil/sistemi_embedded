@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]/home/andrea/SE_workspace/Uart2/Uart2.sdk/fslb/Debug/fslb.elf
+	/home/andrea/SE_workspace/Uart2/Uart2.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+	/home/andrea/linux_on_zybo/SDCard/u-boot.elf
+}

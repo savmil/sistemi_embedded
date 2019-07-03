@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : can.h
-  * header file per la configurazione della periferica CAN
+  * @brief header file per la configurazione della periferica CAN
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/

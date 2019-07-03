@@ -790,7 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  =./../codici_da_mandare/FPGA/GPIO/Hardware/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src ./ ./../Andrea/FPGA/UARTWithInterrupt.sdk/uart/src ./../codici_da_mandare/FPGA/GPIO/Hardware/GPIO_1.0/hdl/ ./../Andrea/FPGA/ip_repo/UART_1.0/hdl ./../codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/ ./../codici_da_mandare/FPGA/GPIO/Driver/UIO ./../Andrea/STM32/CRC_MultiSerial_CHECK/Src ./../Andrea/STM32/CRC_MultiSerial_CHECK/Inc ./../Michele/FPGA/UART/Driver/Con_interrupt/KERNEL_MODE ./../Michele/FPGA/UART/Driver/Con_interrupt/UIO
+INPUT                  =./../codici_da_mandare/FPGA/GPIO/Hardware/GPIOWithInterrupt/GPIOWithInterrupt.sdk/GPIO/src ./ ./../codici_da_mandare/FPGA/UART/Hardware/Uart2/Uart2.sdk/uart/src ./../codici_da_mandare/FPGA/GPIO/Hardware/GPIO_1.0/hdl/ ./../codici_da_mandare/FPGA/UART/Hardware/UART_1.0/hdl ./../codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/ ./../codici_da_mandare/FPGA/GPIO/Driver/UIO ./../codici_da_mandare/STM/CRC_MultiSerial/Src ./../codici_da_mandare/STM/CRC_MultiSerial/Inc ./../codici_da_mandare/FPGA/UART/Driver/KERNEL_MODE ./../codici_da_mandare/FPGA/UART/Driver/UIO
 
 
 # This tag can be used to specify the character encoding of the source files

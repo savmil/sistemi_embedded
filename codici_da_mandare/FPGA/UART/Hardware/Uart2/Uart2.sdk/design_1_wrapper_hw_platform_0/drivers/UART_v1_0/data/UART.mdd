@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER UART
+	OPTION supported_peripherals = (UART);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = UART;
+END DRIVER

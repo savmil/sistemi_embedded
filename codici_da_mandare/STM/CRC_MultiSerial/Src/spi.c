@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : spi.c
-  * Permette la configurazione della periferica SPI
+  * @brief Permette la configurazione della periferica SPI
   ******************************************************************************
   */
 

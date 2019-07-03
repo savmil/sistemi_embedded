@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : i2c.c
-  * Permette la configurazione della periferica I2C
+  * @brief Permette la configurazione della periferica I2C
   ******************************************************************************
   */
 

@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : gpio.h
-  * header file per la configurazione dei banchi di GPIO  
+  * @brief header file per la configurazione dei banchi di GPIO  
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/

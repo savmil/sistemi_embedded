@@ -1,6 +1,9 @@
 /** @mainpage Documentazione codice sistemi embedded
  * @par Table of Contents
  * @section GPIO
+ * @subsection Hardware
+ *		- Controlla la generazione dell' interrupt @ref GPIO_v1_0_S00_AXI.vhd
+ *		- Top level entity del componente  GPIO_v1_0_S00_AXI @ref GPIO_v1_0.vhd
  * 	@subsection Driver
  *		@subsubsection UIO
  *			- Funzioni per la gestione del driver @ref GPIO_interrupt_uio_poll.c
@@ -12,10 +15,11 @@
  *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref GPIO.c
  *		@subsubsection Barebone
  *			- Funzioni per l'utilizzo della periferica GPIO @reg gpio_int.c
- *	@subsection Hardware
- *		- Controlla la generazione dell' interrupt @ref GPIO_v1_0_S00_AXI.vhd
- *		- Top level entity del componente  GPIO_v1_0_S00_AXI @ref GPIO_v1_0.vhd
+ *	
  * @section UART
+ *	@subsection Hardware
+ *		- Controlla la generazione dell' interrupt @ref UART_v1_0_S00_AXI.vhd
+ *		- Top level entity del componente UART_v1_0_S00_AXI @ref UART_v1_0.vhd
  *	@subsection Driver
  *		@subsubsection UIO
  *			- gestione del componente UART utilizzando il driver uio @ref UART_interrupt_uio.c
@@ -27,9 +31,6 @@
  *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref UART.c 
  *		@subsubsection Barebone 
  *			- Funzioni per l'utilizzo della periferica UART @reg myuart.c
- *      @subsection Hardware
- *		- Controlla la generazione dell' interrupt @ref UART_v1_0_S00_AXI.vhd
- *		- Top level entity del componente UART_v1_0_S00_AXI @ref UART_v1_0.vhd
  * @section Progetto_finale	 
  *	- gestione dell' invio e ricazione dei dati sulle varie periferiche 
  *	con calcolo e check del CRC @ref main.c

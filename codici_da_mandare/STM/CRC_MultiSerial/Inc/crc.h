@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : crc.h
-  * header file per la configurazione della periferica CRC
+  * @brief header file per la configurazione della periferica CRC
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/

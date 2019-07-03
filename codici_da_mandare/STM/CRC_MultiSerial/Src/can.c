@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : can.c
-  * Permette la configurazione della periferica CAN
+  * @brief Permette la configurazione della periferica CAN
   ******************************************************************************
   */
 

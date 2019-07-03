@@ -1,12 +1,10 @@
 /**
- ******************************************************************************
- * @file           : main.c
+ * @file 
  * @brief          programma main che permette a board di comunicare
- *		   		   utilizzando i seguenti protocolli: UART, SPI, I2C CAN.
- *		   		   La board definita come Master calcola due CRC di un
- *		   		   messaggio, li accoda ai frame da trasmettere
- *		   		   e procede alla trasmissione sui canali selezionati.
- ******************************************************************************
+ *		   utilizzando i seguenti protocolli: UART, SPI, I2C CAN.
+ *		   La board definita come Master calcola due CRC di un
+ *		   messaggio, li accoda ai frame da trasmettere
+ *		   e procede alla trasmissione sui canali selezionati.
 */
 
 /* Includes ------------------------------------------------------------------*/

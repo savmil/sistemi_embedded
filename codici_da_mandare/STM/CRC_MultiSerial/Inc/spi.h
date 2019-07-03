@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : spi.h
-  * header file per la configurazione della periferica SPI
+  * @brief header file per la configurazione della periferica SPI
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/

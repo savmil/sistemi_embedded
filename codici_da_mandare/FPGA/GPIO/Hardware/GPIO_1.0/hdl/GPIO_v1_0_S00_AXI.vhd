@@ -16,7 +16,7 @@ use ieee.std_logic_misc.all;
 entity GPIO_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
-        width : integer := 4; --! determina il numero di GPIO da controllare
+        width : integer := 4;
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -506,7 +506,7 @@ begin
     -- process utilizzato per captare varizioni del segnale GPIO_READ
     -- la sintesi da due FF in cascata
     -------------------------------------------------------------------------------
-    --!  @brief Campiona i segnali di cui si vuole verificare la generazione 
+    --! @brief Campiona i segnali di cui si vuole verificare la generazione 
     --!		di un interrupt
     --!
     --! @param[in]   S_AXI_ACLK		clock del bus AXI
@@ -536,17 +536,13 @@ begin
 
     -- process per la gestizione della logica di interruzione pedente 
     -- e meccanismo di ack per rimuovere le interruzioni pendenti
-
     -------------------------------------------------------------------------------
     --! @brief Gestisce il registro pending
-    --!
     --! @param[in]   S_AXI_ACLK		clock del bus AXI
     --! @param[in]   change_detected	identifica l' avvenimento dell' interruput
     --!					su un segnale abilitato
     --! @param[in]   ack_intr		cattura un segnale di ack generato dal 
     --!					driver che gestisce l' eccezione
-    --! @param[in]   pending_intr_tmp   pending temporaneto diventa effettivo se il bit
-    --!					cambia, cioì interruzione
     -------------------------------------------------------------------------------
     intr_pending : process (S_AXI_ACLK, change_detected, ack_intr,pending_intr_tmp)
     begin
@@ -567,8 +563,6 @@ begin
     -------------------------------------------------------------------------------
     --! @brief Disabilita l' interrupt nel caso di reset del bus e tiene alto il
     --! segnale di interrupt finchè rimane pendente
-    --! @details Per la descrizione del componente riferirsi alla documentazione 
-    --!		 dell' intero design
     --! @param[in]   S_AXI_ACLK		clock del bus AXI
     --! @param[in]   pending_intr	registro che identifica le interruzioni 
     --!					pendenti
@@ -580,8 +574,8 @@ begin
             if ( S_AXI_ARESETN = '0' ) then
                     interrupt <= '0';
             else
-                if (or_reduce(pending_intr) = '1' and global_intr = '1') then           --! la linea viene asserita solo se c'è almeno un'interruzione pendete
-                    interrupt <= '1';                                                   --! e se le interruzioni globali sono abilitate
+                if (or_reduce(pending_intr) = '1' and global_intr = '1') then           -- la linea viene asserita solo se c'è almeno un'interruzione pendete
+                    interrupt <= '1';                                                   -- e se le interruzioni globali sono abilitate
                 else
                     interrupt <= '0';   
                 end if;

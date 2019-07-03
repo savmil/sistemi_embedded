@@ -13,7 +13,6 @@
 
 /**
  * @file gpio_int.c
- * @page driver_GPIO
  * @brief Funzioni per l'utilizzo della periferiferica GPIO
  */
 

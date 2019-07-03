@@ -1,9 +1,16 @@
-\hypertarget{i2c_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.c File Reference}
-\label{i2c_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c}}
+\hypertarget{i2c_8c}{}\section{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.c File Reference}
+\label{i2c_8c}\index{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.\+c}}
+
+
+Permette la configurazione della periferica I2C.  
+
+
 
 
 \subsection{Detailed Description}
-Permette la configurazione della periferica I2C 
+Permette la configurazione della periferica I2C. 
+
+
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{i2c_8c_a766e7421a54562b56553edf2c0ea2b0d}\label{i2c_8c_a766e7421a54562b56553edf2c0ea2b0d}} 
@@ -53,3 +60,6 @@ Funzione di configurazione della periferica I2C.
 {\em group\+Address} & setta l\textquotesingle{} identificato del gruppo a cui il nodo appartiene \\
 \hline
 \end{DoxyParams}
+da ack confrontando tutti i 7 bit dell\textquotesingle{}addres ricevuto con quelli di own\+Address2. utilizzato per realizzare multicast
+
+abilita generic call address. Permette di realizzare broadcast su address 0x00 

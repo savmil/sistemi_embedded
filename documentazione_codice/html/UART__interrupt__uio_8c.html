@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/Michele/FPGA/UART/Driver/Con_interrupt/UIO/UART_interrupt_uio.c File Reference</title>
+<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/UART/Driver/UIO/UART_interrupt_uio.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,7 +58,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_cac9fe63fab61806e5a507801a5c600c.html">Michele</a></li><li class="navelem"><a class="el" href="dir_f5032a0c388462bbce1a03a71e94c645.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_5391b53f777fec2e0f6320155142f616.html">UART</a></li><li class="navelem"><a class="el" href="dir_d84b7c989f4ebc58a08a4ef330de64a1.html">Driver</a></li><li class="navelem"><a class="el" href="dir_c12329ec273bd27bc21ade58d1f037e1.html">Con_interrupt</a></li><li class="navelem"><a class="el" href="dir_d579c643f8f117cf9445a2802046ab7b.html">UIO</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_62831b27586bae48844639dc0bc7e8dd.html">UART</a></li><li class="navelem"><a class="el" href="dir_dac59853533c31ddff09b270ba20b1cc.html">Driver</a></li><li class="navelem"><a class="el" href="dir_1a286a74685455808fc6fcf663f15ea0.html">UIO</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -114,8 +114,8 @@ $(function() {
 
 </div>
 </div>
-<a id="a83b9aa906d9274a45aefcd04a699a93a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83b9aa906d9274a45aefcd04a699a93a">&#9670;&nbsp;</a></span>wait_for_interrupt()</h2>
+<a id="ae652d21ba3de22e6343ae7bde0d608a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae652d21ba3de22e6343ae7bde0d608a7">&#9670;&nbsp;</a></span>wait_for_interrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,14 +123,20 @@ $(function() {
         <tr>
           <td class="memname">void wait_for_interrupt </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>file_descr</em>, </td>
+          <td class="paramtype">struct pollfd *&#160;</td>
+          <td class="paramname"><em>poll_fds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>addr</em>&#160;</td>
+          <td class="paramname"><em>uart_rx_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>uart_tx_ptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,11 +149,14 @@ $(function() {
 <p>Attende l' arrivo di un interrupt utilizzando la read su un device UIO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file_descr</td><td>descrittore del UIO driver </td></tr>
-    <tr><td class="paramname">addr</td><td>indirizzo virtuale della periferica </td></tr>
+    <tr><td class="paramname">poll_fds</td><td>struct contenente i due descrittori del file per i due device <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> </td></tr>
+    <tr><td class="paramname">uart_rx_ptr</td><td>indirizzo virtuale della periferica <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> utilizzata in ricezione </td></tr>
+    <tr><td class="paramname">uart_tx_ptr</td><td>indirizzo virtuale della periferica <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> utilizzata in trasmissione </td></tr>
   </table>
   </dd>
 </dl>
+<p>Se vi è un'interruzione sul device UIO0 associato all'<a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> per la ricezione</p>
+<p>Se vi è un'interruzione sul device UIO0 associato all'<a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> per la trasmissione </p>
 
 </div>
 </div>

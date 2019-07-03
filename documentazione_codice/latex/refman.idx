@@ -1,87 +1,81 @@
-\indexentry{Bus Operation functions@{Bus Operation functions}|hyperpage}{13}
-\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}|hyperpage}{13}
-\indexentry{I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}|hyperpage}{13}
-\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}|hyperpage}{13}
-\indexentry{I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{13}
-\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}|hyperpage}{14}
-\indexentry{I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{14}
-\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}|hyperpage}{14}
-\indexentry{I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}!Bus Operation functions@{Bus Operation functions}|hyperpage}{14}
-\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}|hyperpage}{14}
-\indexentry{I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}!Bus Operation functions@{Bus Operation functions}|hyperpage}{14}
-\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}|hyperpage}{15}
-\indexentry{S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
-\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}|hyperpage}{15}
-\indexentry{S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
-\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}|hyperpage}{15}
-\indexentry{S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
-\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}|hyperpage}{16}
-\indexentry{S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}!Bus Operation functions@{Bus Operation functions}|hyperpage}{16}
-\indexentry{Link Operation functions@{Link Operation functions}|hyperpage}{17}
-\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}|hyperpage}{17}
-\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}!Link Operation functions@{Link Operation functions}|hyperpage}{17}
-\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}|hyperpage}{17}
-\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}!Link Operation functions@{Link Operation functions}|hyperpage}{17}
-\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}|hyperpage}{17}
-\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}!Link Operation functions@{Link Operation functions}|hyperpage}{17}
-\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}|hyperpage}{18}
-\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}!Link Operation functions@{Link Operation functions}|hyperpage}{18}
-\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}|hyperpage}{18}
-\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}!Link Operation functions@{Link Operation functions}|hyperpage}{18}
-\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}|hyperpage}{19}
-\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}!Link Operation functions@{Link Operation functions}|hyperpage}{19}
-\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}|hyperpage}{19}
-\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}!Link Operation functions@{Link Operation functions}|hyperpage}{19}
-\indexentry{Exported Constants@{Exported Constants}|hyperpage}{20}
-\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y L\+ED@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y L\+ED}|hyperpage}{21}
-\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y B\+U\+T\+T\+ON@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y B\+U\+T\+T\+ON}|hyperpage}{22}
-\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+OM@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+OM}|hyperpage}{23}
-\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT}|hyperpage}{24}
-\indexentry{Exported Functions@{Exported Functions}|hyperpage}{25}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}|hyperpage}{25}
-\indexentry{B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}!Exported Functions@{Exported Functions}|hyperpage}{25}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}|hyperpage}{25}
-\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}!Exported Functions@{Exported Functions}|hyperpage}{25}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}|hyperpage}{26}
-\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}!Exported Functions@{Exported Functions}|hyperpage}{26}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}|hyperpage}{27}
-\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}!Exported Functions@{Exported Functions}|hyperpage}{27}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}|hyperpage}{27}
-\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}!Exported Functions@{Exported Functions}|hyperpage}{27}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}|hyperpage}{28}
-\indexentry{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}!Exported Functions@{Exported Functions}|hyperpage}{28}
-\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}|hyperpage}{28}
-\indexentry{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}!Exported Functions@{Exported Functions}|hyperpage}{28}
-\indexentry{B\+SP@{B\+SP}|hyperpage}{30}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY}|hyperpage}{31}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Common@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Common}|hyperpage}{32}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants}|hyperpage}{33}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{34}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}!L\+E\+D\+\_\+\+P\+IN@{L\+E\+D\+\_\+\+P\+IN}|hyperpage}{34}
-\indexentry{L\+E\+D\+\_\+\+P\+IN@{L\+E\+D\+\_\+\+P\+IN}!S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{34}
-\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}!L\+E\+D\+\_\+\+P\+O\+RT@{L\+E\+D\+\_\+\+P\+O\+RT}|hyperpage}{34}
-\indexentry{L\+E\+D\+\_\+\+P\+O\+RT@{L\+E\+D\+\_\+\+P\+O\+RT}!S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{34}
-\indexentry{C\+M\+S\+IS@{C\+M\+S\+IS}|hyperpage}{35}
-\indexentry{Stm32f3xx\+\_\+system@{Stm32f3xx\+\_\+system}|hyperpage}{36}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes}|hyperpage}{37}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions}|hyperpage}{38}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Defines@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Defines}|hyperpage}{39}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros}|hyperpage}{40}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{41}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes}|hyperpage}{42}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{43}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}!System\+Core\+Clock\+Update@{System\+Core\+Clock\+Update}|hyperpage}{43}
-\indexentry{System\+Core\+Clock\+Update@{System\+Core\+Clock\+Update}!S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{43}
-\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}!System\+Init@{System\+Init}|hyperpage}{44}
-\indexentry{System\+Init@{System\+Init}!S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{44}
-\indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{45}
-\indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{45}
-\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!gpio\+\_\+read\+\_\+sampling@{gpio\+\_\+read\+\_\+sampling}|hyperpage}{47}
-\indexentry{gpio\+\_\+read\+\_\+sampling@{gpio\+\_\+read\+\_\+sampling}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{47}
-\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!inst\+\_\+irq@{inst\+\_\+irq}|hyperpage}{47}
-\indexentry{inst\+\_\+irq@{inst\+\_\+irq}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{47}
-\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!intr\+\_\+pending@{intr\+\_\+pending}|hyperpage}{47}
-\indexentry{intr\+\_\+pending@{intr\+\_\+pending}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{47}
+\indexentry{Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
+\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}|hyperpage}{15}
+\indexentry{I2\+Cx\+\_\+\+Error@{I2\+Cx\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
+\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}|hyperpage}{15}
+\indexentry{I2\+Cx\+\_\+\+Init@{I2\+Cx\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{15}
+\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}|hyperpage}{16}
+\indexentry{I2\+Cx\+\_\+\+Msp\+Init@{I2\+Cx\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{16}
+\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}|hyperpage}{16}
+\indexentry{I2\+Cx\+\_\+\+Read\+Data@{I2\+Cx\+\_\+\+Read\+Data}!Bus Operation functions@{Bus Operation functions}|hyperpage}{16}
+\indexentry{Bus Operation functions@{Bus Operation functions}!I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}|hyperpage}{16}
+\indexentry{I2\+Cx\+\_\+\+Write\+Data@{I2\+Cx\+\_\+\+Write\+Data}!Bus Operation functions@{Bus Operation functions}|hyperpage}{16}
+\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}|hyperpage}{17}
+\indexentry{S\+P\+Ix\+\_\+\+Error@{S\+P\+Ix\+\_\+\+Error}!Bus Operation functions@{Bus Operation functions}|hyperpage}{17}
+\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}|hyperpage}{17}
+\indexentry{S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{17}
+\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}|hyperpage}{17}
+\indexentry{S\+P\+Ix\+\_\+\+Msp\+Init@{S\+P\+Ix\+\_\+\+Msp\+Init}!Bus Operation functions@{Bus Operation functions}|hyperpage}{17}
+\indexentry{Bus Operation functions@{Bus Operation functions}!S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}|hyperpage}{18}
+\indexentry{S\+P\+Ix\+\_\+\+Write\+Read@{S\+P\+Ix\+\_\+\+Write\+Read}!Bus Operation functions@{Bus Operation functions}|hyperpage}{18}
+\indexentry{Link Operation functions@{Link Operation functions}|hyperpage}{19}
+\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}|hyperpage}{19}
+\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}!Link Operation functions@{Link Operation functions}|hyperpage}{19}
+\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}|hyperpage}{19}
+\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}!Link Operation functions@{Link Operation functions}|hyperpage}{19}
+\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}|hyperpage}{19}
+\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}!Link Operation functions@{Link Operation functions}|hyperpage}{19}
+\indexentry{Link Operation functions@{Link Operation functions}!C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}|hyperpage}{20}
+\indexentry{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}!Link Operation functions@{Link Operation functions}|hyperpage}{20}
+\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}|hyperpage}{20}
+\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}!Link Operation functions@{Link Operation functions}|hyperpage}{20}
+\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}|hyperpage}{21}
+\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}!Link Operation functions@{Link Operation functions}|hyperpage}{21}
+\indexentry{Link Operation functions@{Link Operation functions}!G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}|hyperpage}{21}
+\indexentry{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write@{G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}!Link Operation functions@{Link Operation functions}|hyperpage}{21}
+\indexentry{Exported Constants@{Exported Constants}|hyperpage}{22}
+\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y L\+ED@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y L\+ED}|hyperpage}{23}
+\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y B\+U\+T\+T\+ON@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y B\+U\+T\+T\+ON}|hyperpage}{24}
+\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+OM@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+OM}|hyperpage}{25}
+\indexentry{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT@{S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT}|hyperpage}{26}
+\indexentry{Exported Functions@{Exported Functions}|hyperpage}{27}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}|hyperpage}{27}
+\indexentry{B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}!Exported Functions@{Exported Functions}|hyperpage}{27}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}|hyperpage}{27}
+\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}!Exported Functions@{Exported Functions}|hyperpage}{27}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}|hyperpage}{28}
+\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}!Exported Functions@{Exported Functions}|hyperpage}{28}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}|hyperpage}{29}
+\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}!Exported Functions@{Exported Functions}|hyperpage}{29}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}|hyperpage}{29}
+\indexentry{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}!Exported Functions@{Exported Functions}|hyperpage}{29}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}|hyperpage}{30}
+\indexentry{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}!Exported Functions@{Exported Functions}|hyperpage}{30}
+\indexentry{Exported Functions@{Exported Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}|hyperpage}{30}
+\indexentry{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}!Exported Functions@{Exported Functions}|hyperpage}{30}
+\indexentry{B\+SP@{B\+SP}|hyperpage}{32}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY}|hyperpage}{33}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Common@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Common}|hyperpage}{34}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants}|hyperpage}{35}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{36}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}!L\+E\+D\+\_\+\+P\+IN@{L\+E\+D\+\_\+\+P\+IN}|hyperpage}{36}
+\indexentry{L\+E\+D\+\_\+\+P\+IN@{L\+E\+D\+\_\+\+P\+IN}!S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{36}
+\indexentry{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}!L\+E\+D\+\_\+\+P\+O\+RT@{L\+E\+D\+\_\+\+P\+O\+RT}|hyperpage}{36}
+\indexentry{L\+E\+D\+\_\+\+P\+O\+RT@{L\+E\+D\+\_\+\+P\+O\+RT}!S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{36}
+\indexentry{C\+M\+S\+IS@{C\+M\+S\+IS}|hyperpage}{37}
+\indexentry{Stm32f3xx\+\_\+system@{Stm32f3xx\+\_\+system}|hyperpage}{38}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes}|hyperpage}{39}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions}|hyperpage}{40}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Defines@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Defines}|hyperpage}{41}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros}|hyperpage}{42}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables}|hyperpage}{43}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes}|hyperpage}{44}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{45}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}!System\+Core\+Clock\+Update@{System\+Core\+Clock\+Update}|hyperpage}{45}
+\indexentry{System\+Core\+Clock\+Update@{System\+Core\+Clock\+Update}!S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{45}
+\indexentry{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}!System\+Init@{System\+Init}|hyperpage}{46}
+\indexentry{System\+Init@{System\+Init}!S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions@{S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}|hyperpage}{46}
+\indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{47}
+\indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{47}
 \indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{48}
 \indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!inst\+\_\+irq@{inst\+\_\+irq}|hyperpage}{50}
 \indexentry{inst\+\_\+irq@{inst\+\_\+irq}!U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{50}
@@ -96,385 +90,483 @@
 \indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!U\+A\+RT@{U\+A\+RT}|hyperpage}{51}
 \indexentry{U\+A\+RT@{U\+A\+RT}!U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{51}
 \indexentry{arch\+\_\+imp@{arch\+\_\+imp}|hyperpage}{51}
-\indexentry{G\+P\+IO@{G\+P\+IO}|hyperpage}{52}
-\indexentry{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}|hyperpage}{52}
-\indexentry{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!device\+\_\+count@{device\+\_\+count}|hyperpage}{53}
-\indexentry{device\+\_\+count@{device\+\_\+count}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}|hyperpage}{53}
-\indexentry{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!device\+\_\+list@{device\+\_\+list}|hyperpage}{53}
-\indexentry{device\+\_\+list@{device\+\_\+list}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}|hyperpage}{53}
-\indexentry{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}!list\+\_\+size@{list\+\_\+size}|hyperpage}{53}
-\indexentry{list\+\_\+size@{list\+\_\+size}!G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}|hyperpage}{53}
-\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0@{G\+P\+I\+O\+\_\+v1\+\_\+0}|hyperpage}{54}
-\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}|hyperpage}{56}
-\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{57}
-\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+count@{device\+\_\+count}|hyperpage}{57}
-\indexentry{device\+\_\+count@{device\+\_\+count}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{57}
-\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+list@{device\+\_\+list}|hyperpage}{58}
-\indexentry{device\+\_\+list@{device\+\_\+list}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{58}
-\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!list\+\_\+size@{list\+\_\+size}|hyperpage}{58}
-\indexentry{list\+\_\+size@{list\+\_\+size}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{58}
-\indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0@{U\+A\+R\+T\+\_\+v1\+\_\+0}|hyperpage}{58}
-\indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}|hyperpage}{60}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd}|hyperpage}{63}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}|hyperpage}{63}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/can.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/can.\+h}|hyperpage}{64}
-\indexentry{can.\+h@{can.\+h}!M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}|hyperpage}{64}
-\indexentry{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}!can.\+h@{can.\+h}|hyperpage}{64}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/crc.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/crc.\+h}|hyperpage}{64}
-\indexentry{crc.\+h@{crc.\+h}!M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}|hyperpage}{64}
-\indexentry{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}!crc.\+h@{crc.\+h}|hyperpage}{64}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/gpio.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/gpio.\+h}|hyperpage}{65}
-\indexentry{gpio.\+h@{gpio.\+h}!Led\+Off@{Led\+Off}|hyperpage}{65}
-\indexentry{Led\+Off@{Led\+Off}!gpio.\+h@{gpio.\+h}|hyperpage}{65}
-\indexentry{gpio.\+h@{gpio.\+h}!M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{65}
-\indexentry{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}!gpio.\+h@{gpio.\+h}|hyperpage}{65}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/i2c.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/i2c.\+h}|hyperpage}{66}
-\indexentry{i2c.\+h@{i2c.\+h}!M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}|hyperpage}{66}
-\indexentry{M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}!i2c.\+h@{i2c.\+h}|hyperpage}{66}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/main.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/main.\+h}|hyperpage}{66}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/spi.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/spi.\+h}|hyperpage}{67}
-\indexentry{spi.\+h@{spi.\+h}!M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}|hyperpage}{67}
-\indexentry{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}!spi.\+h@{spi.\+h}|hyperpage}{67}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3\+\_\+discovery.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3\+\_\+discovery.\+h}|hyperpage}{67}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h}|hyperpage}{68}
-\indexentry{stm32f3xx\+\_\+hal\+\_\+conf.\+h@{stm32f3xx\+\_\+hal\+\_\+conf.\+h}!C@{C}|hyperpage}{69}
-\indexentry{C@{C}!stm32f3xx\+\_\+hal\+\_\+conf.\+h@{stm32f3xx\+\_\+hal\+\_\+conf.\+h}|hyperpage}{69}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+it.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+it.\+h}|hyperpage}{69}
-\indexentry{stm32f3xx\+\_\+it.\+h@{stm32f3xx\+\_\+it.\+h}!C@{C}|hyperpage}{70}
-\indexentry{C@{C}!stm32f3xx\+\_\+it.\+h@{stm32f3xx\+\_\+it.\+h}|hyperpage}{70}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/usart.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/usart.\+h}|hyperpage}{70}
-\indexentry{usart.\+h@{usart.\+h}!M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}|hyperpage}{70}
-\indexentry{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}!usart.\+h@{usart.\+h}|hyperpage}{70}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c}|hyperpage}{71}
-\indexentry{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}|hyperpage}{71}
-\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}!can.\+c@{can.\+c}|hyperpage}{71}
-\indexentry{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}|hyperpage}{71}
-\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}!can.\+c@{can.\+c}|hyperpage}{71}
-\indexentry{can.\+c@{can.\+c}!M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}|hyperpage}{71}
-\indexentry{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}!can.\+c@{can.\+c}|hyperpage}{71}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/crc.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/crc.\+c}|hyperpage}{72}
-\indexentry{crc.\+c@{crc.\+c}!H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}|hyperpage}{72}
-\indexentry{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}!crc.\+c@{crc.\+c}|hyperpage}{72}
-\indexentry{crc.\+c@{crc.\+c}!H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}|hyperpage}{72}
-\indexentry{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}!crc.\+c@{crc.\+c}|hyperpage}{72}
-\indexentry{crc.\+c@{crc.\+c}!M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}|hyperpage}{73}
-\indexentry{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}!crc.\+c@{crc.\+c}|hyperpage}{73}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/gpio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/gpio.\+c}|hyperpage}{73}
-\indexentry{gpio.\+c@{gpio.\+c}!Led\+Off@{Led\+Off}|hyperpage}{73}
-\indexentry{Led\+Off@{Led\+Off}!gpio.\+c@{gpio.\+c}|hyperpage}{73}
-\indexentry{gpio.\+c@{gpio.\+c}!M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{73}
-\indexentry{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}!gpio.\+c@{gpio.\+c}|hyperpage}{73}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c}|hyperpage}{74}
-\indexentry{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}|hyperpage}{74}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{74}
-\indexentry{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}|hyperpage}{74}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{74}
-\indexentry{i2c.\+c@{i2c.\+c}!M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}|hyperpage}{74}
-\indexentry{M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{74}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.\+c}|hyperpage}{75}
-\indexentry{main.\+c@{main.\+c}!Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}|hyperpage}{75}
-\indexentry{Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}!main.\+c@{main.\+c}|hyperpage}{75}
-\indexentry{main.\+c@{main.\+c}!C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}|hyperpage}{75}
-\indexentry{C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}!main.\+c@{main.\+c}|hyperpage}{75}
-\indexentry{main.\+c@{main.\+c}!Frame32to8@{Frame32to8}|hyperpage}{77}
-\indexentry{Frame32to8@{Frame32to8}!main.\+c@{main.\+c}|hyperpage}{77}
-\indexentry{main.\+c@{main.\+c}!Frame8to32@{Frame8to32}|hyperpage}{77}
-\indexentry{Frame8to32@{Frame8to32}!main.\+c@{main.\+c}|hyperpage}{77}
-\indexentry{main.\+c@{main.\+c}!get\+S\+S\+Pin@{get\+S\+S\+Pin}|hyperpage}{77}
-\indexentry{get\+S\+S\+Pin@{get\+S\+S\+Pin}!main.\+c@{main.\+c}|hyperpage}{77}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}|hyperpage}{78}
-\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}!main.\+c@{main.\+c}|hyperpage}{78}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}|hyperpage}{78}
-\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}!main.\+c@{main.\+c}|hyperpage}{78}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}|hyperpage}{78}
-\indexentry{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}!main.\+c@{main.\+c}|hyperpage}{78}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}|hyperpage}{78}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}|hyperpage}{78}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}|hyperpage}{79}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{79}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}|hyperpage}{79}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{79}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}|hyperpage}{79}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{79}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}|hyperpage}{80}
-\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{80}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}|hyperpage}{80}
-\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}|hyperpage}{80}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}|hyperpage}{80}
-\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{80}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}|hyperpage}{80}
-\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{80}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}|hyperpage}{81}
-\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}!main.\+c@{main.\+c}|hyperpage}{81}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}|hyperpage}{81}
-\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{81}
-\indexentry{main.\+c@{main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}|hyperpage}{81}
-\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}!main.\+c@{main.\+c}|hyperpage}{81}
-\indexentry{main.\+c@{main.\+c}!Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}|hyperpage}{81}
-\indexentry{Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}!main.\+c@{main.\+c}|hyperpage}{81}
-\indexentry{main.\+c@{main.\+c}!Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}|hyperpage}{82}
-\indexentry{Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}!main.\+c@{main.\+c}|hyperpage}{82}
-\indexentry{main.\+c@{main.\+c}!System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}|hyperpage}{82}
-\indexentry{System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}!main.\+c@{main.\+c}|hyperpage}{82}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/spi.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/spi.\+c}|hyperpage}{82}
-\indexentry{spi.\+c@{spi.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}|hyperpage}{83}
-\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}!spi.\+c@{spi.\+c}|hyperpage}{83}
-\indexentry{spi.\+c@{spi.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}|hyperpage}{83}
-\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}!spi.\+c@{spi.\+c}|hyperpage}{83}
-\indexentry{spi.\+c@{spi.\+c}!M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}|hyperpage}{83}
-\indexentry{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}!spi.\+c@{spi.\+c}|hyperpage}{83}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3\+\_\+discovery.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3\+\_\+discovery.\+c}|hyperpage}{83}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3xx\+\_\+it.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3xx\+\_\+it.\+c}|hyperpage}{84}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/system\+\_\+stm32f3xx.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/system\+\_\+stm32f3xx.\+c}|hyperpage}{85}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/usart.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/usart.\+c}|hyperpage}{86}
-\indexentry{usart.\+c@{usart.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}|hyperpage}{86}
-\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}!usart.\+c@{usart.\+c}|hyperpage}{86}
-\indexentry{usart.\+c@{usart.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}|hyperpage}{87}
-\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}!usart.\+c@{usart.\+c}|hyperpage}{87}
-\indexentry{usart.\+c@{usart.\+c}!M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}|hyperpage}{87}
-\indexentry{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}!usart.\+c@{usart.\+c}|hyperpage}{87}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+c}|hyperpage}{87}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}|hyperpage}{87}
-\indexentry{G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{87}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}|hyperpage}{88}
-\indexentry{G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{88}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}|hyperpage}{88}
-\indexentry{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{88}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{88}
-\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{88}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{89}
-\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{89}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}|hyperpage}{89}
-\indexentry{G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{89}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}|hyperpage}{90}
-\indexentry{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{90}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}|hyperpage}{90}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{90}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}|hyperpage}{90}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{90}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}|hyperpage}{91}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{91}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}|hyperpage}{91}
-\indexentry{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{91}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}|hyperpage}{91}
-\indexentry{G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{91}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{91}
-\indexentry{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{91}
-\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}|hyperpage}{92}
-\indexentry{G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{92}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h}|hyperpage}{92}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}|hyperpage}{92}
-\indexentry{G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{92}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}|hyperpage}{93}
-\indexentry{G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{93}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}|hyperpage}{93}
-\indexentry{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{93}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{93}
-\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{93}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{94}
-\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{94}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}|hyperpage}{94}
-\indexentry{G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{94}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}|hyperpage}{95}
-\indexentry{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{95}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}|hyperpage}{95}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{95}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}|hyperpage}{95}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{95}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}|hyperpage}{96}
-\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{96}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}|hyperpage}{96}
-\indexentry{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{96}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}|hyperpage}{96}
-\indexentry{G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{96}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{96}
-\indexentry{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{96}
-\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}|hyperpage}{97}
-\indexentry{G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{97}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{97}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+irq\+\_\+handler@{G\+P\+I\+O\+\_\+irq\+\_\+handler}|hyperpage}{97}
-\indexentry{G\+P\+I\+O\+\_\+irq\+\_\+handler@{G\+P\+I\+O\+\_\+irq\+\_\+handler}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{97}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+open@{G\+P\+I\+O\+\_\+open}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+open@{G\+P\+I\+O\+\_\+open}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+poll@{G\+P\+I\+O\+\_\+poll}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+poll@{G\+P\+I\+O\+\_\+poll}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{98}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{99}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+remove@{G\+P\+I\+O\+\_\+remove}|hyperpage}{100}
-\indexentry{G\+P\+I\+O\+\_\+remove@{G\+P\+I\+O\+\_\+remove}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{100}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}|hyperpage}{100}
-\indexentry{G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{100}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}|hyperpage}{101}
-\indexentry{module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{101}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}|hyperpage}{101}
-\indexentry{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{101}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+driver@{G\+P\+I\+O\+\_\+driver}|hyperpage}{101}
-\indexentry{G\+P\+I\+O\+\_\+driver@{G\+P\+I\+O\+\_\+driver}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{101}
-\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+fops@{G\+P\+I\+O\+\_\+fops}|hyperpage}{101}
-\indexentry{G\+P\+I\+O\+\_\+fops@{G\+P\+I\+O\+\_\+fops}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{101}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{102}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}|hyperpage}{102}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{102}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{103}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{104}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{104}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{104}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{104}
-\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}|hyperpage}{104}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{104}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{105}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}|hyperpage}{105}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{105}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{106}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{107}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{107}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{107}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{107}
-\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}|hyperpage}{107}
-\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{107}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{108}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{108}
-\indexentry{read\+\_\+reg@{read\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{108}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{108}
-\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{108}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{109}
-\indexentry{write\+\_\+reg@{write\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{109}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{109}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{109}
-\indexentry{read\+\_\+reg@{read\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{109}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{110}
-\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{110}
-\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{110}
-\indexentry{write\+\_\+reg@{write\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{110}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0.\+vhd}|hyperpage}{111}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}|hyperpage}{111}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c}|hyperpage}{112}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}|hyperpage}{112}
-\indexentry{U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{112}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}|hyperpage}{112}
-\indexentry{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{112}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}|hyperpage}{113}
-\indexentry{U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}|hyperpage}{113}
-\indexentry{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{113}
-\indexentry{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{115}
-\indexentry{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{115}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}|hyperpage}{115}
-\indexentry{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{115}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}|hyperpage}{116}
-\indexentry{U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{116}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}|hyperpage}{116}
-\indexentry{U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{116}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}|hyperpage}{116}
-\indexentry{U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{116}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}|hyperpage}{117}
-\indexentry{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{117}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}|hyperpage}{117}
-\indexentry{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{117}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}|hyperpage}{117}
-\indexentry{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{117}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}|hyperpage}{117}
-\indexentry{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{117}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}|hyperpage}{118}
-\indexentry{U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{118}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}|hyperpage}{118}
-\indexentry{U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{118}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}|hyperpage}{118}
-\indexentry{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{118}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}|hyperpage}{119}
-\indexentry{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{119}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{119}
-\indexentry{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{119}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}|hyperpage}{119}
-\indexentry{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{119}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}|hyperpage}{119}
-\indexentry{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{119}
-\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}|hyperpage}{121}
-\indexentry{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{121}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{121}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}|hyperpage}{121}
-\indexentry{module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{121}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+irq\+\_\+handler@{U\+A\+R\+T\+\_\+irq\+\_\+handler}|hyperpage}{121}
-\indexentry{U\+A\+R\+T\+\_\+irq\+\_\+handler@{U\+A\+R\+T\+\_\+irq\+\_\+handler}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{121}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+llseek@{U\+A\+R\+T\+\_\+llseek}|hyperpage}{122}
-\indexentry{U\+A\+R\+T\+\_\+llseek@{U\+A\+R\+T\+\_\+llseek}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{122}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+open@{U\+A\+R\+T\+\_\+open}|hyperpage}{122}
-\indexentry{U\+A\+R\+T\+\_\+open@{U\+A\+R\+T\+\_\+open}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{122}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+poll@{U\+A\+R\+T\+\_\+poll}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+poll@{U\+A\+R\+T\+\_\+poll}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+release@{U\+A\+R\+T\+\_\+release}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+release@{U\+A\+R\+T\+\_\+release}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{123}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+remove@{U\+A\+R\+T\+\_\+remove}|hyperpage}{124}
-\indexentry{U\+A\+R\+T\+\_\+remove@{U\+A\+R\+T\+\_\+remove}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{124}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+write@{U\+A\+R\+T\+\_\+write}|hyperpage}{124}
-\indexentry{U\+A\+R\+T\+\_\+write@{U\+A\+R\+T\+\_\+write}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{124}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}|hyperpage}{125}
-\indexentry{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{125}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+driver@{U\+A\+R\+T\+\_\+driver}|hyperpage}{125}
-\indexentry{U\+A\+R\+T\+\_\+driver@{U\+A\+R\+T\+\_\+driver}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{125}
-\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+fops@{U\+A\+R\+T\+\_\+fops}|hyperpage}{125}
-\indexentry{U\+A\+R\+T\+\_\+fops@{U\+A\+R\+T\+\_\+fops}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{125}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{126}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}|hyperpage}{126}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{126}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{127}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{128}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{128}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{128}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{128}
-\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}|hyperpage}{128}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{128}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{130}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}|hyperpage}{130}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{130}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{131}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{132}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{132}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{132}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{132}
-\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}|hyperpage}{132}
-\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{132}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{134}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{134}
-\indexentry{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{134}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{134}
-\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{134}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{135}
-\indexentry{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{135}
-\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{135}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{135}
-\indexentry{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{135}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{136}
-\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{136}
-\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{136}
-\indexentry{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{136}
+\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!gpio\+\_\+read\+\_\+sampling@{gpio\+\_\+read\+\_\+sampling}|hyperpage}{53}
+\indexentry{gpio\+\_\+read\+\_\+sampling@{gpio\+\_\+read\+\_\+sampling}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{53}
+\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!inst\+\_\+irq@{inst\+\_\+irq}|hyperpage}{53}
+\indexentry{inst\+\_\+irq@{inst\+\_\+irq}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{53}
+\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}!intr\+\_\+pending@{intr\+\_\+pending}|hyperpage}{53}
+\indexentry{intr\+\_\+pending@{intr\+\_\+pending}!G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}|hyperpage}{53}
+\indexentry{G\+P\+IO@{G\+P\+IO}|hyperpage}{54}
+\indexentry{G\+P\+I\+O\+\_\+list@{G\+P\+I\+O\+\_\+list}|hyperpage}{54}
+\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0@{G\+P\+I\+O\+\_\+v1\+\_\+0}|hyperpage}{55}
+\indexentry{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI@{G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}|hyperpage}{57}
+\indexentry{my\+Int\+G\+P\+IO@{my\+Int\+G\+P\+IO}|hyperpage}{58}
+\indexentry{U\+A\+RT@{U\+A\+RT}|hyperpage}{59}
+\indexentry{U\+A\+RT@{U\+A\+RT}!Base\+Address@{Base\+Address}|hyperpage}{59}
+\indexentry{Base\+Address@{Base\+Address}!U\+A\+RT@{U\+A\+RT}|hyperpage}{59}
+\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{60}
+\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+count@{device\+\_\+count}|hyperpage}{60}
+\indexentry{device\+\_\+count@{device\+\_\+count}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{60}
+\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!device\+\_\+list@{device\+\_\+list}|hyperpage}{60}
+\indexentry{device\+\_\+list@{device\+\_\+list}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{60}
+\indexentry{U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}!list\+\_\+size@{list\+\_\+size}|hyperpage}{60}
+\indexentry{list\+\_\+size@{list\+\_\+size}!U\+A\+R\+T\+\_\+list@{U\+A\+R\+T\+\_\+list}|hyperpage}{60}
+\indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0@{U\+A\+R\+T\+\_\+v1\+\_\+0}|hyperpage}{61}
+\indexentry{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI@{U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}|hyperpage}{63}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+c}|hyperpage}{65}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}|hyperpage}{65}
+\indexentry{G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{65}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}|hyperpage}{65}
+\indexentry{G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{65}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}|hyperpage}{67}
+\indexentry{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{67}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{67}
+\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{67}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{67}
+\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{67}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}|hyperpage}{68}
+\indexentry{G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{68}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}|hyperpage}{69}
+\indexentry{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{69}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}|hyperpage}{69}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{69}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}|hyperpage}{69}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{69}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}|hyperpage}{70}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{70}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}|hyperpage}{70}
+\indexentry{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{70}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}|hyperpage}{70}
+\indexentry{G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{70}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{70}
+\indexentry{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{70}
+\indexentry{G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}!G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}|hyperpage}{71}
+\indexentry{G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}!G\+P\+I\+O.\+c@{G\+P\+I\+O.\+c}|hyperpage}{71}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+h}|hyperpage}{71}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}|hyperpage}{71}
+\indexentry{G\+P\+I\+O\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+\+Destroy}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{71}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}|hyperpage}{72}
+\indexentry{G\+P\+I\+O\+\_\+\+Get\+Device\+Address@{G\+P\+I\+O\+\_\+\+Get\+Device\+Address}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{72}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}|hyperpage}{72}
+\indexentry{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask@{G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{72}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{72}
+\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{72}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{73}
+\indexentry{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{73}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}|hyperpage}{73}
+\indexentry{G\+P\+I\+O\+\_\+\+Init@{G\+P\+I\+O\+\_\+\+Init}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{73}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}|hyperpage}{74}
+\indexentry{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt@{G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{74}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}|hyperpage}{74}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{74}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}|hyperpage}{75}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{75}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}|hyperpage}{75}
+\indexentry{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable@{G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{75}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}|hyperpage}{75}
+\indexentry{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read@{G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{75}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}|hyperpage}{76}
+\indexentry{G\+P\+I\+O\+\_\+\+Set\+Can\+Read@{G\+P\+I\+O\+\_\+\+Set\+Can\+Read}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{76}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{76}
+\indexentry{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep@{G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{76}
+\indexentry{G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}!G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}|hyperpage}{76}
+\indexentry{G\+P\+I\+O\+\_\+\+Wake\+Up@{G\+P\+I\+O\+\_\+\+Wake\+Up}!G\+P\+I\+O.\+h@{G\+P\+I\+O.\+h}|hyperpage}{76}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{76}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+irq\+\_\+handler@{G\+P\+I\+O\+\_\+irq\+\_\+handler}|hyperpage}{77}
+\indexentry{G\+P\+I\+O\+\_\+irq\+\_\+handler@{G\+P\+I\+O\+\_\+irq\+\_\+handler}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{77}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}|hyperpage}{77}
+\indexentry{G\+P\+I\+O\+\_\+llseek@{G\+P\+I\+O\+\_\+llseek}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{77}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+open@{G\+P\+I\+O\+\_\+open}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+open@{G\+P\+I\+O\+\_\+open}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+poll@{G\+P\+I\+O\+\_\+poll}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+poll@{G\+P\+I\+O\+\_\+poll}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{78}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}|hyperpage}{79}
+\indexentry{G\+P\+I\+O\+\_\+release@{G\+P\+I\+O\+\_\+release}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{79}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+remove@{G\+P\+I\+O\+\_\+remove}|hyperpage}{79}
+\indexentry{G\+P\+I\+O\+\_\+remove@{G\+P\+I\+O\+\_\+remove}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{79}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}|hyperpage}{80}
+\indexentry{G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{80}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}|hyperpage}{80}
+\indexentry{module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{80}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}|hyperpage}{81}
+\indexentry{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{81}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+driver@{G\+P\+I\+O\+\_\+driver}|hyperpage}{81}
+\indexentry{G\+P\+I\+O\+\_\+driver@{G\+P\+I\+O\+\_\+driver}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{81}
+\indexentry{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+fops@{G\+P\+I\+O\+\_\+fops}|hyperpage}{81}
+\indexentry{G\+P\+I\+O\+\_\+fops@{G\+P\+I\+O\+\_\+fops}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}|hyperpage}{81}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{82}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{83}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{83}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{83}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{83}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{84}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{84}
+\indexentry{G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}!G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}|hyperpage}{84}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}!G\+P\+I\+O\+\_\+list.\+c@{G\+P\+I\+O\+\_\+list.\+c}|hyperpage}{84}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{84}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+add@{G\+P\+I\+O\+\_\+list\+\_\+add}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy@{G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count@{G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{85}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{86}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{86}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{86}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{86}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{87}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{87}
+\indexentry{G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}!G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}|hyperpage}{87}
+\indexentry{G\+P\+I\+O\+\_\+list\+\_\+\+Init@{G\+P\+I\+O\+\_\+list\+\_\+\+Init}!G\+P\+I\+O\+\_\+list.\+h@{G\+P\+I\+O\+\_\+list.\+h}|hyperpage}{87}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{87}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{88}
+\indexentry{read\+\_\+reg@{read\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{88}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{88}
+\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{88}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{88}
+\indexentry{write\+\_\+reg@{write\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}|hyperpage}{88}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{89}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{89}
+\indexentry{read\+\_\+reg@{read\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{89}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{90}
+\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{90}
+\indexentry{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{90}
+\indexentry{write\+\_\+reg@{write\+\_\+reg}!G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h@{G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}|hyperpage}{90}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0.\+vhd}|hyperpage}{91}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}|hyperpage}{91}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+c}|hyperpage}{91}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}|hyperpage}{92}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{92}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}|hyperpage}{92}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{92}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}|hyperpage}{92}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{92}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}|hyperpage}{93}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{93}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}|hyperpage}{93}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{93}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}|hyperpage}{94}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{94}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{94}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{94}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Read\+Data@{X\+G\+P\+I\+O\+\_\+\+Read\+Data}|hyperpage}{94}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Read\+Data@{X\+G\+P\+I\+O\+\_\+\+Read\+Data}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{94}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Set\+Direction@{X\+G\+P\+I\+O\+\_\+\+Set\+Direction}|hyperpage}{95}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Set\+Direction@{X\+G\+P\+I\+O\+\_\+\+Set\+Direction}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{95}
+\indexentry{gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}!X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}|hyperpage}{95}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}!gpio\+\_\+int.\+c@{gpio\+\_\+int.\+c}|hyperpage}{95}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+h}|hyperpage}{96}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}|hyperpage}{96}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+A\+CK@{X\+G\+P\+I\+O\+\_\+\+A\+CK}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{96}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}|hyperpage}{96}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{96}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}|hyperpage}{97}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{97}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}|hyperpage}{97}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Get\+Pending@{X\+G\+P\+I\+O\+\_\+\+Get\+Pending}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{97}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}|hyperpage}{98}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{98}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}|hyperpage}{98}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt@{X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{98}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{98}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Init@{X\+G\+P\+I\+O\+\_\+\+Init}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{98}
+\indexentry{gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}!X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}|hyperpage}{99}
+\indexentry{X\+G\+P\+I\+O\+\_\+\+Write\+Data@{X\+G\+P\+I\+O\+\_\+\+Write\+Data}!gpio\+\_\+int.\+h@{gpio\+\_\+int.\+h}|hyperpage}{99}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{99}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}|hyperpage}{99}
+\indexentry{Configure\+\_\+\+Peripheral@{Configure\+\_\+\+Peripheral}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{99}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}|hyperpage}{100}
+\indexentry{C\+R\+C\+\_\+\+Check@{C\+R\+C\+\_\+\+Check}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{100}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Frame32to8@{Frame32to8}|hyperpage}{100}
+\indexentry{Frame32to8@{Frame32to8}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{100}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Frame8to32@{Frame8to32}|hyperpage}{100}
+\indexentry{Frame8to32@{Frame8to32}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{100}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!get\+S\+S\+Pin@{get\+S\+S\+Pin}|hyperpage}{101}
+\indexentry{get\+S\+S\+Pin@{get\+S\+S\+Pin}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{101}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}|hyperpage}{101}
+\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{101}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}|hyperpage}{101}
+\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{101}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}|hyperpage}{102}
+\indexentry{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{102}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}|hyperpage}{102}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{102}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}|hyperpage}{102}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{102}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}|hyperpage}{103}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{103}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}|hyperpage}{103}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{103}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}|hyperpage}{103}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{103}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}|hyperpage}{103}
+\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{103}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}|hyperpage}{104}
+\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{104}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}|hyperpage}{104}
+\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{104}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}|hyperpage}{104}
+\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{104}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}|hyperpage}{104}
+\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{104}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}|hyperpage}{105}
+\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{105}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}|hyperpage}{105}
+\indexentry{Receive\+\_\+\+C\+RC@{Receive\+\_\+\+C\+RC}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{105}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}|hyperpage}{105}
+\indexentry{Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{105}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}|hyperpage}{106}
+\indexentry{System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{106}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Frame@{Frame}|hyperpage}{106}
+\indexentry{Frame@{Frame}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{106}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!rx\+\_\+callback\+\_\+count@{rx\+\_\+callback\+\_\+count}|hyperpage}{106}
+\indexentry{rx\+\_\+callback\+\_\+count@{rx\+\_\+callback\+\_\+count}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{106}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!tx\+\_\+callback\+\_\+count@{tx\+\_\+callback\+\_\+count}|hyperpage}{106}
+\indexentry{tx\+\_\+callback\+\_\+count@{tx\+\_\+callback\+\_\+count}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{106}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!U\+A\+R\+T\+\_\+\+Rx\+Buffer@{U\+A\+R\+T\+\_\+\+Rx\+Buffer}|hyperpage}{106}
+\indexentry{U\+A\+R\+T\+\_\+\+Rx\+Buffer@{U\+A\+R\+T\+\_\+\+Rx\+Buffer}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{106}
+\indexentry{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!User\+Button\+Status@{User\+Button\+Status}|hyperpage}{107}
+\indexentry{User\+Button\+Status@{User\+Button\+Status}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}|hyperpage}{107}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c}|hyperpage}{107}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}|hyperpage}{107}
+\indexentry{U\+A\+R\+T\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+\+Destroy}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{107}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}|hyperpage}{107}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{107}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}|hyperpage}{108}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Device\+Address@{U\+A\+R\+T\+\_\+\+Get\+Device\+Address}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{108}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}|hyperpage}{108}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask@{U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{108}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}|hyperpage}{108}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{108}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}|hyperpage}{110}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{110}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}|hyperpage}{110}
+\indexentry{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{110}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}|hyperpage}{111}
+\indexentry{U\+A\+R\+T\+\_\+\+Interrupt\+Disable@{U\+A\+R\+T\+\_\+\+Interrupt\+Disable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{111}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}|hyperpage}{111}
+\indexentry{U\+A\+R\+T\+\_\+\+Interrupt\+Enable@{U\+A\+R\+T\+\_\+\+Interrupt\+Enable}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{111}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}|hyperpage}{111}
+\indexentry{U\+A\+R\+T\+\_\+\+Pending\+Interrupt@{U\+A\+R\+T\+\_\+\+Pending\+Interrupt}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{111}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}|hyperpage}{111}
+\indexentry{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{111}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}|hyperpage}{112}
+\indexentry{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{112}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}|hyperpage}{112}
+\indexentry{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write@{U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{112}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}|hyperpage}{112}
+\indexentry{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{112}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}|hyperpage}{113}
+\indexentry{U\+A\+R\+T\+\_\+\+Set\+Can\+Read@{U\+A\+R\+T\+\_\+\+Set\+Can\+Read}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}|hyperpage}{113}
+\indexentry{U\+A\+R\+T\+\_\+\+Set\+Can\+Write@{U\+A\+R\+T\+\_\+\+Set\+Can\+Write}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}|hyperpage}{113}
+\indexentry{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}|hyperpage}{113}
+\indexentry{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{113}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}|hyperpage}{114}
+\indexentry{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{114}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}|hyperpage}{114}
+\indexentry{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep@{U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{114}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}|hyperpage}{114}
+\indexentry{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack@{U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{114}
+\indexentry{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}|hyperpage}{115}
+\indexentry{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up@{U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}|hyperpage}{115}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{115}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}|hyperpage}{115}
+\indexentry{module\+\_\+platform\+\_\+driver@{module\+\_\+platform\+\_\+driver}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{115}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+irq\+\_\+handler@{U\+A\+R\+T\+\_\+irq\+\_\+handler}|hyperpage}{115}
+\indexentry{U\+A\+R\+T\+\_\+irq\+\_\+handler@{U\+A\+R\+T\+\_\+irq\+\_\+handler}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{115}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+llseek@{U\+A\+R\+T\+\_\+llseek}|hyperpage}{116}
+\indexentry{U\+A\+R\+T\+\_\+llseek@{U\+A\+R\+T\+\_\+llseek}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{116}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+open@{U\+A\+R\+T\+\_\+open}|hyperpage}{116}
+\indexentry{U\+A\+R\+T\+\_\+open@{U\+A\+R\+T\+\_\+open}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{116}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+poll@{U\+A\+R\+T\+\_\+poll}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+poll@{U\+A\+R\+T\+\_\+poll}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+release@{U\+A\+R\+T\+\_\+release}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+release@{U\+A\+R\+T\+\_\+release}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{117}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+remove@{U\+A\+R\+T\+\_\+remove}|hyperpage}{118}
+\indexentry{U\+A\+R\+T\+\_\+remove@{U\+A\+R\+T\+\_\+remove}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{118}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+write@{U\+A\+R\+T\+\_\+write}|hyperpage}{118}
+\indexentry{U\+A\+R\+T\+\_\+write@{U\+A\+R\+T\+\_\+write}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{118}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}|hyperpage}{119}
+\indexentry{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id@{\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{119}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+driver@{U\+A\+R\+T\+\_\+driver}|hyperpage}{119}
+\indexentry{U\+A\+R\+T\+\_\+driver@{U\+A\+R\+T\+\_\+driver}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{119}
+\indexentry{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+fops@{U\+A\+R\+T\+\_\+fops}|hyperpage}{119}
+\indexentry{U\+A\+R\+T\+\_\+fops@{U\+A\+R\+T\+\_\+fops}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}|hyperpage}{119}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{120}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}|hyperpage}{120}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{120}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{121}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{122}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{122}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{122}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{122}
+\indexentry{U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}!U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}|hyperpage}{122}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}!U\+A\+R\+T\+\_\+list.\+c@{U\+A\+R\+T\+\_\+list.\+c}|hyperpage}{122}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{124}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}|hyperpage}{124}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+add@{U\+A\+R\+T\+\_\+list\+\_\+add}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{124}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy@{U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count@{U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{125}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}|hyperpage}{126}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{126}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}|hyperpage}{126}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line@{U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{126}
+\indexentry{U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}!U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}|hyperpage}{126}
+\indexentry{U\+A\+R\+T\+\_\+list\+\_\+\+Init@{U\+A\+R\+T\+\_\+list\+\_\+\+Init}!U\+A\+R\+T\+\_\+list.\+h@{U\+A\+R\+T\+\_\+list.\+h}|hyperpage}{126}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{128}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{128}
+\indexentry{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{128}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{128}
+\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{128}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{129}
+\indexentry{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}|hyperpage}{129}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{129}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!read\+\_\+reg@{read\+\_\+reg}|hyperpage}{130}
+\indexentry{read\+\_\+reg@{read\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{130}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}|hyperpage}{130}
+\indexentry{wait\+\_\+for\+\_\+interrupt@{wait\+\_\+for\+\_\+interrupt}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{130}
+\indexentry{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}!write\+\_\+reg@{write\+\_\+reg}|hyperpage}{130}
+\indexentry{write\+\_\+reg@{write\+\_\+reg}!U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h@{U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}|hyperpage}{130}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+c}|hyperpage}{131}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}|hyperpage}{131}
+\indexentry{U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}!myuart.\+c@{myuart.\+c}|hyperpage}{131}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}|hyperpage}{132}
+\indexentry{U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}!myuart.\+c@{myuart.\+c}|hyperpage}{132}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}|hyperpage}{132}
+\indexentry{U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}!myuart.\+c@{myuart.\+c}|hyperpage}{132}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}|hyperpage}{133}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!myuart.\+c@{myuart.\+c}|hyperpage}{133}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}|hyperpage}{133}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}!myuart.\+c@{myuart.\+c}|hyperpage}{133}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}|hyperpage}{134}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}!myuart.\+c@{myuart.\+c}|hyperpage}{134}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}|hyperpage}{134}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}!myuart.\+c@{myuart.\+c}|hyperpage}{134}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}|hyperpage}{135}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}!myuart.\+c@{myuart.\+c}|hyperpage}{135}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}|hyperpage}{135}
+\indexentry{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!myuart.\+c@{myuart.\+c}|hyperpage}{135}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}|hyperpage}{135}
+\indexentry{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!myuart.\+c@{myuart.\+c}|hyperpage}{135}
+\indexentry{myuart.\+c@{myuart.\+c}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}|hyperpage}{136}
+\indexentry{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!myuart.\+c@{myuart.\+c}|hyperpage}{136}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+h}|hyperpage}{136}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}|hyperpage}{137}
+\indexentry{U\+A\+R\+T\+\_\+\+A\+CK@{U\+A\+R\+T\+\_\+\+A\+CK}!myuart.\+h@{myuart.\+h}|hyperpage}{137}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}|hyperpage}{137}
+\indexentry{U\+A\+R\+T\+\_\+\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Disable\+Interrupt}!myuart.\+h@{myuart.\+h}|hyperpage}{137}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}|hyperpage}{138}
+\indexentry{U\+A\+R\+T\+\_\+\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Enable\+Interrupt}!myuart.\+h@{myuart.\+h}|hyperpage}{138}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}|hyperpage}{138}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Data@{U\+A\+R\+T\+\_\+\+Get\+Data}!myuart.\+h@{myuart.\+h}|hyperpage}{138}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}|hyperpage}{139}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Pending@{U\+A\+R\+T\+\_\+\+Get\+Pending}!myuart.\+h@{myuart.\+h}|hyperpage}{139}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}|hyperpage}{139}
+\indexentry{U\+A\+R\+T\+\_\+\+Get\+Status@{U\+A\+R\+T\+\_\+\+Get\+Status}!myuart.\+h@{myuart.\+h}|hyperpage}{139}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}|hyperpage}{140}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}!myuart.\+h@{myuart.\+h}|hyperpage}{140}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}|hyperpage}{140}
+\indexentry{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt@{U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}!myuart.\+h@{myuart.\+h}|hyperpage}{140}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}|hyperpage}{141}
+\indexentry{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!myuart.\+h@{myuart.\+h}|hyperpage}{141}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}|hyperpage}{141}
+\indexentry{U\+A\+R\+T\+\_\+\+Set\+Data@{U\+A\+R\+T\+\_\+\+Set\+Data}!myuart.\+h@{myuart.\+h}|hyperpage}{141}
+\indexentry{myuart.\+h@{myuart.\+h}!U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}|hyperpage}{142}
+\indexentry{U\+A\+R\+T\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Start}!myuart.\+h@{myuart.\+h}|hyperpage}{142}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd}|hyperpage}{142}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}|hyperpage}{143}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/can.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/can.\+h}|hyperpage}{143}
+\indexentry{can.\+h@{can.\+h}!M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}|hyperpage}{143}
+\indexentry{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}!can.\+h@{can.\+h}|hyperpage}{143}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/crc.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/crc.\+h}|hyperpage}{144}
+\indexentry{crc.\+h@{crc.\+h}!M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}|hyperpage}{144}
+\indexentry{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}!crc.\+h@{crc.\+h}|hyperpage}{144}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/gpio.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/gpio.\+h}|hyperpage}{144}
+\indexentry{gpio.\+h@{gpio.\+h}!Led\+Off@{Led\+Off}|hyperpage}{145}
+\indexentry{Led\+Off@{Led\+Off}!gpio.\+h@{gpio.\+h}|hyperpage}{145}
+\indexentry{gpio.\+h@{gpio.\+h}!M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{145}
+\indexentry{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}!gpio.\+h@{gpio.\+h}|hyperpage}{145}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/i2c.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/i2c.\+h}|hyperpage}{145}
+\indexentry{i2c.\+h@{i2c.\+h}!M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}|hyperpage}{145}
+\indexentry{M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}!i2c.\+h@{i2c.\+h}|hyperpage}{145}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/main.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/main.\+h}|hyperpage}{146}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/spi.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/spi.\+h}|hyperpage}{146}
+\indexentry{spi.\+h@{spi.\+h}!M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}|hyperpage}{146}
+\indexentry{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}!spi.\+h@{spi.\+h}|hyperpage}{146}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3\+\_\+discovery.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3\+\_\+discovery.\+h}|hyperpage}{147}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h}|hyperpage}{147}
+\indexentry{stm32f3xx\+\_\+hal\+\_\+conf.\+h@{stm32f3xx\+\_\+hal\+\_\+conf.\+h}!C@{C}|hyperpage}{148}
+\indexentry{C@{C}!stm32f3xx\+\_\+hal\+\_\+conf.\+h@{stm32f3xx\+\_\+hal\+\_\+conf.\+h}|hyperpage}{148}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+it.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+it.\+h}|hyperpage}{149}
+\indexentry{stm32f3xx\+\_\+it.\+h@{stm32f3xx\+\_\+it.\+h}!C@{C}|hyperpage}{149}
+\indexentry{C@{C}!stm32f3xx\+\_\+it.\+h@{stm32f3xx\+\_\+it.\+h}|hyperpage}{149}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/usart.\+h@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/usart.\+h}|hyperpage}{150}
+\indexentry{usart.\+h@{usart.\+h}!M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}|hyperpage}{150}
+\indexentry{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}!usart.\+h@{usart.\+h}|hyperpage}{150}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.\+c}|hyperpage}{150}
+\indexentry{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}|hyperpage}{150}
+\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}!can.\+c@{can.\+c}|hyperpage}{150}
+\indexentry{can.\+c@{can.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}|hyperpage}{151}
+\indexentry{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}!can.\+c@{can.\+c}|hyperpage}{151}
+\indexentry{can.\+c@{can.\+c}!M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}|hyperpage}{151}
+\indexentry{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init@{M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}!can.\+c@{can.\+c}|hyperpage}{151}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/crc.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/crc.\+c}|hyperpage}{151}
+\indexentry{crc.\+c@{crc.\+c}!H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}|hyperpage}{152}
+\indexentry{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}!crc.\+c@{crc.\+c}|hyperpage}{152}
+\indexentry{crc.\+c@{crc.\+c}!H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}|hyperpage}{152}
+\indexentry{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}!crc.\+c@{crc.\+c}|hyperpage}{152}
+\indexentry{crc.\+c@{crc.\+c}!M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}|hyperpage}{152}
+\indexentry{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init@{M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}!crc.\+c@{crc.\+c}|hyperpage}{152}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/gpio.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/gpio.\+c}|hyperpage}{153}
+\indexentry{gpio.\+c@{gpio.\+c}!Led\+Off@{Led\+Off}|hyperpage}{153}
+\indexentry{Led\+Off@{Led\+Off}!gpio.\+c@{gpio.\+c}|hyperpage}{153}
+\indexentry{gpio.\+c@{gpio.\+c}!M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}|hyperpage}{153}
+\indexentry{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init@{M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}!gpio.\+c@{gpio.\+c}|hyperpage}{153}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.\+c}|hyperpage}{153}
+\indexentry{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}|hyperpage}{154}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{154}
+\indexentry{i2c.\+c@{i2c.\+c}!H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}|hyperpage}{154}
+\indexentry{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{154}
+\indexentry{i2c.\+c@{i2c.\+c}!M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}|hyperpage}{154}
+\indexentry{M\+X\+\_\+\+I2\+C2\+\_\+\+Init@{M\+X\+\_\+\+I2\+C2\+\_\+\+Init}!i2c.\+c@{i2c.\+c}|hyperpage}{154}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/spi.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/spi.\+c}|hyperpage}{155}
+\indexentry{spi.\+c@{spi.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}|hyperpage}{155}
+\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}!spi.\+c@{spi.\+c}|hyperpage}{155}
+\indexentry{spi.\+c@{spi.\+c}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}|hyperpage}{155}
+\indexentry{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}!spi.\+c@{spi.\+c}|hyperpage}{155}
+\indexentry{spi.\+c@{spi.\+c}!M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}|hyperpage}{155}
+\indexentry{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init@{M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}!spi.\+c@{spi.\+c}|hyperpage}{155}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3\+\_\+discovery.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3\+\_\+discovery.\+c}|hyperpage}{156}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3xx\+\_\+it.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3xx\+\_\+it.\+c}|hyperpage}{157}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/system\+\_\+stm32f3xx.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/system\+\_\+stm32f3xx.\+c}|hyperpage}{157}
+\indexentry{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/usart.\+c@{/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/usart.\+c}|hyperpage}{159}
+\indexentry{usart.\+c@{usart.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}|hyperpage}{159}
+\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}!usart.\+c@{usart.\+c}|hyperpage}{159}
+\indexentry{usart.\+c@{usart.\+c}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}|hyperpage}{159}
+\indexentry{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}!usart.\+c@{usart.\+c}|hyperpage}{159}
+\indexentry{usart.\+c@{usart.\+c}!M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}|hyperpage}{159}
+\indexentry{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init@{M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}!usart.\+c@{usart.\+c}|hyperpage}{159}

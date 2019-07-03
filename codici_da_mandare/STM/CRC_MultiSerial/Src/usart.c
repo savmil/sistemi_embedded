@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : usart.c
-  * Permette la configurazione della periferica USART
+  * @brief Permette la configurazione della periferica USART
   ******************************************************************************
   */
 

@@ -1,464 +1,515 @@
 \begin{theindex}
 
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd}, 
-		\hyperpage{63}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+F\+P\+G\+A/ip\+\_\+repo/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}, 
-		\hyperpage{63}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/can.\+h}, 
-		\hyperpage{64}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/crc.\+h}, 
-		\hyperpage{64}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/gpio.\+h}, 
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+c}, 
 		\hyperpage{65}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/i2c.\+h}, 
-		\hyperpage{66}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/main.\+h}, 
-		\hyperpage{66}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/spi.\+h}, 
-		\hyperpage{67}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3\+\_\+discovery.\+h}, 
-		\hyperpage{67}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h}, 
-		\hyperpage{68}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/stm32f3xx\+\_\+it.\+h}, 
-		\hyperpage{69}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Inc/usart.\+h}, 
-		\hyperpage{70}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/can.\+c}, 
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O.\+h}, 
 		\hyperpage{71}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/crc.\+c}, 
-		\hyperpage{72}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/gpio.\+c}, 
-		\hyperpage{73}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/i2c.\+c}, 
-		\hyperpage{74}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/main.\+c}, 
-		\hyperpage{75}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/spi.\+c}, 
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, 
+		\hyperpage{76}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+c}, 
 		\hyperpage{82}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3\+\_\+discovery.\+c}, 
-		\hyperpage{83}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/stm32f3xx\+\_\+it.\+c}, 
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+G\+P\+I\+O\+\_\+list.\+h}, 
 		\hyperpage{84}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/system\+\_\+stm32f3xx.\+c}, 
-		\hyperpage{85}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Andrea/\+S\+T\+M32/\+C\+R\+C\+\_\+\+Multi\+Serial\+\_\+\+C\+H\+E\+C\+K/\+Src/usart.\+c}, 
-		\hyperpage{86}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c}, 
-		\hyperpage{112}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, 
-		\hyperpage{121}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c}, 
-		\hyperpage{126}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h}, 
-		\hyperpage{130}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, 
-		\hyperpage{134}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/\+Michele/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+Con\+\_\+interrupt/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, 
-		\hyperpage{135}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+c}, 
-		\hyperpage{87}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O.\+h}, 
-		\hyperpage{92}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, 
-		\hyperpage{97}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+c}, 
-		\hyperpage{102}
-  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+Kernel\+\_\+\+Mode/\+G\+P\+I\+O\+\_\+list.\+h}, 
-		\hyperpage{105}
   \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}, 
-		\hyperpage{108}
+		\hyperpage{87}
   \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Driver/\+U\+I\+O/\+G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}, 
-		\hyperpage{109}
+		\hyperpage{89}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+c}, 
+		\hyperpage{91}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+With\+Interrupt/\+G\+P\+I\+O\+With\+Interrupt.\+sdk/\+G\+P\+I\+O/src/gpio\+\_\+int.\+h}, 
+		\hyperpage{96}
   \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0.\+vhd}, 
-		\hyperpage{111}
+		\hyperpage{91}
   \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+G\+P\+I\+O/\+Hardware/\+G\+P\+I\+O\+\_\+1.\+0/hdl/\+G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}, 
-		\hyperpage{111}
+		\hyperpage{91}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T.\+c}, 
+		\hyperpage{107}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, 
+		\hyperpage{115}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+c}, 
+		\hyperpage{120}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+K\+E\+R\+N\+E\+L\+\_\+\+M\+O\+D\+E/\+U\+A\+R\+T\+\_\+list.\+h}, 
+		\hyperpage{124}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, 
+		\hyperpage{128}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Driver/\+U\+I\+O/\+U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, 
+		\hyperpage{129}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0.\+vhd}, 
+		\hyperpage{142}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+U\+A\+R\+T\+\_\+1.\+0/hdl/\+U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I.\+vhd}, 
+		\hyperpage{143}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+c}, 
+		\hyperpage{131}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+F\+P\+G\+A/\+U\+A\+R\+T/\+Hardware/\+Uart2/\+Uart2.\+sdk/uart/src/myuart.\+h}, 
+		\hyperpage{136}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/can.\+h}, 
+		\hyperpage{143}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/crc.\+h}, 
+		\hyperpage{144}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/gpio.\+h}, 
+		\hyperpage{144}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/i2c.\+h}, 
+		\hyperpage{145}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/main.\+h}, 
+		\hyperpage{146}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/spi.\+h}, 
+		\hyperpage{146}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3\+\_\+discovery.\+h}, 
+		\hyperpage{147}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+hal\+\_\+conf.\+h}, 
+		\hyperpage{147}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/stm32f3xx\+\_\+it.\+h}, 
+		\hyperpage{149}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Inc/usart.\+h}, 
+		\hyperpage{150}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/can.\+c}, 
+		\hyperpage{150}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/crc.\+c}, 
+		\hyperpage{151}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/gpio.\+c}, 
+		\hyperpage{153}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/i2c.\+c}, 
+		\hyperpage{153}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{99}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/spi.\+c}, 
+		\hyperpage{155}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3\+\_\+discovery.\+c}, 
+		\hyperpage{156}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/stm32f3xx\+\_\+it.\+c}, 
+		\hyperpage{157}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/system\+\_\+stm32f3xx.\+c}, 
+		\hyperpage{157}
+  \item {/media/saverio/\+O\+S/\+Users/\+Saverio/\+Desktop/\+S\+E/git/codici\+\_\+da\+\_\+mandare/\+S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/usart.\+c}, 
+		\hyperpage{159}
   \item {\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{101}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{125}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{81}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{119}
 
   \indexspace
 
   \item {ack\+\_\+intr}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{51}
-  \item {arch\+\_\+imp}, \hyperpage{45}, \hyperpage{48}, \hyperpage{51}
+  \item {arch\+\_\+imp}, \hyperpage{47, 48}, \hyperpage{51}
 
   \indexspace
 
   \item {B\+S\+P\+\_\+\+Get\+Version}
-    \subitem {Exported Functions}, \hyperpage{25}
+    \subitem {Exported Functions}, \hyperpage{27}
   \item {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}
-    \subitem {Exported Functions}, \hyperpage{25}
+    \subitem {Exported Functions}, \hyperpage{27}
   \item {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}
-    \subitem {Exported Functions}, \hyperpage{26}
+    \subitem {Exported Functions}, \hyperpage{28}
   \item {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}
-    \subitem {Exported Functions}, \hyperpage{27}
+    \subitem {Exported Functions}, \hyperpage{29}
   \item {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}
-    \subitem {Exported Functions}, \hyperpage{27}
+    \subitem {Exported Functions}, \hyperpage{29}
   \item {B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}
-    \subitem {Exported Functions}, \hyperpage{28}
+    \subitem {Exported Functions}, \hyperpage{30}
   \item {B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}
-    \subitem {Exported Functions}, \hyperpage{28}
-  \item {B\+SP}, \hyperpage{30}
-  \item {Bus Operation functions}, \hyperpage{13}
-    \subitem {I2\+Cx\+\_\+\+Error}, \hyperpage{13}
-    \subitem {I2\+Cx\+\_\+\+Init}, \hyperpage{13}
-    \subitem {I2\+Cx\+\_\+\+Msp\+Init}, \hyperpage{14}
-    \subitem {I2\+Cx\+\_\+\+Read\+Data}, \hyperpage{14}
-    \subitem {I2\+Cx\+\_\+\+Write\+Data}, \hyperpage{14}
-    \subitem {S\+P\+Ix\+\_\+\+Error}, \hyperpage{15}
-    \subitem {S\+P\+Ix\+\_\+\+Init}, \hyperpage{15}
-    \subitem {S\+P\+Ix\+\_\+\+Msp\+Init}, \hyperpage{15}
-    \subitem {S\+P\+Ix\+\_\+\+Write\+Read}, \hyperpage{16}
+    \subitem {Exported Functions}, \hyperpage{30}
+  \item {B\+SP}, \hyperpage{32}
+  \item {Base\+Address}
+    \subitem {U\+A\+RT}, \hyperpage{59}
+  \item {Bus Operation functions}, \hyperpage{15}
+    \subitem {I2\+Cx\+\_\+\+Error}, \hyperpage{15}
+    \subitem {I2\+Cx\+\_\+\+Init}, \hyperpage{15}
+    \subitem {I2\+Cx\+\_\+\+Msp\+Init}, \hyperpage{16}
+    \subitem {I2\+Cx\+\_\+\+Read\+Data}, \hyperpage{16}
+    \subitem {I2\+Cx\+\_\+\+Write\+Data}, \hyperpage{16}
+    \subitem {S\+P\+Ix\+\_\+\+Error}, \hyperpage{17}
+    \subitem {S\+P\+Ix\+\_\+\+Init}, \hyperpage{17}
+    \subitem {S\+P\+Ix\+\_\+\+Msp\+Init}, \hyperpage{17}
+    \subitem {S\+P\+Ix\+\_\+\+Write\+Read}, \hyperpage{18}
 
   \indexspace
 
   \item {C}
-    \subitem {stm32f3xx\+\_\+hal\+\_\+conf.\+h}, \hyperpage{69}
-    \subitem {stm32f3xx\+\_\+it.\+h}, \hyperpage{70}
-  \item {C\+M\+S\+IS}, \hyperpage{35}
+    \subitem {stm32f3xx\+\_\+hal\+\_\+conf.\+h}, \hyperpage{148}
+    \subitem {stm32f3xx\+\_\+it.\+h}, \hyperpage{149}
+  \item {C\+M\+S\+IS}, \hyperpage{37}
   \item {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}
-    \subitem {Link Operation functions}, \hyperpage{17}
+    \subitem {Link Operation functions}, \hyperpage{19}
   \item {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}
-    \subitem {Link Operation functions}, \hyperpage{17}
+    \subitem {Link Operation functions}, \hyperpage{19}
   \item {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}
-    \subitem {Link Operation functions}, \hyperpage{17}
+    \subitem {Link Operation functions}, \hyperpage{19}
   \item {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}
-    \subitem {Link Operation functions}, \hyperpage{18}
+    \subitem {Link Operation functions}, \hyperpage{20}
   \item {C\+R\+C\+\_\+\+Check}
-    \subitem {main.\+c}, \hyperpage{75}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{100}
   \item {can.\+c}
     \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}, 
-		\hyperpage{71}
-    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}, \hyperpage{71}
-    \subitem {M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}, \hyperpage{71}
+		\hyperpage{150}
+    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}, \hyperpage{151}
+    \subitem {M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}, \hyperpage{151}
   \item {can.\+h}
-    \subitem {M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}, \hyperpage{64}
+    \subitem {M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}, \hyperpage{143}
   \item {changed\+\_\+bits}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{51}
   \item {Configure\+\_\+\+Peripheral}
-    \subitem {main.\+c}, \hyperpage{75}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{99}
   \item {crc.\+c}
     \subitem {H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}, 
-		\hyperpage{72}
-    \subitem {H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}, \hyperpage{72}
-    \subitem {M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}, \hyperpage{73}
+		\hyperpage{152}
+    \subitem {H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}, \hyperpage{152}
+    \subitem {M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}, \hyperpage{152}
   \item {crc.\+h}
-    \subitem {M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}, \hyperpage{64}
+    \subitem {M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}, \hyperpage{144}
 
   \indexspace
 
   \item {device\+\_\+count}
-    \subitem {G\+P\+I\+O\+\_\+list}, \hyperpage{53}
-    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{57}
+    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{60}
   \item {device\+\_\+list}
-    \subitem {G\+P\+I\+O\+\_\+list}, \hyperpage{53}
-    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{58}
+    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{60}
 
   \indexspace
 
-  \item {Exported Constants}, \hyperpage{20}
-  \item {Exported Functions}, \hyperpage{25}
-    \subitem {B\+S\+P\+\_\+\+Get\+Version}, \hyperpage{25}
-    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}, \hyperpage{25}
-    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}, \hyperpage{26}
-    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}, \hyperpage{27}
-    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}, \hyperpage{27}
-    \subitem {B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}, \hyperpage{28}
-    \subitem {B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}, \hyperpage{28}
+  \item {Exported Constants}, \hyperpage{22}
+  \item {Exported Functions}, \hyperpage{27}
+    \subitem {B\+S\+P\+\_\+\+Get\+Version}, \hyperpage{27}
+    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}, \hyperpage{27}
+    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}, \hyperpage{28}
+    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}, \hyperpage{29}
+    \subitem {B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}, \hyperpage{29}
+    \subitem {B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}, \hyperpage{30}
+    \subitem {B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}, \hyperpage{30}
 
   \indexspace
 
+  \item {Frame}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{106}
   \item {Frame32to8}
-    \subitem {main.\+c}, \hyperpage{77}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{100}
   \item {Frame8to32}
-    \subitem {main.\+c}, \hyperpage{77}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{100}
 
   \indexspace
 
   \item {G\+P\+I\+O.\+c}
-    \subitem {G\+P\+I\+O\+\_\+\+Destroy}, \hyperpage{87}
-    \subitem {G\+P\+I\+O\+\_\+\+Get\+Device\+Address}, \hyperpage{88}
-    \subitem {G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}, \hyperpage{88}
+    \subitem {G\+P\+I\+O\+\_\+\+Destroy}, \hyperpage{65}
+    \subitem {G\+P\+I\+O\+\_\+\+Get\+Device\+Address}, \hyperpage{65}
+    \subitem {G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}, \hyperpage{67}
     \subitem {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}, 
-		\hyperpage{88}
+		\hyperpage{67}
     \subitem {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}, 
-		\hyperpage{89}
-    \subitem {G\+P\+I\+O\+\_\+\+Init}, \hyperpage{89}
+		\hyperpage{67}
+    \subitem {G\+P\+I\+O\+\_\+\+Init}, \hyperpage{68}
     \subitem {G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}, 
-		\hyperpage{90}
-    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}, \hyperpage{90}
+		\hyperpage{69}
+    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}, \hyperpage{69}
     \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}, 
-		\hyperpage{90}
-    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}, \hyperpage{91}
-    \subitem {G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}, \hyperpage{91}
-    \subitem {G\+P\+I\+O\+\_\+\+Set\+Can\+Read}, \hyperpage{91}
+		\hyperpage{69}
+    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}, \hyperpage{70}
+    \subitem {G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}, \hyperpage{70}
+    \subitem {G\+P\+I\+O\+\_\+\+Set\+Can\+Read}, \hyperpage{70}
     \subitem {G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}, 
-		\hyperpage{91}
-    \subitem {G\+P\+I\+O\+\_\+\+Wake\+Up}, \hyperpage{92}
+		\hyperpage{70}
+    \subitem {G\+P\+I\+O\+\_\+\+Wake\+Up}, \hyperpage{71}
   \item {G\+P\+I\+O.\+h}
-    \subitem {G\+P\+I\+O\+\_\+\+Destroy}, \hyperpage{92}
-    \subitem {G\+P\+I\+O\+\_\+\+Get\+Device\+Address}, \hyperpage{93}
-    \subitem {G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}, \hyperpage{93}
+    \subitem {G\+P\+I\+O\+\_\+\+Destroy}, \hyperpage{71}
+    \subitem {G\+P\+I\+O\+\_\+\+Get\+Device\+Address}, \hyperpage{72}
+    \subitem {G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}, \hyperpage{72}
     \subitem {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}, 
-		\hyperpage{93}
+		\hyperpage{72}
     \subitem {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}, 
-		\hyperpage{94}
-    \subitem {G\+P\+I\+O\+\_\+\+Init}, \hyperpage{94}
+		\hyperpage{73}
+    \subitem {G\+P\+I\+O\+\_\+\+Init}, \hyperpage{73}
     \subitem {G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}, 
-		\hyperpage{95}
-    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}, \hyperpage{95}
+		\hyperpage{74}
+    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}, \hyperpage{74}
     \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}, 
-		\hyperpage{95}
-    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}, \hyperpage{96}
-    \subitem {G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}, \hyperpage{96}
-    \subitem {G\+P\+I\+O\+\_\+\+Set\+Can\+Read}, \hyperpage{96}
+		\hyperpage{75}
+    \subitem {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}, \hyperpage{75}
+    \subitem {G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}, \hyperpage{75}
+    \subitem {G\+P\+I\+O\+\_\+\+Set\+Can\+Read}, \hyperpage{76}
     \subitem {G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}, 
-		\hyperpage{96}
-    \subitem {G\+P\+I\+O\+\_\+\+Wake\+Up}, \hyperpage{97}
+		\hyperpage{76}
+    \subitem {G\+P\+I\+O\+\_\+\+Wake\+Up}, \hyperpage{76}
   \item {G\+P\+I\+O\+\_\+\+Destroy}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{87}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{92}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{65}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{71}
   \item {G\+P\+I\+O\+\_\+\+Get\+Device\+Address}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{88}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{93}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{65}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{72}
   \item {G\+P\+I\+O\+\_\+\+Get\+Poll\+Mask}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{88}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{93}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{67}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{72}
   \item {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Disable}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{88}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{93}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{67}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{72}
   \item {G\+P\+I\+O\+\_\+\+Global\+Interrupt\+Enable}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{89}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{94}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{67}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{73}
   \item {G\+P\+I\+O\+\_\+\+Init}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{89}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{94}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{68}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{73}
   \item {G\+P\+I\+O\+\_\+\+Pending\+Pin\+Interrupt}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{90}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{95}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{69}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{74}
   \item {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Ack}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{90}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{95}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{69}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{74}
   \item {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Disable}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{90}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{95}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{69}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{75}
   \item {G\+P\+I\+O\+\_\+\+Pin\+Interrupt\+Enable}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{91}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{96}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{70}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{75}
   \item {G\+P\+I\+O\+\_\+\+Reset\+Can\+Read}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{91}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{96}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{70}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{75}
   \item {G\+P\+I\+O\+\_\+\+Set\+Can\+Read}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{91}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{96}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{70}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{76}
   \item {G\+P\+I\+O\+\_\+\+Test\+Can\+Read\+And\+Sleep}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{91}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{96}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{70}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{76}
   \item {G\+P\+I\+O\+\_\+\+Wake\+Up}
-    \subitem {G\+P\+I\+O.\+c}, \hyperpage{92}
-    \subitem {G\+P\+I\+O.\+h}, \hyperpage{97}
+    \subitem {G\+P\+I\+O.\+c}, \hyperpage{71}
+    \subitem {G\+P\+I\+O.\+h}, \hyperpage{76}
   \item {G\+P\+I\+O\+\_\+driver}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{101}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{81}
   \item {G\+P\+I\+O\+\_\+fops}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{101}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{81}
   \item {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}
-    \subitem {read\+\_\+reg}, \hyperpage{108}
-    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{108}
-    \subitem {write\+\_\+reg}, \hyperpage{109}
+    \subitem {read\+\_\+reg}, \hyperpage{88}
+    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{88}
+    \subitem {write\+\_\+reg}, \hyperpage{88}
   \item {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}
-    \subitem {read\+\_\+reg}, \hyperpage{109}
-    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{110}
-    \subitem {write\+\_\+reg}, \hyperpage{110}
+    \subitem {read\+\_\+reg}, \hyperpage{89}
+    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{90}
+    \subitem {write\+\_\+reg}, \hyperpage{90}
   \item {G\+P\+I\+O\+\_\+irq\+\_\+handler}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{97}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{77}
   \item {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}
     \subitem {\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}, 
-		\hyperpage{101}
-    \subitem {G\+P\+I\+O\+\_\+driver}, \hyperpage{101}
-    \subitem {G\+P\+I\+O\+\_\+fops}, \hyperpage{101}
-    \subitem {G\+P\+I\+O\+\_\+irq\+\_\+handler}, \hyperpage{97}
-    \subitem {G\+P\+I\+O\+\_\+llseek}, \hyperpage{98}
-    \subitem {G\+P\+I\+O\+\_\+open}, \hyperpage{98}
-    \subitem {G\+P\+I\+O\+\_\+poll}, \hyperpage{98}
-    \subitem {G\+P\+I\+O\+\_\+probe}, \hyperpage{99}
-    \subitem {G\+P\+I\+O\+\_\+read}, \hyperpage{99}
-    \subitem {G\+P\+I\+O\+\_\+release}, \hyperpage{99}
-    \subitem {G\+P\+I\+O\+\_\+remove}, \hyperpage{100}
-    \subitem {G\+P\+I\+O\+\_\+write}, \hyperpage{100}
-    \subitem {module\+\_\+platform\+\_\+driver}, \hyperpage{101}
-  \item {G\+P\+I\+O\+\_\+list}, \hyperpage{52}
-    \subitem {device\+\_\+count}, \hyperpage{53}
-    \subitem {device\+\_\+list}, \hyperpage{53}
-    \subitem {list\+\_\+size}, \hyperpage{53}
+		\hyperpage{81}
+    \subitem {G\+P\+I\+O\+\_\+driver}, \hyperpage{81}
+    \subitem {G\+P\+I\+O\+\_\+fops}, \hyperpage{81}
+    \subitem {G\+P\+I\+O\+\_\+irq\+\_\+handler}, \hyperpage{77}
+    \subitem {G\+P\+I\+O\+\_\+llseek}, \hyperpage{77}
+    \subitem {G\+P\+I\+O\+\_\+open}, \hyperpage{78}
+    \subitem {G\+P\+I\+O\+\_\+poll}, \hyperpage{78}
+    \subitem {G\+P\+I\+O\+\_\+probe}, \hyperpage{78}
+    \subitem {G\+P\+I\+O\+\_\+read}, \hyperpage{78}
+    \subitem {G\+P\+I\+O\+\_\+release}, \hyperpage{79}
+    \subitem {G\+P\+I\+O\+\_\+remove}, \hyperpage{79}
+    \subitem {G\+P\+I\+O\+\_\+write}, \hyperpage{80}
+    \subitem {module\+\_\+platform\+\_\+driver}, \hyperpage{80}
+  \item {G\+P\+I\+O\+\_\+list}, \hyperpage{54}
   \item {G\+P\+I\+O\+\_\+list.\+c}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}, \hyperpage{103}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Init}, \hyperpage{104}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+add}, \hyperpage{102}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}, \hyperpage{82}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Init}, \hyperpage{84}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+add}, \hyperpage{82}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}, 
-		\hyperpage{103}
+		\hyperpage{82}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}, 
-		\hyperpage{103}
+		\hyperpage{83}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}, 
-		\hyperpage{104}
+		\hyperpage{83}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}, 
-		\hyperpage{104}
+		\hyperpage{84}
   \item {G\+P\+I\+O\+\_\+list.\+h}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}, \hyperpage{106}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Init}, \hyperpage{107}
-    \subitem {G\+P\+I\+O\+\_\+list\+\_\+add}, \hyperpage{105}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}, \hyperpage{85}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+\+Init}, \hyperpage{87}
+    \subitem {G\+P\+I\+O\+\_\+list\+\_\+add}, \hyperpage{85}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}, 
-		\hyperpage{106}
+		\hyperpage{85}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}, 
-		\hyperpage{106}
+		\hyperpage{86}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}, 
-		\hyperpage{107}
+		\hyperpage{86}
     \subitem {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}, 
-		\hyperpage{107}
+		\hyperpage{87}
   \item {G\+P\+I\+O\+\_\+list\+\_\+\+Destroy}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{103}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{106}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{82}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{85}
   \item {G\+P\+I\+O\+\_\+list\+\_\+\+Init}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{104}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{107}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{84}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{87}
   \item {G\+P\+I\+O\+\_\+list\+\_\+add}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{102}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{105}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{82}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{85}
   \item {G\+P\+I\+O\+\_\+list\+\_\+device\+\_\+count}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{103}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{106}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{82}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{85}
   \item {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{103}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{106}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{83}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{86}
   \item {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{104}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{107}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{83}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{86}
   \item {G\+P\+I\+O\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}
-    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{104}
-    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{107}
+    \subitem {G\+P\+I\+O\+\_\+list.\+c}, \hyperpage{84}
+    \subitem {G\+P\+I\+O\+\_\+list.\+h}, \hyperpage{87}
   \item {G\+P\+I\+O\+\_\+llseek}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{98}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{77}
   \item {G\+P\+I\+O\+\_\+open}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{98}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{78}
   \item {G\+P\+I\+O\+\_\+poll}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{98}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{78}
   \item {G\+P\+I\+O\+\_\+probe}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{99}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{78}
   \item {G\+P\+I\+O\+\_\+read}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{99}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{78}
   \item {G\+P\+I\+O\+\_\+release}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{99}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{79}
   \item {G\+P\+I\+O\+\_\+remove}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{100}
-  \item {G\+P\+I\+O\+\_\+v1\+\_\+0}, \hyperpage{54}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{79}
+  \item {G\+P\+I\+O\+\_\+v1\+\_\+0}, \hyperpage{55}
   \item {G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}
-    \subitem {gpio\+\_\+read\+\_\+sampling}, \hyperpage{47}
-    \subitem {inst\+\_\+irq}, \hyperpage{47}
-    \subitem {intr\+\_\+pending}, \hyperpage{47}
+    \subitem {gpio\+\_\+read\+\_\+sampling}, \hyperpage{53}
+    \subitem {inst\+\_\+irq}, \hyperpage{53}
+    \subitem {intr\+\_\+pending}, \hyperpage{53}
   \item {G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}, 
-		\hyperpage{56}
+		\hyperpage{57}
   \item {G\+P\+I\+O\+\_\+write}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{100}
-  \item {G\+P\+IO}, \hyperpage{52}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{80}
+  \item {G\+P\+IO}, \hyperpage{54}
   \item {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}
-    \subitem {Link Operation functions}, \hyperpage{18}
+    \subitem {Link Operation functions}, \hyperpage{20}
   \item {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}
-    \subitem {Link Operation functions}, \hyperpage{19}
+    \subitem {Link Operation functions}, \hyperpage{21}
   \item {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}
-    \subitem {Link Operation functions}, \hyperpage{19}
+    \subitem {Link Operation functions}, \hyperpage{21}
   \item {get\+S\+S\+Pin}
-    \subitem {main.\+c}, \hyperpage{77}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{101}
   \item {gpio.\+c}
-    \subitem {Led\+Off}, \hyperpage{73}
-    \subitem {M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{73}
+    \subitem {Led\+Off}, \hyperpage{153}
+    \subitem {M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{153}
   \item {gpio.\+h}
-    \subitem {Led\+Off}, \hyperpage{65}
-    \subitem {M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{65}
+    \subitem {Led\+Off}, \hyperpage{145}
+    \subitem {M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{145}
+  \item {gpio\+\_\+int.\+c}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+A\+CK}, \hyperpage{92}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}, \hyperpage{92}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}, \hyperpage{92}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Get\+Pending}, \hyperpage{93}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}, 
+		\hyperpage{93}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}, 
+		\hyperpage{94}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{94}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Read\+Data}, \hyperpage{94}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Set\+Direction}, \hyperpage{95}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Write\+Data}, \hyperpage{95}
+  \item {gpio\+\_\+int.\+h}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+A\+CK}, \hyperpage{96}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}, \hyperpage{96}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}, \hyperpage{97}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Get\+Pending}, \hyperpage{97}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}, 
+		\hyperpage{98}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}, 
+		\hyperpage{98}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Init}, \hyperpage{98}
+    \subitem {X\+G\+P\+I\+O\+\_\+\+Write\+Data}, \hyperpage{99}
   \item {gpio\+\_\+read\+\_\+sampling}
     \subitem {G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
-		\hyperpage{47}
+		\hyperpage{53}
 
   \indexspace
 
   \item {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}
-    \subitem {can.\+c}, \hyperpage{71}
+    \subitem {can.\+c}, \hyperpage{150}
   \item {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}
-    \subitem {can.\+c}, \hyperpage{71}
+    \subitem {can.\+c}, \hyperpage{151}
   \item {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}
-    \subitem {main.\+c}, \hyperpage{78}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{101}
   \item {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}
-    \subitem {main.\+c}, \hyperpage{78}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{101}
   \item {H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+De\+Init}
-    \subitem {crc.\+c}, \hyperpage{72}
+    \subitem {crc.\+c}, \hyperpage{152}
   \item {H\+A\+L\+\_\+\+C\+R\+C\+\_\+\+Msp\+Init}
-    \subitem {crc.\+c}, \hyperpage{72}
+    \subitem {crc.\+c}, \hyperpage{152}
   \item {H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}
-    \subitem {main.\+c}, \hyperpage{78}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{102}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}
-    \subitem {main.\+c}, \hyperpage{78}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{102}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{79}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{102}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{79}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{103}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}
-    \subitem {i2c.\+c}, \hyperpage{74}
+    \subitem {i2c.\+c}, \hyperpage{154}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}
-    \subitem {i2c.\+c}, \hyperpage{74}
+    \subitem {i2c.\+c}, \hyperpage{154}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{79}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{103}
   \item {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{80}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{103}
   \item {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}
-    \subitem {main.\+c}, \hyperpage{80}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{103}
   \item {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}
-    \subitem {spi.\+c}, \hyperpage{83}
+    \subitem {spi.\+c}, \hyperpage{155}
   \item {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}
-    \subitem {spi.\+c}, \hyperpage{83}
+    \subitem {spi.\+c}, \hyperpage{155}
   \item {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{80}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{104}
   \item {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{80}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{104}
   \item {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}
-    \subitem {main.\+c}, \hyperpage{81}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{104}
   \item {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}
-    \subitem {usart.\+c}, \hyperpage{86}
+    \subitem {usart.\+c}, \hyperpage{159}
   \item {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}
-    \subitem {usart.\+c}, \hyperpage{87}
+    \subitem {usart.\+c}, \hyperpage{159}
   \item {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{81}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{104}
   \item {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}
-    \subitem {main.\+c}, \hyperpage{81}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{105}
 
   \indexspace
 
   \item {I2\+Cx\+\_\+\+Error}
-    \subitem {Bus Operation functions}, \hyperpage{13}
+    \subitem {Bus Operation functions}, \hyperpage{15}
   \item {I2\+Cx\+\_\+\+Init}
-    \subitem {Bus Operation functions}, \hyperpage{13}
+    \subitem {Bus Operation functions}, \hyperpage{15}
   \item {I2\+Cx\+\_\+\+Msp\+Init}
-    \subitem {Bus Operation functions}, \hyperpage{14}
+    \subitem {Bus Operation functions}, \hyperpage{16}
   \item {I2\+Cx\+\_\+\+Read\+Data}
-    \subitem {Bus Operation functions}, \hyperpage{14}
+    \subitem {Bus Operation functions}, \hyperpage{16}
   \item {I2\+Cx\+\_\+\+Write\+Data}
-    \subitem {Bus Operation functions}, \hyperpage{14}
+    \subitem {Bus Operation functions}, \hyperpage{16}
   \item {i2c.\+c}
     \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+De\+Init}, 
-		\hyperpage{74}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}, \hyperpage{74}
-    \subitem {M\+X\+\_\+\+I2\+C2\+\_\+\+Init}, \hyperpage{74}
+		\hyperpage{154}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Msp\+Init}, \hyperpage{154}
+    \subitem {M\+X\+\_\+\+I2\+C2\+\_\+\+Init}, \hyperpage{154}
   \item {i2c.\+h}
-    \subitem {M\+X\+\_\+\+I2\+C2\+\_\+\+Init}, \hyperpage{66}
+    \subitem {M\+X\+\_\+\+I2\+C2\+\_\+\+Init}, \hyperpage{145}
   \item {inst\+\_\+irq}
     \subitem {G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
-		\hyperpage{47}
+		\hyperpage{53}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{50}
   \item {intr\+\_\+pending}
     \subitem {G\+P\+I\+O\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
-		\hyperpage{47}
+		\hyperpage{53}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{50}
 
@@ -466,334 +517,411 @@
 
   \item {L\+E\+D\+\_\+\+P\+IN}
     \subitem {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}, 
-		\hyperpage{34}
+		\hyperpage{36}
   \item {L\+E\+D\+\_\+\+P\+O\+RT}
     \subitem {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}, 
-		\hyperpage{34}
+		\hyperpage{36}
   \item {Led\+Off}
-    \subitem {gpio.\+c}, \hyperpage{73}
-    \subitem {gpio.\+h}, \hyperpage{65}
-  \item {Link Operation functions}, \hyperpage{17}
+    \subitem {gpio.\+c}, \hyperpage{153}
+    \subitem {gpio.\+h}, \hyperpage{145}
+  \item {Link Operation functions}, \hyperpage{19}
     \subitem {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+I\+T\+Config}, 
-		\hyperpage{17}
+		\hyperpage{19}
     \subitem {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Init}, 
-		\hyperpage{17}
+		\hyperpage{19}
     \subitem {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Read}, 
-		\hyperpage{17}
+		\hyperpage{19}
     \subitem {C\+O\+M\+P\+A\+S\+S\+A\+C\+C\+E\+L\+E\+R\+O\+\_\+\+I\+O\+\_\+\+Write}, 
-		\hyperpage{18}
-    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}, \hyperpage{18}
-    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}, \hyperpage{19}
-    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}, \hyperpage{19}
+		\hyperpage{20}
+    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Init}, \hyperpage{20}
+    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Read}, \hyperpage{21}
+    \subitem {G\+Y\+R\+O\+\_\+\+I\+O\+\_\+\+Write}, \hyperpage{21}
   \item {list\+\_\+size}
-    \subitem {G\+P\+I\+O\+\_\+list}, \hyperpage{53}
-    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{58}
+    \subitem {U\+A\+R\+T\+\_\+list}, \hyperpage{60}
 
   \indexspace
 
   \item {M\+X\+\_\+\+C\+A\+N\+\_\+\+Init}
-    \subitem {can.\+c}, \hyperpage{71}
-    \subitem {can.\+h}, \hyperpage{64}
+    \subitem {can.\+c}, \hyperpage{151}
+    \subitem {can.\+h}, \hyperpage{143}
   \item {M\+X\+\_\+\+C\+R\+C\+\_\+\+Init}
-    \subitem {crc.\+c}, \hyperpage{73}
-    \subitem {crc.\+h}, \hyperpage{64}
+    \subitem {crc.\+c}, \hyperpage{152}
+    \subitem {crc.\+h}, \hyperpage{144}
   \item {M\+X\+\_\+\+G\+P\+I\+O\+\_\+\+Init}
-    \subitem {gpio.\+c}, \hyperpage{73}
-    \subitem {gpio.\+h}, \hyperpage{65}
+    \subitem {gpio.\+c}, \hyperpage{153}
+    \subitem {gpio.\+h}, \hyperpage{145}
   \item {M\+X\+\_\+\+I2\+C2\+\_\+\+Init}
-    \subitem {i2c.\+c}, \hyperpage{74}
-    \subitem {i2c.\+h}, \hyperpage{66}
+    \subitem {i2c.\+c}, \hyperpage{154}
+    \subitem {i2c.\+h}, \hyperpage{145}
   \item {M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}
-    \subitem {spi.\+c}, \hyperpage{83}
-    \subitem {spi.\+h}, \hyperpage{67}
+    \subitem {spi.\+c}, \hyperpage{155}
+    \subitem {spi.\+h}, \hyperpage{146}
   \item {M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}
-    \subitem {usart.\+c}, \hyperpage{87}
-    \subitem {usart.\+h}, \hyperpage{70}
-  \item {main.\+c}
-    \subitem {C\+R\+C\+\_\+\+Check}, \hyperpage{75}
-    \subitem {Configure\+\_\+\+Peripheral}, \hyperpage{75}
-    \subitem {Frame32to8}, \hyperpage{77}
-    \subitem {Frame8to32}, \hyperpage{77}
-    \subitem {get\+S\+S\+Pin}, \hyperpage{77}
-    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}, 
-		\hyperpage{78}
-    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}, 
-		\hyperpage{78}
-    \subitem {H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}, 
-		\hyperpage{78}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}, 
-		\hyperpage{78}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}, 
-		\hyperpage{79}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}, 
-		\hyperpage{79}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}, 
-		\hyperpage{79}
-    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}, 
-		\hyperpage{80}
-    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}, 
-		\hyperpage{80}
-    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}, 
-		\hyperpage{80}
-    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}, 
-		\hyperpage{80}
-    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}, 
-		\hyperpage{81}
-    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}, 
-		\hyperpage{81}
-    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}, 
-		\hyperpage{81}
-    \subitem {Receive\+\_\+\+C\+RC}, \hyperpage{81}
-    \subitem {Send\+\_\+\+C\+RC}, \hyperpage{82}
-    \subitem {System\+Clock\+\_\+\+Config}, \hyperpage{82}
+    \subitem {usart.\+c}, \hyperpage{159}
+    \subitem {usart.\+h}, \hyperpage{150}
   \item {module\+\_\+platform\+\_\+driver}
-    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{101}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{121}
+    \subitem {G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}, \hyperpage{80}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{115}
+  \item {my\+Int\+G\+P\+IO}, \hyperpage{58}
+  \item {myuart.\+c}
+    \subitem {U\+A\+R\+T\+\_\+\+A\+CK}, \hyperpage{131}
+    \subitem {U\+A\+R\+T\+\_\+\+Disable\+Interrupt}, \hyperpage{132}
+    \subitem {U\+A\+R\+T\+\_\+\+Enable\+Interrupt}, \hyperpage{132}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Data}, \hyperpage{133}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Pending}, \hyperpage{133}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Status}, \hyperpage{134}
+    \subitem {U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}, 
+		\hyperpage{134}
+    \subitem {U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}, 
+		\hyperpage{135}
+    \subitem {U\+A\+R\+T\+\_\+\+Init}, \hyperpage{135}
+    \subitem {U\+A\+R\+T\+\_\+\+Set\+Data}, \hyperpage{135}
+    \subitem {U\+A\+R\+T\+\_\+\+Start}, \hyperpage{136}
+  \item {myuart.\+h}
+    \subitem {U\+A\+R\+T\+\_\+\+A\+CK}, \hyperpage{137}
+    \subitem {U\+A\+R\+T\+\_\+\+Disable\+Interrupt}, \hyperpage{137}
+    \subitem {U\+A\+R\+T\+\_\+\+Enable\+Interrupt}, \hyperpage{138}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Data}, \hyperpage{138}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Pending}, \hyperpage{139}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Status}, \hyperpage{139}
+    \subitem {U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}, 
+		\hyperpage{140}
+    \subitem {U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}, 
+		\hyperpage{140}
+    \subitem {U\+A\+R\+T\+\_\+\+Init}, \hyperpage{141}
+    \subitem {U\+A\+R\+T\+\_\+\+Set\+Data}, \hyperpage{141}
+    \subitem {U\+A\+R\+T\+\_\+\+Start}, \hyperpage{142}
 
   \indexspace
 
   \item {read\+\_\+reg}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}, 
-		\hyperpage{108}
+		\hyperpage{88}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}, 
-		\hyperpage{109}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{134}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{135}
+		\hyperpage{89}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{128}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{130}
   \item {Receive\+\_\+\+C\+RC}
-    \subitem {main.\+c}, \hyperpage{81}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{105}
+  \item {rx\+\_\+callback\+\_\+count}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{106}
 
   \indexspace
 
   \item {S\+P\+Ix\+\_\+\+Error}
-    \subitem {Bus Operation functions}, \hyperpage{15}
+    \subitem {Bus Operation functions}, \hyperpage{17}
   \item {S\+P\+Ix\+\_\+\+Init}
-    \subitem {Bus Operation functions}, \hyperpage{15}
+    \subitem {Bus Operation functions}, \hyperpage{17}
   \item {S\+P\+Ix\+\_\+\+Msp\+Init}
-    \subitem {Bus Operation functions}, \hyperpage{15}
+    \subitem {Bus Operation functions}, \hyperpage{17}
   \item {S\+P\+Ix\+\_\+\+Write\+Read}
-    \subitem {Bus Operation functions}, \hyperpage{16}
+    \subitem {Bus Operation functions}, \hyperpage{18}
+  \item {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}
+    \subitem {C\+R\+C\+\_\+\+Check}, \hyperpage{100}
+    \subitem {Configure\+\_\+\+Peripheral}, \hyperpage{99}
+    \subitem {Frame}, \hyperpage{106}
+    \subitem {Frame32to8}, \hyperpage{100}
+    \subitem {Frame8to32}, \hyperpage{100}
+    \subitem {get\+S\+S\+Pin}, \hyperpage{101}
+    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Fifo0\+Msg\+Pending\+Callback}, 
+		\hyperpage{101}
+    \subitem {H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}, 
+		\hyperpage{101}
+    \subitem {H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}, 
+		\hyperpage{102}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Error\+Callback}, 
+		\hyperpage{102}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Rx\+Cplt\+Callback}, 
+		\hyperpage{102}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Master\+Tx\+Cplt\+Callback}, 
+		\hyperpage{103}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Rx\+Cplt\+Callback}, 
+		\hyperpage{103}
+    \subitem {H\+A\+L\+\_\+\+I2\+C\+\_\+\+Slave\+Tx\+Cplt\+Callback}, 
+		\hyperpage{103}
+    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Error\+Callback}, 
+		\hyperpage{103}
+    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback}, 
+		\hyperpage{104}
+    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback}, 
+		\hyperpage{104}
+    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Error\+Callback}, 
+		\hyperpage{104}
+    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback}, 
+		\hyperpage{104}
+    \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback}, 
+		\hyperpage{105}
+    \subitem {Receive\+\_\+\+C\+RC}, \hyperpage{105}
+    \subitem {rx\+\_\+callback\+\_\+count}, \hyperpage{106}
+    \subitem {Send\+\_\+\+C\+RC}, \hyperpage{105}
+    \subitem {System\+Clock\+\_\+\+Config}, \hyperpage{106}
+    \subitem {tx\+\_\+callback\+\_\+count}, \hyperpage{106}
+    \subitem {U\+A\+R\+T\+\_\+\+Rx\+Buffer}, \hyperpage{106}
+    \subitem {User\+Button\+Status}, \hyperpage{107}
   \item {S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y B\+U\+T\+T\+ON}, 
-		\hyperpage{22}
-  \item {S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT}, 
 		\hyperpage{24}
+  \item {S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+O\+M\+P\+O\+N\+E\+NT}, 
+		\hyperpage{26}
   \item {S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y C\+OM}, 
-		\hyperpage{23}
+		\hyperpage{25}
   \item {S\+T\+M32\+F3-\/\+D\+I\+S\+C\+O\+V\+E\+R\+Y L\+ED}, 
-		\hyperpage{21}
+		\hyperpage{23}
   \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Common}, 
-		\hyperpage{32}
-  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants}, 
-		\hyperpage{33}
-  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}, 
 		\hyperpage{34}
-    \subitem {L\+E\+D\+\_\+\+P\+IN}, \hyperpage{34}
-    \subitem {L\+E\+D\+\_\+\+P\+O\+RT}, \hyperpage{34}
-  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY}, \hyperpage{31}
+  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Constants}, 
+		\hyperpage{35}
+  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+Y\+\_\+\+Private\+\_\+\+Variables}, 
+		\hyperpage{36}
+    \subitem {L\+E\+D\+\_\+\+P\+IN}, \hyperpage{36}
+    \subitem {L\+E\+D\+\_\+\+P\+O\+RT}, \hyperpage{36}
+  \item {S\+T\+M32\+F3\+\_\+\+D\+I\+S\+C\+O\+V\+E\+RY}, \hyperpage{33}
   \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Defines}, 
-		\hyperpage{39}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes}, 
-		\hyperpage{42}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}, 
-		\hyperpage{43}
-    \subitem {System\+Core\+Clock\+Update}, \hyperpage{43}
-    \subitem {System\+Init}, \hyperpage{44}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes}, 
-		\hyperpage{37}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros}, 
-		\hyperpage{40}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions}, 
-		\hyperpage{38}
-  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables}, 
 		\hyperpage{41}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Function\+Prototypes}, 
+		\hyperpage{44}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}, 
+		\hyperpage{45}
+    \subitem {System\+Core\+Clock\+Update}, \hyperpage{45}
+    \subitem {System\+Init}, \hyperpage{46}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Includes}, 
+		\hyperpage{39}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Macros}, 
+		\hyperpage{42}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Types\+Definitions}, 
+		\hyperpage{40}
+  \item {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Variables}, 
+		\hyperpage{43}
   \item {Send\+\_\+\+C\+RC}
-    \subitem {main.\+c}, \hyperpage{82}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{105}
   \item {spi.\+c}
     \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}, 
-		\hyperpage{83}
-    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}, \hyperpage{83}
-    \subitem {M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}, \hyperpage{83}
+		\hyperpage{155}
+    \subitem {H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}, \hyperpage{155}
+    \subitem {M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}, \hyperpage{155}
   \item {spi.\+h}
-    \subitem {M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}, \hyperpage{67}
+    \subitem {M\+X\+\_\+\+S\+P\+I2\+\_\+\+Init}, \hyperpage{146}
   \item {status\+\_\+reg\+\_\+sampling}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{50}
   \item {stm32f3xx\+\_\+hal\+\_\+conf.\+h}
-    \subitem {C}, \hyperpage{69}
+    \subitem {C}, \hyperpage{148}
   \item {stm32f3xx\+\_\+it.\+h}
-    \subitem {C}, \hyperpage{70}
-  \item {Stm32f3xx\+\_\+system}, \hyperpage{36}
+    \subitem {C}, \hyperpage{149}
+  \item {Stm32f3xx\+\_\+system}, \hyperpage{38}
   \item {System\+Clock\+\_\+\+Config}
-    \subitem {main.\+c}, \hyperpage{82}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{106}
   \item {System\+Core\+Clock\+Update}
     \subitem {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}, 
-		\hyperpage{43}
+		\hyperpage{45}
   \item {System\+Init}
     \subitem {S\+T\+M32\+F3xx\+\_\+\+System\+\_\+\+Private\+\_\+\+Functions}, 
-		\hyperpage{44}
+		\hyperpage{46}
+
+  \indexspace
+
+  \item {tx\+\_\+callback\+\_\+count}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{106}
 
   \indexspace
 
   \item {U\+A\+R\+T.\+c}
-    \subitem {U\+A\+R\+T\+\_\+\+Destroy}, \hyperpage{112}
-    \subitem {U\+A\+R\+T\+\_\+\+Get\+Data}, \hyperpage{112}
-    \subitem {U\+A\+R\+T\+\_\+\+Get\+Device\+Address}, \hyperpage{113}
-    \subitem {U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}, \hyperpage{113}
+    \subitem {U\+A\+R\+T\+\_\+\+Destroy}, \hyperpage{107}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Data}, \hyperpage{107}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Device\+Address}, \hyperpage{108}
+    \subitem {U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}, \hyperpage{108}
     \subitem {U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}, 
-		\hyperpage{113}
+		\hyperpage{108}
     \subitem {U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}, 
-		\hyperpage{115}
-    \subitem {U\+A\+R\+T\+\_\+\+Init}, \hyperpage{115}
-    \subitem {U\+A\+R\+T\+\_\+\+Interrupt\+Disable}, \hyperpage{116}
-    \subitem {U\+A\+R\+T\+\_\+\+Interrupt\+Enable}, \hyperpage{116}
-    \subitem {U\+A\+R\+T\+\_\+\+Pending\+Interrupt}, \hyperpage{116}
-    \subitem {U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}, \hyperpage{117}
-    \subitem {U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}, \hyperpage{117}
-    \subitem {U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}, \hyperpage{117}
-    \subitem {U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}, \hyperpage{117}
-    \subitem {U\+A\+R\+T\+\_\+\+Set\+Can\+Read}, \hyperpage{118}
-    \subitem {U\+A\+R\+T\+\_\+\+Set\+Can\+Write}, \hyperpage{118}
-    \subitem {U\+A\+R\+T\+\_\+\+Set\+Data}, \hyperpage{118}
-    \subitem {U\+A\+R\+T\+\_\+\+Start}, \hyperpage{119}
-    \subitem {U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}, \hyperpage{119}
+		\hyperpage{110}
+    \subitem {U\+A\+R\+T\+\_\+\+Init}, \hyperpage{110}
+    \subitem {U\+A\+R\+T\+\_\+\+Interrupt\+Disable}, \hyperpage{111}
+    \subitem {U\+A\+R\+T\+\_\+\+Interrupt\+Enable}, \hyperpage{111}
+    \subitem {U\+A\+R\+T\+\_\+\+Pending\+Interrupt}, \hyperpage{111}
+    \subitem {U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}, \hyperpage{112}
+    \subitem {U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}, \hyperpage{111}
+    \subitem {U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}, \hyperpage{112}
+    \subitem {U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}, \hyperpage{112}
+    \subitem {U\+A\+R\+T\+\_\+\+Set\+Can\+Read}, \hyperpage{113}
+    \subitem {U\+A\+R\+T\+\_\+\+Set\+Can\+Write}, \hyperpage{113}
+    \subitem {U\+A\+R\+T\+\_\+\+Set\+Data}, \hyperpage{113}
+    \subitem {U\+A\+R\+T\+\_\+\+Start}, \hyperpage{113}
+    \subitem {U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}, \hyperpage{114}
     \subitem {U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}, 
-		\hyperpage{119}
+		\hyperpage{114}
     \subitem {U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}, 
-		\hyperpage{119}
-    \subitem {U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}, \hyperpage{121}
+		\hyperpage{114}
+    \subitem {U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}, \hyperpage{115}
+  \item {U\+A\+R\+T\+\_\+\+A\+CK}
+    \subitem {myuart.\+c}, \hyperpage{131}
+    \subitem {myuart.\+h}, \hyperpage{137}
   \item {U\+A\+R\+T\+\_\+\+Destroy}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{112}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{107}
+  \item {U\+A\+R\+T\+\_\+\+Disable\+Interrupt}
+    \subitem {myuart.\+c}, \hyperpage{132}
+    \subitem {myuart.\+h}, \hyperpage{137}
+  \item {U\+A\+R\+T\+\_\+\+Enable\+Interrupt}
+    \subitem {myuart.\+c}, \hyperpage{132}
+    \subitem {myuart.\+h}, \hyperpage{138}
   \item {U\+A\+R\+T\+\_\+\+Get\+Data}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{112}
+    \subitem {myuart.\+c}, \hyperpage{133}
+    \subitem {myuart.\+h}, \hyperpage{138}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{107}
   \item {U\+A\+R\+T\+\_\+\+Get\+Device\+Address}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{108}
+  \item {U\+A\+R\+T\+\_\+\+Get\+Pending}
+    \subitem {myuart.\+c}, \hyperpage{133}
+    \subitem {myuart.\+h}, \hyperpage{139}
   \item {U\+A\+R\+T\+\_\+\+Get\+Poll\+Mask}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{108}
+  \item {U\+A\+R\+T\+\_\+\+Get\+Status}
+    \subitem {myuart.\+c}, \hyperpage{134}
+    \subitem {myuart.\+h}, \hyperpage{139}
+  \item {U\+A\+R\+T\+\_\+\+Global\+Disable\+Interrupt}
+    \subitem {myuart.\+c}, \hyperpage{134}
+    \subitem {myuart.\+h}, \hyperpage{140}
+  \item {U\+A\+R\+T\+\_\+\+Global\+Enable\+Interrupt}
+    \subitem {myuart.\+c}, \hyperpage{135}
+    \subitem {myuart.\+h}, \hyperpage{140}
   \item {U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Disable}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{108}
   \item {U\+A\+R\+T\+\_\+\+Global\+Interrupt\+Enable}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{115}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{110}
   \item {U\+A\+R\+T\+\_\+\+Init}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{115}
+    \subitem {myuart.\+c}, \hyperpage{135}
+    \subitem {myuart.\+h}, \hyperpage{141}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{110}
   \item {U\+A\+R\+T\+\_\+\+Interrupt\+Disable}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{116}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{111}
   \item {U\+A\+R\+T\+\_\+\+Interrupt\+Enable}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{116}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{111}
   \item {U\+A\+R\+T\+\_\+\+Pending\+Interrupt}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{116}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{111}
   \item {U\+A\+R\+T\+\_\+\+R\+X\+Interrupt\+Ack}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{117}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{112}
   \item {U\+A\+R\+T\+\_\+\+Read\+Poll\+Wake\+Up}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{117}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{111}
   \item {U\+A\+R\+T\+\_\+\+Reset\+Can\+Read}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{117}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{112}
   \item {U\+A\+R\+T\+\_\+\+Reset\+Can\+Write}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{117}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{112}
+  \item {U\+A\+R\+T\+\_\+\+Rx\+Buffer}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{106}
   \item {U\+A\+R\+T\+\_\+\+Set\+Can\+Read}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{118}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
   \item {U\+A\+R\+T\+\_\+\+Set\+Can\+Write}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{118}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
   \item {U\+A\+R\+T\+\_\+\+Set\+Data}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{118}
+    \subitem {myuart.\+c}, \hyperpage{135}
+    \subitem {myuart.\+h}, \hyperpage{141}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
   \item {U\+A\+R\+T\+\_\+\+Start}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{119}
+    \subitem {myuart.\+c}, \hyperpage{136}
+    \subitem {myuart.\+h}, \hyperpage{142}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{113}
   \item {U\+A\+R\+T\+\_\+\+T\+X\+Interrupt\+Ack}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{119}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{114}
   \item {U\+A\+R\+T\+\_\+\+Test\+Can\+Read\+And\+Sleep}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{119}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{114}
   \item {U\+A\+R\+T\+\_\+\+Test\+Can\+Write\+And\+Sleep}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{119}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{114}
   \item {U\+A\+R\+T\+\_\+\+Write\+Wake\+Up}
-    \subitem {U\+A\+R\+T.\+c}, \hyperpage{121}
+    \subitem {U\+A\+R\+T.\+c}, \hyperpage{115}
   \item {U\+A\+R\+T\+\_\+driver}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{125}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{119}
   \item {U\+A\+R\+T\+\_\+fops}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{125}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{119}
   \item {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}
-    \subitem {read\+\_\+reg}, \hyperpage{134}
-    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{134}
-    \subitem {write\+\_\+reg}, \hyperpage{135}
+    \subitem {read\+\_\+reg}, \hyperpage{128}
+    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{128}
+    \subitem {write\+\_\+reg}, \hyperpage{129}
   \item {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}
-    \subitem {read\+\_\+reg}, \hyperpage{135}
-    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{136}
-    \subitem {write\+\_\+reg}, \hyperpage{136}
+    \subitem {read\+\_\+reg}, \hyperpage{130}
+    \subitem {wait\+\_\+for\+\_\+interrupt}, \hyperpage{130}
+    \subitem {write\+\_\+reg}, \hyperpage{130}
   \item {U\+A\+R\+T\+\_\+irq\+\_\+handler}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{121}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{115}
   \item {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}
     \subitem {\+\_\+\+\_\+test\+\_\+int\+\_\+driver\+\_\+id}, 
-		\hyperpage{125}
-    \subitem {module\+\_\+platform\+\_\+driver}, \hyperpage{121}
-    \subitem {U\+A\+R\+T\+\_\+driver}, \hyperpage{125}
-    \subitem {U\+A\+R\+T\+\_\+fops}, \hyperpage{125}
-    \subitem {U\+A\+R\+T\+\_\+irq\+\_\+handler}, \hyperpage{121}
-    \subitem {U\+A\+R\+T\+\_\+llseek}, \hyperpage{122}
-    \subitem {U\+A\+R\+T\+\_\+open}, \hyperpage{122}
-    \subitem {U\+A\+R\+T\+\_\+poll}, \hyperpage{123}
-    \subitem {U\+A\+R\+T\+\_\+read}, \hyperpage{123}
-    \subitem {U\+A\+R\+T\+\_\+release}, \hyperpage{123}
-    \subitem {U\+A\+R\+T\+\_\+remove}, \hyperpage{124}
-    \subitem {U\+A\+R\+T\+\_\+write}, \hyperpage{124}
-  \item {U\+A\+R\+T\+\_\+list}, \hyperpage{57}
-    \subitem {device\+\_\+count}, \hyperpage{57}
-    \subitem {device\+\_\+list}, \hyperpage{58}
-    \subitem {list\+\_\+size}, \hyperpage{58}
+		\hyperpage{119}
+    \subitem {module\+\_\+platform\+\_\+driver}, \hyperpage{115}
+    \subitem {U\+A\+R\+T\+\_\+driver}, \hyperpage{119}
+    \subitem {U\+A\+R\+T\+\_\+fops}, \hyperpage{119}
+    \subitem {U\+A\+R\+T\+\_\+irq\+\_\+handler}, \hyperpage{115}
+    \subitem {U\+A\+R\+T\+\_\+llseek}, \hyperpage{116}
+    \subitem {U\+A\+R\+T\+\_\+open}, \hyperpage{116}
+    \subitem {U\+A\+R\+T\+\_\+poll}, \hyperpage{117}
+    \subitem {U\+A\+R\+T\+\_\+read}, \hyperpage{117}
+    \subitem {U\+A\+R\+T\+\_\+release}, \hyperpage{117}
+    \subitem {U\+A\+R\+T\+\_\+remove}, \hyperpage{118}
+    \subitem {U\+A\+R\+T\+\_\+write}, \hyperpage{118}
+  \item {U\+A\+R\+T\+\_\+list}, \hyperpage{60}
+    \subitem {device\+\_\+count}, \hyperpage{60}
+    \subitem {device\+\_\+list}, \hyperpage{60}
+    \subitem {list\+\_\+size}, \hyperpage{60}
   \item {U\+A\+R\+T\+\_\+list.\+c}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}, \hyperpage{127}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Init}, \hyperpage{128}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+add}, \hyperpage{126}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}, \hyperpage{121}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Init}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+add}, \hyperpage{120}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}, 
-		\hyperpage{127}
+		\hyperpage{121}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}, 
-		\hyperpage{127}
+		\hyperpage{121}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}, 
-		\hyperpage{128}
+		\hyperpage{122}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}, 
-		\hyperpage{128}
+		\hyperpage{122}
   \item {U\+A\+R\+T\+\_\+list.\+h}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}, \hyperpage{131}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Init}, \hyperpage{132}
-    \subitem {U\+A\+R\+T\+\_\+list\+\_\+add}, \hyperpage{130}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}, \hyperpage{125}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+\+Init}, \hyperpage{126}
+    \subitem {U\+A\+R\+T\+\_\+list\+\_\+add}, \hyperpage{124}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}, 
-		\hyperpage{131}
+		\hyperpage{125}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}, 
-		\hyperpage{131}
+		\hyperpage{125}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}, 
-		\hyperpage{132}
+		\hyperpage{126}
     \subitem {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}, 
-		\hyperpage{132}
+		\hyperpage{126}
   \item {U\+A\+R\+T\+\_\+list\+\_\+\+Destroy}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{127}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{131}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{121}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{125}
   \item {U\+A\+R\+T\+\_\+list\+\_\+\+Init}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{128}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{132}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{126}
   \item {U\+A\+R\+T\+\_\+list\+\_\+add}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{126}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{130}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{120}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{124}
   \item {U\+A\+R\+T\+\_\+list\+\_\+device\+\_\+count}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{127}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{131}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{121}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{125}
   \item {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+minor}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{127}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{131}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{121}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{125}
   \item {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+by\+\_\+pdev}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{128}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{132}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{126}
   \item {U\+A\+R\+T\+\_\+list\+\_\+find\+\_\+irq\+\_\+line}
-    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{128}
-    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{132}
+    \subitem {U\+A\+R\+T\+\_\+list.\+c}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+list.\+h}, \hyperpage{126}
   \item {U\+A\+R\+T\+\_\+llseek}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{116}
   \item {U\+A\+R\+T\+\_\+open}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{122}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{116}
   \item {U\+A\+R\+T\+\_\+poll}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{123}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{117}
   \item {U\+A\+R\+T\+\_\+read}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{123}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{117}
   \item {U\+A\+R\+T\+\_\+release}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{123}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{117}
   \item {U\+A\+R\+T\+\_\+remove}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{124}
-  \item {U\+A\+R\+T\+\_\+v1\+\_\+0}, \hyperpage{58}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{118}
+  \item {U\+A\+R\+T\+\_\+v1\+\_\+0}, \hyperpage{61}
   \item {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}
     \subitem {ack\+\_\+intr}, \hyperpage{51}
     \subitem {changed\+\_\+bits}, \hyperpage{51}
@@ -802,38 +930,73 @@
     \subitem {status\+\_\+reg\+\_\+sampling}, \hyperpage{50}
     \subitem {U\+A\+RT}, \hyperpage{51}
   \item {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+XI}, 
-		\hyperpage{60}
+		\hyperpage{63}
   \item {U\+A\+R\+T\+\_\+write}
-    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{124}
-  \item {U\+A\+RT}
+    \subitem {U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}, \hyperpage{118}
+  \item {U\+A\+RT}, \hyperpage{59}
+    \subitem {Base\+Address}, \hyperpage{59}
     \subitem {U\+A\+R\+T\+\_\+v1\+\_\+0\+\_\+\+S00\+\_\+\+A\+X\+I\+::arch\+\_\+imp}, 
 		\hyperpage{51}
   \item {usart.\+c}
     \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}, 
-		\hyperpage{86}
+		\hyperpage{159}
     \subitem {H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}, 
-		\hyperpage{87}
+		\hyperpage{159}
     \subitem {M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}, 
-		\hyperpage{87}
+		\hyperpage{159}
   \item {usart.\+h}
     \subitem {M\+X\+\_\+\+U\+S\+A\+R\+T2\+\_\+\+U\+A\+R\+T\+\_\+\+Init}, 
-		\hyperpage{70}
+		\hyperpage{150}
+  \item {User\+Button\+Status}
+    \subitem {S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}, 
+		\hyperpage{107}
 
   \indexspace
 
   \item {wait\+\_\+for\+\_\+interrupt}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}, 
-		\hyperpage{108}
+		\hyperpage{88}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}, 
-		\hyperpage{110}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{134}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{136}
+		\hyperpage{90}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{128}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{130}
   \item {write\+\_\+reg}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+c}, 
-		\hyperpage{109}
+		\hyperpage{88}
     \subitem {G\+P\+I\+O\+\_\+interrupt\+\_\+uio\+\_\+poll.\+h}, 
-		\hyperpage{110}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{135}
-    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{136}
+		\hyperpage{90}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+c}, \hyperpage{129}
+    \subitem {U\+A\+R\+T\+\_\+interrupt\+\_\+uio.\+h}, \hyperpage{130}
+
+  \indexspace
+
+  \item {X\+G\+P\+I\+O\+\_\+\+A\+CK}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{92}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{96}
+  \item {X\+G\+P\+I\+O\+\_\+\+Disable\+Interrupt}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{92}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{96}
+  \item {X\+G\+P\+I\+O\+\_\+\+Enable\+Interrupt}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{92}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{97}
+  \item {X\+G\+P\+I\+O\+\_\+\+Get\+Pending}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{93}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{97}
+  \item {X\+G\+P\+I\+O\+\_\+\+Global\+Disable\+Interrupt}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{93}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{98}
+  \item {X\+G\+P\+I\+O\+\_\+\+Global\+Enable\+Interrupt}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{94}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{98}
+  \item {X\+G\+P\+I\+O\+\_\+\+Init}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{94}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{98}
+  \item {X\+G\+P\+I\+O\+\_\+\+Read\+Data}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{94}
+  \item {X\+G\+P\+I\+O\+\_\+\+Set\+Direction}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{95}
+  \item {X\+G\+P\+I\+O\+\_\+\+Write\+Data}
+    \subitem {gpio\+\_\+int.\+c}, \hyperpage{95}
+    \subitem {gpio\+\_\+int.\+h}, \hyperpage{99}
 
 \end{theindex}

@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : i2c.h
-  * header file per la configurazione della periferica I2C
+  * @brief header file per la configurazione della periferica I2C
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/

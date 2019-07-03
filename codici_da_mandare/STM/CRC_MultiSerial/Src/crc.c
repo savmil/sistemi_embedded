@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   *@file           : crc.c
-  *Permetta la configurazione della periferica CRC
+  * @brief Permette la configurazione della periferica CRC
   ******************************************************************************
   */
 
