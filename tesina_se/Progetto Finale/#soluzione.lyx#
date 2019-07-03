@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -205,6 +205,9 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -223,8 +226,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -254,7 +255,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,10 +267,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -907,8 +904,11 @@ CAN
 \end_layout
 
 \begin_layout Standard
-In CAN bisogna prestare particolarmente attenzione agli indirizzi che si
- danno alle periferiche e di come questi vengono gestiti:
+La configurazione dei filtri CAN può avvenire in due modalità: lista o maschera.
+ In quest'ultima l'identificativo viene mascherato per indicare quali bit
+ devono essere confrontati.
+ Nella modalità a lista invece l'identificativo dell'indirizzo deve corrisponder
+e all'indirizzo.
 \end_layout
 
 \begin_layout Standard
@@ -943,13 +943,16 @@ sFilterConfig.FilterIdLow = groupAddress<<5;
 \end_layout
 
 \begin_layout Standard
-Nel nostro caso abbiamo scelto di utilizzare la modalità id_list dei filtri,
- cioè un nodo si ritiene destinatario di un messaggio solamente se l' indirizzo
- di destinazione corrisponde ad no presente nella sua lista, gli indirizzi
- che utilizziamo sono a 16 bit poiché il numero di periferiche utilizzate
- non è eccessivo (avere un indirizzo di 16 bit vuol dire che stiamo inviando
- i dati utilizzando il protocollo CAN A), dopodichè diamo alla board un
- indirizzo per essere contattata come entitò singola o parte di un gruppo.
+Si è scelto di utilizzare la modalità id_list.
+ Un nodo è filtrato dunque come destinatario di un messaggio solamente se
+ l'indirizzo di destinazione corrisponde ad uno presente nella sua lista.
+ La periferica permette di scegliere anche la scala del filtro: uno da 32
+ o due da 16 bit.
+ Gli indirizzi che utilizziamo sono a 16 bit poiché il numero di periferiche
+ utilizzate non è eccessivo (avere un indirizzo di 16 bit vuol dire che
+ stiamo inviando i dati utilizzando il protocollo CAN A), dopodichè diamo
+ alla board un indirizzo per essere contattata come entitò singola o parte
+ di un gruppo.
 \end_layout
 
 \begin_layout Standard
@@ -1414,11 +1417,111 @@ status open
 
 \begin_layout Plain Layout
 
+hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_DISABLE; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.GeneratingPolynomial = CRC_Polynomial; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.CRCLength = CRC_POLYLENGTH_32B; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.DefaultInitValueUse = CRC_DefaultValue;
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Abbiamo dato anche la possibilità di utilizzare un valore di inizializzazione
+ nel caso in un successivo futuro questo dovesse essere richiesto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_1, CRC_DEFAULTVALUE_1); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_1 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_2, CRC_DEFAULTVALUE_2);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_2 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_1 != ReceivedFrame[CRC1_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED10_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED7_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_2 != ReceivedFrame[CRC2_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED3_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED6_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando i valori dei CRC questi vengono prelevati da una posizione stabilita
+ del messaggio (essendo il messaggio di dimensione fissa), rivengono calcolati
+ i CRC con i polinomi stabili e confrontati se sono identici con quelli
+ ricevuti.
 \end_layout
 
 \end_body

@@ -1287,16 +1287,6 @@ typedef struct {
 
 \begin_layout Plain Layout
 
-/** Maschera delle interruzioni interne attive per il device */
-\end_layout
-
-\begin_layout Plain Layout
-
-	uint32_t irq_mask;
-\end_layout
-
-\begin_layout Plain Layout
-
 /** res.end - res.start; numero di indirizzi associati alla periferica.
  */
 \end_layout
@@ -1381,6 +1371,8 @@ typedef struct {
 
 \begin_layout Plain Layout
 
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile
+ can_write*/
 \end_layout
 
 \begin_layout Plain Layout
@@ -1390,31 +1382,22 @@ typedef struct {
 
 \begin_layout Plain Layout
 
-	uint8_t * buffer_tx;				//  Buffer utilizzato per contenere i caratteri
- da trasmettere
+/** Buffer utilizzato per contenere i caratteri da trasmettere*/
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint8_t * buffer_rx;				//  Buffer utilizzato per contenere i caratteri
- da ricevere
+	uint8_t * buffer_tx;
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint32_t tx_count;					//  Contatore che indica il numero di caratteri
- trasmessi
+/** Buffer utilizzato per contenere i caratteri da ricevere*/
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint32_t rx_count;					//  Contatore che indica il numero di caratteri
- ricevuti
-\end_layout
-
-\begin_layout Plain Layout
-
-	uint32_t buffer_size;				//	Dimensione dei buffer ricezione/trasmissione
+	uint8_t * buffer_rx;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1711,9 +1694,11 @@ Per mostrare il corretto funzionamento di tutte le funzionalità implementate
 \begin_layout Enumerate
 user_app.c : l'utente indica da riga di comando la stringa che vuole trasmettere
  tramite il device UART.
- Viene aperto dunque il descrittore del file associato al device, invocata
- una write per inserire i caratteri nel buffer di trasmissione e infine
- una read per leggerli dal buffer di ricezione.
+ Si è scelto di demandare l'onere di gestire l'invio di più caratteri all'utente
+ che scrive l'applicazione.
+ Viene aperto dunque il descrittore del file associato al device e vengono
+ invocate un numero di write e read pari al numero di caratteri che compongono
+ la stringa.
 \end_layout
 
 \begin_layout Enumerate
@@ -1868,6 +1853,67 @@ status open
 
 \begin_layout Plain Layout
 
+		UART_1: UART@43c10000 {
+\end_layout
+
+\begin_layout Plain Layout
+
+			/* This is a place holder node for a custom IP, user may need to update
+ the entries */
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock-names = "s00_axi_aclk";
+\end_layout
+
+\begin_layout Plain Layout
+
+			clocks = <&clkc 15>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			compatible = "xlnx,UART-1.0";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-names = "interrupt";
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupt-parent = <&intc>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			interrupts = <0 30 4>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			reg = <0x43c10000 0x10000>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-addr-width = <0x5>;
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlnx,s00-axi-data-width = <0x20>;
+\end_layout
+
+\begin_layout Plain Layout
+
+		};
+\end_layout
+
+\begin_layout Plain Layout
+
 	};
 \end_layout
 
@@ -1884,8 +1930,8 @@ status open
 \begin_layout Standard
 A questo punto si ricompila il device-tree generando il file .dtb e lo si
  sposta nella partizione di BOOT della SD Card.
- All'avvio del sistema operativo si potrà osservare sotto /dev il device
- uio0 corrispondente al nostro device UART.
+ All'avvio del sistema operativo si potranno osservare sotto /dev i device
+ uio0 e uio1 corrispondenti ai nostri device UART.
  Il driver userspace effettuerà il mapping dei device per poi mettersi in
  attesa di notifica di interrupt tramite chiamata a read.
  Segue il codice relativo al driver UIO:
@@ -1944,46 +1990,68 @@ status open
 
 \begin_layout Plain Layout
 
+#include <poll.h>
+\end_layout
+
+\begin_layout Plain Layout
+
 #include "UART_interrupt_uio.h"
 \end_layout
 
 \begin_layout Plain Layout
 
+/**
 \end_layout
 
 \begin_layout Plain Layout
 
-#define DATA_IN   		0  // DATA TO SEND
+ * @file UART_interrupt_uio.c
 \end_layout
 
 \begin_layout Plain Layout
 
-#define TX_EN	         4  // TRANSFER ENABLE (0)
+ * @brief permette la gestione della periferica UART utilizzando un driver
+ di tipo UIO
 \end_layout
 
 \begin_layout Plain Layout
 
-#define STATUS_REG        8  // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
+ */
 \end_layout
 
 \begin_layout Plain Layout
 
-#define RX_REG	       12  // DATA RECEIVED
+#define	DATA_IN   		0	// DATA TO SEND
 \end_layout
 
 \begin_layout Plain Layout
 
-#define GLOBAL_INTR_EN   16  // GLOBAL INTERRUPT ENABLE
+#define	TX_EN	        4	// TRANSFER ENABLE (0)
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_EN          20  // LOCAL INTERRUPT ENABLE
+#define	STATUS_REG      8   // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_ACK_PEND    28  // PENDING/ACK REGISTER
+#define	RX_REG	        12 	// DATA RECEIVED
+\end_layout
+
+\begin_layout Plain Layout
+
+#define GLOBAL_INTR_EN  16 	// GLOBAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_EN         20 	// LOCAL INTERRUPT ENABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+#define INTR_ACK_PEND   28 	// PENDING/ACK REGISTER
 \end_layout
 
 \begin_layout Plain Layout
@@ -2006,7 +2074,11 @@ status open
 
 \begin_layout Plain Layout
 
-#define INTR_MASK 3
+#define TIMEOUT			5000
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2065,6 +2137,11 @@ char * buffer_rx;
 
 \begin_layout Plain Layout
 
+struct pollfd poll_fds [2];
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -2114,22 +2191,12 @@ char * buffer_rx;
 
 \begin_layout Plain Layout
 
- *
-\end_layout
-
-\begin_layout Plain Layout
-
- * @return	
+ *	
 \end_layout
 
 \begin_layout Plain Layout
 
  *
-\end_layout
-
-\begin_layout Plain Layout
-
- * @note
 \end_layout
 
 \begin_layout Plain Layout
@@ -2179,12 +2246,12 @@ void write_reg(void *addr, unsigned int offset, unsigned int value)
 
 \begin_layout Plain Layout
 
- *			della periferica, specificando l'indirizzo base virtuale e 
+ *		della periferica, specificando l'indirizzo base virtuale e 
 \end_layout
 
 \begin_layout Plain Layout
 
- *			l'offset del registro da cui leggere
+ *		l'offset del registro da cui leggere
 \end_layout
 
 \begin_layout Plain Layout
@@ -2215,11 +2282,6 @@ void write_reg(void *addr, unsigned int offset, unsigned int value)
 \begin_layout Plain Layout
 
  *
-\end_layout
-
-\begin_layout Plain Layout
-
- * @note
 \end_layout
 
 \begin_layout Plain Layout
@@ -2283,32 +2345,34 @@ unsigned int read_reg(void *addr, unsigned int offset)
 
 \begin_layout Plain Layout
 
- * @param	file_descr descrittore del UIO driver
+ * @param	poll_fds struct contenente i due descrittori del file per 
 \end_layout
 
 \begin_layout Plain Layout
 
- * @param	addr indirizzo virtuale della periferica
+ *			i due device UART
 \end_layout
 
 \begin_layout Plain Layout
 
- *
+ * @param	uart_rx_ptr indirizzo virtuale della periferica UART utilizzata
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
- * @return	
+ *			in ricezione
 \end_layout
 
 \begin_layout Plain Layout
 
- *
+ * @param   uart_tx_ptr indirizzo virtuale della periferica UART utilizzata
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
- * @note
+ *			in trasmissione
 \end_layout
 
 \begin_layout Plain Layout
@@ -2323,7 +2387,8 @@ unsigned int read_reg(void *addr, unsigned int offset)
 
 \begin_layout Plain Layout
 
-void wait_for_interrupt(int file_descr, void *addr)
+void wait_for_interrupt(struct pollfd * poll_fds, void *uart_rx_ptr, void
+ *uart_tx_ptr)
 \end_layout
 
 \begin_layout Plain Layout
@@ -2338,24 +2403,12 @@ void wait_for_interrupt(int file_descr, void *addr)
 
 \begin_layout Plain Layout
 
-	printf("Waiting for interrupts......
-\backslash
-n");
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
 	int i = 0;
 \end_layout
 
 \begin_layout Plain Layout
 
-	int pending = 0;
+	int pending =0;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2385,75 +2438,28 @@ n");
 
 \begin_layout Plain Layout
 
-/** Attesa sul file descriptor in attesa di ricevere un'interruzione*/
+	int ret = poll(poll_fds, 2, TIMEOUT);
 \end_layout
 
 \begin_layout Plain Layout
 
-	read(file_descr, (void *)&pending, sizeof(int));
+	if (ret > 0){
 \end_layout
 
 \begin_layout Plain Layout
 
-/** Interruzione ricevuta*/
+			
 \end_layout
 
 \begin_layout Plain Layout
 
+/** Se vi è un'interruzione sul device UIO0 associato all'UART per la ricezione
+ */
 \end_layout
 
 \begin_layout Plain Layout
 
-/** Disasserisce il transfer enable e disabilita le interruzioni */
-\end_layout
-
-\begin_layout Plain Layout
-
-	write_reg(addr, TX_EN, 0); 
-\end_layout
-
-\begin_layout Plain Layout
-
-	write_reg(addr, GLOBAL_INTR_EN, 0); 
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	printf("IRQ detected!
-\backslash
-n");
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	pending_reg = read_reg(addr, INTR_ACK_PEND);
-\end_layout
-
-\begin_layout Plain Layout
-
-	printf("Pending reg: %08x
-\backslash
-n", pending_reg); // STAMPA DEBUG
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	if((pending_reg & 0x00000002) == 0x00000002){
+		if(poll_fds[0].revents && POLLIN){ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2462,9 +2468,22 @@ n", pending_reg); // STAMPA DEBUG
 
 \begin_layout Plain Layout
 
-		printf("---ISR RX---
-\backslash
-n");
+			read(poll_fds[0].fd, (void *)&pending, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Disabilita le interruzioni */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 0); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2474,29 +2493,59 @@ n");
 
 \begin_layout Plain Layout
 
-		if(rx_count < buffer_size){
+			pending_reg = read_reg(uart_rx_ptr, INTR_ACK_PEND);
 \end_layout
 
 \begin_layout Plain Layout
 
-			rx_count++;
+					
 \end_layout
 
 \begin_layout Plain Layout
 
-			reg_received_data = read_reg(addr, RX_REG);
+			if((pending_reg & RX) == RX){
 \end_layout
 
 \begin_layout Plain Layout
 
-			printf("ISR RX - value received: %c
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("ISR RX detected!
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				if(rx_count <= buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+					rx_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+					reg_received_data = read_reg(uart_rx_ptr, RX_REG);
+\end_layout
+
+\begin_layout Plain Layout
+
+					printf("ISR RX - value received: %c
 \backslash
 n", reg_received_data);
 \end_layout
 
 \begin_layout Plain Layout
 
-			buffer_rx[rx_count] = reg_received_data;
+					buffer_rx[rx_count] = reg_received_data;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2505,98 +2554,85 @@ n", reg_received_data);
 
 \begin_layout Plain Layout
 
-			
+					if(rx_count == buffer_size){
 \end_layout
 
 \begin_layout Plain Layout
 
-			}else if(rx_count == buffer_size){
+						printf("Trasmissione/Ricezione completata, valore ricevuto: ");
 \end_layout
 
 \begin_layout Plain Layout
 
-				printf("Trasmissione/Ricezione completata, valore ricevuto: ");
+						for(i=0; i<=rx_count; i++)
 \end_layout
 
 \begin_layout Plain Layout
 
-				for(i=0; i<rx_count; i++)
+							printf("%c",buffer_rx[i]);
 \end_layout
 
 \begin_layout Plain Layout
 
-					printf("%c",buffer_rx[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\end_layout
-
-\begin_layout Plain Layout
-
-			}
-\end_layout
-
-\begin_layout Plain Layout
-
-/** ACK ricezione */	
-\end_layout
-
-\begin_layout Plain Layout
-
-		write_reg(addr, INTR_ACK_PEND, RX); 
-\end_layout
-
-\begin_layout Plain Layout
-
-		sleep(1);
-\end_layout
-
-\begin_layout Plain Layout
-
-		write_reg(addr, INTR_ACK_PEND, 0); 
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\end_layout
-
-\begin_layout Plain Layout
-
-/** Riabilitazione interruzioni*/
-\end_layout
-
-\begin_layout Plain Layout
-
-		write_reg(addr, GLOBAL_INTR_EN, 1); 
-\end_layout
-
-\begin_layout Plain Layout
-
-	}	
-\end_layout
-
-\begin_layout Plain Layout
-
-	else if((pending_reg & 0x00000001) == 0x00000001){
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		printf("---ISR TX---
+						printf("
 \backslash
 n");
 \end_layout
 
 \begin_layout Plain Layout
 
-		tx_count++;
+					}
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+/* ACK ricezione */	
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(uart_rx_ptr, INTR_ACK_PEND, RX);
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(uart_rx_ptr, INTR_ACK_PEND, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Riabilitazione interruzioni*/
+\end_layout
+
+\begin_layout Plain Layout
+
+				write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			}	
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema
+ UIO */
+\end_layout
+
+\begin_layout Plain Layout
+
+			write(poll_fds[0].fd, (void *)&reenable, sizeof(int));
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2606,7 +2642,13 @@ n");
 
 \begin_layout Plain Layout
 
-		if(tx_count < buffer_size){
+/** Se vi è un'interruzione sul device UIO0 associato all'UART per la trasmissio
+ne */
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(poll_fds[1].revents && POLLIN){
 \end_layout
 
 \begin_layout Plain Layout
@@ -2616,106 +2658,161 @@ n");
 
 \begin_layout Plain Layout
 
-			reg_sent_data = read_reg(addr, DATA_IN);
+			read(poll_fds[1].fd, (void *)&pending, sizeof(int));
 \end_layout
 
 \begin_layout Plain Layout
 
-			printf("ISR TX - value sent: %c
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Disasserisce il transfer enable e disabilita le interruzioni */
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(uart_tx_ptr, TX_EN, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+			write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+			pending_reg = read_reg(uart_tx_ptr, INTR_ACK_PEND);
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\end_layout
+
+\begin_layout Plain Layout
+
+			if((pending_reg & TX) == TX){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				printf("ISR TX Detected
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+				tx_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				if(tx_count <= buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+					reg_sent_data = read_reg(uart_tx_ptr, DATA_IN);
+\end_layout
+
+\begin_layout Plain Layout
+
+					printf("ISR TX - value sent: %c
 \backslash
 n", reg_sent_data);
 \end_layout
 
 \begin_layout Plain Layout
 
-			printf("ISR TX - start sending next value: %c
+					printf("ISR TX - start sending next value: %c
 \backslash
 n", buffer_tx[tx_count]);
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, DATA_IN, buffer_tx[tx_count]);
+					write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);
 \end_layout
 
 \begin_layout Plain Layout
 
-			
 \end_layout
 
 \begin_layout Plain Layout
 
-/** ACK trasmissione*/		
+/* ACK trasmissione*/		
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, INTR_ACK_PEND, TX); 
+					write_reg(uart_tx_ptr, INTR_ACK_PEND, TX); 		 
 \end_layout
 
 \begin_layout Plain Layout
 
-			sleep(1); 
+					write_reg(uart_tx_ptr, INTR_ACK_PEND, 0); 
 \end_layout
 
 \begin_layout Plain Layout
 
-/** Riabilitazione interruzioni*/
+					
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, INTR_ACK_PEND, 0); 
+/* Riabilitazione interruzioni*/
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, GLOBAL_INTR_EN, 1); 
+					write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 1); 
 \end_layout
 
 \begin_layout Plain Layout
 
-/** Abilitazione del trasferimento */
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, TX_EN, 1); 
+/* Abilitazione del trasferimento nuovo carattere */
 \end_layout
 
 \begin_layout Plain Layout
 
-		}
+					if(tx_count != buffer_size)	
 \end_layout
 
 \begin_layout Plain Layout
 
-		else{
+						write_reg(uart_tx_ptr, TX_EN, 1); 
 \end_layout
 
 \begin_layout Plain Layout
 
-			write_reg(addr, INTR_ACK_PEND, TX); 
+				}	
 \end_layout
 
 \begin_layout Plain Layout
 
-			
-\end_layout
-
-\begin_layout Plain Layout
-
-sleep(1);
-\end_layout
-
-\begin_layout Plain Layout
-
-			write_reg(addr, INTR_ACK_PEND, 0); 
-\end_layout
-
-\begin_layout Plain Layout
-
-			write_reg(addr, GLOBAL_INTR_EN, 1); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -2725,33 +2822,18 @@ sleep(1);
 
 \begin_layout Plain Layout
 
-	}	
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-/** Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema
+/* Riabilita l'interrupt nell'interrupt controller attraverso il sottosistema
  UIO */
 \end_layout
 
 \begin_layout Plain Layout
 
-	
+		write(poll_fds[1].fd, (void *)&reenable, sizeof(int));
 \end_layout
 
 \begin_layout Plain Layout
 
-	int ret = write(file_descr, (void *)&reenable, sizeof(int));
-\end_layout
-
-\begin_layout Plain Layout
-
-	
+	}
 \end_layout
 
 \begin_layout Plain Layout
@@ -2761,6 +2843,7 @@ sleep(1);
 
 \begin_layout Plain Layout
 
+}	
 \end_layout
 
 \begin_layout Plain Layout
@@ -2780,7 +2863,12 @@ int main(int argc, char *argv[]){
 
 \begin_layout Plain Layout
 
-	void *uart_ptr;
+	void * uart_rx_ptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	void * uart_tx_ptr;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2825,12 +2913,12 @@ int main(int argc, char *argv[]){
 
 \begin_layout Plain Layout
 
-	int file_descr = open("/dev/uio0", O_RDWR);
+	int rx_file_descr = open("/dev/uio0", O_RDWR);
 \end_layout
 
 \begin_layout Plain Layout
 
-	if (file_descr < 1){
+	if (rx_file_descr < 1){
 \end_layout
 
 \begin_layout Plain Layout
@@ -2862,23 +2950,8 @@ n");
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-	uart_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
- file_descr, 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.",
- buffer_tx, DIM);
+	uart_rx_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ rx_file_descr, 0);
 \end_layout
 
 \begin_layout Plain Layout
@@ -2888,12 +2961,39 @@ n");
 
 \begin_layout Plain Layout
 
-/** Abilitazione interruzioni globali */
+	int tx_file_descr = open("/dev/uio1", O_RDWR);
 \end_layout
 
 \begin_layout Plain Layout
 
-	write_reg(uart_ptr, GLOBAL_INTR_EN, 1); 
+	if (tx_file_descr < 1){
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("Errore nell'accesso al device UIO.
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
+		return -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	uart_tx_ptr = mmap(NULL, dimensione_pag, PROT_READ|PROT_WRITE, MAP_SHARED,
+ tx_file_descr, 0);
 \end_layout
 
 \begin_layout Plain Layout
@@ -2903,27 +3003,9 @@ n");
 
 \begin_layout Plain Layout
 
-/** Abilitazione interruzioni */
-\end_layout
-
-\begin_layout Plain Layout
-
-	write_reg(uart_ptr, INTR_EN, INTR_MASK); 
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-/** Settaggio del primo carattere da mandare */
-\end_layout
-
-\begin_layout Plain Layout
-
-	write_reg(uart_ptr, DATA_IN, buffer_tx[0]);
+	printf("L'utente ha chiesto di mandare la stringa: %s, di %d caratteri.
+\backslash
+n", buffer_tx, DIM);
 \end_layout
 
 \begin_layout Plain Layout
@@ -2933,12 +3015,107 @@ n");
 
 \begin_layout Plain Layout
 
-/** Abilitazione del trasferimento */
+/* Abilitazione interruzioni globali */
 \end_layout
 
 \begin_layout Plain Layout
 
-	write_reg(uart_ptr, TX_EN, 1); 
+	write_reg(uart_rx_ptr, GLOBAL_INTR_EN, 1); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Abilitazione interruzioni */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_rx_ptr, INTR_EN, RX); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Abilitazione interruzioni globali */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_tx_ptr, GLOBAL_INTR_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Abilitazione interruzioni */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_tx_ptr, INTR_EN, TX); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Settaggio del primo carattere da mandare */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_tx_ptr, DATA_IN, buffer_tx[0]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+/* Abilitazione del trasferimento */
+\end_layout
+
+\begin_layout Plain Layout
+
+	write_reg(uart_tx_ptr, TX_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[0].fd = rx_file_descr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[0].events = POLLIN;  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[1].fd = tx_file_descr;
+\end_layout
+
+\begin_layout Plain Layout
+
+	poll_fds[1].events = POLLIN;
 \end_layout
 
 \begin_layout Plain Layout
@@ -2953,7 +3130,18 @@ n");
 
 \begin_layout Plain Layout
 
-		wait_for_interrupt(file_descr, uart_ptr);
+		 printf("Waiting for interrupts......
+ ");
+\end_layout
+
+\begin_layout Plain Layout
+
+		//sleep(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		wait_for_interrupt(poll_fds, uart_rx_ptr, uart_tx_ptr);
 \end_layout
 
 \begin_layout Plain Layout
@@ -2967,12 +3155,31 @@ n");
 
 \begin_layout Plain Layout
 
-/** Fa l'unmap del device UART */
+/* Fa l'unmap dei device UART */
 \end_layout
 
 \begin_layout Plain Layout
 
-	munmap(uart_ptr, dimensione_pag);
+	munmap(uart_tx_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+	munmap(uart_rx_ptr, dimensione_pag);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	close(tx_file_descr);
+\end_layout
+
+\begin_layout Plain Layout
+
+	close(rx_file_descr);	
 \end_layout
 
 \begin_layout Plain Layout
@@ -3007,18 +3214,33 @@ n");
 
 \begin_layout Standard
 La prima operazione del driver è quella di aprire il file descriptor relativo
- al device uio0.
- Successivamente calcola la dimensione della pagina e effettua il mapping
- tramite chiamata a mmap().
- Viene invocata una write_reg sul registro DATA_IN per inserire il primo
- carattere da inviare nel registro di trasmissione e successivamente viene
- dato il segnale di TX_EN.
+ ai due device uio0 e uio1.
+ Successivamente viene calcolata la dimensione della pagina e viene effettuato
+ il mapping dell'indirizzo virtuale tramite chiamata a mmap().
+ Dopo aver rispettivamente abilitato le interruzioni di ricezione e trasmissione
+ per i due dispositivi UART, viene invocata una write_reg sul registro DATA_IN
+ per inserire il primo carattere da inviare nel registro di trasmissione
+ del dispositivo UART uio1 e successivamente viene dato il segnale di TX_EN
+ per abilitare il trasferimento.
  Iterativamente, finchè non sono stati trasmessi un numero di caratteri
  pari alla dimensione della stringa da trasmettere, viene effettuata una
  read per mettersi in attesa di eventi interrompenti dal device.
  Una volta risvegliato dalla chiamata il processo si occupa della gestione
- dell'interruzione in maniera analoga alla parte applicativa della ISR vista
- nel capitolo precedente.
+ dell'interruzione.
+ La prima operazione da effettuare è controllare se l'interruzione rilevata
+ sia relativa ad una avvenuta ricezione o trasmissione.
+ Nel primo caso la funzione si occupa di prelevare il dato dal registro
+ di ricezione RX_REG e di incrementare il contatore dei caratteri ricevuti.
+ Se sono stati ricevuti un numero di caratteri pari alla dimensione della
+ stringa viene stampato il buffer di ricezione, dato il segnale di ACK e
+ riabilitate le interruzione.
+ Nel caso in cui invece l'interruzione rilevata sia legata al completamento
+ della trasmissione di un carattere la funzione incrementa il contatore
+ dei caratteri trasmessi e, se questo non è pari alla dimensione della stringa,
+ setta il prossimo carattere da trasmettere nel registro DATA_IN e asserisce
+ il TX_EN.
+ dopo aver dato il segnale di ACK e riabilitato le interruzioni.
+ 
 \end_layout
 
 \end_body
