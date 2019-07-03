@@ -536,7 +536,6 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle) {
 	HAL_GPIO_WritePin(GPIOE, LED3_RED_Pin, GPIO_PIN_SET);
 }
 
-#ifdef MASTER_BOARD
 /**
  * @brief  Callback trasmissione completata da parte di un master su I2C
  * @param  hi2c2 handler alla struttura che gestisce I2C
@@ -554,7 +553,6 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c2) {
 	HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_SET);
 
 }
-#else
 /**
  * @brief  Callback trasmissione completata da parte di uno slave su I2C
  * @param  hi2c2 handler alla struttura che gestisce I2C
@@ -574,7 +572,7 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c2)
 	HAL_GPIO_WritePin(GPIOE, LED9_BLUE_Pin, GPIO_PIN_SET);
 
 }
-#endif
+
 
 /**
  * @brief  Callback per errori di comunicazione sul canale I2C

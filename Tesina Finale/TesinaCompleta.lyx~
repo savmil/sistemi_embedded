@@ -505,7 +505,7 @@ Installare linux su zybo
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio01/Tesina.lyx"
+filename "Guida Linux on Zybo/Tesina.lyx"
 
 \end_inset
 
@@ -519,7 +519,7 @@ GPIO
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio02/Tesina.lyx"
+filename "GPIO AXI/Tesina.lyx"
 
 \end_inset
 
@@ -541,16 +541,6 @@ filename "UART AXI/Tesina.lyx"
 \end_layout
 
 \begin_layout Chapter
-Progetto finale
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Progetto Finale/Tesina.lyx"
-
-\end_inset
-
 
 \end_layout
 
