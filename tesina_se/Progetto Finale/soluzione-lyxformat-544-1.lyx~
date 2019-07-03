@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -48,13 +48,13 @@ morecomment=[s]{--}
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Tesina in Sistemi embedded}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \date{}
 \cfoot{}
-
+\usepackage{tikz}
 \usetikzlibrary{matrix,calc}
 
 %isolated term
@@ -205,9 +205,6 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -226,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -255,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -350,7 +353,12 @@ I collegamenti tra le board per testare il funzionamento dell' applicativo
 \end_layout
 
 \begin_layout Standard
+UART
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -360,7 +368,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -383,10 +390,7 @@ centering
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
 
-\begin_layout Plain Layout
-UART
 \end_layout
 
 \end_inset
@@ -394,9 +398,8 @@ UART
 
 \end_layout
 
-\end_inset
-
-
+\begin_layout Standard
+I2C
 \end_layout
 
 \begin_layout Standard
@@ -429,24 +432,16 @@ centering
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-I2C
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+SPI
 \end_layout
 
 \begin_layout Standard
@@ -476,18 +471,6 @@ centering
 
 \begin_inset Graphics
 	filename images/SPI_pin.PNG
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-SPI
-\end_layout
 
 \end_inset
 
@@ -576,7 +559,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -794,7 +776,7 @@ BROADCAST
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Tipologie di comunicazione
+
 \end_layout
 
 \end_inset
@@ -827,7 +809,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -881,7 +866,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -905,7 +889,7 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Module view
+
 \end_layout
 
 \end_inset
@@ -923,11 +907,8 @@ CAN
 \end_layout
 
 \begin_layout Standard
-La configurazione dei filtri CAN può avvenire in due modalità: lista o maschera.
- In quest'ultima l'identificativo viene mascherato per indicare quali bit
- devono essere confrontati.
- Nella modalità a lista invece l'identificativo dell'indirizzo deve corrisponder
-e all'indirizzo.
+In CAN bisogna prestare particolarmente attenzione agli indirizzi che si
+ danno alle periferiche e di come questi vengono gestiti:
 \end_layout
 
 \begin_layout Standard
@@ -962,16 +943,13 @@ sFilterConfig.FilterIdLow = groupAddress<<5;
 \end_layout
 
 \begin_layout Standard
-Si è scelto di utilizzare la modalità id_list.
- Un nodo è filtrato dunque come destinatario di un messaggio solamente se
- l'indirizzo di destinazione corrisponde ad uno presente nella sua lista.
- La periferica permette di scegliere anche la scala del filtro: uno da 32
- o due da 16 bit.
- Gli indirizzi che utilizziamo sono a 16 bit poiché il numero di periferiche
- utilizzate non è eccessivo (avere un indirizzo di 16 bit vuol dire che
- stiamo inviando i dati utilizzando il protocollo CAN A), dopodichè diamo
- alla board un indirizzo per essere contattata come entitò singola o parte
- di un gruppo.
+Nel nostro caso abbiamo scelto di utilizzare la modalità id_list dei filtri,
+ cioè un nodo si ritiene destinatario di un messaggio solamente se l' indirizzo
+ di destinazione corrisponde ad no presente nella sua lista, gli indirizzi
+ che utilizziamo sono a 16 bit poiché il numero di periferiche utilizzate
+ non è eccessivo (avere un indirizzo di 16 bit vuol dire che stiamo inviando
+ i dati utilizzando il protocollo CAN A), dopodichè diamo alla board un
+ indirizzo per essere contattata come entitò singola o parte di un gruppo.
 \end_layout
 
 \begin_layout Standard
