@@ -1,0 +1,1525 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{listings,xcolor,courier,bookmark}
+\usepackage{listingsutf8}
+\definecolor{darkblue}{named}{blue}
+\definecolor{darkred}{named}{red}
+\definecolor{grau}{named}{gray}
+\let\Righttorque\relax
+\lstset{
+captionpos=b,
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+keywordstyle=\color{darkblue},
+stringstyle=\color{darkred},
+extendedchars=true,
+basicstyle=\small\ttfamily,
+showstringspaces=false,
+tabsize=2,
+numbers=left,
+numberstyle=\tiny,
+breakautoindent  = true,
+breakindent      = 2em,
+breaklines       = true,
+postbreak        = ,
+prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
+showspaces=false, 
+showtabs=false, 
+showstringspaces=false,
+language=VHDL,
+frame=single,
+morecomment=[s]{--}
+}
+
+
+\renewcommand*{\lstlistingname}{Codice Componente}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{} 
+\fancyfoot{} 
+
+\fancyhead[RO,LE]{\bfseries \leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
+\cfoot{}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+%isolated term
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - node
+%#3 - filling color
+\newcommand{\implicantsol}[3][0]{
+    \draw[rounded corners=3pt, fill=#3, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#2.south east)+(-45:#1)$);
+    }
+
+
+%internal group
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicant}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#3.south east)+(-45:#1)$);
+    }
+
+%group lateral borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantcostats}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.east |- #2.north)+(90:#1)$)-| ($(#2.east)+(0:#1)$) |- ($(rf.east |- #3.south)+(-90:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.west |- #2.north)+(90:#1)$) -| ($(#3.west)+(180:#1)$) |- ($(cf.west |- #3.south)+(-90:#1)$);
+}
+
+%group top-bottom borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantdaltbaix}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.south -| #2.west)+(180:#1)$) |- ($(#2.south)+(-90:#1)$) -| ($(cf.south -| #3.east)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.north -| #2.west)+(180:#1)$) |- ($(#3.north)+(90:#1)$) -| ($(rf.north -| #3.east)+(0:#1)$);
+}
+
+%group corners
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - filling color
+\newcommand{\implicantcantons}[2][0]{
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -| ($(0.east |- cf.south)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$);
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -|  ($(0.east |- cf.south)+(0:#1)$) [sharp corners] ($(rf.east |- 0.south)+(-90:#1)$) |-  ($(0.east |- cf.south)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$) [sharp corners] ($(rf.east |- 8.north)+(90:#1)$) |- ($(8.east |- rf.north)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$) [sharp corners]($(cf.west |- 2.south)+(-90:#1)$) |- ($(2.west |- cf.south)+(180:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$) [sharp corners] ($(cf.west |- 10.north)+(90:#1)$) |- ($(10.west |- rf.north)+(180:#1)$) ;
+}
+
+%Empty Karnaugh map 4x4
+\newenvironment{Karnaugh}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,4);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {zv} node [pos=0.7,below left,anchor=north east] {xy} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=8.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
+|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
+|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x4
+\newenvironment{Karnaughvuit}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {bc} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=4.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x2
+\newenvironment{Karnaughquatre}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (2,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {b} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=2.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+          \& |(c00)| 0          \& |(c01)| 1  \\
+|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
+|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Defines 8 or 16 values (0,1,X)
+\newcommand{\contingut}[1]{%
+\foreach \x [count=\xi from 0]  in {#1}
+     \path (\xi) node {\x};
+}
+
+%Places 1 in listed positions
+\newcommand{\minterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {1};
+}
+
+%Places 0 in listed positions
+\newcommand{\maxterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {0};
+}
+
+%Places X in listed positions
+\newcommand{\indeterminats}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {X};
+}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Scelte Progettuali
+\end_layout
+
+\begin_layout Subsection
+Modalità di Trasmissione
+\end_layout
+
+\begin_layout Standard
+La trasmissione può essere effettuata con tre modalità differenti: unicast,
+ multicast e broadcast.
+\end_layout
+
+\begin_layout Itemize
+Unicast: il nodo master manda il messaggio ad un solo nodo destinatario.
+ Per la trasmissione in questa modalità sono disponibili tutte le periferiche.
+\end_layout
+
+\begin_layout Itemize
+Multicast: il nodo master manda il messaggio ad un insieme di nodi identificato
+ da un unico indirizzo detto indirizzo del gruppo.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Itemize
+Broadcast: il nodo master manda il mesaggio a tutti i nodi collegati al
+ bus.
+ Per la trasmissione in questa modalità è disponibile solo la periferica
+ CAN.
+\end_layout
+
+\begin_layout Subsection
+Configurazione della Rete
+\end_layout
+
+\begin_layout Standard
+Le periferiche, fatta eccezione per la seriale 
+\begin_inset Quotes eld
+\end_inset
+
+point to point
+\begin_inset Quotes erd
+\end_inset
+
+ UART, offrono diverse possibilità riguardo la configurazione della rete.
+\end_layout
+
+\begin_layout Standard
+I2C può essere utilizzato sia in modalità multislave che in modalità multimaster.
+ Nella prima solo un nodo può controllare il bus, dunque gli altri nodi
+ non possono prendere iniziativa di trasmissione se non sotto richiesta
+ del master.
+ Nella seconda modalità invece ogni nodo può essere master, per cui è richiesto
+ un arbitraggio del bus.
+ Nel caso specifico è stata scelta la prima modalità, per cui ogni invio
+ sul canale I2C viene effettuato in modalità master e ogni ricezione in
+ modalità slave.
+ Per quanto riguarda invece SPI è stata scelta la modalità multislave, poichè
+ la modalità multimaster sarebbe realizzabile solo predisponendo due Slave
+ Select per ogni coppia di nodi.
+ CAN è un bus puramente multimaster.
+\end_layout
+
+\begin_layout Standard
+I collegamenti tra le board per testare il funzionamento dell' applicativo
+ sono i seguenti:
+\end_layout
+
+\begin_layout Standard
+UART
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/UART.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I2C
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/I2C_pin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+SPI
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/SPI_pin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Architettura Software
+\end_layout
+
+\begin_layout Standard
+L'architettura software, come richiesto, è composta da due livelli.
+ Il livello più alto astrae le primitive che regolano il funzionamento dell'appl
+icazione, ovvero:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void CRC_Check(uint32_t * ReceivedFrame);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t
+ mode);
+\end_layout
+
+\begin_layout Plain Layout
+
+void Configure_Peripheral(uint8_t peripheral, uint16_t nodeAddress, uint16_t
+ groupAddress);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CRC_Check: prende in ingresso un puntatore al buffer contenente il messaggio
+ ricevuto.
+ Quest'ultimo è composto dal payload e dai due CRC di 32 bit calcolati dal
+ nodo che ha trasmesso il messaggio.
+ La funzione calcola i due CRC relativi al payload ricevuto e li confronta
+ con quelli ricevuti, se sono uguali accende i led 10 e 3 di colore verde.
+\end_layout
+
+\begin_layout Itemize
+Receive_CRC: prende in ingresso un puntatore al buffer che verrà utilizzato
+ per salvare il messaggio ricevuto, una maschera che indica i canali sui
+ quali effettuare la ricezione e il parametro address, utilizzato nel caso
+ la trasmissione sia richiesta su SPI per effettuare il matching con il
+ corrispondente segnale di Slave Select.
+\end_layout
+
+\begin_layout Itemize
+Send_CRC: prende in ingresso un puntatore al buffer contenente il messaggio
+ da trasmettere, l'indirizzo del nodo destinazione (utilizzato solo da I2C,
+ SPI e CAN), una maschera che indica su quali canali effettuare la trasmissione
+ e la modalità di trasmissione.
+ Nel precedente paragrafo è stato evidenziato il fatto che l'unico canale
+ su cui è possibile effettuare una cominucazione in modalità multicast e
+ broadcast risulti essere CAN.
+ Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
+i la funzione ritornerà il valore -1, negando dunque la trasmissione.
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UART
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I2C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SPI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+UNICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MULTICAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+BROADCAST
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✕
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+✓
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Configure_Peripheral: prende in ingresso una maschera che indica i canali
+ da configurare, l'indirizzo del nodo e del gruppo a cui appartiene per
+ le inizializzazioni delle periferiche CAN e I2C.
+ Nel caso il nodo sia un master allora la periferica SPI verrà configurata
+ come tale, altrimenti come slave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/livelli.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Architettura Software
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il secondo livello è composto da tutti i driver implementati per l'inizializzazi
+one e l'interfacciamento con le varie periferiche utilizzate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename images/includes.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+CAN
+\end_layout
+
+\begin_layout Standard
+In CAN bisogna prestare particolarmente attenzione agli indirizzi che si
+ danno alle periferiche e di come questi vengono gestiti:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterMode = CAN_FILTERMODE_IDLIST; 
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterScale = CAN_FILTERSCALE_16BIT;				   
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterIdHigh = nodeAddress<<5;								 
+\end_layout
+
+\begin_layout Plain Layout
+
+sFilterConfig.FilterIdLow = groupAddress<<5;								
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel nostro caso abbiamo scelto di utilizzare la modalità id_list dei filtri,
+ cioè un nodo si ritiene destinatario di un messaggio solamente se l' indirizzo
+ di destinazione corrisponde ad no presente nella sua lista, gli indirizzi
+ che utilizziamo sono a 16 bit poiché il numero di periferiche utilizzate
+ non è eccessivo (avere un indirizzo di 16 bit vuol dire che stiamo inviando
+ i dati utilizzando il protocollo CAN A), dopodichè diamo alla board un
+ indirizzo per essere contattata come entitò singola o parte di un gruppo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+TxHeader.StdId = address; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.ExtId = 0x00; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.RTR = CAN_RTR_DATA; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.IDE = CAN_ID_STD; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.DLC = 8; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+TxHeader.TransmitGlobalTime = DISABLE;
+\end_layout
+
+\begin_layout Plain Layout
+
+for(int i=0;i<BUFFER_SIZE/8;i++){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(int j=0;j<8;j++){ 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		CanTx_Frame[j] = aTxBuffer[i*8+j]; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		HAL_CAN_AddTxMessage(&CanHandle, &TxHeader, CanTx_Frame, &TxMailbox);
+\end_layout
+
+\begin_layout Plain Layout
+
+		HAL_Delay(50);
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In figura viene mostrato come viene creato un frame CAN, inseriamo l' indirizzo
+ della periferica da contattare (notiamo che è supportato il protocollo
+ CAN B) , indichiamo che vogliamo inviare dei dati che utilizziamo un frame
+ CAN A, il numero di byte che vengono utilizzati per codificare il dato
+ e se utilizzare il time stamp.
+\end_layout
+
+\begin_layout Standard
+Creiamo tanti frame affinché possiamo trasmettere tutto il contenuto di
+ aTxBuffer ed aggiungiamo tale messaggio alla Mailbox di invio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_CAN_GetRxMessage(&CanHandle, CAN_RX_FIFO0, &RxHeader, CanRx_Frame);
+\end_layout
+
+\begin_layout Plain Layout
+
+	if((RxHeader.RTR != CAN_RTR_DATA) ||  (RxHeader.IDE != CAN_ID_STD) ||(RxHeader.DLC
+ != 8)){ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		Error_Handler(); 	} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	else{ 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		BSP_LED_On(LED5); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(int k=0; k<8; k++){ 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			CAN_RxBuffer[rx_callback_count*8+k] = CanRx_Frame[k]; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+			} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		}   
+\end_layout
+
+\begin_layout Plain Layout
+
+	rx_callback_count++;
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(rx_callback_count == CAN_CALLBACK_COUNT){ 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		uint32_t ReceivedData[FRAME_SIZE]; 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		Frame8to32(CAN_RxBuffer, ReceivedData); 	  
+\end_layout
+
+\begin_layout Plain Layout
+
+		CRC_Check(ReceivedData); }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando un messaggio CAN arriva al dispositivo viene attivata questa Callback
+ che come prima operazione preleva il frame dalla mailbox e controlla con
+ i campi del frame se il messaggio sia corretto e che il CRC ricevuto sia
+ corretto.
+\end_layout
+
+\begin_layout Subsubsection
+I2C
+\end_layout
+
+\begin_layout Standard
+Per quando riguarda I2C la parte importante riguarda l' assegnazione dell'
+ indirizzo da dare alla periferica, come mostrato nel codice
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hi2c2.Init.OwnAddress1 = nodeAddress;   
+\end_layout
+
+\begin_layout Plain Layout
+
+hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_10BIT;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per la trasmissione semplicemente basta indicare chi contattare, cosa inviare
+ e quanto grande sia questo dato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HAL_I2C_Master_Transmit_IT(&hi2c2, (uint16_t) address,(uint8_t*) aTxBuffer,
+ BUFFER_SIZE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come possiamo notare la board quando invia lo fa da master del bus.
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda la ricezione abbiamo un qualcosa di simile e riceviamo
+ da slave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+HAL_I2C_Slave_Receive_IT(&hi2c2, (uint8_t *)I2C_RxBuffer, BUFFER_SIZE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+SPI
+\end_layout
+
+\begin_layout Standard
+Per SPI riguardo alla configurazione non ci sono particolari riflessione
+ da fare mentre invece è importante notare come si ricava qual è la periferica
+ da conttattare.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+uint16_t getSSPin(uint16_t address){ 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	return SPI_EN_OUTPUT_Pin; 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Questa funzione viene utilizzata per indicare quale pin di GPIO permette
+ di attivare lo slave select per contattare lo slave che vogliamo, si è
+ evitato di utilizzare il pin NSS fornito dal ST poiché quando vi sono più
+ periferiche a dover comunicare tale funzionalità non è robusta per questo
+ motivo utilizziao un pin di GPIO in modalità OUTPUT che adempie lo stesso
+ compito del NSS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#ifdef MASTER_BOARD 		
+\end_layout
+
+\begin_layout Plain Layout
+
+uint16_t slaveSelectPin = getSSPin(address); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port,slaveSelectPin , GPIO_PIN_RESET);
+\end_layout
+
+\begin_layout Plain Layout
+
+#else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+while(HAL_GPIO_ReadPin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_INPUT_Pin) != GPIO_PIN_RE
+SET){ 		} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+#endif /* MASTER_BOARD */
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se siamo master della comunicazione abilitiamo tale il pin di GPIO per comunicar
+e con quella board, invece lo slave attende fino a che quel pin non venga
+ inviato il segnale che il master voglia parlare con lui.
+\end_layout
+
+\begin_layout Standard
+Le funzioni per la ricezione e per la trasmisisone sono simile a quelle
+ della periferica I2C.
+\end_layout
+
+\begin_layout Subsubsection
+UART
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+huart2.Init.BaudRate = Baudrate;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.WordLength = UART_WORDLENGTH_8B;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.StopBits = UART_STOPBITS_1;   
+\end_layout
+
+\begin_layout Plain Layout
+
+huart2.Init.Parity = UART_PARITY_NONE;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La configurazione di UART consiste nell' indicare la velocità di comunicazione
+ e la struttura del frame da inviare, il numero di bit per il dato, quanti
+ bit di stop e se utilizzare il bit di parità.
+\end_layout
+
+\begin_layout Standard
+Per la trasmissione vale lo stesso concetto visto in I2C e in SPI, mentre
+ invece per la ricezione prima di effettare la prossima aspettiamo che il
+ pin RX non sia più utilizzato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+while(HAL_UART_GetState(&huart2) == HAL_UART_STATE_BUSY_RX){ 				
+\end_layout
+
+\begin_layout Plain Layout
+
+	;; 			
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+if (HAL_UART_Receive_IT(&huart2, (uint8_t *) UART_RxBuffer, BUFFER_SIZE)
+ != HAL_OK) 					
+\end_layout
+
+\begin_layout Plain Layout
+
+	Error_Handler(); 			
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+CRC
+\end_layout
+
+\begin_layout Standard
+Il CRC viene settato in modo tale da utilizzare i polinomi descritti nella
+ specifica
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_DISABLE; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.GeneratingPolynomial = CRC_Polynomial; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.CRCLength = CRC_POLYLENGTH_32B; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+hcrc.Init.DefaultInitValueUse = CRC_DefaultValue;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abbiamo dato anche la possibilità di utilizzare un valore di inizializzazione
+ nel caso in un successivo futuro questo dovesse essere richiesto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_1, CRC_DEFAULTVALUE_1); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_1 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_2, CRC_DEFAULTVALUE_2);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_2 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_1 != ReceivedFrame[CRC1_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED10_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED7_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_2 != ReceivedFrame[CRC2_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED3_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED6_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando i valori dei CRC questi vengono prelevati da una posizione stabilita
+ del messaggio (essendo il messaggio di dimensione fissa), rivengono calcolati
+ i CRC con i polinomi stabili e confrontati se sono identici con quelli
+ ricevuti.
+\end_layout
+
+\end_body
+\end_document
