@@ -48,13 +48,13 @@ morecomment=[s]{--}
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Tesina in Sistemi embedded}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \date{}
 \cfoot{}
-\usepackage{tikz}
+
 \usetikzlibrary{matrix,calc}
 
 %isolated term
@@ -353,12 +353,7 @@ I collegamenti tra le board per testare il funzionamento dell' applicativo
 \end_layout
 
 \begin_layout Standard
-UART
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -368,6 +363,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -390,7 +386,10 @@ centering
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
 
+\begin_layout Plain Layout
+UART
 \end_layout
 
 \end_inset
@@ -398,8 +397,9 @@ centering
 
 \end_layout
 
-\begin_layout Standard
-I2C
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -432,7 +432,10 @@ centering
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
 
+\begin_layout Plain Layout
+I2C
 \end_layout
 
 \end_inset
@@ -440,8 +443,13 @@ centering
 
 \end_layout
 
-\begin_layout Standard
-SPI
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -471,6 +479,18 @@ centering
 
 \begin_inset Graphics
 	filename images/SPI_pin.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+SPI
+\end_layout
 
 \end_inset
 
@@ -559,6 +579,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -776,7 +797,7 @@ BROADCAST
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
+Tipologie di comunicazione
 \end_layout
 
 \end_inset
@@ -809,10 +830,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -866,6 +884,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -889,7 +908,7 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
+Module view
 \end_layout
 
 \end_inset

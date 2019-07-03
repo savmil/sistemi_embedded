@@ -311,7 +311,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -348,13 +347,11 @@ Un esempio di comunicazione è il seguente:
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -426,7 +423,6 @@ o il seguente schema
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -436,7 +432,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -474,7 +469,6 @@ Il device master si collega agli slave, con i pin SCLK che corrisponde al
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -484,7 +478,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -501,7 +494,6 @@ centering
 \begin_inset Graphics
 	filename images/spi_trasmissione.png
 	lyxscale 50
-	scale 40
 
 \end_inset
 
@@ -531,7 +523,6 @@ I2C è un protocollo sincrono, multimaster e multislave a differenza di SPI
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -541,7 +532,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -558,7 +548,6 @@ centering
 \begin_inset Graphics
 	filename images/i2c_collegamenti.png
 	lyxscale 60
-	scale 40
 
 \end_inset
 
@@ -581,7 +570,6 @@ Una comunicazione I2C di solito consta di questa sequenza
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -591,7 +579,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -608,7 +595,6 @@ centering
 \begin_inset Graphics
 	filename images/I2C_trasmissione.png
 	lyxscale 60
-	scale 70
 
 \end_inset
 
@@ -639,7 +625,6 @@ Bus utilizzato solitamente nel campo automotive è di tipo asincrono, multimaste
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -649,7 +634,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -692,7 +676,6 @@ Il valore fisico 0 viene detto bit dominante, invece un 1 viene detto bit
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
@@ -702,7 +685,6 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -718,7 +700,6 @@ centering
 
 \begin_inset Graphics
 	filename images/CAN_trasmissione.png
-	scale 60
 
 \end_inset
 

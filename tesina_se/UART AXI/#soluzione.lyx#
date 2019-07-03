@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,9 +54,6 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -75,6 +72,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -104,6 +103,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -116,7 +116,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -176,13 +179,16 @@ modulazione del clock: componente che prende in ingresso il clock esterno
  e adegua i clock dei componenti interni per rispettare le velocità imposte
  dal protocollo.
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename images/uart.png
+	scale 50
 
 \end_inset
 
@@ -233,14 +239,16 @@ Macchina a stati finiti che implementa la logica di trasmissione del protocollo.
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename images/tx_fsm.png
-	scale 60
+	scale 120
 
 \end_inset
 
@@ -317,9 +325,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename images/unart_rx_cu.png
 	scale 60
@@ -327,6 +333,13 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagramma Stati FSM ricezione
 \end_layout
 
 \end_inset
@@ -425,11 +438,13 @@ Segue una tabella degli indirizzi dei registri utilizzati dal componente
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="4">
 <features tabularvalignment="middle">
@@ -869,13 +884,27 @@ status open
 \begin_layout Plain Layout
 
     tx_busy_falling_detect <= not last_stage(1) and  current_stage(1); 
-   --! detect falling edge tx_busy
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-    rx_rising_detect <= not current_stage(0) and last_stage(0);        
-   --! detect rising edge RDA
+	 --! detect falling edge tx_busy
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	rx_rising_detect <= not current_stage(0) and last_stage(0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+     --! detect rising edge RDA
 \end_layout
 
 \begin_layout Plain Layout
@@ -886,13 +915,23 @@ status open
 \begin_layout Plain Layout
 
 	changed_bits <= (rx_rising_detect & tx_busy_falling_detect) and intr_mask;
- --! and con la intr_mask perchè sono interessato a vedere l'edge del sengale
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	 --! and con la intr_mask perchè sono interessato a vedere l'edge del sengale
 \end_layout
 
 \begin_layout Plain Layout
 
                                                                        
-        --! solo se la relativa interruzione è abilitata   
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+	 --! solo se la relativa interruzione è abilitata   
 \end_layout
 
 \begin_layout Plain Layout
@@ -902,15 +941,18 @@ status open
 
 \begin_layout Plain Layout
 
-    change_detected <= global_intr and or_reduce(changed_bits);        
-        --! Segnale che indica se è stato rilevata una variazione di tx_busy
+    change_detected <= global_intr and or_reduce(changed_bits);      
+\end_layout
+
+\begin_layout Plain Layout
+
+     --! Segnale che indica se è stato rilevata una variazione di tx_busy
  o RDA 
 \end_layout
 
 \begin_layout Plain Layout
 
-                                                                       
-        --! alla quale si è interessati    	
+     --! alla quale si è interessati    	
 \end_layout
 
 \end_inset
@@ -983,13 +1025,33 @@ begin{lstlisting}[language=VHDL]
 \begin_layout Plain Layout
 
         if (change_detected = '1') then                                
-        --! se c'è richiesta di interruzione su una delle due line
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+			--! se c'è richiesta di interruzione su una delle due line
 \end_layout
 
 \begin_layout Plain Layout
 
             pending_intr <= pending_intr_tmp or changed_bits;          
-        --! aggiungi la richiesta alle interruzioni pendenti
+       
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+			--! aggiungi la richiesta alle interruzioni pendenti
 \end_layout
 
 \begin_layout Plain Layout
@@ -1000,13 +1062,23 @@ begin{lstlisting}[language=VHDL]
 \begin_layout Plain Layout
 
             if (or_reduce(ack_intr)='1') then                          
-        --! se viene dato un ack
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+				--! se viene dato un ack
 \end_layout
 
 \begin_layout Plain Layout
 
                 pending_intr <= pending_intr_tmp and (not ack_intr);   
-        --! rimuovi la richiesta pendente relativa
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+				--! rimuovi la richiesta pendente relativa
 \end_layout
 
 \begin_layout Plain Layout
@@ -1094,24 +1166,33 @@ status open
 \begin_layout Plain Layout
 
                 if (or_reduce(pending_intr) = '1') then                
-        --! Se c'è almeno un interruzione pendente
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+			     --! Se c'è almeno un interruzione pendente
 \end_layout
 
 \begin_layout Plain Layout
 
                     interrupt <= '1';                                  
-        --! interrupt = '1'
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-                else
+		        else
 \end_layout
 
 \begin_layout Plain Layout
 
-                    interrupt <= '0';                                  
-        --! altrimenti 0
+                    interrupt <= '0';                     
+\end_layout
+
+\begin_layout Plain Layout
+
+                    --! altrimenti 0
 \end_layout
 
 \begin_layout Plain Layout
@@ -1381,6 +1462,8 @@ typedef struct {
 
 \begin_layout Plain Layout
 
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile
+ can_write*/
 \end_layout
 
 \begin_layout Plain Layout
@@ -1390,31 +1473,52 @@ typedef struct {
 
 \begin_layout Plain Layout
 
-	uint8_t * buffer_tx;				//  Buffer utilizzato per contenere i caratteri
- da trasmettere
+/** Buffer utilizzato per contenere i caratteri da trasmettere*/
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint8_t * buffer_rx;				//  Buffer utilizzato per contenere i caratteri
- da ricevere
+	uint8_t * buffer_tx;
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint32_t tx_count;					//  Contatore che indica il numero di caratteri
- trasmessi
+/** Buffer utilizzato per contenere i caratteri da ricevere*/
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint32_t rx_count;					//  Contatore che indica il numero di caratteri
- ricevuti
+	uint8_t * buffer_rx;
 \end_layout
 
 \begin_layout Plain Layout
 
-	uint32_t buffer_size;				//	Dimensione dei buffer ricezione/trasmissione
+/** Contatore del numero di caratteri trasmessi*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t tx_count;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Contatore del numero di caratteri ricevuti*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t rx_count;
+\end_layout
+
+\begin_layout Plain Layout
+
+/** Dimensione dei buffer ricezione/trasmissione*/
+\end_layout
+
+\begin_layout Plain Layout
+
+	uint32_t buffer_size;
 \end_layout
 
 \begin_layout Plain Layout

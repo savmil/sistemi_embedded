@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,6 +54,9 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -72,8 +75,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -103,7 +104,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -116,10 +116,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -179,16 +176,13 @@ modulazione del clock: componente che prende in ingresso il clock esterno
  e adegua i clock dei componenti interni per rispettare le velocità imposte
  dal protocollo.
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/uart.png
-	scale 50
 
 \end_inset
 
@@ -239,16 +233,14 @@ Macchina a stati finiti che implementa la logica di trasmissione del protocollo.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/tx_fsm.png
-	scale 120
+	scale 60
 
 \end_inset
 
@@ -325,7 +317,9 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/unart_rx_cu.png
 	scale 60
@@ -333,13 +327,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Diagramma Stati FSM ricezione
 \end_layout
 
 \end_inset
@@ -438,13 +425,11 @@ Segue una tabella degli indirizzi dei registri utilizzati dal componente
 
 \begin_layout Standard
 \begin_inset Float table
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="4">
 <features tabularvalignment="middle">

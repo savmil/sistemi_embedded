@@ -48,13 +48,13 @@ morecomment=[s]{--}
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Tesina in Sistemi embedded}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \date{}
 \cfoot{}
-\usepackage{tikz}
+
 \usetikzlibrary{matrix,calc}
 
 %isolated term
@@ -109,78 +109,6 @@ morecomment=[s]{--}
     \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$) [sharp corners] ($(cf.west |- 10.north)+(90:#1)$) |- ($(10.west |- rf.north)+(180:#1)$) ;
 }
 
-%Empty Karnaugh map 4x4
-\newenvironment{Karnaugh}%
-{
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
-\draw (0,0) grid (4,4);
-\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {zv} node [pos=0.7,below left,anchor=north east] {xy} ++(135:1);
-%
-\matrix (mapa) [matrix of nodes,
-        column sep={0.8cm,between origins},
-        row sep={0.8cm,between origins},
-        every node/.style={minimum size=0.3mm},
-        anchor=8.center,
-        ampersand replacement=\&] at (0.5,0.5)
-{
-                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
-|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
-|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
-|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
-|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
-|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
-};
-}%
-{
-\end{tikzpicture}
-}
-
-%Empty Karnaugh map 2x4
-\newenvironment{Karnaughvuit}%
-{
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
-\draw (0,0) grid (4,2);
-\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {bc} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
-%
-\matrix (mapa) [matrix of nodes,
-        column sep={0.8cm,between origins},
-        row sep={0.8cm,between origins},
-        every node/.style={minimum size=0.3mm},
-        anchor=4.center,
-        ampersand replacement=\&] at (0.5,0.5)
-{
-                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
-|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
-|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
-|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
-};
-}%
-{
-\end{tikzpicture}
-}
-
-%Empty Karnaugh map 2x2
-\newenvironment{Karnaughquatre}%
-{
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
-\draw (0,0) grid (2,2);
-\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {b} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
-%
-\matrix (mapa) [matrix of nodes,
-        column sep={0.8cm,between origins},
-        row sep={0.8cm,between origins},
-        every node/.style={minimum size=0.3mm},
-        anchor=2.center,
-        ampersand replacement=\&] at (0.5,0.5)
-{
-          \& |(c00)| 0          \& |(c01)| 1  \\
-|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
-|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
-};
-}%
-{
-\end{tikzpicture}
-}
 
 %Defines 8 or 16 values (0,1,X)
 \newcommand{\contingut}[1]{%
@@ -311,6 +239,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -347,11 +276,13 @@ Un esempio di comunicazione è il seguente:
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -423,6 +354,7 @@ o il seguente schema
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -432,6 +364,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -469,6 +402,7 @@ Il device master si collega agli slave, con i pin SCLK che corrisponde al
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -478,6 +412,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -494,6 +429,7 @@ centering
 \begin_inset Graphics
 	filename images/spi_trasmissione.png
 	lyxscale 50
+	scale 30
 
 \end_inset
 
@@ -523,6 +459,7 @@ I2C è un protocollo sincrono, multimaster e multislave a differenza di SPI
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -532,6 +469,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -548,6 +486,7 @@ centering
 \begin_inset Graphics
 	filename images/i2c_collegamenti.png
 	lyxscale 60
+	scale 40
 
 \end_inset
 
@@ -570,6 +509,7 @@ Una comunicazione I2C di solito consta di questa sequenza
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -579,6 +519,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -595,6 +536,7 @@ centering
 \begin_inset Graphics
 	filename images/I2C_trasmissione.png
 	lyxscale 60
+	scale 60
 
 \end_inset
 
@@ -625,6 +567,7 @@ Bus utilizzato solitamente nel campo automotive è di tipo asincrono, multimaste
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -634,6 +577,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -649,6 +593,7 @@ centering
 
 \begin_inset Graphics
 	filename images/CAN_collegamento.png
+	scale 120
 
 \end_inset
 
@@ -676,6 +621,7 @@ Il valore fisico 0 viene detto bit dominante, invece un 1 viene detto bit
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -685,6 +631,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status open
 
@@ -700,6 +647,7 @@ centering
 
 \begin_inset Graphics
 	filename images/CAN_trasmissione.png
+	scale 40
 
 \end_inset
 

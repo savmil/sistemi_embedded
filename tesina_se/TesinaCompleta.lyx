@@ -64,12 +64,12 @@ morecomment=[s]{--}
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Elaborato di ASE: Architettura dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Elaborato di Sistemi Embedded}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \cfoot{}
-\usepackage{tikz}
-\usetikzlibrary{matrix,calc}
+
+
 
 %isolated term
 %#1 - Optional. Space between node and grouping line. Default=0
@@ -359,7 +359,16 @@ status open
 
 
 \backslash
-title{} 
+title{Elaborato di Sistemi Embedded 
+\backslash
+
+\backslash
+Gruppo 3 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
 \end_layout
 
 \end_inset
@@ -388,7 +397,36 @@ status open
 
 
 \backslash
-author{
+author{Milo Saverio - Mat.
+ M63000773
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+Michele - Mat.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+Andrea - Mat.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+Falso Roberto - Mat.
+ M63000788	
 \end_layout
 
 \begin_layout Plain Layout
@@ -476,6 +514,20 @@ end{frontmatter}
 
 \begin_layout Standard
 
+\lang american
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{mainmatter}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -548,6 +600,24 @@ Progetto finale
 \begin_inset CommandInset include
 LatexCommand input
 filename "Progetto Finale/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{mainmatter}
+\end_layout
 
 \end_inset
 

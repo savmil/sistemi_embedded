@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -54,7 +54,7 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
-
+\usepackage{tikz}
 \usetikzlibrary{matrix,calc}
 
 %isolated term
@@ -205,6 +205,9 @@ morecomment=[s]{--}
     \foreach \x in {#1}
         \path (\x) node {X};
 }
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \master Tesina.lyx
@@ -223,8 +226,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -254,7 +255,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,10 +267,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -333,22 +330,9 @@ Tools->Create and Package New IP
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/new_ip.png
 	scale 50
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -384,22 +368,9 @@ Next
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/NewAxi4.png
 	scale 50
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -433,22 +404,9 @@ Next
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/IP_information.png
 	scale 50
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -472,22 +430,9 @@ Next
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/Interface.png
 	scale 50
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -516,22 +461,9 @@ Finish
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/end_wizard.png
 	scale 50
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 
@@ -1191,22 +1123,9 @@ Devo cambiare l' immagine riferendosi al codice vecchio anche se i concetti
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/package_ip.png
-	width 18cm
-
-\end_inset
-
-
-\end_layout
+	scale 25
 
 \end_inset
 
@@ -1258,22 +1177,9 @@ Hidden Parameters
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/parameter_hidden.png
-	scale 90
-
-\end_inset
-
-
-\end_layout
+	scale 50
 
 \end_inset
 
@@ -1346,22 +1252,9 @@ OK
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/design_block.png
-	width 18cm
-
-\end_inset
-
-
-\end_layout
+	scale 25
 
 \end_inset
 
@@ -1459,22 +1352,9 @@ I/O Planning
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/set_constraints.png
-	width 18cm
-
-\end_inset
-
-
-\end_layout
+	scale 25
 
 \end_inset
 
@@ -1732,22 +1612,9 @@ Per la gestione delle interruzioni invece abbiamo bisogno dato che il nostro
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename images/address_editor.png
-	width 18cm
-
-\end_inset
-
-
-\end_layout
+	scale 25
 
 \end_inset
 
@@ -3843,21 +3710,9 @@ A questo punto si ricompila il device-tree generando il file .dtb e lo si
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename images/uio.png
-	scale 40
-
-\end_inset
-
-
-\end_layout
+	scale 25
 
 \end_inset
 

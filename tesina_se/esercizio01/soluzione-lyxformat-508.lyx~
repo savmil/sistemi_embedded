@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -223,8 +223,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -254,7 +252,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,10 +264,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -284,228 +278,247 @@ morecomment=[s]{--}
 \begin_body
 
 \begin_layout Section
-Periferiche
-\end_layout
-
-\begin_layout Standard
-Nel seguito vengono presentate le principali caratteristiche delle connessioni
- utizzate all'interno del progetto.
+Soluzione
 \end_layout
 
 \begin_layout Subsection
-UART
+Prerequisiti
 \end_layout
 
 \begin_layout Standard
-UART è un protocollo asincrono in cui la comunicazione è solamente punto
- punto, ha bisogno solamente due fili per la comunicazione, a cui bisogna
- aggiungere il cavo per potarle allo stesso potenziale affinché sia possibile
- capire se è stato inviato un valore 1 oppure 0 come mostrato in figura.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename images/UART_connessione.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Un esempio di comunicazione è il seguente:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename images/uart_trasmissione.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-La comunicazione inzia con un bit di start, che consiste in una transizione
- da un valore logico 1 ad uno che valga 0, dopodiché vengono inviati i successiv
-i otto bit di informazione, un bit di parità ed un bit di stop che indica
- la fine della trasmissione.
-\end_layout
-
-\begin_layout Standard
-Viene effettuata la lettura di un valore dal ricevitore di solito a metà
- periodo di trasmissione di un bit, ciò può avvenire perché la velocità
- di comunicazione e nota tra i due dispositivi ed è misurata in baud.
-\end_layout
-
-\begin_layout Standard
-Gli errori nella comunicazione possono essere di tre tipi:
+Una distribuzione linux, dove sono presenti i seguenti pacchetti:
 \end_layout
 
 \begin_layout Enumerate
-Parity, se il bit di parità non è corretto;
+build-essential
 \end_layout
 
 \begin_layout Enumerate
-Overrun, quando arriva il successivo bit senza che si sia campionato il
- precedente;
+u-boot-tools
 \end_layout
 
 \begin_layout Enumerate
-Frame error, non viene rilevato lo stop quando dovrebbe arrivare;
+gparted
+\end_layout
+
+\begin_layout Enumerate
+git
+\end_layout
+
+\begin_layout Enumerate
+libncurses-dev
+\end_layout
+
+\begin_layout Enumerate
+libssl-dev
+\end_layout
+
+\begin_layout Enumerate
+bison
+\end_layout
+
+\begin_layout Enumerate
+flex
+\end_layout
+
+\begin_layout Enumerate
+device-tree-compiler
+\end_layout
+
+\begin_layout Standard
+Se non fossero presenti utilizzare il seguente comando.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sudo apt install build-essential u-boot-tools gparted git libncurses-dev
+ libssl-dev bison flex device-tree-compiler
+\end_layout
+
+\end_inset
+
+Bisogna fare il clone dei seguenti repository:
+\end_layout
+
+\begin_layout Enumerate
+https://github.com/Xilinx/linux-xlnx
+\end_layout
+
+\begin_layout Enumerate
+https://github.com/Xilinx/u-boot-xlnx
+\end_layout
+
+\begin_layout Enumerate
+https://github.com/Xilinx/device-tree-xlnx
+\end_layout
+
+\begin_layout Standard
+Scaricare un filesystem ad esempio questo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+https://releases.linaro.org/debian/images/developer-armhf/latest/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Fare una copia del file settings64.sh di solito presente in /opt/Xilinx/Vivado/
+\begin_inset Quotes erd
+\end_inset
+
+versione_di_vivado
+\begin_inset Quotes erd
+\end_inset
+
+/settings64.sh
+\end_layout
+
+\begin_layout Standard
+\noindent
+Aggiugere tali istruzioni al file appena copiato:
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+\noindent
+
+export ARCH=arm 
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+
+export CROSS_COMPILE=arm-linux-gnueabihf-
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel terminale che si utilizzerà per le varie operazioni bisogna dare il
+ comando
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+source "path_del_file"/settings64
+\end_layout
+
+\end_inset
+
+ per ogni terminale che verrà utilizzato nel processo.
 \end_layout
 
 \begin_layout Subsection
-Spi
+Compilazione u-boot
 \end_layout
 
 \begin_layout Standard
-Spi è un protocollo singolo master e multi slave che sono collegabili utilizzand
-o il seguente schema
+Posizionarsi all' interno della cartella u-boot-xlnx, prima di procedere
+ alla compilazione bisogna parte del file zynq-common.h presente in:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
+\begin_inset listings
+lstparams "language=bash"
+inline false
 status open
 
 \begin_layout Plain Layout
 
+include/configs/zynq-common.h
 \end_layout
 
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Trovare la seguente porzione di codice
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
 status open
 
 \begin_layout Plain Layout
 
-
+"sdboot=if mmcinfo; then " 
 \backslash
-centering
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename images/SPI_Schema.gif
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Il device master si collega agli slave, con i pin SCLK che corrisponde al
- clock che tempifica la comunicazione, MOSI (master output slave input)
- l' interfaccia che invia i dati dal master allo slave, MISO (master input
- slave output) l' interfaccia che invia i dati dallo slave al master e SS
- (slave select), il cui scopo consiste nel selezionare lo slave con cui
- comunicare, asserendo di solito uno zero logico.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
 
-\begin_layout Plain Layout
-
-
+"run uenvboot;" 
 \backslash
-centering
+
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
+"echo Copying Linux from SD to RAM...
+ && " 
+\backslash
 
-\begin_inset Graphics
-	filename images/spi_trasmissione.png
-	lyxscale 50
-	scale 40
+\end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
+"load mmc 0 ${kernel_load_address} ${kernel_image} && " 
+\backslash
 
+\end_layout
+
+\begin_layout Plain Layout
+
+"load mmc 0 ${devicetree_load_address} ${devicetree_image} && " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"load mmc 0 ${ramdisk_load_address} ${ramdisk_image} && " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"bootm ${kernel_load_address} ${ramdisk_load_address} ${devicetree_load_address}
+; "
 \end_layout
 
 \end_inset
@@ -514,56 +527,132 @@ centering
 \end_layout
 
 \begin_layout Standard
-Dopo aver selezionato la periferica asserendo lo slave select, ad ogni colpo
- di clock il bit più significato dello shift register del master va ad occupare
- il bit meno significativo dello shift register dello slave, la stessa cosa
- avviene per il bit più significato contenuto dallo slave.
+e modificarla come segue
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=C"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"sdboot=if mmcinfo; then " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"run uenvboot;" 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"echo Copying Linux from SD to RAM...
+ && " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"load mmc 0 ${kernel_load_address} ${kernel_image} && " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"load mmc 0 ${devicetree_load_address} ${devicetree_image} && " 
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+"bootm ${kernel_load_address} - ${devicetree_load_address}; "
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dopodichè da terminale si può procedere alla compilazione eseguendo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+make CROSS-COMPILE=arm-linux-gnueabihf- zynq_zybo_config 
+\end_layout
+
+\begin_layout Plain Layout
+
+make -j 2 CROSS-COMPILE=arm-linux-gnueabihf- u-boot.elf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+verrà generato il file u-boot.elf
 \end_layout
 
 \begin_layout Subsection
-I2C
+Creare l' immagine di boot
 \end_layout
 
 \begin_layout Standard
-I2C è un protocollo sincrono, multimaster e multislave a differenza di SPI
- utilizza un numero di connessione minore per inviare dati
+Avviare SDK, lo si può avvere avviando vivado e recendosi nel menù 
+\begin_inset Quotes eld
+\end_inset
+
+File
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Launch SDK
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+Una volta avviato Creare un nuovo progetto da 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
+File -> New -> Application Project
+\begin_inset Quotes erd
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
-	filename images/i2c_collegamenti.png
-	lyxscale 60
-	scale 40
-
-\end_inset
-
-
-\end_layout
+	filename images/nuovo_progetto.png
+	width 100text%
+	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
@@ -571,105 +660,148 @@ centering
 \end_layout
 
 \begin_layout Standard
-SCL è l' interfaccia utilizzata dal master per temporizzare la comunicazione
- mente invece SDA viene utilizzata per inviare i dati.
+Dare un nuovo al progetto ad esempio FSBL e cliccare su Next apparirà la
+ seguente schermata
 \end_layout
 
 \begin_layout Standard
-Una comunicazione I2C di solito consta di questa sequenza
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
-	filename images/I2C_trasmissione.png
-	lyxscale 60
-	scale 70
+	filename images/FSBL_progetto.png
+	width 100text%
+	height 100theight%
+	keepAspectRatio
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+Selezionare Zynq FSBL come in figura e cliccare su Finish.
+\end_layout
+
+\begin_layout Standard
+Dal pannello 
+\begin_inset Quotes eld
 \end_inset
 
-Lo start bit è dato da uno zero logico presente sull' interfaccia dato ed
- un successivo abbassamento della linea di clock, dopodiché ad ogni oscillazione
- del clock viene inviato un bit sul pin SDA, il primo dato inviato consiste
- nell' indirizzo della periferica con cui parlare seguito dal tipo di operazione
- se di lettura o di scrittua, se la comunicazione è andata a buon fine si
- riceve un ack, sull' interfaccia SDA dopo l' invio dell' ultimo bit si
- trova uno 0, dopodiché è possibile inviare un dato allo stesso in cui si
- invia un indirizzo, la comunicazione termina quando il clock viene settato
- ad un 1 logico e il pin SDA si pone allo stesso stato.
+Project Explorer
+\begin_inset Quotes erd
+\end_inset
+
+ selezionare il progetto appena creato e dal menù 
+\begin_inset Quotes eld
+\end_inset
+
+Xilinx
+\begin_inset Quotes erd
+\end_inset
+
+ selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+Create Boot Image
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Schermata_boot_image.png
+	width 100text%
+	height 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ dalla nuova finestra che si viene ad aprire selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+Browse...
+\begin_inset Quotes erd
+\end_inset
+
+ selezionare il file u-boot.elf generato dalla compilazione di u-boot.elf
+ e cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+Ok
+\begin_inset Quotes erd
+\end_inset
+
+ si avrà una schermata simile
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/Boot_Image_completa.png
+	width 100text%
+	height 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cliccare su Create Image e verrà creato nel path identificato dal percorso
+ Output path il file BOOT.bin.
 \end_layout
 
 \begin_layout Subsection
-CAN
+Compilazione del Device Tree
 \end_layout
 
 \begin_layout Standard
-Bus utilizzato solitamente nel campo automotive è di tipo asincrono, multimaster
- e multislave.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
+Dal menù 
+\begin_inset Quotes eld
 \end_inset
 
+Xilinx
+\begin_inset Quotes erd
+\end_inset
 
+ selezionare 
+\begin_inset Quotes eld
+\end_inset
+
+Repositories
+\begin_inset Quotes erd
+\end_inset
+
+, cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+New...
+\begin_inset Quotes erd
+\end_inset
+
+ ed selezionare la cartella device-tree-xlnx precedentemente scaricata,
+ ottenendo questo risultato
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
-	filename images/CAN_collegamento.png
-
-\end_inset
-
-
-\end_layout
+	filename images/Repositories.png
+	width 100text%
+	height 100theight%
 
 \end_inset
 
@@ -677,56 +809,63 @@ centering
 \end_layout
 
 \begin_layout Standard
-I dispositivi si collegano tra di loro utilizzando solamente due collegamenti
- CANL e CANH, tali valori sono pilotati al fine di generare uno 0 o 1 fisico
- sulla linea di comunicazione, poiché si asserisce uno zero quando la differenza
- tra CANH e CANL è maggiore di una determinata soglia, mentre invece si
- asserisce uno quando tale differenza è zero.
-\end_layout
+Creare un 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Standard
-Il valore fisico 0 viene detto bit dominante, invece un 1 viene detto bit
- recessivo, possiamo capire il perché di questi nomi osservando un esempio
- di comunicazione:
-\end_layout
+Board Support Package
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
+ dal menù 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
+File -> New
+\begin_inset Quotes erd
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
-	filename images/CAN_trasmissione.png
-	scale 60
+	filename images/board_support.png
+	width 100text%
+	height 100theight%
 
 \end_inset
 
 
 \end_layout
+
+\begin_layout Standard
+Selezionare device_tree come mostrato in figura e cliccare su 
+\begin_inset Quotes eld
+\end_inset
+
+Finish
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel nuovo progetto venutosi a creare bisogna modificare il file system-top.dts
+ recandosi alla linea dove viene descritto bootargs e modificarla come segue
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
 
 \begin_layout Plain Layout
 
+bootargs = "console=ttyPS0,115200 root=/dev/mmcblk0p2 rw earlyprintk rootfstype=
+ext4 rootwait devtmpfs.mount=1 earlycon";
 \end_layout
 
 \end_inset
@@ -735,49 +874,135 @@ centering
 \end_layout
 
 \begin_layout Standard
-I frame inviati sul bus CAN hanno la struttura mostrata in figura, le parti
- di maggiore importanza consistono nel bit di inizio frame, l' indirizzo
- del nodo da voler contattare (o del gruppo poiché possiamo assegnare lo
- stesso indirizzo ad un insieme di dispositivi) il dato, il campo del CRC
- per controllare che la trasmissione sia andata a buon fine è l' end of
- frame.
+Infine recarsi da terminale nella cartella dove è salvato il file system-top.dts
+ e lanciare il seguente comando
 \end_layout
 
 \begin_layout Standard
-Il bit 0 viene detto dominante poiché se nello stesso momento sul bus un
- altro dispositivo invia un 1, su quest'ultimo verrà forzato uno 0, avendo
- poi i dispositivi la possibilità di leggere il valore sul bus oltre che
- quello di imporre un valore su di esso, se questi leggono un valore diverso
- da quello che hanno settato il dispositivo non continua la trasmissione
- poiché nel protocollo CAN l' indirizzo avente il valore più basso ha la
- priorita maggiore (un indirizzo di soli 0 ha priorità massima).
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+dtc -I dts -O dtb -o devicetree.dtb system-top.dts
 \end_layout
 
-\begin_layout Standard
-Di CAN ne esiste una versione successiva a questa in cui l' indirizzo è
- formato da 29 bit invece di 11.
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-CRC
+Creazione della uImage
 \end_layout
 
 \begin_layout Standard
-Il CRC è una tecnica utilizzata per la rilevazione di errori che possono
- occorrere durante la trasmissione di una sequenza di bit.
+Recarsi nella cartella linux-xlnx e lanciare i seguenti comandi 
 \end_layout
 
 \begin_layout Standard
-L' algoritmo consiste nel dividere la sequenza di bit che vogliamo inviare,
- per un polinomio divisore che deve essere conosciuto dal trasmettitore
- e dal ricevitore affinchè questo possa rilevare l' errore.
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+make xilinx_zynq_defconfig
+\end_layout
+
+\begin_layout Plain Layout
+
+make menuconfig
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Di algoritmi per il calcolo del CRC ne esistono tanti poiché differiscono
- dal polinomio utilizzato o in alcuni casi vi sono procedure pre-CRC che
- fanno restituire un resto dalla operazione di divisione con peculiarità
- che sono utili per determinare gli errori riscontrati.
+Dopo aver chiuso menuconfig, essendosi accertati che la configurazione del
+ kernel sia quella voluta si può compilare il kernel eseguendo
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+make -j 4
+\end_layout
+
+\begin_layout Plain Layout
+
+make -j 4 UIMAGE_LOADADDR=0x8000 uImage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verrà creato un file uImage presente nella directory "arch/arm/boot/"
+\end_layout
+
+\begin_layout Subsection
+Preparazione SD card
+\end_layout
+
+\begin_layout Standard
+Formattare una SD card con tre partizioni divise nel seguente modo:
+\end_layout
+
+\begin_layout Enumerate
+4MB spazio non allocato
+\end_layout
+
+\begin_layout Enumerate
+1GB FAT32
+\end_layout
+
+\begin_layout Enumerate
+lo spazio rimanente EXT4
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename images/gparted.png
+	width 100text%
+	height 100theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sulla partizione FAT32 vanno copiati i file Boot.bin, devicetree.dtb e la
+ uImage, invece nella partizione EXT4 va copiato il contenuto della cartella
+ binary presente nell' archivio .tar scaricato dal sito web di linaro, può
+ essere utilizzato questo comando per la copia
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rsync -azv "path_cartella_scompattata_linaro"/binary/ "path mount point
+ nella partizione EXT4"
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

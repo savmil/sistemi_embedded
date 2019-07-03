@@ -1443,7 +1443,82 @@ Abbiamo dato anche la possibilità di utilizzare un valore di inizializzazione
 \end_layout
 
 \begin_layout Standard
+\begin_inset listings
+inline false
+status open
 
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_1, CRC_DEFAULTVALUE_1); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_1 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+MX_CRC_Init(CRC_POLYNOMIAL_2, CRC_DEFAULTVALUE_2);
+\end_layout
+
+\begin_layout Plain Layout
+
+uint32_t CRC32_2 = HAL_CRC_Calculate(&hcrc, (uint32_t *) ReceivedFrame,
+ 	PAYLOAD_SIZE);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_1 != ReceivedFrame[CRC1_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED10_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED7_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\begin_layout Plain Layout
+
+if (CRC32_2 != ReceivedFrame[CRC2_OFFSET]) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED3_RED_Pin, GPIO_PIN_SET); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+else 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	HAL_GPIO_WritePin(GPIOE, LED6_GREEN_Pin, GPIO_PIN_SET);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando i valori dei CRC questi vengono prelevati da una posizione stabilita
+ del messaggio (essendo il messaggio di dimensione fissa), rivengono calcolati
+ i CRC con i polinomi stabili e confrontati se sono identici con quelli
+ ricevuti.
 \end_layout
 
 \end_body
