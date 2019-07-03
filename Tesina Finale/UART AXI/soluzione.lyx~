@@ -1196,6 +1196,79 @@ status open
 
 \end_inset
 
+Si mostra di seguito l'andamento dei segnali che gestiscono il processo
+ di interruzione del componente.
+ Si consideri i segnali TX e RX rispettivamente il bit 0 ed il bit 1 degli
+ omonimi segnali.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/int tx.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gestione interruzioni trasmissione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/interuzzione RX
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gestione interruzioni ricezione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1219,18 +1292,21 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
 
 \lang english
 \begin_inset Graphics
 	filename images/block design.png
-	scale 25
+	scale 35
 
 \end_inset
 
 
+\lang italian
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Block Design
 \end_layout
 
 \end_inset
@@ -2557,9 +2633,9 @@ static struct file_operations GPIO_fops = {
 
 \begin_layout Itemize
 owner: rappresenta puntatore al modulo che è il possessore della struttura.
- Ha lo scopo di evitare che il modulo venga rimosso quando uno delle funzionalià
+ Ha lo scopo di evitare che il modulo venga rimosso quando una delle funzionalià
  fornite è in uso.
- Inizializzato mediante la macro THIS_MODULE
+ Inizializzato mediante la macro THIS_MODULE.
 \end_layout
 
 \begin_layout Itemize
@@ -2576,17 +2652,21 @@ UART_read: utilizzata per leggere dal device.
 \begin_inset Quotes eld
 \end_inset
 
+
+\series bold
 can_read
+\series default
+
 \begin_inset Quotes erd
 \end_inset
 
 .
- La funzione read effettua un controllo sullo stato di quest'ultima e se
- rileva che non è possibile effettuare una lettura mette il processo in
+ La funzione read effettua un controllo sullo stato di quest'ultima e, se
+ rileva che non è possibile effettuare una lettura, mette il processo in
  sleep.
- L'ISR avrà il compito di settare la variabile per poter rendere possibile
- la lettura e risvegliare i processi dalla coda, solo quando il trasferimento
- è completato.
+ L'ISR, quando il trasferimento è completo, avrà il compito di settare la
+ variabile per poter rendere possibile la lettura e risvegliare i processi
+ dalla coda.
  Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
  fornite dal kernel.
  
@@ -2603,7 +2683,11 @@ UART_write: utilizzata per inviare dati al device.
 \begin_inset Quotes eld
 \end_inset
 
+
+\series bold
 can_write
+\series default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -2611,9 +2695,9 @@ can_write
  La funzione write effettua un controllo sullo stato di quest'ultima e se
  rileva che non è possibile effettuare una scrittura mette il processo in
  sleep.
- L'ISR avrà il compito di settare la variabile per poter rendere possibile
- la scrittura e risvegliare i processi dalla coda, solo quando il trasferimento
- è completato.
+ L'ISR, quando il trasferimento è completo, avrà il compito di settare la
+ variabile per poter rendere possibile la scrittura e risvegliare i processi
+ dalla coda.
  Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
  fornite dal kernel.
  
@@ -2628,8 +2712,12 @@ UART_poll: utilizzata per verificare se un'operazione di lettura sul device
 
 \begin_layout Itemize
 UART_open: chiamata all'apertura del file descriptor associato al device.
- Se alla chiamata viene specificato il flag O_NONBLOCK tutte le operazioni
- di lettura sul file descriptor aperto non risulteranno essere bloccanti.
+ Se alla chiamata viene specificato il flag 
+\emph on
+O_NONBLOCK
+\emph default
+ tutte le operazioni di lettura sul file descriptor aperto risulteranno
+ essere non bloccanti.
  
 \end_layout
 
@@ -2666,11 +2754,15 @@ Per compilare il modulo è sufficiente lanciare lo script
 \begin_inset Quotes eld
 \end_inset
 
+
+\emph on
 prepare_environment.sh
+\emph default
+
 \begin_inset Quotes erd
 \end_inset
 
- prima di dare il comando make.
+ (vedi capitolo 1) prima di dare il comando make.
  Segue il Makefile utilizzato per la compilazione:
 \end_layout
 
@@ -2749,22 +2841,22 @@ Per mostrare il corretto funzionamento di tutte le funzionalità implementate
 \end_layout
 
 \begin_layout Enumerate
-user_app.c : l'utente indica da riga di comando la stringa che vuole trasmettere
+user_app.c: l'utente indica da riga di comando la stringa che vuole trasmettere
  tramite il device UART.
  Si è scelto di demandare l'onere di gestire l'invio di più caratteri all'utente
  che scrive l'applicazione.
- Viene aperto dunque il descrittore del file associato al device e vengono
- invocate un numero di write e read pari al numero di caratteri che compongono
- la stringa.
+ Vengono aperti dunque i descrittori del file associati ai due device e
+ vengono invocate un numero di write e read pari al numero di caratteri
+ che compongono la stringa.
 \end_layout
 
 \begin_layout Enumerate
-poll_user_app.c : l'utente indica da riga di comando la stringa che vuole
+poll_user_app.c: l'utente indica da riga di comando la stringa che vuole
  trasmettere tramite il device UART.
- Viene aperto dunque il descrittore del file associato al device e viene
- effettuata una chiamata a poll per verificare se sia possibile o meno effettuar
-e una lettura che non risulti bloccante.
- Dato che non sono state effettuate trasmissioni il buffer di ricezione
+ Vengono aperti dunque i descrittori del file associati ai due device e
+ viene effettuata una chiamata a poll per verificare se sia possibile o
+ meno effettuare una lettura che non risulti bloccante.
+ Dato che non sono state ancora effettuate trasmissioni il buffer di ricezione
  è ancora vuoto e la variabile can_read indica che non è possibile effettuare
  una lettura.
  La poll dunque restituirà, dopo un timeout specificato, una maschera pari
@@ -2808,7 +2900,7 @@ uio_pdrv_genirq.of_id=generic-uio
 \begin_inset Quotes erd
 \end_inset
 
- si imposta nel file pl.dtsi il campo compatible dei device GPIO a "generic-uio"
+ si imposta nel file pl.dtsi il campo compatible dei device UART a "generic-uio"
  come segue:
 \end_layout
 
@@ -3078,38 +3170,37 @@ status open
 
 \begin_layout Plain Layout
 
-#define DATA_IN   		0	  // DATA TO SEND
+#define	DATA_IN   		0	// DATA TO SEND
 \end_layout
 
 \begin_layout Plain Layout
 
-#define TX_EN	         4	  // TRANSFER ENABLE (0)
+#define	TX_EN	        4	// TRANSFER ENABLE (0)
 \end_layout
 
 \begin_layout Plain Layout
 
-#define STATUS_REG        8      // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4)
- 
+#define	STATUS_REG      8   // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
 \end_layout
 
 \begin_layout Plain Layout
 
-#define RX_REG	        12 	// DATA RECEIVED
+#define	RX_REG	        12 	// DATA RECEIVED
 \end_layout
 
 \begin_layout Plain Layout
 
-#define GLOBAL_INTR_EN    16 	// GLOBAL INTERRUPT ENABLE
+#define GLOBAL_INTR_EN  16 	// GLOBAL INTERRUPT ENABLE
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_EN           20 	// LOCAL INTERRUPT ENABLE
+#define INTR_EN         20 	// LOCAL INTERRUPT ENABLE
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_ACK_PEND     28 	// PENDING/ACK REGISTER
+#define INTR_ACK_PEND   28 	// PENDING/ACK REGISTER
 \end_layout
 
 \begin_layout Plain Layout
@@ -3456,16 +3547,6 @@ void wait_for_interrupt(struct pollfd * poll_fds, void *uart_rx_ptr, void
 
 \begin_layout Plain Layout
 
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	int i = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
 	int pending =0;
 \end_layout
 
@@ -3604,42 +3685,6 @@ n", reg_received_data);
 \begin_layout Plain Layout
 
 					buffer_rx[rx_count] = reg_received_data;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-					if(rx_count == buffer_size){
-\end_layout
-
-\begin_layout Plain Layout
-
-						printf("Trasmissione/Ricezione completata, valore ricevuto: ");
-\end_layout
-
-\begin_layout Plain Layout
-
-						for(i=0; i<=rx_count; i++)
-\end_layout
-
-\begin_layout Plain Layout
-
-							printf("%c",buffer_rx[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-						printf("
-\backslash
-n");
-\end_layout
-
-\begin_layout Plain Layout
-
-					}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3801,18 +3846,7 @@ n", reg_sent_data);
 
 \begin_layout Plain Layout
 
-					printf("ISR TX - start sending next value: %c
-\backslash
-n", buffer_tx[tx_count]);
-\end_layout
-
-\begin_layout Plain Layout
-
-					write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);
-\end_layout
-
-\begin_layout Plain Layout
-
+					
 \end_layout
 
 \begin_layout Plain Layout
@@ -3856,12 +3890,29 @@ n", buffer_tx[tx_count]);
 
 \begin_layout Plain Layout
 
-					if(tx_count != buffer_size)	
+					if(tx_count != buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+						printf("ISR TX - start sending next value: %c
+\backslash
+n", buffer_tx[tx_count]);
+\end_layout
+
+\begin_layout Plain Layout
+
+						write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);	
 \end_layout
 
 \begin_layout Plain Layout
 
 						write_reg(uart_tx_ptr, TX_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3916,7 +3967,7 @@ int main(int argc, char *argv[]){
 
 \begin_layout Plain Layout
 
-	int j;
+	int j,i;
 \end_layout
 
 \begin_layout Plain Layout
@@ -4213,6 +4264,33 @@ n", buffer_tx, DIM);
 
 \begin_layout Plain Layout
 
+	printf("Trasmissione/Ricezione completata, valore ricevuto: ");
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0; i<=rx_count; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("%c",buffer_rx[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
 /* Fa l'unmap dei device UART */
 \end_layout
 
@@ -4282,7 +4360,7 @@ La prima operazione del driver è quella di aprire il file descriptor relativo
  per abilitare il trasferimento.
  Iterativamente, finchè non sono stati trasmessi un numero di caratteri
  pari alla dimensione della stringa da trasmettere, viene effettuata una
- read per mettersi in attesa di eventi interrompenti dal device.
+ poll per mettersi in attesa di eventi interrompenti dai device.
  Una volta risvegliato dalla chiamata il processo si occupa della gestione
  dell'interruzione.
  La prima operazione da effettuare è controllare se l'interruzione rilevata

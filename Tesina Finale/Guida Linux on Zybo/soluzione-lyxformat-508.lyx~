@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -223,8 +223,6 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -254,7 +252,6 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -267,10 +264,7 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -386,9 +380,9 @@ https://releases.linaro.org/debian/images/developer-armhf/latest/
 
 \begin_layout Standard
 Prima di eseguire qualsiasi operazione, come ad esempio la cross-compilazione
- del kernel, è necessario configurare il terminale con cui si lavorerà.
- La configurazione consiste nell'esportare alcune variabili d'ambiente lanciando
- lo script prepare_environment.sh riportato di seguito:
+ del kernel, è necessario configurare il terminale da cui si lavorerà.
+ La configurazione consisten nell'esportare alcune variabili d'ambiente,
+ lanciando lo script prepare_environment.sh riportato in seguito:
 \end_layout
 
 \begin_layout Standard

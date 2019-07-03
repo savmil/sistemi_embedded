@@ -143,12 +143,12 @@ Dispostivo UART
 \begin_layout Standard
 L'implementazione del componente UART è stata realizatta seguendo lo schema
  di un generico dispositivo commerciale, dividendo dunque la logica nei
- seguenti blocchi (Figura 0.1):
+ seguenti blocchi (Figura 3.1):
 \end_layout
 
 \begin_layout Itemize
 sezione ricevitore: implementa la logica di ricezione.
- Quanto un byte è ricevuto viene copiato nell'Holding Register e vi rimane
+ Quando un byte è ricevuto viene copiato nell'Holding Register e vi rimane
  fino alla completa riecezione del successivo byte.
  Al completamento della ricezione il segnale 
 \series bold
@@ -210,11 +210,11 @@ Schema a blocchi componente UART
 \end_layout
 
 \begin_layout Standard
-Con riferimento alla Figura 0.1, si stabilisca la seguente convezione: i
+Con riferimento alla Figura 3.1, si stabilisca la seguente convezione: i
  segnali in grasseto rappresentano l'interfaccia del componente, quelli
- sulla sinistra indicano segnali di ingresso, quelli sulla desta di uscita.
- Alcuni sengali (clock, reset), avento multiple destinazioni, non sono collegati
- per pura questione di visibiltà.
+ sulla sinistra indicano segnali di ingresso, quelli sulla desrta di uscita.
+ Alcuni sengali (clock, reset), avendo multiple destinazioni, non sono collegati
+ per pura questione di comprensione.
 \end_layout
 
 \begin_layout Subsubsection
@@ -288,9 +288,9 @@ Sezione Ricezione
 Shift Register con scorrimento a destra, ingresso seriale del bit ricevuto
  ed uscita parallela.
  Si è scelto di connettere l'uscita direttamente ad un Holding Register
- esterno, il quale viene abilitato dalla FSM solo a ricezione completata
- e successivamente disabilitato per preservare il dato fino all'arrivo dei
- successivo
+ esterno, il quale viene abilitato dalla FSM solo quado la ricezione è completat
+a e successivamente viene disabilitato per preservare il dato fino all'arrivo
+ dei successivo.
 \end_layout
 
 \begin_layout Itemize
@@ -408,7 +408,7 @@ e capitolo.
 \series bold
 my_uart_intv1
 \series default
-: top modul dell'IP.
+: top module dell'IP.
  Il segnale TX è in out all'ip mentre quello di RX in ingresso.
 \end_layout
 
@@ -422,8 +422,8 @@ my_uart_int_v1_0_S00_AXI
 UART
 \series default
  con il bus per la logica di trasmissione da e verso il processore.
- Intefaccia i segnali TX e RX dal componente UART al top modul.
- Gestisce i la logica di interruzione della periferica
+ Intefaccia i segnali TX e RX dal componente UART al top module.
+ Gestisce la logica di interruzione della periferica.
 \end_layout
 
 \begin_layout Subsubsection
@@ -804,7 +804,7 @@ Mapping indirizzi
 
 \begin_layout Standard
 Si omette la connessione del componente UART in quanto basilare e riassumibile
- tramite la Tabella 0.1.
+ tramite la Tabella 3.1.
 \end_layout
 
 \begin_layout Standard
@@ -985,9 +985,9 @@ status open
 Siamo interessati a rilevare uno dei due edge solo se le due linee di interruzio
 ne sono abilitate (INTR_MASK) e se sono abilitate le interruzioni globali
  del componente.
- Segue il process di gestione delle interruzioni pendendi e dell'ack.
+ Segue il process di gestione delle interruzioni pendenti e dell'ack.
  Se viene rilevata una nuova richiesta di interruzione su una delle due
- linee essa viene aggiunta alle precedenti pendenti.
+ linee essa viene aggiunta alle precedenti interruzioni pendenti.
  Se viene dato un ack per la specifica interruzione essa viene rimossa da
  quelle pendenti.
 \end_layout
@@ -1095,10 +1095,10 @@ status open
 \end_layout
 
 \begin_layout Standard
-Segue il codice per la gestione dell'unico segnale di interrupt uscende
+Segue il codice per la gestione dell'unico segnale di interrupt uscente
  dall'IP Core.
- Quale delle due linee interne ha generato la richiesta di interruzione
- alla CPU dovrà essere verificato tramite software
+ Per capire quale delle due linee interne ha generato la richiesta di interruzio
+ne alla CPU dovrà essere verificato tramite software
 \end_layout
 
 \begin_layout Standard
@@ -1280,7 +1280,7 @@ Design
 Per testare il componente si è scelto di inserire due dispositivi identici
  UART nel Block Design.
  UART_1 sarà utilizzato esclusivamente da trasmettiore, UART_0 da ricevitore.
- Per collegare i due segnali di interrutp è stato utilizzato il componente
+ Per collegare i due segnali di interrupt è stato utilizzato il componente
  Concat.
 \end_layout
 
@@ -1292,18 +1292,21 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
 
 \lang english
 \begin_inset Graphics
 	filename images/block design.png
-	scale 25
+	scale 35
 
 \end_inset
 
 
+\lang italian
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Block Design
 \end_layout
 
 \end_inset
@@ -1324,8 +1327,9 @@ Driver Standalone
 Il driver Standalone è stato realizzato per verificare il comportamento
  basilare del dispositovo.
  Come applicativo di test si è scelto di realizzare un main che esegue cinque
- invii dello stesso carattere.Il corretto funzionamento può essere verificando
- controllando le varibaili 
+ invii dello stesso carattere.
+ Il corretto funzionamento può essere verificato controllando le varibaili
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1335,7 +1339,7 @@ count
 
  di debug e i registri della periferica.
  Per la stesura delle librerie di gestione delle periferiche si rimanda
- alla documentazione html del codice.
+ alla documentazione del codice.
  Il primo carattere viene inviato nel main del programma, i successivi nell'ISR
  del trasmettitore.
  Si noti che, avendo due linee di interruzione con la stessa priorità attribuita
@@ -1353,7 +1357,7 @@ parametro XPAR_FABRIC_UART_X_INTERRUPT_INTR)
  .
  In questo caso il ricevitore (UART_0), collegato alla linea 61 del GIC,
  avrà maggiore priorità.
- Si riporta di seguiro il main del programma.
+ Si riporta di seguito il main del programma.
 \end_layout
 
 \begin_layout Standard
@@ -2630,9 +2634,9 @@ static struct file_operations GPIO_fops = {
 
 \begin_layout Itemize
 owner: rappresenta puntatore al modulo che è il possessore della struttura.
- Ha lo scopo di evitare che il modulo venga rimosso quando uno delle funzionalià
+ Ha lo scopo di evitare che il modulo venga rimosso quando una delle funzionalià
  fornite è in uso.
- Inizializzato mediante la macro THIS_MODULE
+ Inizializzato mediante la macro THIS_MODULE.
 \end_layout
 
 \begin_layout Itemize
@@ -2649,17 +2653,21 @@ UART_read: utilizzata per leggere dal device.
 \begin_inset Quotes eld
 \end_inset
 
+
+\series bold
 can_read
+\series default
+
 \begin_inset Quotes erd
 \end_inset
 
 .
- La funzione read effettua un controllo sullo stato di quest'ultima e se
- rileva che non è possibile effettuare una lettura mette il processo in
+ La funzione read effettua un controllo sullo stato di quest'ultima e, se
+ rileva che non è possibile effettuare una lettura, mette il processo in
  sleep.
- L'ISR avrà il compito di settare la variabile per poter rendere possibile
- la lettura e risvegliare i processi dalla coda, solo quando il trasferimento
- è completato.
+ L'ISR, quando il trasferimento è completo, avrà il compito di settare la
+ variabile per poter rendere possibile la lettura e risvegliare i processi
+ dalla coda.
  Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
  fornite dal kernel.
  
@@ -2676,7 +2684,11 @@ UART_write: utilizzata per inviare dati al device.
 \begin_inset Quotes eld
 \end_inset
 
+
+\series bold
 can_write
+\series default
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -2684,9 +2696,9 @@ can_write
  La funzione write effettua un controllo sullo stato di quest'ultima e se
  rileva che non è possibile effettuare una scrittura mette il processo in
  sleep.
- L'ISR avrà il compito di settare la variabile per poter rendere possibile
- la scrittura e risvegliare i processi dalla coda, solo quando il trasferimento
- è completato.
+ L'ISR, quando il trasferimento è completo, avrà il compito di settare la
+ variabile per poter rendere possibile la scrittura e risvegliare i processi
+ dalla coda.
  Per realizzare questo meccanismo sono stati utilizzati spinlock e wait_queue
  fornite dal kernel.
  
@@ -2701,8 +2713,12 @@ UART_poll: utilizzata per verificare se un'operazione di lettura sul device
 
 \begin_layout Itemize
 UART_open: chiamata all'apertura del file descriptor associato al device.
- Se alla chiamata viene specificato il flag O_NONBLOCK tutte le operazioni
- di lettura sul file descriptor aperto non risulteranno essere bloccanti.
+ Se alla chiamata viene specificato il flag 
+\emph on
+O_NONBLOCK
+\emph default
+ tutte le operazioni di lettura sul file descriptor aperto risulteranno
+ essere non bloccanti.
  
 \end_layout
 
@@ -2731,7 +2747,7 @@ ione, cancellazione, aggiunta oggetto, ricerca.
 
 \begin_layout Itemize
 UART_kernel_main.c: rappresenta il vero e proprio modulo kernel che reimplementa
- le tutte funzioni necessarie all'interfacciamento.
+ tutte le funzioni necessarie all'interfacciamento.
 \end_layout
 
 \begin_layout Standard
@@ -2739,11 +2755,15 @@ Per compilare il modulo è sufficiente lanciare lo script
 \begin_inset Quotes eld
 \end_inset
 
+
+\emph on
 prepare_environment.sh
+\emph default
+
 \begin_inset Quotes erd
 \end_inset
 
- prima di dare il comando make.
+ (vedi capitolo 1) prima di dare il comando make.
  Segue il Makefile utilizzato per la compilazione:
 \end_layout
 
@@ -2822,22 +2842,22 @@ Per mostrare il corretto funzionamento di tutte le funzionalità implementate
 \end_layout
 
 \begin_layout Enumerate
-user_app.c : l'utente indica da riga di comando la stringa che vuole trasmettere
+user_app.c: l'utente indica da riga di comando la stringa che vuole trasmettere
  tramite il device UART.
  Si è scelto di demandare l'onere di gestire l'invio di più caratteri all'utente
  che scrive l'applicazione.
- Viene aperto dunque il descrittore del file associato al device e vengono
- invocate un numero di write e read pari al numero di caratteri che compongono
- la stringa.
+ Vengono aperti dunque i descrittori del file associati ai due device e
+ vengono invocate un numero di write e read pari al numero di caratteri
+ che compongono la stringa.
 \end_layout
 
 \begin_layout Enumerate
-poll_user_app.c : l'utente indica da riga di comando la stringa che vuole
+poll_user_app.c: l'utente indica da riga di comando la stringa che vuole
  trasmettere tramite il device UART.
- Viene aperto dunque il descrittore del file associato al device e viene
- effettuata una chiamata a poll per verificare se sia possibile o meno effettuar
-e una lettura che non risulti bloccante.
- Dato che non sono state effettuate trasmissioni il buffer di ricezione
+ Vengono aperti dunque i descrittori del file associati ai due device e
+ viene effettuata una chiamata a poll per verificare se sia possibile o
+ meno effettuare una lettura che non risulti bloccante.
+ Dato che non sono state ancora effettuate trasmissioni il buffer di ricezione
  è ancora vuoto e la variabile can_read indica che non è possibile effettuare
  una lettura.
  La poll dunque restituirà, dopo un timeout specificato, una maschera pari
@@ -2881,7 +2901,7 @@ uio_pdrv_genirq.of_id=generic-uio
 \begin_inset Quotes erd
 \end_inset
 
- si imposta nel file pl.dtsi il campo compatible dei device GPIO a "generic-uio"
+ si imposta nel file pl.dtsi il campo compatible dei device UART a "generic-uio"
  come segue:
 \end_layout
 
@@ -3151,38 +3171,37 @@ status open
 
 \begin_layout Plain Layout
 
-#define DATA_IN   		0	  // DATA TO SEND
+#define	DATA_IN   		0	// DATA TO SEND
 \end_layout
 
 \begin_layout Plain Layout
 
-#define TX_EN	         4	  // TRANSFER ENABLE (0)
+#define	TX_EN	        4	// TRANSFER ENABLE (0)
 \end_layout
 
 \begin_layout Plain Layout
 
-#define STATUS_REG        8      // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4)
- 
+#define	STATUS_REG      8   // OE(0) FE(1) DE(2) RDA(3) TX_BUSY(4) 
 \end_layout
 
 \begin_layout Plain Layout
 
-#define RX_REG	        12 	// DATA RECEIVED
+#define	RX_REG	        12 	// DATA RECEIVED
 \end_layout
 
 \begin_layout Plain Layout
 
-#define GLOBAL_INTR_EN    16 	// GLOBAL INTERRUPT ENABLE
+#define GLOBAL_INTR_EN  16 	// GLOBAL INTERRUPT ENABLE
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_EN           20 	// LOCAL INTERRUPT ENABLE
+#define INTR_EN         20 	// LOCAL INTERRUPT ENABLE
 \end_layout
 
 \begin_layout Plain Layout
 
-#define INTR_ACK_PEND     28 	// PENDING/ACK REGISTER
+#define INTR_ACK_PEND   28 	// PENDING/ACK REGISTER
 \end_layout
 
 \begin_layout Plain Layout
@@ -3529,16 +3548,6 @@ void wait_for_interrupt(struct pollfd * poll_fds, void *uart_rx_ptr, void
 
 \begin_layout Plain Layout
 
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	int i = 0;
-\end_layout
-
-\begin_layout Plain Layout
-
 	int pending =0;
 \end_layout
 
@@ -3677,42 +3686,6 @@ n", reg_received_data);
 \begin_layout Plain Layout
 
 					buffer_rx[rx_count] = reg_received_data;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-					if(rx_count == buffer_size){
-\end_layout
-
-\begin_layout Plain Layout
-
-						printf("Trasmissione/Ricezione completata, valore ricevuto: ");
-\end_layout
-
-\begin_layout Plain Layout
-
-						for(i=0; i<=rx_count; i++)
-\end_layout
-
-\begin_layout Plain Layout
-
-							printf("%c",buffer_rx[i]);
-\end_layout
-
-\begin_layout Plain Layout
-
-						printf("
-\backslash
-n");
-\end_layout
-
-\begin_layout Plain Layout
-
-					}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3874,18 +3847,7 @@ n", reg_sent_data);
 
 \begin_layout Plain Layout
 
-					printf("ISR TX - start sending next value: %c
-\backslash
-n", buffer_tx[tx_count]);
-\end_layout
-
-\begin_layout Plain Layout
-
-					write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);
-\end_layout
-
-\begin_layout Plain Layout
-
+					
 \end_layout
 
 \begin_layout Plain Layout
@@ -3929,12 +3891,29 @@ n", buffer_tx[tx_count]);
 
 \begin_layout Plain Layout
 
-					if(tx_count != buffer_size)	
+					if(tx_count != buffer_size){
+\end_layout
+
+\begin_layout Plain Layout
+
+						printf("ISR TX - start sending next value: %c
+\backslash
+n", buffer_tx[tx_count]);
+\end_layout
+
+\begin_layout Plain Layout
+
+						write_reg(uart_tx_ptr, DATA_IN, buffer_tx[tx_count]);	
 \end_layout
 
 \begin_layout Plain Layout
 
 						write_reg(uart_tx_ptr, TX_EN, 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+					}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3989,7 +3968,7 @@ int main(int argc, char *argv[]){
 
 \begin_layout Plain Layout
 
-	int j;
+	int j,i;
 \end_layout
 
 \begin_layout Plain Layout
@@ -4286,6 +4265,33 @@ n", buffer_tx, DIM);
 
 \begin_layout Plain Layout
 
+	printf("Trasmissione/Ricezione completata, valore ricevuto: ");
+\end_layout
+
+\begin_layout Plain Layout
+
+	for(i=0; i<=rx_count; i++)
+\end_layout
+
+\begin_layout Plain Layout
+
+		printf("%c",buffer_rx[i]);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	printf("
+\backslash
+n");
+\end_layout
+
+\begin_layout Plain Layout
+
 /* Fa l'unmap dei device UART */
 \end_layout
 
@@ -4355,7 +4361,7 @@ La prima operazione del driver è quella di aprire il file descriptor relativo
  per abilitare il trasferimento.
  Iterativamente, finchè non sono stati trasmessi un numero di caratteri
  pari alla dimensione della stringa da trasmettere, viene effettuata una
- read per mettersi in attesa di eventi interrompenti dal device.
+ poll per mettersi in attesa di eventi interrompenti dai device.
  Una volta risvegliato dalla chiamata il processo si occupa della gestione
  dell'interruzione.
  La prima operazione da effettuare è controllare se l'interruzione rilevata

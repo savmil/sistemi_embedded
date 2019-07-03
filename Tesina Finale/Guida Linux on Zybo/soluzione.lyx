@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -223,6 +223,8 @@ morecomment=[s]{--}
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -252,6 +254,7 @@ morecomment=[s]{--}
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -264,7 +267,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -380,9 +386,9 @@ https://releases.linaro.org/debian/images/developer-armhf/latest/
 
 \begin_layout Standard
 Prima di eseguire qualsiasi operazione, come ad esempio la cross-compilazione
- del kernel, è necessario configurare il terminale da cui si lavorerà.
- La configurazione consisten nell'esportare alcune variabili d'ambiente,
- lanciando lo script prepare_environment.sh riportato in seguito:
+ del kernel, è necessario configurare il terminale con cui si lavorerà.
+ La configurazione consiste nell'esportare alcune variabili d'ambiente lanciando
+ lo script prepare_environment.sh riportato di seguito:
 \end_layout
 
 \begin_layout Standard
@@ -627,9 +633,9 @@ Creazione immagine di boot
 \end_layout
 
 \begin_layout Standard
-La successiva operazione da effettuare la creazione del First Stage Boot
- Loader, responsabile del caricamento del bitstream della configurazione
- del Processing System (PS) della Zynq all'avvio.
+La successiva operazione da effettuare consiste nella creazione del First
+ Stage Boot Loader, responsabile del caricamento del bitstream che permetterà
+ la configurazione del Processing System (PS) della Zynq all'avvio.
  Avviare SDK, dal menù 
 \begin_inset Quotes eld
 \end_inset
@@ -771,7 +777,7 @@ Add -> Browse...
 \end_inset
 
  e selezionare il file u-boot.elf generato dalla compilazione di u-boot.elf.
- Se l'aggiunta è andata a buon fine si potrà visualizzare il file u-boot.elf
+ Se l'inserimento è andato a buon fine si potrà visualizzare il file u-boot.elf
  nella lista Boot image partitions.
 \end_layout
 
@@ -841,7 +847,7 @@ Compilazione del Device Tree
 La successiva operazione è quella di creare un Device Tree Blob, il quale
  ha il compito di descrivere l'architettura hardware al sistema operativo.
  Prima di procedere alla creazione del dtb è necessario aggiungere le repositori
-es DTS di Xilinx a quelle disponibili in SDK.
+es DTS di Xilinx a quelle disponibili all' interno del SDK.
  Dal menù 
 \begin_inset Quotes eld
 \end_inset
@@ -1024,7 +1030,7 @@ Progetto Board Support Package
 \end_layout
 
 \begin_layout Standard
-Nel file system-top.dt è necessario modificare i parametri di boot per il
+Nel file system-top.dts è necessario modificare i parametri di boot per il
  kernel come segue:
 \end_layout
 
@@ -1137,8 +1143,12 @@ Menu di Configurazione del Kernel
 
 Da questa schermata è possibile modificare la configurazione del kernel.
  Per abilitare il supporto ai driver Userspace I/O che verranno trattati
- nel seguenti capitolo bisogna recarsi in General Setup e verificare che
- la spunta Userspace I/O sia asserita.
+ nel seguente capitolo.
+\end_layout
+
+\begin_layout Standard
+Rechiamoci in General Setup e verifichiamo che la spunta Userspace I/O sia
+ asserita.
  Per la definitiva compilazione lanciare i seguenti comandi:
 \end_layout
 

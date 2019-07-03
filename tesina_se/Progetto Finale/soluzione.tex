@@ -1,0 +1,707 @@
+\selectlanguage{italian}%
+
+\section{Soluzione}
+
+La minimizzazione delle funzioni sarà effettuata attraverso i differenti
+metodi indicati.
+
+\subsection{Minimizzazione 1}
+
+\label{subsec:min1}
+
+La prima funzione è stata minimizzata attraverso il metodo delle mappe
+di Karnaugh.
+
+\begin{table}[H]
+Si può generare la seguente tabella di verità a partire dalla definizione
+insiemistica:
+
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{longtable}{|>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}|}
+\hline 
+X & Y & Z & V & F\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 1 & -\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 1 & 0 & -\tabularnewline
+\hline 
+1 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\end{longtable}%
+\end{minipage}\hfill{}
+
+\begin{minipage}[t]{0.5\columnwidth}%
+\include{esercizio01/mappa}%
+\end{minipage}
+
+\end{table}
+
+Individuando i sottocubi di area massima e gli implicanti primi essenziali,
+perveniamo alla funzione minimizzata:
+
+\[
+F=\neg x\neg z\neg v+\neg y\neg v+xz
+\]
+
+\subsection{Minimizzazione 2}
+
+\label{subsec:min2}
+
+Al fine di minimizzare questa funzione è stato utilizzato il metodo
+di Quine Mc Cluskey.
+
+\begin{table}[H]
+Si può generare la seguente tabella di verità a partire dalla definizione
+insiemistica:
+
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{longtable}{|>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}|}
+\hline 
+X & Y & Z & V & F\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 1 & -\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 1 & -\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 1 & -\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 1 & 0 & 0\tabularnewline
+\hline 
+1 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\end{longtable}%
+\end{minipage}
+\end{table}
+
+Seguiamo brevemente le fasi di espansione e copertura del metodo di
+minimizzazione applicato.
+
+\begin{table}[H]
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+implicante & x & y & z & v & check\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+1 & 0 & 0 & 0 & 1 & $\checkmark$\tabularnewline
+2 & 0 & 0 & 1 & 0 & $\checkmark$\tabularnewline
+8 & 1 & 0 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+5 & 0 & 1 & 0 & 1 & $\checkmark$\tabularnewline
+9 & 1 & 0 & 0 & 1 & $\checkmark$\tabularnewline
+10 & 1 & 0 & 1 & 0 & $\checkmark$\tabularnewline
+\hline 
+7 & 0 & 1 & 1 & 1 & $\checkmark$\tabularnewline
+11 & 1 & 0 & 1 & 1 & $\checkmark$\tabularnewline
+\hline 
+15 & 1 & 1 & 1 & 1 & $\checkmark$\tabularnewline
+\hline 
+\end{tabular}\qquad{}\qquad{}%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+implicante & x & y & z & v & check\tabularnewline
+\hline 
+\hline 
+0,1 & 0 & 0 & 0 & - & $\checkmark$\tabularnewline
+0,2 & 0 & 0 & - & 0 & $\checkmark$\tabularnewline
+0,8 & - & 0 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+1,5 & 0 & - & 0 & 1 & a\tabularnewline
+1,9 & - & 0 & 0 & 1 & $\checkmark$\tabularnewline
+2,10 & - & 0 & 1 & 0 & $\checkmark$\tabularnewline
+8,9 & 1 & 0 & 0 & - & $\checkmark$\tabularnewline
+8,10 & 1 & 0 & - & 0 & $\checkmark$\tabularnewline
+\hline 
+5,7 & 0 & 1 & - & 1 & b\tabularnewline
+9,11 & 1 & 0 & - & 1 & $\checkmark$\tabularnewline
+10,11 & 1 & 0 & 1 & - & $\checkmark$\tabularnewline
+\hline 
+7,15 & - & 1 & 1 & 1 & c\tabularnewline
+11,15 & 1 & - & 1 & 1 & d\tabularnewline
+\hline 
+\end{tabular}%
+\end{minipage}
+\end{table}
+
+\begin{table}[H]
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+implicante & x & y & z & v & check\tabularnewline
+\hline 
+\hline 
+0,1,8,9 & - & 0 & 0 & - & e\tabularnewline
+0,2,8,10 & - & 0 & - & 0 & f\tabularnewline
+\hline 
+8,9,10,11 & 1 & 0 & - & - & g\tabularnewline
+\hline 
+\end{tabular}\medskip{}
+\bigskip{}
+%
+\end{minipage}
+
+Individuati gli implicanti primi al termine della fase di espansione,
+si prosegue con la fase di copertura.
+
+\medskip{}
+
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+ & 0 & 1 & 2 & 7 & 8 & 10 & 15\tabularnewline
+\hline 
+\hline 
+a &  & X &  &  &  &  & \tabularnewline
+\hline 
+b &  &  &  & X &  &  & \tabularnewline
+\hline 
+c &  &  &  & X &  &  & X\tabularnewline
+\hline 
+d &  &  &  &  &  &  & X\tabularnewline
+\hline 
+e & X & X &  &  & X &  & \tabularnewline
+\hline 
+f & X &  & X &  & X & X & \tabularnewline
+\hline 
+g &  &  &  &  & X & X & \tabularnewline
+\hline 
+\end{tabular}\qquad{}\qquad{}%
+\begin{tabular}{|c|c|}
+\hline 
+ & 1\tabularnewline
+\hline 
+\hline 
+a & X\tabularnewline
+\hline 
+e & X\tabularnewline
+\hline 
+\end{tabular}%
+\end{minipage}
+\end{table}
+
+Discriminando gli implicanti primi essenziali primari ($f$) e secondari
+($c$), questi ultimi mediante le regole di dominanza, si ottiene
+una tabella cliclica non ulteriormente riducibile. Applicando il metodo
+Branch\&Bound in questo caso banale, si prosegue nella scelta dell'implicante
+$e$ per il completamento della copertura. Questa scelta si basa sul
+costo in termini di letterali dei due implicanti, che individua $e$
+come l'implicante che consente la copertura a costo minimo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{esercizio01/images/B&B.png}
+\end{figure}
+
+Analogamente, tramite il metodo di Petrick, otteniamo la somma degli
+implicanti che coprono il mintermine in questione:
+
+\[
+A+E=1
+\]
+
+Tra essi si effettua la medesima scelta dettata dal costo dei letterali.
+
+La funzione di uscita, dunque, è pari a:
+
+\[
+F=c+e+f=yzv+\neg y\neg z+\neg y\neg v
+\]
+
+\subsection{Minimizzazione 3}
+
+\label{subsec:min3}
+
+Si prosegue nuovamente con metodo Quine Mc Cluskey.
+
+\begin{table}[H]
+Si può generare la seguente tabella di verità a partire dalla definizione
+insiemistica:
+
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{longtable}{|>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}|}
+\hline 
+X & Y & Z & V & F\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 0 & -\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 0 & -\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 1 & 1 & 0 & 1\tabularnewline
+\hline 
+1 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\end{longtable}%
+\end{minipage}
+\end{table}
+
+Attraverso la minimizzazione riusciamo ad ottenere un insieme di implicanti
+primi essenziali che coprono totalmente la funzione:
+
+\[
+F=v+x\lnot z+xy
+\]
+
+\begin{comment}
+y=$d+h+a+boe$ 
+
+a=$\neg xv+\neg yv+x\neg z+xy$
+
+e=$zv$
+\end{comment}
+
+\subsection{Minimizzazione 4}
+
+\label{subsec:min4}
+
+Poiché non si ricade più nel caso a singola uscita, si è adottato
+il metodo di Quine Mc Cluskey per funzioni a più uscite. Esso consente
+il riuso di implicanti comuni a più funzioni, che non si avrebbe per
+semplice minimizzazione individuale.
+
+\begin{table}[H]
+Si può generare la seguente tabella di verità a partire dalla definizione
+insiemistica:
+
+\begin{minipage}[t]{0.5\columnwidth}%
+\begin{longtable}[r]{|>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}||>{\centering}p{1cm}|}
+\hline 
+X & Y & Z & V & F1 & F2 & F3\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 0 & 1 & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 0 & 0 & 1 & - & 1 & 0\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 0 & - & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 0 & 1 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 0 & 1 & - & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 0 & 1 & - & 0 & -\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\hline 
+0 & 1 & 1 & 1 & - & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 0 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 1 & 1 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\hline 
+1 & 0 & 1 & 1 & 0 & 1 & 1\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 0 & 0 & - & -\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0 & 1 & 0 & 1 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 1 & 0 & 1 & 0 & 0\tabularnewline
+\hline 
+\hline 
+1 & 1 & 1 & 1 & 1 & 0 & 1\tabularnewline
+\hline 
+\end{longtable}%
+\end{minipage}
+\end{table}
+
+Percorriamo l'applicazione del metodo che, rispetto al caso a singola
+uscita, presenta l'introduzione della maschera rappresentativa delle
+funzioni a cui l'implicante fa riferimento.
+
+\begin{table}[H]
+\begin{tabular}{|c||c|c|c|c||c|c|c||c|}
+\hline 
+implicante & x & y & z & v & F1 & F2 & F3 & check\tabularnewline
+\hline 
+0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & $\checkmark$\tabularnewline
+\hline 
+\hline 
+1 & 0 & 0 & 0 & 1 & - & 1 & 0 & $\checkmark$\tabularnewline
+\hline 
+2 & 0 & 0 & 1 & 0 & - & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+4 & 0 & 1 & 0 & 0 & 1 & - & 0 & $\checkmark$\tabularnewline
+\hline 
+8 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+\hline 
+5 & 0 & 1 & 0 & 1 & - & 0 & - & $\checkmark$\tabularnewline
+\hline 
+9 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & $a$\tabularnewline
+\hline 
+10 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & $\checkmark$\tabularnewline
+\hline 
+12 & 1 & 1 & 0 & 0 & 0 & - & - & $\checkmark$\tabularnewline
+\hline 
+\hline 
+7 & 0 & 1 & 1 & 1 & - & 1 & 1 & $b$\tabularnewline
+\hline 
+11 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & $\checkmark$\tabularnewline
+\hline 
+13 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & $\checkmark$\tabularnewline
+\hline 
+14 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+\hline 
+15 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & $\checkmark$\tabularnewline
+\hline 
+\end{tabular}\bigskip{}
+\\
+\bigskip{}
+\begin{tabular}{|c||c|c|c|c||c|c|c||c|}
+\hline 
+implicante & x & y & z & v & F1 & F2 & F3 & check\tabularnewline
+\hline 
+0, 1 & 0 & 0 & 0 & - & 1 & 1 & 0 & $c$\tabularnewline
+\hline 
+0, 2 & 0 & 0 & - & 0 & 1 & 0 & 0 & $d$\tabularnewline
+\hline 
+0, 4 & 0 & - & 0 & 0 & 1 & 1 & 0 & $e$\tabularnewline
+\hline 
+0, 8 & - & 0 & 0 & 0 & 1 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+\hline 
+1, 5 & 0 & - & 0 & 1 & - & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+1, 9 & - & 0 & 0 & 1 & 1 & 1 & 0 & $f$\tabularnewline
+\hline 
+4, 5 & 0 & 1 & 0 & - & 1 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+4, 12 & - & 1 & 0 & 0 & 0 & - & 0 & $\checkmark$\tabularnewline
+\hline 
+8, 9 & 1 & 0 & 0 & - & 1 & 0 & 0 & $\checkmark$\tabularnewline
+\hline 
+\hline 
+5, 7 & 0 & 1 & - & 1 & - & 0 & 1 & $g$\tabularnewline
+\hline 
+9, 11 & 1 & 0 & - & 1 & 0 & 1 & 1 & $h$\tabularnewline
+\hline 
+9, 13 & 1 & - & 0 & 1 & 0 & 1 & 0 & $i$\tabularnewline
+\hline 
+10, 11 & 1 & 0 & 1 & - & 0 & 0 & 1 & $l$\tabularnewline
+\hline 
+12, 13 & 1 & 1 & 0 & - & 0 & 1 & 0 & $m$\tabularnewline
+\hline 
+\hline 
+7, 15 & - & 1 & 1 & 1 & 1 & 0 & 1 & $n$\tabularnewline
+\hline 
+11, 15 & 1 & - & 1 & 1 & 0 & 0 & 1 & $o$\tabularnewline
+\hline 
+14, 15 & 1 & 1 & 1 & - & 1 & 0 & 0 & $p$\tabularnewline
+\hline 
+\end{tabular}\\
+\bigskip{}
+\begin{tabular}{|c||c|c|c|c||c|c|c||c|}
+\hline 
+implicante & x & y & z & v & F1 & F2 & F3 & check\tabularnewline
+\hline 
+0, 1, 4, 5 & 0 & - & 0 & - & 1 & 0 & 0 & $q$\tabularnewline
+\hline 
+0, 1, 8, 9 & - & 0 & 0 & - & 1 & 0 & 0 & $r$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+Segue la fase di copertura con gli implicanti primi trovati. Essa
+viene effettuata con l'obiettivo di minimizzare il costo dei letterali.
+
+\begin{table}[H]
+\begin{tabular}{|c||c|c|c|c|c|c||c|c|c|c|c|c||c|c|c|c|c||c|}
+\hline 
+ & \multicolumn{6}{c||}{F1} & \multicolumn{6}{c||}{F2} & \multicolumn{5}{c||}{F3} & costo\tabularnewline
+\hline 
+\hline 
+ & 0 & 4 & 8 & 9 & 14 & 15 & 0 & 1 & 7 & 9 & 11 & 13 & 7 & 9 & 10 & 11 & 15 & \tabularnewline
+\hline 
+a &  &  &  & X &  &  &  &  &  & X &  &  &  & X &  &  &  & 4\tabularnewline
+\hline 
+b &  &  &  &  &  &  &  &  & X &  &  &  & X &  &  &  &  & 4\tabularnewline
+\hline 
+c & X &  &  &  &  &  & X & X &  &  &  &  &  &  &  &  &  & 3\tabularnewline
+\hline 
+d & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 3\tabularnewline
+\hline 
+e & X & X &  &  &  &  & X &  &  &  &  &  &  &  &  &  &  & 3\tabularnewline
+\hline 
+f &  &  &  & X &  &  &  & X &  & X &  &  &  &  &  &  &  & 3\tabularnewline
+\hline 
+g &  &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  & 3\tabularnewline
+\hline 
+h &  &  &  &  &  &  &  &  &  & X & X &  &  & X &  & X &  & 3\tabularnewline
+\hline 
+i &  &  &  &  &  &  &  &  &  & X &  & X &  &  &  &  &  & 3\tabularnewline
+\hline 
+l &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X & X &  & 3\tabularnewline
+\hline 
+m &  &  &  &  &  &  &  &  &  &  &  & X &  &  &  &  &  & 3\tabularnewline
+\hline 
+n &  &  &  &  &  & X &  &  &  &  &  &  & X &  &  &  & X & 3\tabularnewline
+\hline 
+o &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & X & X & 3\tabularnewline
+\hline 
+p &  &  &  &  & X & X &  &  &  &  &  &  &  &  &  &  &  & 3\tabularnewline
+\hline 
+q & X & X &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & 2\tabularnewline
+\hline 
+r & X &  & X & X &  &  &  &  &  &  &  &  &  &  &  &  &  & 2\tabularnewline
+\hline 
+\end{tabular}
+
+\bigskip{}
+
+\bigskip{}
+
+\begin{tabular}{|c||c||c|c|c||c|c|c||c|}
+\hline 
+ & \multicolumn{1}{c||}{F1} & \multicolumn{3}{c||}{F2} & \multicolumn{3}{c||}{F3} & costo\tabularnewline
+\hline 
+\hline 
+ & 4 & 0 & 1 & 13 & 7 & 9 & 15 & \tabularnewline
+\hline 
+a &  &  &  &  &  & X &  & 4\tabularnewline
+\hline 
+b &  &  &  &  & X &  &  & 1\tabularnewline
+\hline 
+c &  & X & X &  &  &  &  & 3\tabularnewline
+\hline 
+e & X & X &  &  &  &  &  & 3\tabularnewline
+\hline 
+f &  &  & X &  &  &  &  & 3\tabularnewline
+\hline 
+g &  &  &  &  & X &  &  & 3\tabularnewline
+\hline 
+h &  &  &  &  &  & X &  & 1\tabularnewline
+\hline 
+i &  &  &  & X &  &  &  & 3\tabularnewline
+\hline 
+m &  &  &  & X &  &  &  & 3\tabularnewline
+\hline 
+n &  &  &  &  & X &  & X & 3\tabularnewline
+\hline 
+o &  &  &  &  &  &  & X & 3\tabularnewline
+\hline 
+q & X &  &  &  &  &  &  & 2\tabularnewline
+\hline 
+\end{tabular}\qquad{}\qquad{}%
+\begin{tabular}{|c||c||c|c|c||c|c|c||c|}
+\hline 
+ & \multicolumn{1}{c||}{F1} & \multicolumn{3}{c||}{F2} & \multicolumn{3}{c||}{F3} & costo\tabularnewline
+\hline 
+\hline 
+ & 4 & 0 & 1 & 13 & 7 & 9 & 15 & \tabularnewline
+\hline 
+b &  &  &  &  & X &  &  & 1\tabularnewline
+\hline 
+c &  & X & X &  &  &  &  & 3\tabularnewline
+\hline 
+e & X & X &  &  &  &  &  & 3\tabularnewline
+\hline 
+h &  &  &  &  &  & X &  & 1\tabularnewline
+\hline 
+i &  &  &  & X &  &  &  & 3\tabularnewline
+\hline 
+m &  &  &  & X &  &  &  & 3\tabularnewline
+\hline 
+n &  &  &  &  & X &  & X & 3\tabularnewline
+\hline 
+q & X &  &  &  &  &  &  & 2\tabularnewline
+\hline 
+\end{tabular}
+
+\bigskip{}
+\bigskip{}
+
+\begin{tabular}{|c||c||c||c|}
+\hline 
+ & \multicolumn{1}{c||}{F1} & \multicolumn{1}{c||}{F2} & costo\tabularnewline
+\hline 
+\hline 
+ & 4 & 13 & \tabularnewline
+\hline 
+e & X &  & 3\tabularnewline
+\hline 
+i &  & X & 3\tabularnewline
+\hline 
+m &  & X & 3\tabularnewline
+\hline 
+q & X &  & 2\tabularnewline
+\hline 
+\end{tabular}\qquad{}\qquad{}%
+\begin{tabular}{|c||c||c||c|}
+\hline 
+ & \multicolumn{1}{c||}{F1} & \multicolumn{1}{c||}{F2} & costo\tabularnewline
+\hline 
+\hline 
+ & 4 & 13 & \tabularnewline
+\hline 
+i &  & X & 3\tabularnewline
+\hline 
+m &  & X & 3\tabularnewline
+\hline 
+q & X &  & 2\tabularnewline
+\hline 
+\end{tabular}\qquad{}\qquad{}%
+\begin{tabular}{|c||c||c|}
+\hline 
+ & \multicolumn{1}{c||}{F2} & costo\tabularnewline
+\hline 
+\hline 
+ & 13 & \tabularnewline
+\hline 
+i & X & 3\tabularnewline
+\hline 
+m & X & 3\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+Si arriva ad una tabella ciclica, i cui implicanti presentano anche
+lo stesso costo. Per la minimizzazione si è scelto $i$, ottenendo:
+
+\[
+F1=r+p+q=\lnot y\lnot z+xyz+\lnot x\lnot z
+\]
+
+\[
+F2=b+h+c+i=\lnot xyzv+x\lnot yv+\lnot x\lnot y\lnot z+x\lnot zv
+\]
+
+\[
+F3=l+n+h=x\lnot yz+yzv+x\lnot yv
+\]
+\selectlanguage{italian}%
+

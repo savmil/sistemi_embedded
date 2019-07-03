@@ -104,8 +104,7 @@ prove con sis: cambiando comandi(tipo rugged script), librerie di componenti,
 \end_layout
 
 \begin_layout Standard
-Creazione di un Custom IP core per la gestione delle periferiche collegate
- tramite gpio e gestione dei vari segnali di interrupt.
+
 \end_layout
 
 \end_body

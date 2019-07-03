@@ -505,7 +505,7 @@ Finestra create new AXI Peripheral
 
 \begin_layout Enumerate
 Compilare i vari campi con le informazioni dell'IP.
- In questa finestra è importante il la directory 
+ In questa finestra è importante il box con la dicitura 
 \begin_inset Quotes eld
 \end_inset
 
@@ -566,7 +566,7 @@ Create and Package New IP : Passo 3
 \begin_layout Enumerate
 Nella finestra successiva è possibile configurare il tipo di interfaccia
  del nostro componente.
- Nel nostro caso l'interfaccia da uilizzare è 
+ Nel nostro caso l'interfaccia che utilizzeremo è 
 \emph on
 AXI LITE 
 \emph default
@@ -801,8 +801,9 @@ Schema IP
 \end_layout
 
 \begin_layout Standard
-Aggiungiamo al design creato da Vivado il nostro i sorgenti vhdl di componenti
- GPIO_Array ed il singolo GPIO cliccando su 
+Aggiungiamo al design creato da Vivado quello appena creato da noi, i sorgenti
+ vhdl di componenti GPIO_Array ed il singolo GPIO.
+ Clicchiamo su 
 \begin_inset Quotes eld
 \end_inset
 
@@ -846,7 +847,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Per prima cosa è necessario riportare fra le interfacce dei due componenti
+Prima di tutto è necessario riportare fra le interfacce dei due componenti
  i segnali che necessitano di comunicare con l'esterno dell'ip e non con
  il bus axi.
  Il codice che va aggiunto nelle interfacce dei due componenti è il seguente:
@@ -925,11 +926,11 @@ Si noti che sarà necessario aggiungere i segnali e i parametri sopra riportati
 \begin_layout Standard
 Superata la prima fase è necessario interfacciare correttamente i segnali
  del nostro GPIO_Array con il bus e il processore.
- Per fare cioè il componente utilizza gli slave_reg, dei registri con i
- quali sarà possibile scrivere
+ Per fare ciò il componente utilizza gli slave_reg, dei registri con i quali
+ sarà possibile scrivere
 \backslash
 leggere i valori dei segnali di ENABLE, WRITE e READ.
- Collegheremo dunque i sengali di READ e WRITE oppurtunemente nell'istanziazione
+ Collegheremo dunque i segnali di READ e WRITE oppurtunemente nell'istanziazione
  del componente come segue:
 \end_layout
 
@@ -994,9 +995,9 @@ slv_reg1
 gpio_read
 \series default
 \emph default
- perchè, per leggerlo, non può essere usato uno degli slv_reg generati automatic
-amente da vivado in quanto READ, essendo un pin di output per il GPIO, forzerebb
-e dei valori sullo slave reg.
+ perchè per leggerlo, non può essere usato uno degli slv_reg generati automatica
+mente da vivado in quanto READ, essendo un pin di output per il GPIO, forzerebbe
+ dei valori sullo slave reg.
  Anche il bus axi, tramite un process detto 
 \begin_inset Quotes eld
 \end_inset
@@ -1018,7 +1019,7 @@ gpio_read
 \series default
 \emph default
  che verrà pilotato esclusivamente dal read del nostro GPIO_Array (Figura
- 0.9).
+ 2.9).
  
 \begin_inset Float figure
 placement H
@@ -1249,7 +1250,7 @@ La singola linea interna del GPIO_Array è abilitata (
 \emph on
 mascherata
 \emph default
-) a genereare l'interruzione
+) a generare l'interruzione
 \end_layout
 
 \begin_layout Itemize
@@ -1379,7 +1380,7 @@ Si noti che siamo interessati a qulunque variazione del segnale read con
 \end_layout
 
 \begin_layout Standard
-Il process viene sintetizzato da vivado come due Flip-Flop collegati in
+Il process viene sintetizzato da Vivado come due Flip-Flop collegati in
  cascata, necessari per campionare il valore di gpio_read con il clock.
  Al primo colpo di clock il primo flip flop salva il valore del segnale,
  al secondo colpo di clock il secondo flip flop conterrà il valore precedentemen
@@ -1524,7 +1525,7 @@ e non servita oppure ad una interuzione rilevata (changed_bits).
 
 \begin_layout Standard
 Nello stesso process è gestito anche il meccanismo di ack utilizzato per
- pulire il relativo bit ne registro pending.
+ pulire il relativo bit nel registro pending.
  Il segnale ack_intr deve contenere un 1 nella posizione relativa al gpio
  al quale si vuol dare l'ack.
 \end_layout
@@ -1621,15 +1622,15 @@ inst_irq : process(S_AXI_ACLK,pending_intr)
 \end_layout
 
 \begin_layout Standard
-Tale segnale è altro nel caso vi siano interruzioni pendenti e le interruzioni
- globali siano abilitate, nel caso di reset del bus o non vi siano interruzioni
- o le stesse siano disabilitate è pari a 0.
+Tale segnale è alto nel caso vi siano interruzioni pendenti e le interruzioni
+ globali siano abilitate, invece nel caso di reset del bus, non vi siano
+ interruzioni o queste siano disabilitate è pari a 0.
 \end_layout
 
 \begin_layout Standard
 Dopo aver instaziato il componente nella top level entity avente il nome
  del nostro custom IP possiamo procedere con l' impacchettamento del nostro
- componente.
+ device.
 \begin_inset Float figure
 placement H
 wide false
@@ -1822,7 +1823,7 @@ Re-Package IP
 \begin_inset Quotes erd
 \end_inset
 
- per ottenere il custom ip, facendo chiudere la finestra di vivado.
+ per ottenere il custom ip, facendo chiudere la finestra di Vivado.
 \end_layout
 
 \begin_layout Subsection
@@ -1856,7 +1857,7 @@ OK
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1915,8 +1916,8 @@ Run Connection Automation
 \begin_inset Quotes erd
 \end_inset
 
-che cilccati fanno si che i vari componenti si collegheranno tra di loro
- automaticamente.
+ una volta cilccati fanno si che i vari componenti si collegheranno tra
+ di loro automaticamente.
  Successivamente è necessario rendere esterni i pin che si vuole pilotare
  dalla board.
  Cliccare con il tasto destro del mouse su un pin e selezionare 
@@ -2031,7 +2032,7 @@ Abilitazione interrupt Zynq Processing System
 \end_layout
 
 \begin_layout Standard
-La linea di interrutp che apparirà sul processing system è unica, quindi
+La linea di interrupt che apparirà sul processing system è unica, quindi
  è necessario utilizzare il componente Concat per collegare i 3 GPIO_Array.
  Il size verrà automaticamente aggiornato.
 \end_layout
@@ -2154,8 +2155,8 @@ Pin dopo la sintesi
 \end_layout
 
 \begin_layout Standard
-In basso sono presenti i pin che sono stati resti esterni, bisogna selezionare
- il tip di 
+In basso sono presenti i pin che sono stati resi esterni, bisogna selezionare
+ il tipo di 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2163,7 +2164,7 @@ I/O Std
 \begin_inset Quotes erd
 \end_inset
 
- di solito è quello mostrato in figura ed i 
+ usualmente è quello mostrato in figura ed i 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2171,9 +2172,8 @@ Package Pin
 \begin_inset Quotes erd
 \end_inset
 
- una volta fatto salvare i constraints cliccando sull' icone del floppy
- blu e dando un nome al file di constraint, una volta fatto si può generare
- il bitstream.
+, una volta fatto salvare i constraints cliccando sull' icone del floppy
+ blu e dando un nome al file di constraint, ora si può generare il bitstream.
 \end_layout
 
 \begin_layout Standard
@@ -2376,7 +2376,7 @@ src
 \begin_inset Quotes erd
 \end_inset
 
-, neql quale, una volta aperto, sarà presente una sezione simile:
+, nel quale, una volta aperto, sarà presente una sezione simile:
 \end_layout
 
 \begin_layout Standard
@@ -2472,7 +2472,7 @@ File -> New -> Application Project
 \end_inset
 
  e creare un progetto vuoto.
- La PS della Zynq 7000 è composta da 
+ La PS della Zynq 7000 è composta da un
 \emph on
 Cortex-A9
 \emph default
@@ -2481,8 +2481,8 @@ Cortex-A9
 GIC pl390 interrupt controller.
  
 \emph default
-Si mostano per completezza alcune nozioni sul GIC, che non avendo un SO,
- andrà gestito direttamente.
+Si mostano per completezza alcune nozioni sul GIC, il quale dovrà essere
+ gestito da noi non essendoci un sistema operativo di supporto.
  Si mostra uno schema generico del GIC.
 \end_layout
 
@@ -2523,9 +2523,9 @@ Schema logico GIC
 
 \begin_layout Standard
 L'interruzione che abbiamo bisogno di gestire sono interruzioni provenienti
- dalla PL e qundi visti dal GIC come interruzioni SPI.
+ dalla PL e quindi visti dal GIC come interruzioni SPI.
  Sarebbe possibile indicare, per ogni interruzione, quale dei due Cortex
- deve gestirla, ma lasciamo questa scelta al GIC.
+ deve gestirla, ma lasciamo questa decisione al GIC.
  Ogni linea di interrupt è identificata da un ID unico.
  Per il funzionamento interno riferirsi a 
 \series bold
@@ -2617,12 +2617,12 @@ seAddress);
 \end_layout
 
 \begin_layout Standard
-Questa fase di inizializzazione e fissa.
+Questa fase di inizializzazione è fissa.
 \end_layout
 
 \end_deeper
 \begin_layout Enumerate
-Abilitare la gestione delle eccezioni relative al Gic (opzionale ma utile)
+Abilitare la gestione delle eccezioni relative al GIC (opzionale ma utile)
 \end_layout
 
 \begin_deeper
@@ -2653,7 +2653,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Questa fase di inizializzazione e fissa.
+Questa fase di inizializzazione è fissa.
 \end_layout
 
 \end_deeper
@@ -2731,7 +2731,7 @@ La define
 XPAR_FABRIC_GPIO_0_INTERRUPT_INTR
 \series default
  indica la'ID della linea di interruzione al quale è collegato l'ip GPIO_0.
- E' possibile trovarla del fine 
+ Possiamo trovarla nel file 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2783,7 +2783,7 @@ status open
 
 \end_deeper
 \begin_layout Standard
-Si mostra di seguito una routine esempio di gestione dell' interruzione
+Si mostra di seguito una routine d' esempio di gestione dell' interruzione
  che:
 \end_layout
 
@@ -4064,7 +4064,7 @@ static struct file_operations GPIO_fops = {
 owner: rappresenta puntatore al modulo che è il possessore della struttura.
  Ha lo scopo di evitare che il modulo venga rimosso quando uno delle funzionalià
  fornite è in uso.
- Inizializzato mediante la macro THIS_MODULE
+ Inizializzato mediante la macro THIS_MODULE.
 \end_layout
 
 \begin_layout Itemize
@@ -4087,7 +4087,7 @@ can_read
 
 .
  La funzione read effettua un controllo sullo stato di quest'ultima e se
- rileva che non è possibile effettuare una lettura mette il processo in
+ rileva che non è possibile effettuare una lettura, mette il processo in
  sleep.
  L'ISR avrà il compito di settare la variabile per poter rendere possibile
  la lettura e risvegliare i processi dalla coda.
@@ -4103,8 +4103,8 @@ GPIO_write: utilizzata per inviare dati al device.
 \begin_layout Itemize
 GPIO_poll: utilizzata per verificare se un'operazione di lettura sul device
  risulti bloccante.
- Verifica lo stato della variabile can_read e in caso sia possibile effettuare
- una lettura ritorna un'opportuna maschera.
+ Verifica lo stato della variabile can_read ed in caso sia possibile effettuare
+ una lettura, ritorna un'opportuna maschera.
 \end_layout
 
 \begin_layout Itemize
@@ -4225,7 +4225,7 @@ insmod my_kernel_GPIO.ko
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/insmod.png
+	filename images/insmod.png
 	scale 50
 
 \end_inset
@@ -4258,7 +4258,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/DMESG_insmod.png
+	filename images/DMESG_insmod.png
 	scale 50
 
 \end_inset
@@ -4288,9 +4288,9 @@ insmod
 \end_layout
 
 \begin_layout Standard
-Per mostrare il corretto funzionamento di tutte le funzionalità implementate
- sono state create due user application: read_block_user_app.c, read_NON_block_us
-er_app.c e poll_user_app.c che sono allegate.
+Per mostrare la correttezza di tutte le funzionalità implementate sono state
+ create due user application: read_block_user_app.c, read_NON_block_user_app.c
+ e poll_user_app.c che sono allegate.
 \end_layout
 
 \begin_layout Itemize
@@ -4350,7 +4350,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/rmmodgpio.png
+	filename images/rmmodgpio.png
 	scale 50
 
 \end_inset
@@ -4360,7 +4360,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/dmesg_rmmodgpio.png
+	filename images/dmesg_rmmodgpio.png
 	scale 50
 
 \end_inset
@@ -4657,12 +4657,12 @@ A questo punto si ricompila il device-tree generando il file .dtb e lo si
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/uio_list.png
+	filename images/uio_list.png
 	scale 50
 
 \end_inset
@@ -4700,7 +4700,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/andrea/GIT/GruppoTre/sistemi_embedded/tesina_se/esercizio02/images/uio.png
+	filename images/uio.png
 	scale 25
 
 \end_inset
@@ -5603,7 +5603,7 @@ n");
 
 \begin_layout Standard
 La prima operazione del driver, come introdotto all'inizio della sezione,
- è quella di aprire tre file descriptor sui tre device uio corrispondenti
+ è quella di aprire tre file descriptor sui tre device UIO corrispondenti
  ai tre GPIO.
  Successivamente calcola la dimensione della pagina e effettua il mapping
  tramite chiamata a mmap().
@@ -5631,8 +5631,8 @@ revents: maschera riempita dal kernel contenente gli eventi rilevati.
 \begin_layout Standard
 La chiamata poll() prende in ingresso la suddetta struttura, un intero che
  indica quanti oggetti sono presenti in quest'ultima e un parametro che
- indica il tempo che il processo deve attendere notifiche di eventi dal
- device espresso in millisecondi.
+ indica il tempo, per il quale il processo deve attendere notifiche di eventi
+ dal device espresso in millisecondi.
 \end_layout
 
 \end_body

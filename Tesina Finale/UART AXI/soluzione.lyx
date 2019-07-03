@@ -143,12 +143,12 @@ Dispostivo UART
 \begin_layout Standard
 L'implementazione del componente UART è stata realizatta seguendo lo schema
  di un generico dispositivo commerciale, dividendo dunque la logica nei
- seguenti blocchi (Figura 0.1):
+ seguenti blocchi (Figura 3.1):
 \end_layout
 
 \begin_layout Itemize
 sezione ricevitore: implementa la logica di ricezione.
- Quanto un byte è ricevuto viene copiato nell'Holding Register e vi rimane
+ Quando un byte è ricevuto viene copiato nell'Holding Register e vi rimane
  fino alla completa riecezione del successivo byte.
  Al completamento della ricezione il segnale 
 \series bold
@@ -210,11 +210,11 @@ Schema a blocchi componente UART
 \end_layout
 
 \begin_layout Standard
-Con riferimento alla Figura 0.1, si stabilisca la seguente convezione: i
+Con riferimento alla Figura 3.1, si stabilisca la seguente convezione: i
  segnali in grasseto rappresentano l'interfaccia del componente, quelli
- sulla sinistra indicano segnali di ingresso, quelli sulla desta di uscita.
- Alcuni sengali (clock, reset), avento multiple destinazioni, non sono collegati
- per pura questione di visibiltà.
+ sulla sinistra indicano segnali di ingresso, quelli sulla desrta di uscita.
+ Alcuni sengali (clock, reset), avendo multiple destinazioni, non sono collegati
+ per pura questione di comprensione.
 \end_layout
 
 \begin_layout Subsubsection
@@ -288,9 +288,9 @@ Sezione Ricezione
 Shift Register con scorrimento a destra, ingresso seriale del bit ricevuto
  ed uscita parallela.
  Si è scelto di connettere l'uscita direttamente ad un Holding Register
- esterno, il quale viene abilitato dalla FSM solo a ricezione completata
- e successivamente disabilitato per preservare il dato fino all'arrivo dei
- successivo
+ esterno, il quale viene abilitato dalla FSM solo quado la ricezione è completat
+a e successivamente viene disabilitato per preservare il dato fino all'arrivo
+ dei successivo.
 \end_layout
 
 \begin_layout Itemize
@@ -408,7 +408,7 @@ e capitolo.
 \series bold
 my_uart_intv1
 \series default
-: top modul dell'IP.
+: top module dell'IP.
  Il segnale TX è in out all'ip mentre quello di RX in ingresso.
 \end_layout
 
@@ -422,8 +422,8 @@ my_uart_int_v1_0_S00_AXI
 UART
 \series default
  con il bus per la logica di trasmissione da e verso il processore.
- Intefaccia i segnali TX e RX dal componente UART al top modul.
- Gestisce i la logica di interruzione della periferica
+ Intefaccia i segnali TX e RX dal componente UART al top module.
+ Gestisce la logica di interruzione della periferica.
 \end_layout
 
 \begin_layout Subsubsection
@@ -804,7 +804,7 @@ Mapping indirizzi
 
 \begin_layout Standard
 Si omette la connessione del componente UART in quanto basilare e riassumibile
- tramite la Tabella 0.1.
+ tramite la Tabella 3.1.
 \end_layout
 
 \begin_layout Standard
@@ -985,9 +985,9 @@ status open
 Siamo interessati a rilevare uno dei due edge solo se le due linee di interruzio
 ne sono abilitate (INTR_MASK) e se sono abilitate le interruzioni globali
  del componente.
- Segue il process di gestione delle interruzioni pendendi e dell'ack.
+ Segue il process di gestione delle interruzioni pendenti e dell'ack.
  Se viene rilevata una nuova richiesta di interruzione su una delle due
- linee essa viene aggiunta alle precedenti pendenti.
+ linee essa viene aggiunta alle precedenti interruzioni pendenti.
  Se viene dato un ack per la specifica interruzione essa viene rimossa da
  quelle pendenti.
 \end_layout
@@ -1095,10 +1095,10 @@ status open
 \end_layout
 
 \begin_layout Standard
-Segue il codice per la gestione dell'unico segnale di interrupt uscende
+Segue il codice per la gestione dell'unico segnale di interrupt uscente
  dall'IP Core.
- Quale delle due linee interne ha generato la richiesta di interruzione
- alla CPU dovrà essere verificato tramite software
+ Per capire quale delle due linee interne ha generato la richiesta di interruzio
+ne alla CPU dovrà essere verificato tramite software
 \end_layout
 
 \begin_layout Standard
@@ -1280,7 +1280,7 @@ Design
 Per testare il componente si è scelto di inserire due dispositivi identici
  UART nel Block Design.
  UART_1 sarà utilizzato esclusivamente da trasmettiore, UART_0 da ricevitore.
- Per collegare i due segnali di interrutp è stato utilizzato il componente
+ Per collegare i due segnali di interrupt è stato utilizzato il componente
  Concat.
 \end_layout
 
@@ -1327,8 +1327,9 @@ Driver Standalone
 Il driver Standalone è stato realizzato per verificare il comportamento
  basilare del dispositovo.
  Come applicativo di test si è scelto di realizzare un main che esegue cinque
- invii dello stesso carattere.Il corretto funzionamento può essere verificando
- controllando le varibaili 
+ invii dello stesso carattere.
+ Il corretto funzionamento può essere verificato controllando le varibaili
+ 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1338,7 +1339,7 @@ count
 
  di debug e i registri della periferica.
  Per la stesura delle librerie di gestione delle periferiche si rimanda
- alla documentazione html del codice.
+ alla documentazione del codice.
  Il primo carattere viene inviato nel main del programma, i successivi nell'ISR
  del trasmettitore.
  Si noti che, avendo due linee di interruzione con la stessa priorità attribuita
@@ -1356,7 +1357,7 @@ parametro XPAR_FABRIC_UART_X_INTERRUPT_INTR)
  .
  In questo caso il ricevitore (UART_0), collegato alla linea 61 del GIC,
  avrà maggiore priorità.
- Si riporta di seguiro il main del programma.
+ Si riporta di seguito il main del programma.
 \end_layout
 
 \begin_layout Standard
@@ -2746,7 +2747,7 @@ ione, cancellazione, aggiunta oggetto, ricerca.
 
 \begin_layout Itemize
 UART_kernel_main.c: rappresenta il vero e proprio modulo kernel che reimplementa
- le tutte funzioni necessarie all'interfacciamento.
+ tutte le funzioni necessarie all'interfacciamento.
 \end_layout
 
 \begin_layout Standard
