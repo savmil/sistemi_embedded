@@ -337,7 +337,7 @@ punto punto
 \end_layout
 
 \begin_layout Subsubsection
-Arbitraggio dei bus
+Gestione del bus
 \end_layout
 
 \begin_layout Standard
@@ -357,7 +357,7 @@ interfacciarsi
 \series bold
 I2C
 \series default
-: è bus che permette nativamente un arbitraggio sia 
+: è un bus che permette nativamente un interfacciamento sia di tipo 
 \emph on
 SingleMaster-Multislave
 \emph default
@@ -393,7 +393,7 @@ master quando effettua una trasmissione e da slave quando effettua una ricezione
 \bar default
 .
  Questo implica che nella trasmissione il nodo è conscio del nodo al quale
- sta trasmettendo mentre non lo è nella ricezione.
+ sta trasmettendo, mentre non lo è nella ricezione.
 \end_layout
 
 \begin_layout Itemize
@@ -435,7 +435,7 @@ CAN
 multimaster
 \series default
 .
- Viene utilizzato naturalmente in questa configurazione
+ Viene utilizzato naturalmente in questa configurazione.
 \end_layout
 
 \begin_layout Standard
@@ -501,7 +501,8 @@ Unicast: il nodo manda il messaggio ad un solo nodo destinatario.
 \end_layout
 
 \begin_layout Itemize
-Multicast: il nodo manda il messaggio ad un insieme associati ad un 
+Multicast: il nodo manda il messaggio ad un insieme di bord associata ad
+ un 
 \begin_inset Quotes eld
 \end_inset
 
@@ -511,9 +512,9 @@ gruppo
 
 .
  La trasmissione in questa modalità è disponibile solo sul bus CAN.
- Se si volesse realizzare sugli altri bus sarebbe necessario gestire software
- un multi-unicast ma non si è ritenuto necessario data la disponibilità
- di CAN.
+ Se si volesse realizzare sugli altri bus sarebbe necessario implementare
+ una politica di trasmissione multi-unicast ma non si è ritenuto necessario
+ data la disponibilità di CAN.
 \end_layout
 
 \begin_layout Itemize
@@ -526,9 +527,9 @@ Gestione degli indirizzi
 \end_layout
 
 \begin_layout Standard
-Ogni periferica è dotata di una gestione degli indirizzi differente e che
- può essere configurata in modo differente ma che deve rispondere ad uno
- 
+Ogni periferica è dotata di una gestione degli indirizzi differente e può
+ essere configurata indipendentemente da come sono settate le altre, ma
+ ogni periferica risponde ad 
 \begin_inset Quotes eld
 \end_inset
 
@@ -547,7 +548,7 @@ spazio degli indirizzi unico
 NODE ADDRESS
 \series default
 : indirizzo univoco del nodo.
- Utilizzato per effettuare comunicazioni unicast
+ Utilizzato per effettuare comunicazioni unicast.
 \end_layout
 
 \begin_layout Enumerate
@@ -627,8 +628,8 @@ SPI
 \series bold
 CAN
 \series default
- non associa un indirizzo univoco al nodo poichè il messaggio inviato è
- inviato sempre in broadcast e spetta al singolo nodo stabilire se è interessato
+ non associa un indirizzo univoco al nodo poichè il messaggio è inviato
+ sempre in broadcast e spetta al singolo nodo stabilire se è interessato
  o meno al messaggio mediante dei filtri.
  Questi filitri possono operare in due modalità: 
 \emph on
@@ -655,12 +656,12 @@ essere accettati
 \end_layout
 
 \begin_layout Standard
-Si utilizza questo meccanismo (IDList) per realizzare il concetto di indirizzo
- del nodo anche sul bus CAN, prestando accortezza che nella fase di inizializzaz
-ione ogni periferica abbia un filtro con indirizzo univoco pari all'indirizzo
- associato ad I2C.
+Si utilizza questo meccanismo (IDList) per assegnare l'indirizzo del nodo
+ sul bus CAN, prestando accortezza che nella fase di inizializzazione ogni
+ periferica abbia un filtro con indirizzo univoco pari a quello associato
+ ad I2C.
  Si è scelto di realizzare i gruppi con la modalità IDList e non mask per
- praticità e per poter aver un maggiore controllo sugli indirizzi da assegnare
+ praticità e per poter avere un maggiore controllo sugli indirizzi da assegnare
  e totale libertà nel decidere quale nodo appartenga a quale gruppo.
  Dunque un nodo, per appartenere ad un gruppo, dovrà specificare il GROUP_ADDRES
 S nel campo id di un filtro.
@@ -689,7 +690,7 @@ numero_nodi+numero_gruppi =
  per effettuare broadcast.
  Si è scelto di non utilizare questo indirizzo e di non effettuare broadcast
  su I2C poichè non è presente ACK da parte degli slave che ricevono il messaggio.
- Ciò non lo differenzierebbe da CAN
+ Ciò non lo differenzierebbe da CAN.
 \end_layout
 
 \begin_layout Itemize
@@ -774,9 +775,9 @@ Send_CRC
 re, l'indirizzo del nodo destinazione (utilizzato solo da I2C, SPI e CAN),
  una maschera che indica su quali canali effettuare la trasmissione e la
  modalità di trasmissione.
- Nel precedente paragrafo è stato evidenziato il fatto che l'unico canale
- su cui è possibile effettuare una cominucazione in modalità multicast e
- broadcast risulti essere CAN.
+ Nel precedente paragrafo è stato evidenziato che l'unico canale su cui
+ è possibile effettuare una cominucazione in modalità multicast e broadcast
+ risulti essere CAN.
  Se l'utente dovesse scegliere una modalità non compatibile ai canali selezionat
 i la funzione ritornerà il valore -1, negando dunque la trasmissione, altrimenti
  ritorna una maschera indicante le periferiche sulle quali si è effettuata
@@ -798,18 +799,18 @@ Receive_CRC
  il messaggio ricevuto, una maschera che indica i canali sui quali effettuare
  la ricezione e il parametro address, utilizzato nel caso la trasmissione
  sia richiesta su SPI per effettuare il matching con il corrispondente segnale
- di Slave Select.
- Ritorna maschera indicante le periferiche sulle quali si è effettuata la
- ricezione.
- La ricezione avviene allo stesso modo della trasmissione.
- Avrebbe avuto senso, dato che si sta lavorando con le interrupt, abilitare
- tutte le ricezione e poi controllarne ciclicamente lo stato in Round Robin.
- Non è stata effettuata tale scelta perchè si suppone che tutte le periferiche
- ricevano dallo stesso nodo all'inerno della receive quindi il comportamento
- ottenuto sarebbe stato il medesimo.
+ di Slave Select, la funzione restituisce la maschera indicante le periferiche
+ sulle quali si è effettuata la ricezione.
+ Tale operazione ha lo stesso comportamento adottato nella trasmissione.
+ Avrebbe potuto aver senso, dato l'utilizzo degli interrupt, abilitare tutte
+ le periferiche in ricezione e poi controllarne ciclicamente lo stato in
+ Round Robin, ma non è stata seguita tale scelta perchè si suppone che tutte
+ le periferiche ricevano dallo stesso nodo mentre si trovano all'interno
+ della funzione di receive, quindi il comportamento ottenuto sarebbe stato
+ il medesimo.
  Nel caso di utilizzo di più periferiche per la ricezione il messaggio viene
- sovrascitto a ogni nuova ricezione, ma il calcolo del CRC viene effettuato
- per ogni ricezione.
+ sovrascritto a ogni nuova ricezione, ma il calcolo del CRC viene effettuato
+ ad ogni singola intercettazione di un messaggio.
 \end_layout
 
 \begin_layout Itemize
@@ -1062,10 +1063,10 @@ Modalità di trasmissione
 Configure_Peripheral
 \series default
 \emph default
-: prende in ingresso una maschera che indicante le periferiche da configurare,
- l'indirizzo del nodo e del gruppo a cui appartiene il nodo per le poter
- inizializzare le periferiche CAN e I2C.
- Nel caso il nodo sia un master allora la periferica SPI verrà configurata
+: prende in ingresso una maschera la quale indica le periferiche da configurare,
+ l'indirizzo del nodo e del gruppo a cui appartiene il nodo, per poter inizializ
+zare le periferiche CAN e I2C.
+ Nel caso il nodo sia master allora la periferica SPI verrà configurata
  come tale, altrimenti come slave.
 \end_layout
 
@@ -1409,8 +1410,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 \begin_layout Standard
 Quando un messaggio CAN arriva al dispositivo viene attivata questa Callback
  che come prima operazione preleva il frame dalla mailbox e controlla con
- i campi del frame se il messaggio sia corretto e che il CRC ricevuto sia
- corretto.
+ i campi del frame che il messaggio sia corretto, oltre a verificare l'
+ integrità del messaggio con il CRC.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1466,7 +1467,7 @@ HAL_I2C_Master_Transmit_IT(&hi2c2, (uint16_t) address,(uint8_t*) aTxBuffer,
 \end_layout
 
 \begin_layout Standard
-Come possiamo notare la board quando invia lo fa da master del bus.
+Come possiamo notare la board quando invia è master del bus.
 \end_layout
 
 \begin_layout Standard
@@ -1540,13 +1541,13 @@ Si noti che SPI prevede che il segnale di SS allo slave venga fornito mediante
  master.
  Per evitare funzionamenti oscillanti del pin NSS nativo dell'STM, seguendo
  i consiglio della community ST e dopo vari test, si è scelto di ricreare
- il mesimo meccanismo utilizzando un GPIO opportunamente configurato in
+ il medesimo meccanismo utilizzando un GPIO opportunamente configurato in
  sostituzione del pin NSS.
  Dunque la gestione sarà software e non più hardware.
- Se il nodo è master sul bus allora, tramire un suo GPIO (necessario per
+ Se il nodo è master sul bus allora, tramite un suo GPIO (necessario per
  realizzare il multislave) dovrà abbassare il sengale prima di iniziare
  la transazione, se il nodo è uno slave dovrà aspettare che il segnale SS
- (in lettura su un GPIO custom) diventi basso.
+ (in lettura su un pin GPIO deciso da noi) diventi basso.
 \end_layout
 
 \begin_layout Standard
@@ -1628,14 +1629,13 @@ huart2.Init.Parity = UART_PARITY_NONE;
 
 \begin_layout Standard
 Nella configurazione di UART è necessario indicare la velocità di comunicazione,
- la struttura del frame da inviare, il numero di bit per il dato, quanti
+ la struttura del frame da inviare: il numero di bit per il dato, quanti
  bit di stop e se utilizzare il bit di parità.
 \end_layout
 
 \begin_layout Standard
-Per la trasmissione vale non ci sono ulterioni note, mentre invece per la
- ricezione prima di effettare la prossima si attende che il pin RX non sia
- più utilizzato.
+Per la trasmissione non ci sono ulterioni note, mentre invece per la ricezione
+ prima di effettare la prossima si attende che il pin RX non sia più utilizzato.
 \end_layout
 
 \begin_layout Standard
@@ -1675,8 +1675,8 @@ CRC
 \end_layout
 
 \begin_layout Standard
-La periferica adita a calcolare il CRC viene configurata in modo tale da
- utilizzare i polinomi descritti nella specifica
+La periferica adibita a calcolare il CRC viene configurata in modo tale
+ da utilizzare i polinomi descritti nella specifica
 \end_layout
 
 \begin_layout Standard
@@ -1710,7 +1710,7 @@ hcrc.Init.DefaultInitValueUse = CRC_DefaultValue;
 \end_layout
 
 \begin_layout Standard
-Abbiamo dato anche la possibilità di utilizzare un valore di inizializzazione
+Abbiamo lasciato la possibilità di utilizzare un valore di inizializzazione
  nel caso in un successivo futuro questo dovesse essere richiesto.
 \end_layout
 
@@ -1792,10 +1792,10 @@ else
 \end_layout
 
 \begin_layout Standard
-Quando i valori dei CRC questi vengono prelevati da una posizione stabilita
- del messaggio (essendo il messaggio di dimensione fissa), rivengono calcolati
- i CRC con i polinomi stabili e confrontati se sono identici con quelli
- ricevuti.
+Alla ricezione di un messaggio vengono prelevati i valori dei CRC da una
+ posizione stabilita nel messaggio (essendo il messaggio di dimensione fissa),
+ si rieffettua il calcolo con i polinomi stabili e confrontati per controllare
+ se sono identici con quelli ricevuti.
 \end_layout
 
 \begin_layout Subsection
@@ -1803,7 +1803,7 @@ Applicativo Utente
 \end_layout
 
 \begin_layout Standard
-Per testare le corretto funzionamento dell'architetture sottostande e eseguire
+Per testare le corretto funzionamento dell'architetture sottostante e eseguire
  una limitata simulazione dei sistema è stato realizano un applicativo che
  permettere la comunicazione fra un master e uno slave del sistema.
  L'algoritmo eseguito ciclicamente è il seguente:
@@ -1874,13 +1874,13 @@ Il main test è facilmente configurabile in:
 
 \begin_layout Itemize
 Dimensione del messaggio da inviare: Il messaggio viene generato casualmente
- ad un ciclo for iniziale.
+ in un ciclo for iniziale.
  Per settarne la dimensione è sufficiente definire la dimensione del PAYLOAD_SIZ
 E nel main.h indicando come valore (numero_byte_da_inviare*4).
 \end_layout
 
 \begin_layout Itemize
-Periferiche sul quale effettuare la tramissione:
+Periferiche sulle quali effettuare la tramissione:
 \end_layout
 
 \begin_deeper
@@ -1911,13 +1911,13 @@ OR bitwise
 
 \end_deeper
 \begin_layout Standard
-La modalità CAN va provata in maniera esclusiva, in quanto il componente
+La modalità CAN viene utillizzata in modalità di test, in quanto il componente
  è configurato in LOOP_BACK (allacciato su se stesso) e inserendo come indirizzo
- della sand uno dei valori (NODE_ADDRESS e GROUP_ADDRESS) passati alla funzione
+ della send uno dei valori (NODE_ADDRESS e GROUP_ADDRESS) passati alla funzione
  di configurazione delle periferiche.
- Inoltre deve essere effuttuata solo la Sand altrimenti la recive rimarrebbe
+ Inoltre deve essere effuttuata solo la send altrimenti la recive rimarrebbe
  bloccata in attesa di reicezione.
- Il codice per un eventuale funzionamento non in looback è comunque commentato
+ Il codice per un eventuale funzionamento non in loopback è comunque commentato
  nella receive.
  Le altre periferiche possono essere utilizzate in contemporanea.
  SPI potrebbe generare malfunzionamenti dovuti alla connessione, UART e
@@ -1931,8 +1931,8 @@ Connessioni fische broad
 \begin_layout Standard
 Si riporta in seguito la connessione delle board utilizzate nell'attuale
  configurazione dei driver.
- Per SPI è necessario esclusivamente che PA8 sul master con PA9 dello slave
- e non vicevesa.
+ Per SPI è necessario collegare esclusivamente PD8 sul master con PD9 dello
+ slave e non vicevesa.
 \end_layout
 
 \begin_layout Standard
