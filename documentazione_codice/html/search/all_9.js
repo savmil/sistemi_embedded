@@ -13,5 +13,7 @@ var searchData=
   ['inst_5firq',['inst_irq',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#ad49f0dfc577739899b90a7243c22a1cd',1,'GPIO_v1_0_S00_AXI.arch_imp.inst_irq()'],['../classUART__v1__0__S00__AXI_1_1arch__imp.html#ad49f0dfc577739899b90a7243c22a1cd',1,'UART_v1_0_S00_AXI.arch_imp.inst_irq()']]],
   ['interrupt',['interrupt',['../classUART__v1__0.html#a5b78f3e3edfaf6e8ec79031b9e631e9d',1,'UART_v1_0']]],
   ['intr_5fmask',['intr_mask',['../classUART__v1__0__S00__AXI_1_1arch__imp.html#a0cfc6c234ce00413175fbbdc0e556f1d',1,'UART_v1_0_S00_AXI::arch_imp']]],
-  ['intr_5fpending',['intr_pending',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a27a13ac4e8c3307360aa906035c2e140',1,'GPIO_v1_0_S00_AXI.arch_imp.intr_pending()'],['../classUART__v1__0__S00__AXI_1_1arch__imp.html#a5449c5c114aa406ec50242ff099946a4',1,'UART_v1_0_S00_AXI.arch_imp.intr_pending()']]]
+  ['intr_5fpending',['intr_pending',['../classGPIO__v1__0__S00__AXI_1_1arch__imp.html#a27a13ac4e8c3307360aa906035c2e140',1,'GPIO_v1_0_S00_AXI.arch_imp.intr_pending()'],['../classUART__v1__0__S00__AXI_1_1arch__imp.html#a5449c5c114aa406ec50242ff099946a4',1,'UART_v1_0_S00_AXI.arch_imp.intr_pending()']]],
+  ['irq_5fmask',['irq_mask',['../structGPIO.html#a8ee102d0534084ca58a9cf9b8a3d9cc9',1,'GPIO']]],
+  ['irqnumber',['irqNumber',['../structGPIO.html#a42a1593ebe61611c4e29413903a373a5',1,'GPIO::irqNumber()'],['../structUART.html#a42a1593ebe61611c4e29413903a373a5',1,'UART::irqNumber()']]]
 ];

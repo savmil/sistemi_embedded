@@ -36,7 +36,7 @@ la macro \hyperlink{UART__kernel__main_8c_ad0387b8483398a4369c6f42d62b2e90d}{mod
 
 
 
-Interrupt-\/handler. 
+Interrupt-\/handler chiamato alla ricezione di un\textquotesingle{}interruzione sulla linea al quale è stato registrato. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -83,6 +83,13 @@ Nuova posizione della \char`\"{}testina\char`\"{} di lettura/scrittura
 Invocata all\textquotesingle{}apertura del file corrispondente al device. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em inode} & struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto \\
+\hline
+{\em file\+\_\+ptr} & puntatore al descrittore file del device\\
+\hline
+\end{DoxyParams}
+
 \begin{DoxyRetVals}{Return values}
 {\em 0} & se non si verifica nessun errore \\
 \hline
@@ -109,7 +116,22 @@ Verifica che le operazioni di lettura risultino non-\/bloccanti.
 \begin{DoxyReturn}{Returns}
 maschera di bit che indica se sia possibile effettuare operazioni di lettura non bloccanti.
 \end{DoxyReturn}
-Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{UART__kernel__main_8c_abc41b10649682af308a118dd9316c037}\label{UART__kernel__main_8c_abc41b10649682af308a118dd9316c037}} 
+Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{UART__kernel__main_8c_a9dc0e4187f4bf823ae23f86d943a7d64}\label{UART__kernel__main_8c_a9dc0e4187f4bf823ae23f86d943a7d64}} 
+\index{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+probe@{U\+A\+R\+T\+\_\+probe}}
+\index{U\+A\+R\+T\+\_\+probe@{U\+A\+R\+T\+\_\+probe}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+probe()}{UART\_probe()}}
+{\footnotesize\ttfamily static int U\+A\+R\+T\+\_\+probe (\begin{DoxyParamCaption}\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Viene chiamata automaticamente all\textquotesingle{}inserimento del modulo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdev} & struttura che astrae al kernel il platform\+\_\+device associato al nostro dispositivo \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{UART__kernel__main_8c_abc41b10649682af308a118dd9316c037}\label{UART__kernel__main_8c_abc41b10649682af308a118dd9316c037}} 
 \index{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}!U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}}
 \index{U\+A\+R\+T\+\_\+read@{U\+A\+R\+T\+\_\+read}!U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c@{U\+A\+R\+T\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+read()}{UART\_read()}}
@@ -117,7 +139,7 @@ Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarge
 
 
 
-Legge dati dal device. 
+Utilizzata per effettuare la ricezione di un carattere tramite il nostro device \hyperlink{structUART}{U\+A\+RT}. Se non è presente un nuovo carattere da leggere il processo si mette il sleep per poi essere successivamente risvegliato dalla I\+SR all\textquotesingle{}avvenuto completamento della ricezione. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -165,7 +187,7 @@ Viene chiamata automaticamente alla rimozione del modulo.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pdev} & \\
+{\em pdev} & struttura che astrae al kernel il platform\+\_\+device associato al nostro dispositivo\\
 \hline
 \end{DoxyParams}
 
@@ -181,7 +203,7 @@ Dealloca tutta la memoria utilizzata dal driver, de-\/inizializzando il device e
 
 
 
-Invia dati al device. 
+Utilizzata per effettuare una trasmissione di un carattere tramite il nostro device \hyperlink{structUART}{U\+A\+RT}. Se ancora non è terminata la precedente trasmissione il processo si mette il sleep per poi essere successivamente risvegliato dalla I\+SR all\textquotesingle{}avvenuto completamento della trasmissione. 
 
 
 \begin{DoxyParams}{Parameters}

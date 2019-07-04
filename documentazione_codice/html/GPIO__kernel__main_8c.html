@@ -109,7 +109,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Interrupt-handler. </p>
+<p>Interrupt-handler chiamato alla ricezione di un'interruzione sulla linea al quale è stato registrato. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">irq</td><td>Interrupt-number a cui il device è connesso </td></tr>
@@ -217,6 +217,13 @@ $(function() {
 </div><div class="memdoc">
 
 <p>Invocata all'apertura del file corrispondente al device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inode</td><td>struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto </td></tr>
+    <tr><td class="paramname">file_ptr</td><td>puntatore al descrittore file del device</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>se non si verifica nessun errore </td></tr>
@@ -274,8 +281,8 @@ $(function() {
 
 </div>
 </div>
-<a id="a1f390ac245be9888bae4f11329a17057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f390ac245be9888bae4f11329a17057">&#9670;&nbsp;</a></span>GPIO_probe()</h2>
+<a id="a8078710226d7278c771e036f1c26e99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8078710226d7278c771e036f1c26e99b">&#9670;&nbsp;</a></span>GPIO_probe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +304,14 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Inizializzazione del driver </p>
+
+<p>Viene chiamata automaticamente all'inserimento del modulo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdev</td><td>struttura che astrae al kernel il platform_device associato al nostro dispositivo </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Allocazione dell'oggetto <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> </p>
 
 </div>
@@ -443,7 +457,7 @@ $(function() {
 <p>Viene chiamata automaticamente alla rimozione del modulo.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pdev</td><td></td></tr>
+    <tr><td class="paramname">pdev</td><td>struttura che astrae al kernel il platform_device associato al nostro dispositivo</td></tr>
   </table>
   </dd>
 </dl>
@@ -453,7 +467,7 @@ $(function() {
   </table>
   </dd>
 </dl>
-<p>Dealloca tutta la memoria utilizzata dal driver, de-inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione <a class="el" href="GPIO__kernel__main_8c.html#a1f390ac245be9888bae4f11329a17057">GPIO_probe()</a>. </p>
+<p>Dealloca tutta la memoria utilizzata dal driver, de-inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione <a class="el" href="GPIO__kernel__main_8c.html#a8078710226d7278c771e036f1c26e99b" title="Viene chiamata automaticamente all&#39;inserimento del modulo. ">GPIO_probe()</a>. </p>
 
 </div>
 </div>
@@ -588,8 +602,8 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    .driver = {</div><div class="line">                .name = DRIVER_NAME,</div><div class="line">                .owner = THIS_MODULE,</div><div class="line">                .of_match_table = of_match_ptr(<a class="code" href="GPIO__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a>),</div><div class="line">        },  </div><div class="line">    .probe = <a class="code" href="GPIO__kernel__main_8c.html#a1f390ac245be9888bae4f11329a17057">GPIO_probe</a>,</div><div class="line">    .remove = <a class="code" href="GPIO__kernel__main_8c.html#a88901764a1cd9596c49549707d87e895">GPIO_remove</a>   </div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a88901764a1cd9596c49549707d87e895"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a88901764a1cd9596c49549707d87e895">GPIO_remove</a></div><div class="ttdeci">static int GPIO_remove(struct platform_device *op)</div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:167</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a1f390ac245be9888bae4f11329a17057"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a1f390ac245be9888bae4f11329a17057">GPIO_probe</a></div><div class="ttdeci">static int GPIO_probe(struct platform_device *op)</div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:101</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    .driver = {</div><div class="line">                .name = DRIVER_NAME,</div><div class="line">                .owner = THIS_MODULE,</div><div class="line">                .of_match_table = of_match_ptr(<a class="code" href="GPIO__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a>),</div><div class="line">        },  </div><div class="line">    .probe = <a class="code" href="GPIO__kernel__main_8c.html#a8078710226d7278c771e036f1c26e99b">GPIO_probe</a>,</div><div class="line">    .remove = <a class="code" href="GPIO__kernel__main_8c.html#a88901764a1cd9596c49549707d87e895">GPIO_remove</a>   </div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a88901764a1cd9596c49549707d87e895"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a88901764a1cd9596c49549707d87e895">GPIO_remove</a></div><div class="ttdeci">static int GPIO_remove(struct platform_device *op)</div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:169</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a8078710226d7278c771e036f1c26e99b"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a8078710226d7278c771e036f1c26e99b">GPIO_probe</a></div><div class="ttdeci">static int GPIO_probe(struct platform_device *op)</div><div class="ttdoc">Viene chiamata automaticamente all&amp;#39;inserimento del modulo. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:103</div></div>
 <div class="ttc" id="GPIO__kernel__main_8c_html_a422309d376dbdba198b2722c5a2ecdef"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a></div><div class="ttdeci">static const struct of_device_id __test_int_driver_id[]</div><div class="ttdoc">Identifica il device all&amp;#39;interno del device tree. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:79</div></div>
 </div><!-- fragment -->
 <p>Definisce le funzioni probe() e remove() da chiamare al caricamento del driver. </p>
@@ -615,12 +629,12 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a>,</div><div class="line">        .read       = <a class="code" href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a>,</div><div class="line">        .write      = <a class="code" href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a>,</div><div class="line">        .poll       = <a class="code" href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a>,</div><div class="line">        .open       = <a class="code" href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a>,</div><div class="line">        .release    = <a class="code" href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a79c6e738ce840a31fd9e4de41941bd0f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a></div><div class="ttdeci">static unsigned int GPIO_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:269</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_af76394b0e572b3864def7b9da59e546d"><div class="ttname"><a href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a></div><div class="ttdeci">static ssize_t GPIO_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Legge dati dal device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:325</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a77709311b9a8100bd413ddd92e632a9f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="ttdeci">static int GPIO_release(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata alla chiusura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:216</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a325c239634eb54ae285cd460ad10e643"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a></div><div class="ttdeci">static loff_t GPIO_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:232</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_adbb434cb7bda775580ff370112a68589"><div class="ttname"><a href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a></div><div class="ttdeci">static int GPIO_open(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata all&amp;#39;apertura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:193</div></div>
-<div class="ttc" id="GPIO__kernel__main_8c_html_a8436654b5aa7dfd5932595b05d58ba24"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a></div><div class="ttdeci">static ssize_t GPIO_write(struct file *file_ptr, const char *buf, size_t size, loff_t *off)</div><div class="ttdoc">Invia dati al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:374</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a>,</div><div class="line">        .read       = <a class="code" href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a>,</div><div class="line">        .write      = <a class="code" href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a>,</div><div class="line">        .poll       = <a class="code" href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a>,</div><div class="line">        .open       = <a class="code" href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a>,</div><div class="line">        .release    = <a class="code" href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="line">}</div><div class="ttc" id="GPIO__kernel__main_8c_html_a79c6e738ce840a31fd9e4de41941bd0f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a79c6e738ce840a31fd9e4de41941bd0f">GPIO_poll</a></div><div class="ttdeci">static unsigned int GPIO_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:274</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_af76394b0e572b3864def7b9da59e546d"><div class="ttname"><a href="GPIO__kernel__main_8c.html#af76394b0e572b3864def7b9da59e546d">GPIO_read</a></div><div class="ttdeci">static ssize_t GPIO_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Legge dati dal device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:330</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a77709311b9a8100bd413ddd92e632a9f"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a77709311b9a8100bd413ddd92e632a9f">GPIO_release</a></div><div class="ttdeci">static int GPIO_release(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata alla chiusura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:221</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a325c239634eb54ae285cd460ad10e643"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a325c239634eb54ae285cd460ad10e643">GPIO_llseek</a></div><div class="ttdeci">static loff_t GPIO_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:237</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_adbb434cb7bda775580ff370112a68589"><div class="ttname"><a href="GPIO__kernel__main_8c.html#adbb434cb7bda775580ff370112a68589">GPIO_open</a></div><div class="ttdeci">static int GPIO_open(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata all&amp;#39;apertura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:198</div></div>
+<div class="ttc" id="GPIO__kernel__main_8c_html_a8436654b5aa7dfd5932595b05d58ba24"><div class="ttname"><a href="GPIO__kernel__main_8c.html#a8436654b5aa7dfd5932595b05d58ba24">GPIO_write</a></div><div class="ttdeci">static ssize_t GPIO_write(struct file *file_ptr, const char *buf, size_t size, loff_t *off)</div><div class="ttdoc">Invia dati al device. </div><div class="ttdef"><b>Definition:</b> GPIO_kernel_main.c:379</div></div>
 </div><!-- fragment -->
 <p>Struttura che specifica le funzioni che agiscono sul device. </p>
 

@@ -135,7 +135,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Interrupt-handler. </p>
+<p>Interrupt-handler chiamato alla ricezione di un'interruzione sulla linea al quale è stato registrato. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">irq</td><td>Interrupt-number a cui il device è connesso </td></tr>
@@ -240,6 +240,13 @@ $(function() {
 </div><div class="memdoc">
 
 <p>Invocata all'apertura del file corrispondente al device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inode</td><td>struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto </td></tr>
+    <tr><td class="paramname">file_ptr</td><td>puntatore al descrittore file del device</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">0</td><td>se non si verifica nessun errore </td></tr>
@@ -297,6 +304,40 @@ $(function() {
 
 </div>
 </div>
+<a id="a9dc0e4187f4bf823ae23f86d943a7d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc0e4187f4bf823ae23f86d943a7d64">&#9670;&nbsp;</a></span>UART_probe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int UART_probe </td>
+          <td>(</td>
+          <td class="paramtype">struct platform_device *&#160;</td>
+          <td class="paramname"><em>pdev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Viene chiamata automaticamente all'inserimento del modulo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pdev</td><td>struttura che astrae al kernel il platform_device associato al nostro dispositivo </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="abc41b10649682af308a118dd9316c037"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc41b10649682af308a118dd9316c037">&#9670;&nbsp;</a></span>UART_read()</h2>
 
@@ -343,7 +384,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Legge dati dal device. </p>
+<p>Utilizzata per effettuare la ricezione di un carattere tramite il nostro device <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. Se non è presente un nuovo carattere da leggere il processo si mette il sleep per poi essere successivamente risvegliato dalla ISR all'avvenuto completamento della ricezione. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file_ptr</td><td>puntatore al descrittore file del device </td></tr>
@@ -434,7 +475,7 @@ $(function() {
 <p>Viene chiamata automaticamente alla rimozione del modulo.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pdev</td><td></td></tr>
+    <tr><td class="paramname">pdev</td><td>struttura che astrae al kernel il platform_device associato al nostro dispositivo</td></tr>
   </table>
   </dd>
 </dl>
@@ -444,7 +485,7 @@ $(function() {
   </table>
   </dd>
 </dl>
-<p>Dealloca tutta la memoria utilizzata dal driver, de-inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione <a class="el" href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64" title="Inizializzazione del driver. ">UART_probe()</a>. </p>
+<p>Dealloca tutta la memoria utilizzata dal driver, de-inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione <a class="el" href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64" title="Viene chiamata automaticamente all&#39;inserimento del modulo. ">UART_probe()</a>. </p>
 
 </div>
 </div>
@@ -494,7 +535,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>Invia dati al device. </p>
+<p>Utilizzata per effettuare una trasmissione di un carattere tramite il nostro device <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a>. Se ancora non è terminata la precedente trasmissione il processo si mette il sleep per poi essere successivamente risvegliato dalla ISR all'avvenuto completamento della trasmissione. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file_ptr</td><td>puntatore al descrittore file del device </td></tr>
@@ -551,9 +592,9 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    .driver = {</div><div class="line">                .name = DRIVER_NAME,</div><div class="line">                .owner = THIS_MODULE,</div><div class="line">                .of_match_table = of_match_ptr(<a class="code" href="UART__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a>),</div><div class="line">        },  </div><div class="line">    .probe = <a class="code" href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64">UART_probe</a>,</div><div class="line">    .remove = <a class="code" href="UART__kernel__main_8c.html#a25c6ac5c7b986f6824879b875996178c">UART_remove</a>   </div><div class="line">}</div><div class="ttc" id="UART__kernel__main_8c_html_a9dc0e4187f4bf823ae23f86d943a7d64"><div class="ttname"><a href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64">UART_probe</a></div><div class="ttdeci">static int UART_probe(struct platform_device *op)</div><div class="ttdoc">Inizializzazione del driver. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:104</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    .driver = {</div><div class="line">                .name = DRIVER_NAME,</div><div class="line">                .owner = THIS_MODULE,</div><div class="line">                .of_match_table = of_match_ptr(<a class="code" href="UART__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a>),</div><div class="line">        },  </div><div class="line">    .probe = <a class="code" href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64">UART_probe</a>,</div><div class="line">    .remove = <a class="code" href="UART__kernel__main_8c.html#a25c6ac5c7b986f6824879b875996178c">UART_remove</a>   </div><div class="line">}</div><div class="ttc" id="UART__kernel__main_8c_html_a9dc0e4187f4bf823ae23f86d943a7d64"><div class="ttname"><a href="UART__kernel__main_8c.html#a9dc0e4187f4bf823ae23f86d943a7d64">UART_probe</a></div><div class="ttdeci">static int UART_probe(struct platform_device *op)</div><div class="ttdoc">Viene chiamata automaticamente all&amp;#39;inserimento del modulo. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:106</div></div>
 <div class="ttc" id="UART__kernel__main_8c_html_a422309d376dbdba198b2722c5a2ecdef"><div class="ttname"><a href="UART__kernel__main_8c.html#a422309d376dbdba198b2722c5a2ecdef">__test_int_driver_id</a></div><div class="ttdeci">static const struct of_device_id __test_int_driver_id[]</div><div class="ttdoc">Identifica il device all&amp;#39;interno del device tree. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:82</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_a25c6ac5c7b986f6824879b875996178c"><div class="ttname"><a href="UART__kernel__main_8c.html#a25c6ac5c7b986f6824879b875996178c">UART_remove</a></div><div class="ttdeci">static int UART_remove(struct platform_device *op)</div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:169</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_a25c6ac5c7b986f6824879b875996178c"><div class="ttname"><a href="UART__kernel__main_8c.html#a25c6ac5c7b986f6824879b875996178c">UART_remove</a></div><div class="ttdeci">static int UART_remove(struct platform_device *op)</div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:171</div></div>
 </div><!-- fragment -->
 <p>Definisce le funzioni probe() e remove() da chiamare al caricamento del driver. </p>
 
@@ -578,12 +619,12 @@ $(function() {
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="UART__kernel__main_8c.html#a0c5a540d5446f96fc782546dbcbc2bea">UART_llseek</a>,</div><div class="line">        .read       = <a class="code" href="UART__kernel__main_8c.html#abc41b10649682af308a118dd9316c037">UART_read</a>,</div><div class="line">        .write      = <a class="code" href="UART__kernel__main_8c.html#a698b0d23bcc48e9b338131fbf343b28a">UART_write</a>,</div><div class="line">        .poll       = <a class="code" href="UART__kernel__main_8c.html#ac14a568befd982fc0c30d5b24af61501">UART_poll</a>,</div><div class="line">        .open       = <a class="code" href="UART__kernel__main_8c.html#ad281ac9e54472abea9d9aaae3c61e6e9">UART_open</a>,</div><div class="line">        .release    = <a class="code" href="UART__kernel__main_8c.html#a3e3ef8879eafe1a898efa42536cb903e">UART_release</a></div><div class="line">}</div><div class="ttc" id="UART__kernel__main_8c_html_a3e3ef8879eafe1a898efa42536cb903e"><div class="ttname"><a href="UART__kernel__main_8c.html#a3e3ef8879eafe1a898efa42536cb903e">UART_release</a></div><div class="ttdeci">static int UART_release(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata alla chiusura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:236</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_abc41b10649682af308a118dd9316c037"><div class="ttname"><a href="UART__kernel__main_8c.html#abc41b10649682af308a118dd9316c037">UART_read</a></div><div class="ttdeci">static ssize_t UART_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Legge dati dal device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:374</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_a698b0d23bcc48e9b338131fbf343b28a"><div class="ttname"><a href="UART__kernel__main_8c.html#a698b0d23bcc48e9b338131fbf343b28a">UART_write</a></div><div class="ttdeci">static ssize_t UART_write(struct file *file_ptr, const char __user * buf, size_t count, loff_t * off)</div><div class="ttdoc">Invia dati al device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:420</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_a0c5a540d5446f96fc782546dbcbc2bea"><div class="ttname"><a href="UART__kernel__main_8c.html#a0c5a540d5446f96fc782546dbcbc2bea">UART_llseek</a></div><div class="ttdeci">static loff_t UART_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:252</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_ad281ac9e54472abea9d9aaae3c61e6e9"><div class="ttname"><a href="UART__kernel__main_8c.html#ad281ac9e54472abea9d9aaae3c61e6e9">UART_open</a></div><div class="ttdeci">static int UART_open(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata all&amp;#39;apertura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:195</div></div>
-<div class="ttc" id="UART__kernel__main_8c_html_ac14a568befd982fc0c30d5b24af61501"><div class="ttname"><a href="UART__kernel__main_8c.html#ac14a568befd982fc0c30d5b24af61501">UART_poll</a></div><div class="ttdeci">static unsigned int UART_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:289</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">        .owner      = THIS_MODULE,</div><div class="line">        .llseek     = <a class="code" href="UART__kernel__main_8c.html#a0c5a540d5446f96fc782546dbcbc2bea">UART_llseek</a>,</div><div class="line">        .read       = <a class="code" href="UART__kernel__main_8c.html#abc41b10649682af308a118dd9316c037">UART_read</a>,</div><div class="line">        .write      = <a class="code" href="UART__kernel__main_8c.html#a698b0d23bcc48e9b338131fbf343b28a">UART_write</a>,</div><div class="line">        .poll       = <a class="code" href="UART__kernel__main_8c.html#ac14a568befd982fc0c30d5b24af61501">UART_poll</a>,</div><div class="line">        .open       = <a class="code" href="UART__kernel__main_8c.html#ad281ac9e54472abea9d9aaae3c61e6e9">UART_open</a>,</div><div class="line">        .release    = <a class="code" href="UART__kernel__main_8c.html#a3e3ef8879eafe1a898efa42536cb903e">UART_release</a></div><div class="line">}</div><div class="ttc" id="UART__kernel__main_8c_html_a3e3ef8879eafe1a898efa42536cb903e"><div class="ttname"><a href="UART__kernel__main_8c.html#a3e3ef8879eafe1a898efa42536cb903e">UART_release</a></div><div class="ttdeci">static int UART_release(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata alla chiusura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:241</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_abc41b10649682af308a118dd9316c037"><div class="ttname"><a href="UART__kernel__main_8c.html#abc41b10649682af308a118dd9316c037">UART_read</a></div><div class="ttdeci">static ssize_t UART_read(struct file *file_ptr, char *buf, size_t count, loff_t *ppos)</div><div class="ttdoc">Utilizzata per effettuare la ricezione di un carattere tramite il nostro device UART. Se non è presente un nuovo carattere da leggere il processo si mette il sleep per poi essere successivamente risvegliato dalla ISR all&amp;#39;avvenuto completamento della ricezione. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:381</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_a698b0d23bcc48e9b338131fbf343b28a"><div class="ttname"><a href="UART__kernel__main_8c.html#a698b0d23bcc48e9b338131fbf343b28a">UART_write</a></div><div class="ttdeci">static ssize_t UART_write(struct file *file_ptr, const char __user * buf, size_t count, loff_t * off)</div><div class="ttdoc">Utilizzata per effettuare una trasmissione di un carattere tramite il nostro device UART...</div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:429</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_a0c5a540d5446f96fc782546dbcbc2bea"><div class="ttname"><a href="UART__kernel__main_8c.html#a0c5a540d5446f96fc782546dbcbc2bea">UART_llseek</a></div><div class="ttdeci">static loff_t UART_llseek(struct file *file_ptr, loff_t off, int whence)</div><div class="ttdoc">Implementa le system-call lseek() e llseek(). </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:257</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_ad281ac9e54472abea9d9aaae3c61e6e9"><div class="ttname"><a href="UART__kernel__main_8c.html#ad281ac9e54472abea9d9aaae3c61e6e9">UART_open</a></div><div class="ttdeci">static int UART_open(struct inode *inode, struct file *file_ptr)</div><div class="ttdoc">Invocata all&amp;#39;apertura del file corrispondente al device. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:200</div></div>
+<div class="ttc" id="UART__kernel__main_8c_html_ac14a568befd982fc0c30d5b24af61501"><div class="ttname"><a href="UART__kernel__main_8c.html#ac14a568befd982fc0c30d5b24af61501">UART_poll</a></div><div class="ttdeci">static unsigned int UART_poll(struct file *file_ptr, struct poll_table_struct *wait)</div><div class="ttdoc">Verifica che le operazioni di lettura risultino non-bloccanti. </div><div class="ttdef"><b>Definition:</b> UART_kernel_main.c:294</div></div>
 </div><!-- fragment -->
 <p>Struttura che specifica le funzioni che agiscono sul device. </p>
 

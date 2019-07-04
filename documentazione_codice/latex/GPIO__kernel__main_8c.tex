@@ -21,7 +21,7 @@ modulo kernel che governa l\textquotesingle{} utilizzo del driver \hyperlink{str
 
 
 
-Interrupt-\/handler. 
+Interrupt-\/handler chiamato alla ricezione di un\textquotesingle{}interruzione sulla linea al quale è stato registrato. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -72,6 +72,13 @@ Nuova posizione della \char`\"{}testina\char`\"{} di lettura/scrittura
 Invocata all\textquotesingle{}apertura del file corrispondente al device. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em inode} & struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto \\
+\hline
+{\em file\+\_\+ptr} & puntatore al descrittore file del device\\
+\hline
+\end{DoxyParams}
+
 \begin{DoxyRetVals}{Return values}
 {\em 0} & se non si verifica nessun errore \\
 \hline
@@ -98,13 +105,22 @@ Verifica che le operazioni di lettura risultino non-\/bloccanti.
 \begin{DoxyReturn}{Returns}
 maschera di bit che indica se sia possibile effettuare operazioni di lettura non bloccanti.
 \end{DoxyReturn}
-Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{GPIO__kernel__main_8c_a1f390ac245be9888bae4f11329a17057}\label{GPIO__kernel__main_8c_a1f390ac245be9888bae4f11329a17057}} 
+Back-\/end di tre diverse sys-\/calls\+: poll, epoll e select, \mbox{\Hypertarget{GPIO__kernel__main_8c_a8078710226d7278c771e036f1c26e99b}\label{GPIO__kernel__main_8c_a8078710226d7278c771e036f1c26e99b}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}}
 \index{G\+P\+I\+O\+\_\+probe@{G\+P\+I\+O\+\_\+probe}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+probe()}{GPIO\_probe()}}
 {\footnotesize\ttfamily static int G\+P\+I\+O\+\_\+probe (\begin{DoxyParamCaption}\item[{struct platform\+\_\+device $\ast$}]{pdev }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Inizializzazione del driver Allocazione dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO} \mbox{\Hypertarget{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}\label{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}} 
+
+
+Viene chiamata automaticamente all\textquotesingle{}inserimento del modulo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdev} & struttura che astrae al kernel il platform\+\_\+device associato al nostro dispositivo \\
+\hline
+\end{DoxyParams}
+Allocazione dell\textquotesingle{}oggetto \hyperlink{structGPIO}{G\+P\+IO} \mbox{\Hypertarget{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}\label{GPIO__kernel__main_8c_af76394b0e572b3864def7b9da59e546d}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}}
 \index{G\+P\+I\+O\+\_\+read@{G\+P\+I\+O\+\_\+read}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+read()}{GPIO\_read()}}
@@ -166,7 +182,7 @@ Viene chiamata automaticamente alla rimozione del modulo.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pdev} & \\
+{\em pdev} & struttura che astrae al kernel il platform\+\_\+device associato al nostro dispositivo\\
 \hline
 \end{DoxyParams}
 
@@ -174,7 +190,7 @@ Viene chiamata automaticamente alla rimozione del modulo.
 {\em 0} & se non si verifica nessun errore\\
 \hline
 \end{DoxyRetVals}
-Dealloca tutta la memoria utilizzata dal driver, de-\/inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione \hyperlink{GPIO__kernel__main_8c_a1f390ac245be9888bae4f11329a17057}{G\+P\+I\+O\+\_\+probe()}. \mbox{\Hypertarget{GPIO__kernel__main_8c_a8436654b5aa7dfd5932595b05d58ba24}\label{GPIO__kernel__main_8c_a8436654b5aa7dfd5932595b05d58ba24}} 
+Dealloca tutta la memoria utilizzata dal driver, de-\/inizializzando il device e disattivando gli interrupt per il device, effettuando tutte le operazioni inverse della funzione \hyperlink{GPIO__kernel__main_8c_a8078710226d7278c771e036f1c26e99b}{G\+P\+I\+O\+\_\+probe()}. \mbox{\Hypertarget{GPIO__kernel__main_8c_a8436654b5aa7dfd5932595b05d58ba24}\label{GPIO__kernel__main_8c_a8436654b5aa7dfd5932595b05d58ba24}} 
 \index{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}!G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}}
 \index{G\+P\+I\+O\+\_\+write@{G\+P\+I\+O\+\_\+write}!G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c@{G\+P\+I\+O\+\_\+kernel\+\_\+main.\+c}}
 \subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+write()}{GPIO\_write()}}
@@ -246,7 +262,7 @@ Identifica il device all\textquotesingle{}interno del device tree.
                 .owner = THIS\_MODULE,
                 .of\_match\_table = of\_match\_ptr(\hyperlink{GPIO__kernel__main_8c_a422309d376dbdba198b2722c5a2ecdef}{\_\_test\_int\_driver\_id}),
         \},  
-    .probe = \hyperlink{GPIO__kernel__main_8c_a1f390ac245be9888bae4f11329a17057}{GPIO\_probe},
+    .probe = \hyperlink{GPIO__kernel__main_8c_a8078710226d7278c771e036f1c26e99b}{GPIO\_probe},
     .remove = \hyperlink{GPIO__kernel__main_8c_a88901764a1cd9596c49549707d87e895}{GPIO\_remove}    
 \}
 \end{DoxyCode}

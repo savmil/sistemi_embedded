@@ -47,7 +47,7 @@ Ricalcola i due C\+RC del messaggio e li confronta con quelli ricevuti.
 {\em Received\+Frame} & messaggio ricevuto \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a94b4225bd565c3f21d418e13cab1b590}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a94b4225bd565c3f21d418e13cab1b590}} 
+Reinserisce i due C\+RC ricalcolati dal messaggio alla fine dello stesso \mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a94b4225bd565c3f21d418e13cab1b590}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a94b4225bd565c3f21d418e13cab1b590}} 
 \index{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Frame32to8@{Frame32to8}}
 \index{Frame32to8@{Frame32to8}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}}
 \subsubsection{\texorpdfstring{Frame32to8()}{Frame32to8()}}
@@ -111,7 +111,11 @@ Callback associata alla presenza di un nuovo messaggio pendente nella coda di ri
 {\em hcan} & handler alla struttura che gestisce C\+AN \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a9a8bf6971f3659c8ab25324b3833d165}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a9a8bf6971f3659c8ab25324b3833d165}} 
+Prelevievo di un messaggio dalla F\+I\+F\+O0 di ricezione
+
+Se l\textquotesingle{}header ricevuto non contiene il campo tipo, il tipo di identificativo e la lunghezza del data bytes attesi
+
+Quando sono stati ricevuti tutti i chunk del messaggio si può procedere con il confronto dei C\+RC \mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a9a8bf6971f3659c8ab25324b3833d165}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a9a8bf6971f3659c8ab25324b3833d165}} 
 \index{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}}
 \index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}}
 \subsubsection{\texorpdfstring{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Tx\+Mailbox0\+Complete\+Callback()}{HAL\_CAN\_TxMailbox0CompleteCallback()}}
@@ -330,7 +334,25 @@ Abilita la ricezione del frame sulle periferiche selezionate.
 {\em address} & indica lo slave S\+PI con cui voglio comunicare, permettendo di scegliere lo slave select opportuno \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a8049f589625aaa8ae0520981ab7ce83c}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a8049f589625aaa8ae0520981ab7ce83c}} 
+La ricezione è effettuata chiamando la seguente funzione, passando l\textquotesingle{}\hyperlink{structUART}{U\+A\+RT} handler, un puntatore al buffer in cui salvare il messaggio ricevuto e la sua dimensione
+
+Il programma attende finchè il valore della variabile Uart\+Ready è R\+E\+S\+ET. All\textquotesingle{}avvenuto completamento della ricezione la callback H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Rx\+Cplt\+Callback setterà il valore permettendo di avanzare con l\textquotesingle{}esecuzione
+
+Le funzioni fornite dall\textquotesingle{}Hardware Abstraction Layer per la trasmissione e ricezione utilizzano buffer da 8 bit. E\textquotesingle{} necessario dunque riconvertire il messaggio ricevuto, contenuto in un buffer di B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE valori da 8 bit in un buffer contenente F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE valori da 32 bit
+
+La seguente chiamata provvede a ricalcolare i due C\+RC dal payload del messggio ricevuto e a confrontarli con quelli contenuti nel messaggio. Queste ultime due chiamate vengono ripetute esattamente nelle successive sezioni relative alle altre periferiche.
+
+Il programma attende finchè lo stato di I2C non è uguale a R\+E\+A\+DY
+
+La ricezione su C\+AN è effettuata nella callback relativa all\textquotesingle{}avvenuta ricezione. Vedi documentazione esterna
+
+L\textquotesingle{}indirizzo del nodo dal quale si vuole ricevere viene utilizzato dal master per calcolare quale Slave Select deve essere deasserito per selezionare lo slave dal quale si vuole ricevere
+
+Se la board non è master prima di poter effettuare la ricezione è necessario attendere che il master porti al valore basso lo Slave Select
+
+Il programma attende che la trasmissione sia completa. All\textquotesingle{}avvenuto completamento della ricezione la callback H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Rx\+Cplt\+Callback setterà il valore dello stato a T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+TE permettendo di avanzare con l\textquotesingle{}esecuzione
+
+Viene riportato al valore alto lo Slave Select e resettato il valore dello stato \mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a8049f589625aaa8ae0520981ab7ce83c}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a8049f589625aaa8ae0520981ab7ce83c}} 
 \index{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}}
 \index{Send\+\_\+\+C\+RC@{Send\+\_\+\+C\+RC}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}}
 \subsubsection{\texorpdfstring{Send\+\_\+\+C\+R\+C()}{Send\_CRC()}}
@@ -349,7 +371,47 @@ Invia il messaggio sulle varie periferiche.
 {\em channel} & indica le periferiche sulle queli effettuare la trasmissione \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a70af21c671abfcc773614a9a4f63d920}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a70af21c671abfcc773614a9a4f63d920}} 
+Viene effettuato il controllo sulla compatibilità della modalità di trasmissione scelta e i canali selezionati
+
+Attesa di pressione User Button
+
+Le funzioni fornite dall\textquotesingle{}Hardware Abstraction Layer per la trasmissione e ricezione utilizzano buffer da 8 bit. E\textquotesingle{} necessario dunque convertire il messaggio originale, contenuto in un buffer di F\+R\+A\+M\+E\+\_\+\+S\+I\+ZE valori da 32 bit, in un buffer contenente B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE valori da 8 bit
+
+Se è stata richiesta la trasmissione sul canale \hyperlink{structUART}{U\+A\+RT} viene effettuata la trasmissione
+
+La trasmissione è effettuata chiamando la seguente funzione, passando l\textquotesingle{}\hyperlink{structUART}{U\+A\+RT} handler, un puntatore al buffer contenente il messaggio da trasmettere e la sua dimensione
+
+Il programma attende finchè il valore della variabile Uart\+Ready è R\+E\+S\+ET. All\textquotesingle{}avvenuto completamento della trasmissione la callback H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Tx\+Cplt\+Callback setterà il valore permettendo di avanzare con l\textquotesingle{}esecuzione
+
+Viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione
+
+Se l\textquotesingle{}errore di trasmissione è dato dal mancato ack da parte dello slave esso viene ignorato
+
+Il programma attende finchè lo stato di I2C non è uguale a R\+E\+A\+DY
+
+Standard C\+AN Identifier\+: identificativo del messaggio codificato su 11 bit secondo il protocollo C\+AN Standard
+
+Extended C\+AN Identifier\+: identificativo del messaggio codificato su 29 bit secondo il protocollo C\+AN Extended
+
+Tipo di messaggio
+
+Tipo di identificativo per il messaggio da trasmettere\+: Standard o Extended
+
+Lunghezza in byte del messaggio da trasmettere. Può assumere un valore da 0 ad 8
+
+Timestamp acquisito all\textquotesingle{}avvio della trasmissione del Frame. Se abilitato viene aggiunto al messaggio.
+
+Dal momento che il campo Data Bytes del frame C\+AN, ovvero il messaggio da trasmettere, può essere massimo di 8 bytes vengono effettuate più chiamate alla funzione H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Add\+Tx\+Message. Questa prende in ingresso l\textquotesingle{}handler di C\+AN, l\textquotesingle{}header del messaggio appena costruito e un buffer contenente dati di 8 bit. Ha il compito di aggiungere il messaggio alla prima mailbox di trasmissione che rileva libera. L\textquotesingle{}identificativo della mailbox nella quale ha deposto il messaggio viene ritornato mediante il parametro Tx\+Mailbox
+
+Quando è stato eseguito un numero di callback di trasmissione che indica l\textquotesingle{}avvenuto trasferimento di tutti i chunk da 8 bytes trasmessi, viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione
+
+L\textquotesingle{}indirizzo del nodo destinazione viene utilizzato per calcolare quale Slave Select deve essere deasserito per selezionare lo slave al quale si vuole trasmettere il messaggio
+
+Se la board non è master prima di poter effettuare la trasmissione è necessario attendere che il master porti al valore basso lo Slave Select
+
+Il programma attende che il trasferimento sia completo. All\textquotesingle{}avvenuto completamento della trasmissione, la callback H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Tx\+Cplt\+Callback setterà il valore dello stato a T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+TE permettendo di avanzare con l\textquotesingle{}esecuzione
+
+Viene riportato al valore alto lo Slave Select e resettato il valore dello stato \mbox{\Hypertarget{STM_2CRC__MultiSerial_2Src_2main_8c_a70af21c671abfcc773614a9a4f63d920}\label{STM_2CRC__MultiSerial_2Src_2main_8c_a70af21c671abfcc773614a9a4f63d920}} 
 \index{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}!System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}}
 \index{System\+Clock\+\_\+\+Config@{System\+Clock\+\_\+\+Config}!S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c@{S\+T\+M/\+C\+R\+C\+\_\+\+Multi\+Serial/\+Src/main.\+c}}
 \subsubsection{\texorpdfstring{System\+Clock\+\_\+\+Config()}{SystemClock\_Config()}}

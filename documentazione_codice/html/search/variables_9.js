@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['numeric_5fstd',['numeric_std',['../classGPIO__v1__0.html#a2edc34402b573437d5f25fa90ba4013e',1,'GPIO_v1_0.numeric_std()'],['../classGPIO__v1__0__S00__AXI.html#a2edc34402b573437d5f25fa90ba4013e',1,'GPIO_v1_0_S00_AXI.numeric_std()'],['../classUART__v1__0.html#a2edc34402b573437d5f25fa90ba4013e',1,'UART_v1_0.numeric_std()'],['../classUART__v1__0__S00__AXI.html#a2edc34402b573437d5f25fa90ba4013e',1,'UART_v1_0_S00_AXI.numeric_std()']]]
+  ['mm',['Mm',['../structGPIO.html#aeb60fb4e41b5f11f70ebe969361884f4',1,'GPIO::Mm()'],['../structUART.html#aeb60fb4e41b5f11f70ebe969361884f4',1,'UART::Mm()']]],
+  ['mreg',['mreg',['../structGPIO.html#a18c4eb95350c67ccb239a8a39c43c09a',1,'GPIO::mreg()'],['../structUART.html#a18c4eb95350c67ccb239a8a39c43c09a',1,'UART::mreg()']]]
 ];

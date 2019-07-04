@@ -32,7 +32,121 @@ Una struttura che definisce gli indirizzi del componente \hyperlink{structGPIO}{
 \subsubsection{\texorpdfstring{Base\+Address}{BaseAddress}}
 {\footnotesize\ttfamily U\+I\+N\+T\+P\+TR Base\+Address}
 
-indirizzo base periferica 
+indirizzo base periferica \mbox{\Hypertarget{structUART_a8d74db61fcf94cb509a2b1392fa17e41}\label{structUART_a8d74db61fcf94cb509a2b1392fa17e41}} 
+\index{U\+A\+RT@{U\+A\+RT}!buffer\+\_\+rx@{buffer\+\_\+rx}}
+\index{buffer\+\_\+rx@{buffer\+\_\+rx}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{buffer\+\_\+rx}{buffer\_rx}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ buffer\+\_\+rx}
+
+Buffer utilizzato per contenere i caratteri da ricevere \mbox{\Hypertarget{structUART_ac53416e03cc33e6c3b144cbf8d157510}\label{structUART_ac53416e03cc33e6c3b144cbf8d157510}} 
+\index{U\+A\+RT@{U\+A\+RT}!buffer\+\_\+tx@{buffer\+\_\+tx}}
+\index{buffer\+\_\+tx@{buffer\+\_\+tx}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{buffer\+\_\+tx}{buffer\_tx}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ buffer\+\_\+tx}
+
+Buffer utilizzato per contenere i caratteri da trasmettere \mbox{\Hypertarget{structUART_a2b8d3d6037e2d2fdadbd7c2fd995f0a1}\label{structUART_a2b8d3d6037e2d2fdadbd7c2fd995f0a1}} 
+\index{U\+A\+RT@{U\+A\+RT}!can\+\_\+read@{can\+\_\+read}}
+\index{can\+\_\+read@{can\+\_\+read}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{can\+\_\+read}{can\_read}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+read}
+
+Flag che indica, quando asserito, la possibilità di effettuale una chiamata a read \mbox{\Hypertarget{structUART_a5f5f15dfb65ef3e8f9f6142a8e726494}\label{structUART_a5f5f15dfb65ef3e8f9f6142a8e726494}} 
+\index{U\+A\+RT@{U\+A\+RT}!can\+\_\+write@{can\+\_\+write}}
+\index{can\+\_\+write@{can\+\_\+write}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{can\+\_\+write}{can\_write}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+write}
+
+Flag che indica, quando asserito, la possibilità di effettuale una chiamata a write \mbox{\Hypertarget{structUART_acba682fe45d5a1501790dbdb1d99bd6a}\label{structUART_acba682fe45d5a1501790dbdb1d99bd6a}} 
+\index{U\+A\+RT@{U\+A\+RT}!cdev@{cdev}}
+\index{cdev@{cdev}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{cdev}{cdev}}
+{\footnotesize\ttfamily struct cdev cdev}
+
+Stuttura per l\textquotesingle{}astrazione di un device a caratteri \mbox{\Hypertarget{structUART_a9b6474dd18270738a5c4853fd93b5e70}\label{structUART_a9b6474dd18270738a5c4853fd93b5e70}} 
+\index{U\+A\+RT@{U\+A\+RT}!class@{class}}
+\index{class@{class}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{class}{class}}
+{\footnotesize\ttfamily struct class$\ast$ class}
+
+Puntatore a struttura che rappresenta una vista alto livello del device \mbox{\Hypertarget{structUART_acf6a82c73e7a9d99293d9ce0b8837faf}\label{structUART_acf6a82c73e7a9d99293d9ce0b8837faf}} 
+\index{U\+A\+RT@{U\+A\+RT}!dev@{dev}}
+\index{dev@{dev}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{dev}{dev}}
+{\footnotesize\ttfamily struct device$\ast$ dev}
+
+Puntatore alla struttura che rappresenta l\textquotesingle{}istanza del device \mbox{\Hypertarget{structUART_a42a1593ebe61611c4e29413903a373a5}\label{structUART_a42a1593ebe61611c4e29413903a373a5}} 
+\index{U\+A\+RT@{U\+A\+RT}!irq\+Number@{irq\+Number}}
+\index{irq\+Number@{irq\+Number}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{irq\+Number}{irqNumber}}
+{\footnotesize\ttfamily uint32\+\_\+t irq\+Number}
+
+Interrupt-\/number a cui il device è connesso \mbox{\Hypertarget{structUART_aeb60fb4e41b5f11f70ebe969361884f4}\label{structUART_aeb60fb4e41b5f11f70ebe969361884f4}} 
+\index{U\+A\+RT@{U\+A\+RT}!Mm@{Mm}}
+\index{Mm@{Mm}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{Mm}{Mm}}
+{\footnotesize\ttfamily dev\+\_\+t Mm}
+
+Major e minor number associati al device (M\+: identifica il driver associato al device; m\+: utilizzato dal driver per discriminare il singolo device tra quelli a lui associati) \mbox{\Hypertarget{structUART_a18c4eb95350c67ccb239a8a39c43c09a}\label{structUART_a18c4eb95350c67ccb239a8a39c43c09a}} 
+\index{U\+A\+RT@{U\+A\+RT}!mreg@{mreg}}
+\index{mreg@{mreg}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{mreg}{mreg}}
+{\footnotesize\ttfamily struct resource$\ast$ mreg}
+
+Puntatore alla regione di memoria cui il device è mappato \mbox{\Hypertarget{structUART_a6fb27e0c8e2d8544acca44725266b5d3}\label{structUART_a6fb27e0c8e2d8544acca44725266b5d3}} 
+\index{U\+A\+RT@{U\+A\+RT}!pdev@{pdev}}
+\index{pdev@{pdev}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{pdev}{pdev}}
+{\footnotesize\ttfamily struct platform\+\_\+device$\ast$ pdev}
+
+Puntatore a struttura platform\+\_\+device cui l\textquotesingle{}oggetto \hyperlink{structUART}{U\+A\+RT} si riferisce \mbox{\Hypertarget{structUART_a2080617f88cafd765430573afe7701d1}\label{structUART_a2080617f88cafd765430573afe7701d1}} 
+\index{U\+A\+RT@{U\+A\+RT}!poll\+\_\+queue@{poll\+\_\+queue}}
+\index{poll\+\_\+queue@{poll\+\_\+queue}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{poll\+\_\+queue}{poll\_queue}}
+{\footnotesize\ttfamily wait\+\_\+queue\+\_\+head\+\_\+t poll\+\_\+queue}
+
+wait queue per la sys-\/call poll() \mbox{\Hypertarget{structUART_a251570f8e6976ad87411093e330e7b4f}\label{structUART_a251570f8e6976ad87411093e330e7b4f}} 
+\index{U\+A\+RT@{U\+A\+RT}!read\+\_\+queue@{read\+\_\+queue}}
+\index{read\+\_\+queue@{read\+\_\+queue}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{read\+\_\+queue}{read\_queue}}
+{\footnotesize\ttfamily wait\+\_\+queue\+\_\+head\+\_\+t read\+\_\+queue}
+
+wait queue per la sys-\/call read() \mbox{\Hypertarget{structUART_a4a49895b3f09db037a0b8df5c9b8d874}\label{structUART_a4a49895b3f09db037a0b8df5c9b8d874}} 
+\index{U\+A\+RT@{U\+A\+RT}!res@{res}}
+\index{res@{res}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily struct resource res}
+
+Device Resource Structure \mbox{\Hypertarget{structUART_aecb03114c495140683cbdd552214bc75}\label{structUART_aecb03114c495140683cbdd552214bc75}} 
+\index{U\+A\+RT@{U\+A\+RT}!res\+\_\+size@{res\+\_\+size}}
+\index{res\+\_\+size@{res\+\_\+size}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{res\+\_\+size}{res\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t res\+\_\+size}
+
+res.\+end -\/ res.\+start; numero di indirizzi associati alla periferica. \mbox{\Hypertarget{structUART_a1e1ddf972b4dc84dd331a0c72e5d9895}\label{structUART_a1e1ddf972b4dc84dd331a0c72e5d9895}} 
+\index{U\+A\+RT@{U\+A\+RT}!slock\+\_\+int@{slock\+\_\+int}}
+\index{slock\+\_\+int@{slock\+\_\+int}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{slock\+\_\+int}{slock\_int}}
+{\footnotesize\ttfamily spinlock\+\_\+t slock\+\_\+int}
+
+Spinlock usato per garantire l\textquotesingle{}accesso in mutua esclusione alla variabile can\+\_\+read \mbox{\Hypertarget{structUART_a9b5bc69d3a72a01759531f90e71c8850}\label{structUART_a9b5bc69d3a72a01759531f90e71c8850}} 
+\index{U\+A\+RT@{U\+A\+RT}!vrtl\+\_\+addr@{vrtl\+\_\+addr}}
+\index{vrtl\+\_\+addr@{vrtl\+\_\+addr}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{vrtl\+\_\+addr}{vrtl\_addr}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+iomem$\ast$ vrtl\+\_\+addr}
+
+Indirizzo base virtuale della periferica \mbox{\Hypertarget{structUART_a94adacec45d37c54ea4e16ac6d063c9f}\label{structUART_a94adacec45d37c54ea4e16ac6d063c9f}} 
+\index{U\+A\+RT@{U\+A\+RT}!write\+\_\+lock@{write\+\_\+lock}}
+\index{write\+\_\+lock@{write\+\_\+lock}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{write\+\_\+lock}{write\_lock}}
+{\footnotesize\ttfamily spinlock\+\_\+t write\+\_\+lock}
+
+Spinlock usato per garantire l\textquotesingle{}accesso in mutua esclusione alla variabile can\+\_\+write \mbox{\Hypertarget{structUART_a542eba258c8dc4e6fb650e7d404649a7}\label{structUART_a542eba258c8dc4e6fb650e7d404649a7}} 
+\index{U\+A\+RT@{U\+A\+RT}!write\+\_\+queue@{write\+\_\+queue}}
+\index{write\+\_\+queue@{write\+\_\+queue}!U\+A\+RT@{U\+A\+RT}}
+\subsubsection{\texorpdfstring{write\+\_\+queue}{write\_queue}}
+{\footnotesize\ttfamily wait\+\_\+queue\+\_\+head\+\_\+t write\+\_\+queue}
+
+wait queue per la sys-\/call write() 
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

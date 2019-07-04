@@ -21,7 +21,7 @@ header file U\+A\+R\+T\+\_\+interrupt\+\_\+uio
 
 
 
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+Utilizzata per leggere un valore da un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro da cui leggere. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -29,11 +29,6 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \hline
 {\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere\\
 \hline
-\end{DoxyParams}
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
-
-
-\begin{DoxyParams}{Parameters}
 {\em addr} & indirizzo virtuale della periferica \\
 \hline
 {\em offset} & offset del registro a cui leggere\\
@@ -71,7 +66,7 @@ Se vi è un\textquotesingle{}interruzione sul device U\+I\+O0 associato all\text
 
 
 
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+Utilizzata per scrivere un valore all\textquotesingle{}interno di un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro in cui scrivere. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -81,11 +76,6 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \hline
 {\em value,valore} & da voler scrivere\\
 \hline
-\end{DoxyParams}
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
-
-
-\begin{DoxyParams}{Parameters}
 {\em addr} & indirizzo virtuale della periferica \\
 \hline
 {\em offset} & offset del registro a cui scrivere \\

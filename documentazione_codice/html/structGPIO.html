@@ -75,7 +75,233 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stuttura che astrae un device <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> in kernel-mode. Contiene ciò che è necessario al funzionamento del driver. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a2b8d3d6037e2d2fdadbd7c2fd995f0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8d3d6037e2d2fdadbd7c2fd995f0a1">&#9670;&nbsp;</a></span>can_read</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t can_read</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag che indica, quando asserito, la possibilità di effettuale una chiamata a read </p>
+
+</div>
+</div>
+<a id="acba682fe45d5a1501790dbdb1d99bd6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba682fe45d5a1501790dbdb1d99bd6a">&#9670;&nbsp;</a></span>cdev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct cdev cdev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stuttura per l'astrazione di un device a caratteri </p>
+
+</div>
+</div>
+<a id="a9b6474dd18270738a5c4853fd93b5e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b6474dd18270738a5c4853fd93b5e70">&#9670;&nbsp;</a></span>class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct class* class</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Puntatore a struttura che rappresenta una vista alto livello del device </p>
+
+</div>
+</div>
+<a id="acf6a82c73e7a9d99293d9ce0b8837faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6a82c73e7a9d99293d9ce0b8837faf">&#9670;&nbsp;</a></span>dev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct device* dev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Puntatore alla struttura che rappresenta l'istanza del device </p>
+
+</div>
+</div>
+<a id="a8ee102d0534084ca58a9cf9b8a3d9cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee102d0534084ca58a9cf9b8a3d9cc9">&#9670;&nbsp;</a></span>irq_mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t irq_mask</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maschera delle interruzioni interne attive per il device </p>
+
+</div>
+</div>
+<a id="a42a1593ebe61611c4e29413903a373a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42a1593ebe61611c4e29413903a373a5">&#9670;&nbsp;</a></span>irqNumber</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t irqNumber</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interrupt-number a cui il device è connesso </p>
+
+</div>
+</div>
+<a id="aeb60fb4e41b5f11f70ebe969361884f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb60fb4e41b5f11f70ebe969361884f4">&#9670;&nbsp;</a></span>Mm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dev_t Mm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Major e minor number associati al device (M: identifica il driver associato al device; m: utilizzato dal driver per discriminare il singolo device tra quelli a lui associati) </p>
+
+</div>
+</div>
+<a id="a18c4eb95350c67ccb239a8a39c43c09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c4eb95350c67ccb239a8a39c43c09a">&#9670;&nbsp;</a></span>mreg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct resource* mreg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Puntatore alla regione di memoria cui il device è mappato </p>
+
+</div>
+</div>
+<a id="a6fb27e0c8e2d8544acca44725266b5d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb27e0c8e2d8544acca44725266b5d3">&#9670;&nbsp;</a></span>pdev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct platform_device* pdev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Puntatore a struttura platform_device cui l'oggetto <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> si riferisce </p>
+
+</div>
+</div>
+<a id="a2080617f88cafd765430573afe7701d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2080617f88cafd765430573afe7701d1">&#9670;&nbsp;</a></span>poll_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wait_queue_head_t poll_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>wait queue per la sys-call poll() </p>
+
+</div>
+</div>
+<a id="a251570f8e6976ad87411093e330e7b4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251570f8e6976ad87411093e330e7b4f">&#9670;&nbsp;</a></span>read_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">wait_queue_head_t read_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>wait queue per la sys-call read() </p>
+
+</div>
+</div>
+<a id="a4a49895b3f09db037a0b8df5c9b8d874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a49895b3f09db037a0b8df5c9b8d874">&#9670;&nbsp;</a></span>res</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct resource res</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Device Resource Structure </p>
+
+</div>
+</div>
+<a id="aecb03114c495140683cbdd552214bc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb03114c495140683cbdd552214bc75">&#9670;&nbsp;</a></span>res_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t res_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>res.end - res.start; numero di indirizzi associati alla periferica. </p>
+
+</div>
+</div>
+<a id="a1e1ddf972b4dc84dd331a0c72e5d9895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e1ddf972b4dc84dd331a0c72e5d9895">&#9670;&nbsp;</a></span>slock_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">spinlock_t slock_int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Spinlock usato per garantire l'accesso in mutua esclusione alla variabile can_read </p>
+
+</div>
+</div>
+<a id="a9b5bc69d3a72a01759531f90e71c8850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b5bc69d3a72a01759531f90e71c8850">&#9670;&nbsp;</a></span>vrtl_addr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __iomem* vrtl_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indirizzo base virtuale della periferica </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/<a class="el" href="GPIO_8h_source.html">GPIO.h</a></li>
 </ul>
 </div><!-- contents -->

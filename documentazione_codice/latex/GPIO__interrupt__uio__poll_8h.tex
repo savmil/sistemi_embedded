@@ -21,7 +21,7 @@ header file \hyperlink{GPIO__interrupt__uio__poll_8c}{G\+P\+I\+O\+\_\+interrupt\
 
 
 
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+Utilizzata per leggere un valore da un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro da cui leggere. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -29,11 +29,6 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \hline
 {\em offset,offset} & a partire dall\textquotesingle{} indirizzo a cui vogliamo scrivere\\
 \hline
-\end{DoxyParams}
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
-
-
-\begin{DoxyParams}{Parameters}
 {\em addr} & indirizzo virtuale della periferica \\
 \hline
 {\em offset} & offset del registro a cui leggere\\
@@ -50,7 +45,7 @@ valore presente all\textquotesingle{}interno del registro
 
 
 
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+Attende l\textquotesingle{}arrivo di un interrupt tramite chiamate a poll. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -75,7 +70,7 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 
 
 
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}. 
+Utilizzata per scrivere un valore all\textquotesingle{}interno di un registro della periferica, specificando l\textquotesingle{}indirizzo base virtuale e l\textquotesingle{}offset del registro in cui scrivere. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -85,11 +80,6 @@ Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G
 \hline
 {\em value,valore} & da voler scrivere\\
 \hline
-\end{DoxyParams}
-Dealloca gli oggetti internamente contenuti nella \hyperlink{structGPIO__list}{G\+P\+I\+O\+\_\+list}.
-
-
-\begin{DoxyParams}{Parameters}
 {\em addr} & indirizzo virtuale della periferica \\
 \hline
 {\em offset} & offset del registro a cui scrivere \\

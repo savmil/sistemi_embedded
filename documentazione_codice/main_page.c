@@ -13,7 +13,7 @@
  *			- Permette la gestione di un gruppo di periferiche dello stesso tipo
  *			@ref GPIO_list.c
  *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref GPIO.c
- *		@subsubsection Barebone
+ *		@subsubsection Baremetal
  *			- Funzioni per l'utilizzo della periferica GPIO @reg gpio_int.c
  *	
  * @section UART
@@ -29,7 +29,7 @@
  *			- Permette la gestione di un gruppo di periferiche dello stesso tipo
  *			@ref UART_list.c
  *			- Funzionalità utilizzate per controllare un singolo dipositivo @ref UART.c 
- *		@subsubsection Barebone 
+ *		@subsubsection Baremetal 
  *			- Funzioni per l'utilizzo della periferica UART @reg myuart.c
  * @section Progetto_finale	 
  *	- gestione dell' invio e ricazione dei dati sulle varie periferiche 

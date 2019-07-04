@@ -142,6 +142,7 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Reinserisce i due CRC ricalcolati dal messaggio alla fine dello stesso </p>
 
 </div>
 </div>
@@ -268,6 +269,9 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Prelevievo di un messaggio dalla FIFO0 di ricezione</p>
+<p>Se l'header ricevuto non contiene il campo tipo, il tipo di identificativo e la lunghezza del data bytes attesi</p>
+<p>Quando sono stati ricevuti tutti i chunk del messaggio si può procedere con il confronto dei CRC </p>
 
 </div>
 </div>
@@ -658,6 +662,16 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>La ricezione è effettuata chiamando la seguente funzione, passando l'<a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> handler, un puntatore al buffer in cui salvare il messaggio ricevuto e la sua dimensione</p>
+<p>Il programma attende finchè il valore della variabile UartReady è RESET. All'avvenuto completamento della ricezione la callback HAL_UART_RxCpltCallback setterà il valore permettendo di avanzare con l'esecuzione</p>
+<p>Le funzioni fornite dall'Hardware Abstraction Layer per la trasmissione e ricezione utilizzano buffer da 8 bit. E' necessario dunque riconvertire il messaggio ricevuto, contenuto in un buffer di BUFFER_SIZE valori da 8 bit in un buffer contenente FRAME_SIZE valori da 32 bit</p>
+<p>La seguente chiamata provvede a ricalcolare i due CRC dal payload del messggio ricevuto e a confrontarli con quelli contenuti nel messaggio. Queste ultime due chiamate vengono ripetute esattamente nelle successive sezioni relative alle altre periferiche.</p>
+<p>Il programma attende finchè lo stato di I2C non è uguale a READY</p>
+<p>La ricezione su CAN è effettuata nella callback relativa all'avvenuta ricezione. Vedi documentazione esterna</p>
+<p>L'indirizzo del nodo dal quale si vuole ricevere viene utilizzato dal master per calcolare quale Slave Select deve essere deasserito per selezionare lo slave dal quale si vuole ricevere</p>
+<p>Se la board non è master prima di poter effettuare la ricezione è necessario attendere che il master porti al valore basso lo Slave Select</p>
+<p>Il programma attende che la trasmissione sia completa. All'avvenuto completamento della ricezione la callback HAL_SPI_RxCpltCallback setterà il valore dello stato a TRANSFER_COMPLETE permettendo di avanzare con l'esecuzione</p>
+<p>Viene riportato al valore alto lo Slave Select e resettato il valore dello stato </p>
 
 </div>
 </div>
@@ -708,6 +722,27 @@ $(function() {
   </table>
   </dd>
 </dl>
+<p>Viene effettuato il controllo sulla compatibilità della modalità di trasmissione scelta e i canali selezionati</p>
+<p>Attesa di pressione User Button</p>
+<p>Le funzioni fornite dall'Hardware Abstraction Layer per la trasmissione e ricezione utilizzano buffer da 8 bit. E' necessario dunque convertire il messaggio originale, contenuto in un buffer di FRAME_SIZE valori da 32 bit, in un buffer contenente BUFFER_SIZE valori da 8 bit</p>
+<p>Se è stata richiesta la trasmissione sul canale <a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> viene effettuata la trasmissione</p>
+<p>La trasmissione è effettuata chiamando la seguente funzione, passando l'<a class="el" href="structUART.html" title="Stuttura che astrae un device UART in kernel-mode. Contiene ciò che è necessario al funzionamento del...">UART</a> handler, un puntatore al buffer contenente il messaggio da trasmettere e la sua dimensione</p>
+<p>Il programma attende finchè il valore della variabile UartReady è RESET. All'avvenuto completamento della trasmissione la callback HAL_UART_TxCpltCallback setterà il valore permettendo di avanzare con l'esecuzione</p>
+<p>Viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione</p>
+<p>Se l'errore di trasmissione è dato dal mancato ack da parte dello slave esso viene ignorato</p>
+<p>Il programma attende finchè lo stato di I2C non è uguale a READY</p>
+<p>Standard CAN Identifier: identificativo del messaggio codificato su 11 bit secondo il protocollo CAN Standard</p>
+<p>Extended CAN Identifier: identificativo del messaggio codificato su 29 bit secondo il protocollo CAN Extended</p>
+<p>Tipo di messaggio</p>
+<p>Tipo di identificativo per il messaggio da trasmettere: Standard o Extended</p>
+<p>Lunghezza in byte del messaggio da trasmettere. Può assumere un valore da 0 ad 8</p>
+<p>Timestamp acquisito all'avvio della trasmissione del Frame. Se abilitato viene aggiunto al messaggio.</p>
+<p>Dal momento che il campo Data Bytes del frame CAN, ovvero il messaggio da trasmettere, può essere massimo di 8 bytes vengono effettuate più chiamate alla funzione HAL_CAN_AddTxMessage. Questa prende in ingresso l'handler di CAN, l'header del messaggio appena costruito e un buffer contenente dati di 8 bit. Ha il compito di aggiungere il messaggio alla prima mailbox di trasmissione che rileva libera. L'identificativo della mailbox nella quale ha deposto il messaggio viene ritornato mediante il parametro TxMailbox</p>
+<p>Quando è stato eseguito un numero di callback di trasmissione che indica l'avvenuto trasferimento di tutti i chunk da 8 bytes trasmessi, viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione</p>
+<p>L'indirizzo del nodo destinazione viene utilizzato per calcolare quale Slave Select deve essere deasserito per selezionare lo slave al quale si vuole trasmettere il messaggio</p>
+<p>Se la board non è master prima di poter effettuare la trasmissione è necessario attendere che il master porti al valore basso lo Slave Select</p>
+<p>Il programma attende che il trasferimento sia completo. All'avvenuto completamento della trasmissione, la callback HAL_SPI_TxCpltCallback setterà il valore dello stato a TRANSFER_COMPLETE permettendo di avanzare con l'esecuzione</p>
+<p>Viene riportato al valore alto lo Slave Select e resettato il valore dello stato </p>
 
 </div>
 </div>
