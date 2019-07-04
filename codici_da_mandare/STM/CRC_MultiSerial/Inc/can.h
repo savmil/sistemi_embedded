@@ -8,23 +8,15 @@
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 #ifndef __can_H
 #define __can_H
-#ifdef __cplusplus
 
- extern "C" {
-#endif
 #endif
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
 extern CAN_HandleTypeDef CanHandle;
 
-/* USER CODE BEGIN Private defines */
-
-
 /*Can invia messaggi da 8 byte, quindi il frame va decomposto in messaggi di 8 byte */
 #define CAN_CALLBACK_COUNT				(BUFFER_SIZE/8)
-
-
 
 #define BROADCAST_ADDRESS				0x1
 
@@ -47,25 +39,6 @@ extern CAN_HandleTypeDef CanHandle;
 #define CANx_TX_IRQn				   CAN_TX_IRQn
 #define CANx_TX_IRQHandler			   CAN_RX1_IRQHandler
 
-/* USER CODE END Private defines */
-
 void MX_CAN_Init(uint16_t nodeAddress, uint16_t groupAddress);
 
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
-
-#ifdef __cplusplus
-}
-#endif
 #endif /*__ can_H */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

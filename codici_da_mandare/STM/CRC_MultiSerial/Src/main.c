@@ -16,10 +16,8 @@
 #include "usart.h"
 #include "gpio.h"
 
-
 /** Specifica le periferiche da utilizzare per effettuare la trasmissione */
-#define SERIAL_SELECTED SPI_MODE
-
+#define SERIAL_SELECTED UART_MODE
 
 /** Specifica il tipo di trasferimento */
 #define UNICAST 0
@@ -27,8 +25,7 @@
 #define BROADCAST 2
 
 /** Se il parametro è definito la board si comporta da master*/
-//#define MASTER_BOARD
-
+#define MASTER_BOARD
 
 /** Indirizzo del nodo e del gruppo a cui appartiene*/
 #ifdef MASTER_BOARD
@@ -46,11 +43,6 @@
 #define RECEIVE_ADDRESS 0x5
 
 #endif
-
-
-
-
-
 
 /** Contatore delle Callback di trasmissione tramite CAN */
 int tx_callback_count = 0;
@@ -252,11 +244,12 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 
 	uint8_t completedChannel = 0;
 
+/** Viene effettuato il controllo sulla compatibilità della modalità di trasmissione scelta e i canali selezionati */
 	if(((mode == MULTICAST)||(mode == BROADCAST)) && (channel != CAN_MODE)){
 			completedChannel = -1;
 			return completedChannel;
 		}
-
+/** Attesa di pressione User Button */
 	#ifdef MASTER_BOARD
 		while (UserButtonStatus == 0) {
 			HAL_GPIO_TogglePin(GPIOE, LED4_BLUE_Pin);
@@ -265,17 +258,24 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 	#endif
 
 	uint8_t aTxBuffer[BUFFER_SIZE];
+/** Le funzioni fornite dall'Hardware Abstraction Layer per la trasmissione e ricezione utilizzano
+ *  buffer da 8 bit. E' necessario dunque convertire il messaggio originale, contenuto in un buffer di FRAME_SIZE
+ *  valori da 32 bit, in un buffer contenente BUFFER_SIZE valori da 8 bit*/
 	Frame32to8(MSG, aTxBuffer);
 
+/** Se è stata richiesta la trasmissione sul canale UART viene effettuata la trasmissione */
 	if (UART_ENABLED){
-
+/** La trasmissione è effettuata chiamando la seguente funzione, passando l'UART handler, un puntatore al buffer contenente
+ *  il messaggio da trasmettere e la sua dimensione */
 		if (HAL_UART_Transmit_IT(&huart2, (uint8_t*) aTxBuffer, BUFFER_SIZE) != HAL_OK)
 			Error_Handler();
-
+/** Il programma attende finchè il valore della variabile UartReady è RESET. All'avvenuto completamento della trasmissione la callback
+ *  HAL_UART_TxCpltCallback setterà il valore permettendo di avanzare con l'esecuzione */
 		while (UartReady != SET) {
 		}
 
 		UartReady = RESET;
+/** Viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione */
 		completedChannel |= UART_MODE;
 
 	}
@@ -285,11 +285,12 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 		HAL_Delay(100);
 
 		if (HAL_I2C_Master_Transmit_IT(&hi2c2, (uint16_t) address, (uint8_t*) aTxBuffer, BUFFER_SIZE) != HAL_OK) {
+
+/** Se l'errore di trasmissione è dato dal mancato ack da parte dello slave esso viene ignorato*/
 			 if (HAL_I2C_GetError(&hi2c2) != HAL_I2C_ERROR_AF)
 			      Error_Handler();
 		}
-
-
+/** Il programma attende finchè lo stato di I2C non è uguale a READY */
 		while (HAL_I2C_GetState(&hi2c2) != HAL_I2C_STATE_READY){
 		}
 
@@ -298,13 +299,23 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 
 	if(CAN_ENABLED){
 
+/** Standard CAN Identifier: identificativo del messaggio codificato su 11 bit secondo il protocollo CAN Standard */
 		TxHeader.StdId = address;
+/** Extended CAN Identifier: identificativo del messaggio codificato su 29 bit secondo il protocollo CAN Extended */
 		TxHeader.ExtId = 0x00;
+/** Tipo di messaggio */
 		TxHeader.RTR = CAN_RTR_DATA;
+/** Tipo di identificativo per il messaggio da trasmettere: Standard o Extended */
 		TxHeader.IDE = CAN_ID_STD;
+/** Lunghezza in byte del messaggio da trasmettere. Può assumere un valore da 0 ad 8 */
 		TxHeader.DLC = 8;
+/** Timestamp acquisito all'avvio della trasmissione del Frame. Se abilitato viene aggiunto al messaggio. */
 		TxHeader.TransmitGlobalTime = DISABLE;
-
+/** Dal momento che il campo Data Bytes del frame CAN, ovvero il messaggio da trasmettere, può essere massimo di 8 bytes
+ *  vengono effettuate più chiamate alla funzione HAL_CAN_AddTxMessage. Questa prende in ingresso l'handler di CAN, l'header
+ *  del messaggio appena costruito e un buffer contenente dati di 8 bit. Ha il compito di aggiungere il messaggio alla
+ *  prima mailbox di trasmissione che rileva libera. L'identificativo della mailbox nella quale ha deposto il messaggio
+ *  viene ritornato mediante il parametro TxMailbox */
 		for(int i=0;i<BUFFER_SIZE/8;i++){
 			for(int j=0;j<8;j++){
 				CanTx_Frame[j] = aTxBuffer[i*8+j];
@@ -313,7 +324,8 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 			HAL_CAN_AddTxMessage(&CanHandle, &TxHeader, CanTx_Frame, &TxMailbox);
 			HAL_Delay(50);
 		}
-
+/** Quando è stato eseguito un numero di callback di trasmissione che indica l'avvenuto trasferimento di tutti i chunk
+ *  da 8 bytes trasmessi, viene aggiornato il parametro relativo ai canali sui quali è terminata la trasmissione*/
 		while(tx_callback_count < CAN_CALLBACK_COUNT){
 
 		}
@@ -322,12 +334,15 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 
 	if(SPI_ENABLED){
 
-
+/** L'indirizzo del nodo destinazione viene utilizzato per calcolare quale Slave Select deve essere deasserito
+ *  per selezionare lo slave al quale si vuole trasmettere il messaggio */
 	#ifdef MASTER_BOARD
 		uint16_t slaveSelectPin = getSSPin(address);
 		HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port,slaveSelectPin ,
 				GPIO_PIN_RESET);
 
+/** Se la board non è master prima di poter effettuare la trasmissione è necessario attendere che il master porti al valore
+ *  basso lo Slave Select */
 	#else
 		while(HAL_GPIO_ReadPin(SPI_EN_OUTPUT_GPIO_Port, SPI_EN_INPUT_Pin) != GPIO_PIN_RESET){}
 	#endif
@@ -335,13 +350,17 @@ uint8_t Send_CRC(uint32_t * MSG,uint16_t address, uint8_t channel, uint8_t mode)
 	if (HAL_SPI_Transmit_IT(&hspi2, (uint8_t*) aTxBuffer, BUFFER_SIZE) != HAL_OK)
 			Error_Handler();
 
+/** Il programma attende che il trasferimento sia completo. All'avvenuto completamento della trasmissione, la callback
+ *  HAL_SPI_TxCpltCallback setterà il valore dello stato a TRANSFER_COMPLETE permettendo di avanzare con l'esecuzione */
 	while (wTransferState != TRANSFER_COMPLETE) {}
 
+/** Viene riportato al valore alto lo Slave Select e resettato il valore dello stato */
 	#ifdef MASTER_BOARD
 		HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin, GPIO_PIN_SET);
 	#endif
 
 	wTransferState = TRANSFER_WAIT;
+
 	completedChannel |= SPI_MODE;
 
 	}
@@ -364,31 +383,40 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address) 
 		bool SPI_ENABLED		=	(SPI_MODE	& channel) ==	 SPI_MODE;
 		bool CAN_ENABLED		=	(CAN_MODE	& channel) == 	CAN_MODE;
 
-
 		if (UART_ENABLED){
 
 			//while(HAL_UART_GetState(&huart2) == HAL_UART_STATE_BUSY_RX){}
 
+/** La ricezione è effettuata chiamando la seguente funzione, passando l'UART handler, un puntatore al buffer
+ *  in cui salvare il messaggio ricevuto e la sua dimensione */
 			if (HAL_UART_Receive_IT(&huart2, (uint8_t *) UART_RxBuffer, BUFFER_SIZE) != HAL_OK)
 				Error_Handler();
 
+/** Il programma attende finchè il valore della variabile UartReady è RESET. All'avvenuto completamento della ricezione la callback
+ *  HAL_UART_RxCpltCallback setterà il valore permettendo di avanzare con l'esecuzione */
 			while(UartReady != SET){
 			}
 				UartReady = RESET;
-
+/** Le funzioni fornite dall'Hardware Abstraction Layer per la trasmissione e ricezione utilizzano
+*   buffer da 8 bit. E' necessario dunque riconvertire il messaggio ricevuto, contenuto in un buffer di BUFFER_SIZE valori da 8 bit
+*   in un buffer contenente FRAME_SIZE valori da 32 bit */
 				Frame8to32(UART_RxBuffer, ReceivedData);
+
+/** La seguente chiamata provvede a ricalcolare i due CRC dal payload del messggio ricevuto
+ *  e a confrontarli con quelli contenuti nel messaggio. Queste ultime due chiamate vengono
+ *  ripetute esattamente nelle successive sezioni relative alle altre periferiche. */
 				CRC_Check(ReceivedData);
 
 				receivedChannel = receivedChannel | UART_MODE;
 			  }
 
-
 		if (I2C_ENABLED){
+
 
 			if(HAL_I2C_Slave_Receive_IT(&hi2c2, (uint8_t *)I2C_RxBuffer, BUFFER_SIZE) != HAL_OK)
 				Error_Handler();
 
-
+/** Il programma attende finchè lo stato di I2C non è uguale a READY */
 			while(HAL_I2C_GetState(&hi2c2) != HAL_I2C_STATE_READY){
 			}
 
@@ -398,9 +426,10 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address) 
 				receivedChannel = receivedChannel | I2C_MODE;
 			}
 
-
 		if(CAN_ENABLED){
-/*		while(rx_callback_count < CAN_CALLBACK_COUNT){}
+
+/** La ricezione su CAN è effettuata nella callback relativa all'avvenuta ricezione. Vedi documentazione esterna */
+/*	while(rx_callback_count < CAN_CALLBACK_COUNT){}
 
 				Frame8to32(CAN_RxBuffer, ReceivedData);
 				CRC_Check(ReceivedData);
@@ -409,12 +438,16 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address) 
 */
 		}
 
-
 		if(SPI_ENABLED){
 			#ifdef MASTER_BOARD
+
+/** L'indirizzo del nodo dal quale si vuole ricevere viene utilizzato dal master per calcolare quale Slave Select
+ *  deve essere deasserito per selezionare lo slave dal quale si vuole ricevere */
 				uint16_t slaveSelectPin = getSSPin(address);
 				HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin, GPIO_PIN_RESET);
 
+/** Se la board non è master prima di poter effettuare la ricezione è necessario attendere che il master porti al valore
+*  basso lo Slave Select */
 			#else
 				while (HAL_GPIO_ReadPin(SPI_EN_INPUT_GPIO_Port, SPI_EN_INPUT_Pin) == GPIO_PIN_SET) {}
 			#endif
@@ -422,8 +455,11 @@ uint8_t Receive_CRC(uint32_t * ReceivedData, uint8_t channel, uint16_t address) 
 			if (HAL_SPI_Receive_IT(&hspi2, (uint8_t*) SPI_RxBuffer, BUFFER_SIZE) != HAL_OK)
 				Error_Handler();
 
+/** Il programma attende che la trasmissione sia completa. All'avvenuto completamento della ricezione la callback
+*   HAL_SPI_RxCpltCallback setterà il valore dello stato a TRANSFER_COMPLETE permettendo di avanzare con l'esecuzione */
 			while((wTransferState != TRANSFER_COMPLETE)){}
 
+/** Viene riportato al valore alto lo Slave Select e resettato il valore dello stato */
 			#ifdef MASTER_BOARD
 				HAL_GPIO_WritePin(SPI_EN_OUTPUT_GPIO_Port, slaveSelectPin, GPIO_PIN_SET);
 			#endif
@@ -466,6 +502,7 @@ void CRC_Check(uint32_t * ReceivedFrame) {
 	else
 		HAL_GPIO_WritePin(GPIOE, LED6_GREEN_Pin, GPIO_PIN_SET);
 
+/** Reinserisce i due CRC ricalcolati dal messaggio alla fine dello stesso */
 	ReceivedFrame[CRC1_OFFSET] = CRC32_1;
 	ReceivedFrame[CRC2_OFFSET] = CRC32_2;
 
@@ -648,8 +685,10 @@ void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan)
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 
+/** Prelevievo di un messaggio dalla FIFO0 di ricezione */
 	HAL_CAN_GetRxMessage(&CanHandle, CAN_RX_FIFO0, &RxHeader, CanRx_Frame);
 
+/** Se l'header ricevuto non contiene il campo tipo, il tipo di identificativo e la lunghezza del data bytes attesi */
 	if((RxHeader.RTR != CAN_RTR_DATA) ||  (RxHeader.IDE != CAN_ID_STD) ||(RxHeader.DLC != 8)){
 		Error_Handler();
 	}
@@ -662,6 +701,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	}
   rx_callback_count++;
 
+/** Quando sono stati ricevuti tutti i chunk del messaggio si può procedere con il confronto dei CRC*/
   if(rx_callback_count == CAN_CALLBACK_COUNT){
 	  uint32_t ReceivedData[FRAME_SIZE];
 	  Frame8to32(CAN_RxBuffer, ReceivedData);

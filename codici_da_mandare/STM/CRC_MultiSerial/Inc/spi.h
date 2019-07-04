@@ -16,41 +16,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
 extern SPI_HandleTypeDef hspi2;
 
-/* USER CODE BEGIN Private defines */
+/** transfer states */
 enum {
 			TRANSFER_WAIT,
 			TRANSFER_COMPLETE,
 			TRANSFER_ERROR
 };
 
-
-/* transfer state */
-
-/* USER CODE END Private defines */
-
 void MX_SPI2_Init(void);
 
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
-
-#ifdef __cplusplus
-}
-#endif
 #endif /*__ spi_H */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

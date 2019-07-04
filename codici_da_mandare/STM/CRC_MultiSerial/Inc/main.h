@@ -11,10 +11,6 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f3xx_hal.h"
 #include "stm32f3_discovery.h"
@@ -22,33 +18,8 @@ extern "C" {
 #include <stdlib.h>
 #include <stdbool.h>
 
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
-
-/* USER CODE END ET */
-
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
-
-/* USER CODE END EC */
-
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
-
-/* USER CODE END EM */
-
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-
-/* USER CODE BEGIN EFP */
-
-/* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
 #define USER_BTN_Pin GPIO_PIN_0
@@ -74,7 +45,6 @@ void Error_Handler(void);
 #define SPI_EN_OUTPUT_GPIO_Port GPIOD
 #define SPI_EN_INPUT_Pin GPIO_PIN_9
 #define SPI_EN_INPUT_GPIO_Port GPIOD
-/* USER CODE BEGIN Private defines */
 
 /* Exported macro ------------------------------------------------------------*/
 #define COUNTOF(__BUFFER__)   sizeof(*(__BUFFER__)))
@@ -86,15 +56,21 @@ void Error_Handler(void);
 #define CRC_DEFAULTVALUE_1 0x00
 #define CRC_DEFAULTVALUE_2 0x00
 
+/************************* Define frame offset **********************************/
 
-
-/* Define frame offset */
-#define PAYLOAD_SIZE 62				//numero di chunk da 32 bit del payload (dim_msg/32)
+/** Numero di chunk da 32 bit contenuti nel payload del messaggio */
+#define PAYLOAD_SIZE 62
+/** Dimensione in bit del CRC */
 #define CRC_DIM 32
+/** Dimensione dei buffer di trasmissione/ricezione in chunk da 8 bit*/
 #define BUFFER_SIZE (2*(CRC_DIM/8)+PAYLOAD_SIZE*4)
+/** Numero di chunk da 32 bit contenuti nell'intero messaggio, è proprio uguale alla dimensione del payload più i due CRC */
 #define FRAME_SIZE PAYLOAD_SIZE+2
+/** Posizione all'interno dell'intero messaggio del primo CRC */
 #define CRC1_OFFSET PAYLOAD_SIZE
+/** Posozione all'interno dell'intero messaggio del secondo CRC */
 #define CRC2_OFFSET PAYLOAD_SIZE+1
+/** Baudrate per la trasmissione su UART */
 #define UART_BAUDRATE 9600
 
 /* I2C TIMING Register define when I2C clock source is SYSCLK */
@@ -102,17 +78,11 @@ void Error_Handler(void);
 /* This example use TIMING to 0x00C4092A to reach 1 MHz speed (Rise time = 26ns, Fall time = 2ns) */
 #define I2C_TIMING      0x00C4092A
 
-
 /* Define comunication channel */
 #define UART_MODE 1
 #define I2C_MODE  2
 #define CAN_MODE  4
 #define SPI_MODE  8
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 
