@@ -76,11 +76,6 @@ morecomment=[s]{--}
 \colorlet{BLACK}{black}
 \captionsetup{tableposition=top,figureposition=bottom,font=small,format=hang,labelfont={sf,bf}}
 \usepackage{hyperref}
-\pagenumbering{Roman}
-\title{\textbf{Documentazione Sistemi Embedded 2018/19}} 
-
-\author{
- Milo Saverio - Mat. M63000773}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -215,7 +210,9 @@ status open
 
 
 \backslash
-title{} 
+title{
+\backslash
+textbf{Documentazione Sistemi Embedded 2018/19}} 
 \end_layout
 
 \end_inset
@@ -244,7 +241,32 @@ status open
 
 
 \backslash
-author{
+author{ Bevilacqua Michele - Mat.
+ M63000770
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+and Camera Andrea - Mat.
+ M63000814
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+and Falso Roberto - Mat.
+ M63000788
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+and Milo Saverio - Mat.
+ M63000773
 \end_layout
 
 \begin_layout Plain Layout
