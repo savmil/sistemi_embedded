@@ -1143,8 +1143,12 @@ Menu di Configurazione del Kernel
 
 Da questa schermata è possibile modificare la configurazione del kernel.
  Per abilitare il supporto ai driver Userspace I/O che verranno trattati
- nel seguenti capitolo bisogna recarsi in General Setup e verificare che
- la spunta Userspace I/O sia asserita.
+ nel seguente capitolo.
+\end_layout
+
+\begin_layout Standard
+Rechiamoci in General Setup e verifichiamo che la spunta Userspace I/O sia
+ asserita.
  Per la definitiva compilazione lanciare i seguenti comandi:
 \end_layout
 

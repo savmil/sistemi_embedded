@@ -54,7 +54,7 @@ morecomment=[s]{--}
 
 \date{}
 \cfoot{}
-\usepackage{tikz}
+
 \usetikzlibrary{matrix,calc}
 
 %isolated term
@@ -669,7 +669,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/FSBL_progetto.png
-	scale 25
+	scale 50
 
 \end_inset
 

@@ -188,7 +188,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/uart.png
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -248,7 +248,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/tx_fsm.png
-	scale 30
 
 \end_inset
 
@@ -328,7 +327,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/unart_rx_cu.png
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -919,13 +918,22 @@ status open
 \begin_layout Plain Layout
 
     tx_busy_falling_detect <= not last_stage(1) and  current_stage(1); 
-   --! detect falling edge tx_busy
+\end_layout
+
+\begin_layout Plain Layout
+
+	  --! detect falling edge tx_busy
 \end_layout
 
 \begin_layout Plain Layout
 
     rx_rising_detect <= not current_stage(0) and last_stage(0);        
-   --! detect rising edge RDA
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+	  --! detect rising edge RDA
 \end_layout
 
 \begin_layout Plain Layout
@@ -940,14 +948,17 @@ status open
 
 \begin_layout Plain Layout
 
-					and intr_mask; 										--! and con la intr_mask perchè sono interessato
- a vedere l'edge del sengale
+					and intr_mask; 								
 \end_layout
 
 \begin_layout Plain Layout
 
-                                                                       
-    --! solo se la relativa interruzione è abilitata   
+ 	--! and con la intr_mask perchè sono interessato a vedere l'edge del sengale
+\end_layout
+
+\begin_layout Plain Layout
+
+ 	--! solo se la relativa interruzione è abilitata   
 \end_layout
 
 \begin_layout Plain Layout
@@ -957,15 +968,18 @@ status open
 
 \begin_layout Plain Layout
 
-    change_detected <= global_intr or_reduce(changed_bits);            
-    --! Segnale che indica se è stato rilevata una variazione di tx_busy
+    change_detected <= global_intr or_reduce(changed_bits); 
+\end_layout
+
+\begin_layout Plain Layout
+
+     --! Segnale che indica se è stato rilevata una variazione di tx_busy
  o RDA 
 \end_layout
 
 \begin_layout Plain Layout
 
-                                                                       
-    --! alla quale si è interessati  
+     --! alla quale si è interessati  
 \end_layout
 
 \begin_layout Plain Layout
@@ -1037,26 +1051,43 @@ status open
 
 \begin_layout Plain Layout
 
-        if (change_detected = '1') then                                
-        --! se c'è richiesta di interruzione su una delle due line
+        if (change_detected = '1') then                   
+\end_layout
+
+\begin_layout Plain Layout
+
+          --! se c'è richiesta di interruzione su una delle due line
 \end_layout
 
 \begin_layout Plain Layout
 
             pending_intr <= pending_intr_tmp or changed_bits;          
-        --! aggiungi la richiesta alle interruzioni pendenti
+     
 \end_layout
 
 \begin_layout Plain Layout
 
-        elsif (or_reduce(ack_intr)='1') then                           
-        --! se viene dato un ack
+		  --! aggiungi la richiesta alle interruzioni pendenti
 \end_layout
 
 \begin_layout Plain Layout
 
-            pending_intr <= pending_intr_tmp and (not ack_intr);       
-    	--! rimuovi la richiesta pendente relativa
+        elsif (or_reduce(ack_intr)='1') then       
+\end_layout
+
+\begin_layout Plain Layout
+
+          --! se viene dato un ack
+\end_layout
+
+\begin_layout Plain Layout
+
+            pending_intr <= pending_intr_tmp and (not ack_intr); 
+\end_layout
+
+\begin_layout Plain Layout
+
+      	--! rimuovi la richiesta pendente relativa
 \end_layout
 
 \begin_layout Plain Layout
@@ -1066,8 +1097,12 @@ status open
 
 \begin_layout Plain Layout
 
-			pending_intr <= pending_intr_tmp:  								--! altrimenti il segnale
- resta al suo valore corrente
+			pending_intr <= pending_intr_tmp: 
+\end_layout
+
+\begin_layout Plain Layout
+
+		--! altrimenti il segnale resta al suo valore corrente
 \end_layout
 
 \begin_layout Plain Layout
@@ -1154,13 +1189,22 @@ status open
 \begin_layout Plain Layout
 
                 if (or_reduce(pending_intr) = '1' and global_intr = '1')
- then  --! Se c'è almeno un interruzione pendente e globali sono abilitate
+ then 
 \end_layout
 
 \begin_layout Plain Layout
 
-                    interrupt <= '1';                                  
-        --! interrupt = '1'
+				--! Se c'è almeno un interruzione pendente e globali sono abilitate
+\end_layout
+
+\begin_layout Plain Layout
+
+                    interrupt <= '1';        
+\end_layout
+
+\begin_layout Plain Layout
+
+                --! interrupt = '1'
 \end_layout
 
 \begin_layout Plain Layout
@@ -1170,8 +1214,12 @@ status open
 
 \begin_layout Plain Layout
 
-                    interrupt <= '0';                                  
-        --! altrimenti 0
+                    interrupt <= '0';    
+\end_layout
+
+\begin_layout Plain Layout
+
+                --! altrimenti 0
 \end_layout
 
 \begin_layout Plain Layout
@@ -1213,7 +1261,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/int tx.png
-	scale 50
+	width 18cm
 
 \end_inset
 
@@ -1248,7 +1296,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/interuzzione RX
-	scale 50
+	width 18cm
 
 \end_inset
 
@@ -1286,6 +1334,7 @@ Per testare il componente si è scelto di inserire due dispositivi identici
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -1296,7 +1345,7 @@ status open
 \lang english
 \begin_inset Graphics
 	filename images/block design.png
-	scale 35
+	width 18cm
 
 \end_inset
 
