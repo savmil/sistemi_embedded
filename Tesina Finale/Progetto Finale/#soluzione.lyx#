@@ -1794,8 +1794,8 @@ else
 \begin_layout Standard
 Alla ricezione di un messaggio vengono prelevati i valori dei CRC da una
  posizione stabilita nel messaggio (essendo il messaggio di dimensione fissa),
- si rieffettua il calcolo con i polinomi stabili e confrontati per controllare
- se sono identici con quelli ricevuti.
+ si rieffettua il calcolo con i polinomi stabili e confrontati se sono identici
+ con quelli ricevuti.
 \end_layout
 
 \begin_layout Subsection
@@ -1803,7 +1803,7 @@ Applicativo Utente
 \end_layout
 
 \begin_layout Standard
-Per testare le corretto funzionamento dell'architetture sottostante e eseguire
+Per testare le corretto funzionamento dell'architetture sottostande e eseguire
  una limitata simulazione dei sistema è stato realizano un applicativo che
  permettere la comunicazione fra un master e uno slave del sistema.
  L'algoritmo eseguito ciclicamente è il seguente:
@@ -1874,13 +1874,13 @@ Il main test è facilmente configurabile in:
 
 \begin_layout Itemize
 Dimensione del messaggio da inviare: Il messaggio viene generato casualmente
- in un ciclo for iniziale.
+ ad un ciclo for iniziale.
  Per settarne la dimensione è sufficiente definire la dimensione del PAYLOAD_SIZ
 E nel main.h indicando come valore (numero_byte_da_inviare*4).
 \end_layout
 
 \begin_layout Itemize
-Periferiche sulle quali effettuare la tramissione:
+Periferiche sul quale effettuare la tramissione:
 \end_layout
 
 \begin_deeper
@@ -1911,13 +1911,13 @@ OR bitwise
 
 \end_deeper
 \begin_layout Standard
-La modalità CAN viene utillizzata in modalità di test, in quanto il componente
+La modalità CAN va provata in maniera esclusiva, in quanto il componente
  è configurato in LOOP_BACK (allacciato su se stesso) e inserendo come indirizzo
- della send uno dei valori (NODE_ADDRESS e GROUP_ADDRESS) passati alla funzione
+ della sand uno dei valori (NODE_ADDRESS e GROUP_ADDRESS) passati alla funzione
  di configurazione delle periferiche.
- Inoltre deve essere effuttuata solo la send altrimenti la recive rimarrebbe
+ Inoltre deve essere effuttuata solo la Sand altrimenti la recive rimarrebbe
  bloccata in attesa di reicezione.
- Il codice per un eventuale funzionamento non in loopback è comunque commentato
+ Il codice per un eventuale funzionamento non in looback è comunque commentato
  nella receive.
  Le altre periferiche possono essere utilizzate in contemporanea.
  SPI potrebbe generare malfunzionamenti dovuti alla connessione, UART e
@@ -1931,8 +1931,8 @@ Connessioni fische broad
 \begin_layout Standard
 Si riporta in seguito la connessione delle board utilizzate nell'attuale
  configurazione dei driver.
- Per SPI è necessario collegare esclusivamente PD8 sul master con PD9 dello
- slave e non vicevesa.
+ Per SPI è necessario esclusivamente che PA8 sul master con PA9 dello slave
+ e non vicevesa.
 \end_layout
 
 \begin_layout Standard

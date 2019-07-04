@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/STM/CRC_MultiSerial/Inc/gpio.h File Reference</title>
+<title>Codice Sistemi Embedded: /media/saverio/OS/Users/Saverio/Desktop/SE/git/codici_da_mandare/FPGA/GPIO/Driver/KERNEL_MODE/GPIO.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,82 +58,49 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_a8c86160f73a2bca26650231adf755ec.html">STM</a></li><li class="navelem"><a class="el" href="dir_4cb452ac534268092a8c6bcd420cfb79.html">CRC_MultiSerial</a></li><li class="navelem"><a class="el" href="dir_032f9927c3fa0c479584aa242de5ea62.html">Inc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_23585ebff4fc9388889d7a080054297c.html">codici_da_mandare</a></li><li class="navelem"><a class="el" href="dir_7919f4791af177dad439847fd5ab9bce.html">FPGA</a></li><li class="navelem"><a class="el" href="dir_844f1a75fed3c8c83c5b593f8a5f1bf4.html">GPIO</a></li><li class="navelem"><a class="el" href="dir_cc52a1bbf6cd6568a34b6bb805da758e.html">Driver</a></li><li class="navelem"><a class="el" href="dir_d7cff8a237a02370646d1341971cc3fc.html">KERNEL_MODE</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gpio.h File Reference</div>  </div>
+<div class="title">GPIO.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>header file per la configurazione dei banchi di <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>  
+<p>header file <a class="el" href="GPIO_8c.html" title="permette la gestione del singolo GPIO ">GPIO.c</a>  
 <a href="#details">More...</a></p>
 
-<p><a href="gpio_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="GPIO_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGPIO.html">GPIO</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stuttura che astrae un device <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> in kernel-mode. Contiene ciò che è necessario al funzionamento del driver.  <a href="structGPIO.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>header file per la configurazione dei banchi di <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> </p>
+<div class="textblock"><p>header file <a class="el" href="GPIO_8c.html" title="permette la gestione del singolo GPIO ">GPIO.c</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0b38a6c1e6c412233b11b43ea87fa33c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b38a6c1e6c412233b11b43ea87fa33c">&#9670;&nbsp;</a></span>LedOff()</h2>
+<a id="ae9f470eb45c41eb41960b84b006e7f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f470eb45c41eb41960b84b006e7f98">&#9670;&nbsp;</a></span>GPIO_Destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LedOff </td>
+          <td class="memname">void GPIO_Destroy </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structGPIO.html">GPIO</a>*&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Spegne tutti i led che sono utilizzati nel codice. </p>
+<p>Rimuove un device <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a> con le relative strutture kernel allocate per il suo funzionamento. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Spegnimento di tutti i led </p>
-
-</div>
-</div>
-<a id="ac724e431d2af879252de35615be2bdea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac724e431d2af879252de35615be2bdea">&#9670;&nbsp;</a></span>MX_GPIO_Init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MX_GPIO_Init </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Funzione di configurazione dei vari banchi di <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al funzionamento del...">GPIO</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-</div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
-</body>
-</html>
+    <tr><td class="paramname">device</td><td>puntatore a struttura <a class="el" href="structGPIO.html" title="Stuttura che astrae un device GPIO in kernel-mode. Contiene ciò che è necessario al f
