@@ -31,7 +31,7 @@
 typedef u_int8_t u8;
 typedef u_int32_t u32;
 /**
- * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ * @brief Utilizzata per scrivere un valore all'interno di un registro della periferica, specificando l'indirizzo base virtuale e l'offset del registro in cui scrivere.
  *
  * @param addr, puntatore all' indirizzo da voler scrivere
  * @param offset, offset a partire dall' indirizzo a cui vogliamo scrivere
@@ -42,7 +42,7 @@ void write_reg(void *addr, unsigned int offset, unsigned int value)
 	*((unsigned*)(addr + offset)) = value;
 }
 /**
- * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ * @brief Utilizzata per leggere un valore da un registro della periferica, specificando l'indirizzo base virtuale e l'offset del registro da cui leggere.
  *
  * @param addr, puntatore all' indirizzo da voler leggere
  * @param offset, offset a partire dall' indirizzo a cui vogliamo scrivere
@@ -53,7 +53,7 @@ unsigned int read_reg(void *addr, unsigned int offset)
 }
 
 /**
- * @brief Dealloca gli oggetti internamente contenuti nella GPIO_list
+ * @brief Attende l'arrivo di un interrupt tramite chiamate a poll 
  *
  * @param fd0, valore del file descriptor del primo GPIO
  * @param fd1, valore del file descriptor del secondo GPIO
