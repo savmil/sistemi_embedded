@@ -99,7 +99,9 @@ static struct file_operations UART_fops = {
 };
 
 /**
- * @brief Inizializzazione del driver
+ * @brief Viene chiamata automaticamente all'inserimento del modulo.
+ *
+ * @param pdev struttura che astrae al kernel il platform_device associato al nostro dispositivo
  */
 static int UART_probe(struct platform_device *pdev) {
 	int ret = 0;
@@ -158,7 +160,7 @@ static int UART_probe(struct platform_device *pdev) {
 /**
  * @breif Viene chiamata automaticamente alla rimozione del modulo.
  *
- * @param pdev
+ * @param pdev struttura che astrae al kernel il platform_device associato al nostro dispositivo
  *
  * @retval 0 se non si verifica nessun errore
  *
@@ -188,6 +190,9 @@ static int UART_remove(struct platform_device *pdev) {
 
 /**
  * @brief Invocata all'apertura del file corrispondente al device.
+ *
+ * @param inode struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto
+ * @param file_ptr puntatore al descrittore file del device
  *
  * @retval 0 se non si verifica nessun errore
  *
@@ -297,7 +302,7 @@ static unsigned int UART_poll (struct file *file_ptr, struct poll_table_struct *
 }
 
 /**
- * @brief Interrupt-handler
+ * @brief Interrupt-handler chiamato alla ricezione di un'interruzione sulla linea al quale è stato registrato
  *
  * @param irq Interrupt-number a cui il device è connesso 
  * @param regs registri sullo stack alla system call entry
@@ -361,7 +366,9 @@ static irqreturn_t UART_irq_handler(int irq, struct pt_regs * regs) {
 }
 
 /**
- * @brief Legge dati dal device.
+ * @brief Utilizzata per effettuare la ricezione di un carattere tramite il nostro device UART.
+ *        Se non è presente un nuovo carattere da leggere il processo si mette il sleep per poi
+ *        essere successivamente risvegliato dalla ISR all'avvenuto completamento della ricezione
  *
  * @param file_ptr puntatore al descrittore file del device
  * @param buf puntatore all'area di memoria dove verranno copiati i count bytes letti
@@ -409,7 +416,9 @@ static ssize_t UART_read (struct file *file_ptr, char *buf, size_t count, loff_t
 }
 
 /**
- * @brief Invia dati al device
+ * @brief Utilizzata per effettuare una trasmissione di un carattere tramite il nostro device UART.
+ *        Se ancora non è terminata la precedente trasmissione il processo si mette il sleep per poi
+ *        essere successivamente risvegliato dalla ISR all'avvenuto completamento della trasmissione.
  *
  * @param file_ptr puntatore al descrittore file del device
  * @param buf puntatore all'area di memoria dalla quale verranno copiati i count bytes 

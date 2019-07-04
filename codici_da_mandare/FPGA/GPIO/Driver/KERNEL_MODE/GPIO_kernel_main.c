@@ -96,7 +96,9 @@ static struct file_operations GPIO_fops = {
 };
 
 /**
- * Inizializzazione del driver
+ * @brief Viene chiamata automaticamente all'inserimento del modulo.
+ *
+ * @param pdev struttura che astrae al kernel il platform_device associato al nostro dispositivo
  */
 static int GPIO_probe(struct platform_device *pdev) {
 	int ret = 0;
@@ -156,7 +158,7 @@ static int GPIO_probe(struct platform_device *pdev) {
 /**
  * @breif Viene chiamata automaticamente alla rimozione del modulo.
  *
- * @param pdev
+ * @param pdev struttura che astrae al kernel il platform_device associato al nostro dispositivo
  *
  * @retval 0 se non si verifica nessun errore
  *
@@ -186,6 +188,9 @@ static int GPIO_remove(struct platform_device *pdev) {
 
 /**
  * @brief Invocata all'apertura del file corrispondente al device.
+ *
+ * @param inode struttura dati sul file system che archivia e descrive attributi base su file, directory o qualsiasi altro oggetto
+ * @param file_ptr puntatore al descrittore file del device
  *
  * @retval 0 se non si verifica nessun errore
  *
@@ -276,7 +281,7 @@ static unsigned int GPIO_poll (struct file *file_ptr, struct poll_table_struct *
 }
 
 /**
- * @brief Interrupt-handler
+ * @brief Interrupt-handler chiamato alla ricezione di un'interruzione sulla linea al quale è stato registrato
  *
  * @param irq Interrupt-number a cui il device è connesso 
  * @param regs registri sullo stack alla system call entry

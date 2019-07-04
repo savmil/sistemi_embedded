@@ -37,22 +37,36 @@
  * Contiene ciò che è necessario al funzionamento del driver.
  */
 typedef struct {
-	dev_t Mm;					  // 	Major e minor number associati al device (M: identifica il driver associato al device; m: utilizzato dal driver per discriminare il singolo device tra quelli a lui associati)
-	struct platform_device *pdev; //	Puntatore a struttura platform_device cui l'oggetto GPIO si riferisce 
-	struct cdev cdev;			  //	Stuttura per l'astrazione di un device a caratteri 
-	struct device* dev;			  //    Puntatore alla struttura che rappresenta l'istanza del device  
-	struct class*  class;		  //    Puntatore a struttura che rappresenta una vista alto livello del device  
-	uint32_t irqNumber; 		  // 	Interrupt-number a cui il device è connesso 
-	struct resource *mreg;		  //	Puntatore alla regione di memoria cui il device è mappato 
-	struct resource res;          //    Device Resource Structure 
-	uint32_t irq_mask;			  //	Maschera delle interruzioni interne attive per il device 
-	uint32_t res_size; 		      //	res.end - res.start; numero di indirizzi associati alla periferica. 
-	void __iomem *vrtl_addr; 	  //	Indirizzo base virtuale della periferica 
-	wait_queue_head_t read_queue; //    wait queue per la sys-call read() 
-										
-	wait_queue_head_t poll_queue; // 	wait queue per la sys-call poll() 
-	uint32_t can_read; 			  // 	Flag che indica, quando asserito, la possibilità di effettuale una chiamata a read
-	spinlock_t slock_int;         //    Spinlock usato per garantire l'accesso in mutua esclusione alla variabile can_read
+/** Major e minor number associati al device (M: identifica il driver associato al device; m: utilizzato dal driver per discriminare il singolo device tra quelli a lui associati)*/
+	dev_t Mm;
+/** Puntatore a struttura platform_device cui l'oggetto GPIO si riferisce */
+	struct platform_device *pdev;  	
+/** Stuttura per l'astrazione di un device a caratteri */
+	struct cdev cdev;	
+/** Puntatore alla struttura che rappresenta l'istanza del device*/		  	
+	struct device* dev;
+/** Puntatore a struttura che rappresenta una vista alto livello del device*/			      
+	struct class*  class;
+/** Interrupt-number a cui il device è connesso*/		        
+	uint32_t irqNumber; 
+/** Puntatore alla regione di memoria cui il device è mappato*/		        
+	struct resource *mreg;
+/** Device Resource Structure*/		 	 
+	struct resource res; 
+/** Maschera delle interruzioni interne attive per il device*/              
+	uint32_t irq_mask;
+/** res.end - res.start; numero di indirizzi associati alla periferica.*/			 	 
+	uint32_t res_size; 	
+/** Indirizzo base virtuale della periferica*/	    	 
+	void __iomem *vrtl_addr;
+/** wait queue per la sys-call read() */	  	 
+	wait_queue_head_t read_queue;
+/** wait queue per la sys-call poll()*/
+	wait_queue_head_t poll_queue;
+/** Flag che indica, quando asserito, la possibilità di effettuale una chiamata a read*/   
+	uint32_t can_read;
+/** Spinlock usato per garantire l'accesso in mutua esclusione alla variabile can_read*/  
+	spinlock_t slock_int;
 } GPIO;
 
 int GPIO_Init(				GPIO* GPIO_device,
